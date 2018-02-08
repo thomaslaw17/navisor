@@ -1,4 +1,3 @@
-import { environment } from './../environments/environment';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
@@ -6,9 +5,13 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
+import {
+  AngularFireDatabaseModule,
+  AngularFireDatabase
+} from 'angularfire2/database';
 import { AngularFireStorageModule } from 'angularfire2/storage';
-import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
+import { environment } from './../environments/environment';
 
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
@@ -17,6 +20,14 @@ import { SearchComponent } from './search/search.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router'; // for router-outlet element in html
+import { TripPlanningComponent } from './trip-planning/trip-planning.component';
+import { PaymentComponent } from './payment/payment.component';
+import { RewardComponent } from './reward/reward.component';
+import { CustomerServiceComponent } from './customer-service/customer-service.component';
+import { MessagingComponent } from './messaging/messaging.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { CalendarComponent } from './calendar/calendar.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +36,15 @@ import { RouterModule } from '@angular/router'; // for router-outlet element in 
     HomeComponent,
     AboutComponent,
     SearchComponent,
-    ProfileComponent
+    ProfileComponent,
+    TripPlanningComponent,
+    PaymentComponent,
+    RewardComponent,
+    CustomerServiceComponent,
+    MessagingComponent,
+    EditProfileComponent,
+    CalendarComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -37,10 +56,7 @@ import { RouterModule } from '@angular/router'; // for router-outlet element in 
     BrowserAnimationsModule,
     AppRoutingModule
   ],
-  providers: [],
-  bootstrap: [
-    AppComponent
-  ]
+  providers: [AngularFireAuth],
+  bootstrap: [AppComponent]
 })
-
 export class AppModule {}

@@ -1,3 +1,10 @@
-<p>
-  login works!
-</p>
+<div>
+  <h1>Email: </h1>
+  <input type="text" required [(ngModel)]="email">
+</div>
+<div>
+  <h1>Password: </h1>
+  <input type="text" required [(ngModel)]="password">
+</div>
+<button (click)="login()">Login</button>
+<button (click)="register()">Register</button>
