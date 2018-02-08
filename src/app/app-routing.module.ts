@@ -1,3 +1,5 @@
+import { CalendarComponent } from './calendar/calendar.component';
+import { RegisterComponent } from './register/register.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 
@@ -12,35 +14,36 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 const routes: Routes = [
   {
-    path: '',
-    component: LoginComponent
-  },
-  {
     path: 'home',
     component: HomeComponent
+  },
+  {
+    path: 'calendar',
+    component: CalendarComponent
+  },
+  {
+    path: 'customer-service',
+    component: CustomerServiceComponent
+  },
+  {
+    path: 'profile/edit',
+    component: EditProfileComponent
   },
   {
     path: 'about',
     component: AboutComponent
   },
   {
-    path: 'login',
+    path: '',
     component: LoginComponent
   },
   {
-    path: 'profile',
-    component: ProfileComponent
-  },
-  {
-    path: 'search',
-    component: SearchComponent
-  },
-  {
-    path: 'customerService',
-    component: CustomerServiceComponent
+    path: 'login',
+    component: LoginComponent
   },
   {
     path: 'messaging',
@@ -49,6 +52,22 @@ const routes: Routes = [
   {
     path: 'payment',
     component: PaymentComponent
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
+  },
+  {
+    path: 'reward',
+    component: RewardComponent
+  },
+  {
+    path: 'search',
+    component: SearchComponent
   },
   {
     path: 'reward',

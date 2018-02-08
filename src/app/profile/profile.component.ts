@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+  constructor(private router: Router) {}
 
-  constructor() { }
+  gotoCalendar() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

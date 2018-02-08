@@ -22,7 +22,7 @@ export class AuthService {
       .then(value => {
         console.log('Login Success', value);
       })
-      .catch(function(error) {
+      .catch(error => {
         if (error.code === 'auth/wrong-password') {
           alert('wrong email or password');
         } else {
@@ -37,7 +37,7 @@ export class AuthService {
       .then(value => {
         console.log('Login Success', value);
       })
-      .catch(function(error) {
+      .catch(error => {
         if (error.code === 'auth/wrong-password') {
           alert('wrong email or password');
         } else {
@@ -58,7 +58,7 @@ export class AuthService {
       .then(value => {
         console.log('Register Success', value);
       })
-      .catch(function(error) {
+      .catch(error => {
         if (error !== null) {
           switch (error.code) {
             case 'auth/weakpassword':
@@ -74,8 +74,6 @@ export class AuthService {
               alert(error.message);
               return false;
           }
-        } else {
-          return true;
         }
       });
   }

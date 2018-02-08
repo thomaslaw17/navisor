@@ -1,6 +1,5 @@
 {
   "projects": {
-    "default": "navisor-b9b70",
-    "staging": "navisor-b9b70"
+    "default": "navisor-b9b70"
   }
 }

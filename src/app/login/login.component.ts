@@ -9,9 +9,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  private email: string;
-  private password: string;
-  private loginState: boolean;
+  email: string;
+  password: string;
+  loginState: boolean;
 
   constructor(
     private authService: AuthService,
