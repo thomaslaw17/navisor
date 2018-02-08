@@ -1,10 +1,10 @@
 {
-    "editor.formatOnSave": true,
-    "tslint.autoFixOnSave": true,
-    "tslint.alwaysShowStatus": true,
-    "tslint.enable": true,
-    "standard.autoFixOnSave": false,
-    "tslint.configFile": "/Users/thomas.law/Documents/Navisor/tslint.json",
-    "prettier.singleQuote": true,
-    "vsicons.presets.angular": true
-  }
+  "editor.formatOnSave": true,
+  "tslint.autoFixOnSave": false,
+  "tslint.alwaysShowStatus": true,
+  "tslint.enable": true,
+  "standard.autoFixOnSave": true,
+  "tslint.configFile": "/Users/thomas.law/Documents/Navisor/tslint.json",
+  "prettier.singleQuote": true,
+  "vsicons.presets.angular": true
+}

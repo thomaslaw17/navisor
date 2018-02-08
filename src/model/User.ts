@@ -1,6 +1,7 @@
 export class User {
-  id: string;
-  name: string;
-  birthday: Date;
-  type: number; // 0: traveller 1: navigator
+  public id: string;
+  public email: string;
+  public name: string;
+  public birthday: Date;
+  public type: number; // 0: traveller 1: navigator
 }

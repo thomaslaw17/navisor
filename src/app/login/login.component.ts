@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { AngularFireDatabase } from 'angularfire2/database';
 import { AuthService } from './../auth.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -7,11 +9,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  email: string;
-  password: string;
-  loginState: boolean;
+  private email: string;
+  private password: string;
+  private loginState: boolean;
 
-  constructor(private authService: AuthService) {
+  constructor(
+    private authService: AuthService,
+    private angularFireDatabase: AngularFireDatabase,
+    private router: Router
+  ) {
     this.loginState = authService.checkLogin();
   }
 
@@ -21,6 +27,10 @@ export class LoginComponent implements OnInit {
 
   logout() {
     this.authService.logout();
+  }
+
+  gotoRegister() {
+    this.router.navigate(['register']);
   }
 
   ngOnInit() {}

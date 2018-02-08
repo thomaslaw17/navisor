@@ -28,6 +28,7 @@ import { MessagingComponent } from './messaging/messaging.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     MessagingComponent,
     EditProfileComponent,
     CalendarComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
