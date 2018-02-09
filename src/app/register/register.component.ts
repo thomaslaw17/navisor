@@ -27,7 +27,6 @@ export class RegisterComponent implements OnInit {
       this.authService.getAuthState().subscribe(
         auth => {
           if (auth !== null) {
-            this.user.id = auth.uid;
             this.userRef.push(this.user);
           }
         },
