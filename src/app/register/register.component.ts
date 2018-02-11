@@ -1,6 +1,6 @@
 import { AuthService } from './../auth.service';
 import { User } from './../../model/User';
-import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -17,7 +17,7 @@ export class RegisterComponent implements OnInit {
   public accountType: string;
   public userType: number;
 
-  private userRef: AngularFireList<User>;
+  private userObj: AngularFireObject<User>;
   public password: string;
   public passwordCheck: string;
 
@@ -27,7 +27,6 @@ export class RegisterComponent implements OnInit {
     private angularFireDatabase: AngularFireDatabase
   ) {
     this.user = new User();
-    this.userRef = angularFireDatabase.list('user');
   }
 
   register() {
@@ -44,7 +43,9 @@ export class RegisterComponent implements OnInit {
     this.authService
       .register(this.user, this.password)
       .then(value => {
-        this.userRef.push(this.user);
+        this.userObj = this.angularFireDatabase.object('User/' + value.uid);
+        this.userObj.set(this.user);
+        this.router.navigate(['home']);
         console.log('Register Success');
       })
       .catch(error => {
