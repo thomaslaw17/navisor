@@ -1,10 +1,12 @@
-<div>
-  <h1>Email: </h1>
-  <input type="text" required [(ngModel)]="email">
+<div class="container">
+  <div>
+    <h1>Email: </h1>
+    <input type="text" required [(ngModel)]="email">
+  </div>
+  <div>
+    <h1>Password: </h1>
+    <input type="password" required [(ngModel)]="password">
+  </div>
+  <button (click)="login()">Login</button>
+  <button (click)="gotoRegister()">Register</button>
 </div>
-<div>
-  <h1>Password: </h1>
-  <input type="text" required [(ngModel)]="password">
-</div>
-<button (click)="login()">Login</button>
-<button (click)="gotoRegister()">Register</button>

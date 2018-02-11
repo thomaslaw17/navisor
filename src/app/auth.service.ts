@@ -1,80 +1,48 @@
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 import { User } from './../model/User';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Injectable } from '@angular/core';
-import * as firebase from 'firebase/app';
+import * as firebase from 'firebase';
 
 @Injectable()
 export class AuthService {
-  constructor(public afAuth: AngularFireAuth) {}
+  private userRef: AngularFireList<User>;
+
+  constructor(
+    private afAuth: AngularFireAuth,
+    private angularFireDatabase: AngularFireDatabase
+  ) {
+    this.userRef = angularFireDatabase.list('User');
+  }
 
   checkLogin() {
-    return this.afAuth.authState ? true : false;
+    return firebase.auth().currentUser ? true : false;
   }
 
   getAuthState() {
-    return this.afAuth.authState;
+    return firebase.auth().currentUser;
   }
 
   login(email: string, password: string) {
-    this.afAuth.auth
-      .signInWithEmailAndPassword(email, password)
-      .then(value => {
-        console.log('Login Success', value);
-      })
-      .catch(error => {
-        if (error.code === 'auth/wrong-password') {
-          alert('wrong email or password');
-        } else {
-          alert(error.message);
-        }
-      });
+    return this.afAuth.auth.signInWithEmailAndPassword(email, password);
   }
 
   loginWithFb() {
-    this.afAuth.auth
-      .signInWithPopup(new firebase.auth.GoogleAuthProvider())
-      .then(value => {
-        console.log('Login Success', value);
-      })
-      .catch(error => {
-        if (error.code === 'auth/wrong-password') {
-          alert('wrong email or password');
-        } else {
-          alert(error.message);
-        }
-      });
+    return this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
   }
 
   logout() {
-    this.afAuth.auth.signOut();
+    return this.afAuth.auth.signOut();
   }
 
   // return true if register successful
   // return false if register failed.
   register(user: User, password: string) {
-    this.afAuth.auth
-      .createUserWithEmailAndPassword(user.email, password)
-      .then(value => {
-        console.log('Register Success', value);
-      })
-      .catch(error => {
-        if (error !== null) {
-          switch (error.code) {
-            case 'auth/weakpassword':
-              alert('Please choose a better password');
-              return false;
-            case 'auth/email-already-in-use':
-              alert('Email already in use');
-              return false;
-            case 'auth/invalid-email':
-              alert('Please enter a valid email');
-              return false;
-            default:
-              alert(error.message);
-              return false;
-          }
-        }
-      });
+    return this.afAuth.auth.createUserWithEmailAndPassword(user.email, password);
   }
+
+  // registerWithFb(){
+  //   return this.afAuth.createUserWithFb()
+  // }
 }

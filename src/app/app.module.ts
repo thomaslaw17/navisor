@@ -32,7 +32,22 @@ import { RegisterComponent } from './register/register.component';
 
 import { AuthService } from './auth.service';
 
+import Popper from 'popper.js';
+import bootstrap from 'bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 @NgModule({
+  imports: [
+    BrowserModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
+    AngularFireStorageModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    NgbModule.forRoot()
+  ],
   declarations: [
     AppComponent,
     LoginComponent,
@@ -49,16 +64,6 @@ import { AuthService } from './auth.service';
     CalendarComponent,
     NotFoundComponent,
     RegisterComponent
-  ],
-  imports: [
-    BrowserModule,
-    AngularFireModule.initializeApp(environment.firebase, 'navisor'),
-    AngularFireDatabaseModule,
-    AngularFireAuthModule,
-    AngularFireStorageModule,
-    FormsModule,
-    BrowserAnimationsModule,
-    AppRoutingModule
   ],
   providers: [AngularFireAuth, AuthService],
   bootstrap: [AppComponent]

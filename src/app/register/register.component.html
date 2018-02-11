@@ -1,3 +1,30 @@
-<p>
-  register works!
-</p>
+<div class="container">
+  <div>
+    <label>Email: </label>
+    <input type="email" required [(ngModel)]="email">
+  </div>
+  <div>
+    <label>Password: </label>
+    <input type="password" required [(ngModel)]="password">
+  </div>
+  <div>
+    <label>Retype Password: </label>
+    <input type="password" required [(ngModel)]="passwordCheck">
+  </div>
+  <div>
+    <label>Name: </label>
+    <input type="text" required [(ngModel)]="name">
+  </div>
+  <div>
+    <label>birthday: </label>
+    <input type="date" required [(ngModel)]="birthday">
+  </div>
+  <div>
+    <label>Account Type: </label>
+    <label>Traveller: </label>
+    <input name="acType" type="radio" value="0" required [(ngModel)]="userType">
+    <label>Navigator: </label>
+    <input name="acType" type="radio" value="1" required [(ngModel)]="userType">
+  </div>
+  <button (click)="register()">Register</button>
+</div>

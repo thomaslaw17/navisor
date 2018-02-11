@@ -10,32 +10,60 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  private user: User;
+  public user: User;
+  public email: string;
+  public name: string;
+  public birthday: Date;
+  public accountType: string;
+  public userType: number;
+
   private userRef: AngularFireList<User>;
-  private password: string;
+  public password: string;
+  public passwordCheck: string;
 
   constructor(
     private router: Router,
     private authService: AuthService,
     private angularFireDatabase: AngularFireDatabase
   ) {
+    this.user = new User();
     this.userRef = angularFireDatabase.list('user');
   }
 
   register() {
-    if (this.authService.register(this.user, this.password)) {
-      this.authService.getAuthState().subscribe(
-        auth => {
-          if (auth !== null) {
-            this.userRef.push(this.user);
-          }
-        },
-        error => alert(error),
-        () => {}
-      );
-    } else {
-      this.router.navigate(['home']);
+    if (this.password !== this.passwordCheck) {
+      alert('Password not Match');
+      return;
     }
+
+    this.user.email = this.email;
+    this.user.name = this.name;
+    this.user.birthday = this.birthday;
+    this.user.type = this.userType;
+
+    this.authService
+      .register(this.user, this.password)
+      .then(value => {
+        this.userRef.push(this.user);
+        console.log('Register Success');
+      })
+      .catch(error => {
+        if (error !== null) {
+          switch (error.code) {
+            case 'auth/weakpassword':
+              alert('Please choose a better password');
+              break;
+            case 'auth/email-already-in-use':
+              alert('Email already in use');
+              break;
+            case 'auth/invalid-email':
+              alert('Please enter a valid email');
+              break;
+            default:
+              alert(error.message);
+          }
+        }
+      });
   }
 
   ngOnInit() {}
