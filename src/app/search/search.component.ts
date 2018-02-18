@@ -1,3 +1,6 @@
+import { AngularFireDatabase } from 'angularfire2/database';
+import { AuthService } from './../auth.service';
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +9,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
+  public keyword: string;
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private authService: AuthService,
+    private angularFireDatanase: AngularFireDatabase
+  ) {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

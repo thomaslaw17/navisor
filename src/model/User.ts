@@ -3,8 +3,8 @@ export class User {
   public email: string;
   public name: string;
   public birthday: Date;
-  public profilePictue: String;
+  public profilePictue: string;
   public type: number; // 0: traveller 1: navigator
-  public trips: AngularFireList<String>; // List of tripID
-  public chats: AngularFireList<String>; // List of chatID
+  public trips: Array<string>; // List of tripID
+  public chats: Array<string>; // List of chatID
 }

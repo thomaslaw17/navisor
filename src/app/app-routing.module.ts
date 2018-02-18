@@ -74,7 +74,7 @@ const routes: Routes = [
     component: RewardComponent
   },
   {
-    path: 'tripPlanning',
+    path: 'tripPlanning/:tripId',
     component: TripPlanningComponent
   },
   {

@@ -29,18 +29,6 @@ export class ProfileComponent implements OnInit {
     }
   }
 
-  saveProfile() {
-    this.userObj.set(this.user).then(
-      resolve => {
-        console.log('Profile updated', resolve);
-        this.router.navigate(['profile']);
-      },
-      reject => {
-        console.log('Profile update failed', reject);
-      }
-    );
-  }
-
   gotoCalendar() {}
 
   gotoEditProfile() {

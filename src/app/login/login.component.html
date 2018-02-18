@@ -9,4 +9,9 @@
   </div>
   <button (click)="login()">Login</button>
   <button (click)="gotoRegister()">Register</button>
-</div>
+  <button (click)="showResetPassword(true)">Forgot Password</button>
+  <div *ngIf="show">
+    <label>Please fill in the email for password reset</label>
+    <input type="text" [(ngModel)]="resetPasswordEmail" />
+    <button (click)="sendResetPasswordEmail()">Send Reset Password Email</button>
+  </div>
