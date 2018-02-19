@@ -36,6 +36,7 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.user = new User(); // waiting for user
     this.userObj.valueChanges().subscribe(user => {
       this.user = user;
       this.type = user.type === 0 ? 'Traveller' : 'Navigator';

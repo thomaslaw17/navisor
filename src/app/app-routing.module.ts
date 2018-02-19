@@ -26,7 +26,7 @@ const routes: Routes = [
     component: CalendarComponent
   },
   {
-    path: 'customer-service',
+    path: 'customerService',
     component: CustomerServiceComponent
   },
   {

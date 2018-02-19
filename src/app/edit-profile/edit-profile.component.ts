@@ -25,7 +25,9 @@ export class EditProfileComponent implements OnInit {
     private router: Router,
     private angularFireDatabase: AngularFireDatabase,
     private authService: AuthService
-  ) {}
+  ) {
+    this.user = new User();
+  }
 
   saveProfile() {
     this.userObj.set(this.user).then(
@@ -52,6 +54,7 @@ export class EditProfileComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.user = new User(); // waiting for user
     if (this.authService.checkLogin()) {
       const userState = this.authService.getAuthState();
       this.userObj = this.angularFireDatabase.object('User/' + userState.uid);

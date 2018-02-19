@@ -10,13 +10,13 @@
   <button (click)="saveProfile()">Save</button>
   <button (click)="sendEmailVerification()">Resend Verification Email</button>
   <button (click)="showResetPassword(true)">Reset Password</button>
-  <div ng-if="show">
+  <div *ngIf="show">
     <label>Current Password: </label>
     <input type="text" required [(ngModel)]="password" />
     <label>New Password: </label>
     <input type="text" required [(ngModel)]="newPassword" />
     <label>Confrim New Password: </label>
     <input type="text" required [(ngModel)]="newPasswordConfirm" />
-    <<button (click)="resetPassword()">Reset</button>
+    <button (click)="resetPassword()">Reset</button>
   </div>
 </div>
