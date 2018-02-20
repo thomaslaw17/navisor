@@ -1,3 +1,15 @@
 <div>
-  <input placeholder="keyword" [(ngModel)]="keyword" />
+  <input type="search" placeholder="Search somthing..." [(ngModel)]="keyword" />
+  <select [(ngModel)]="catagory">
+    <option *ngFor="let cat of catagories" [value]="catagory">
+      {{cat}}
+    </option>
+  </select>
+  <button (click)="search()">Search</button>
+  <div *ngIf="!show">
+    <h3>No search results</h3>
+  </div>
+  <div *ngIf="show">
+    <div>this is search results</div>
+  </div>
 </div>
