@@ -12,14 +12,17 @@ import { SearchComponent } from './search/search.component';
 import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 const routes: Routes = [
   {
-    path: 'home',
+    path: '',
     component: HomeComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   },
   {
     path: 'calendar',
@@ -32,14 +35,6 @@ const routes: Routes = [
   {
     path: 'profile/edit',
     component: EditProfileComponent
-  },
-  {
-    path: 'about',
-    component: AboutComponent
-  },
-  {
-    path: '',
-    component: LoginComponent
   },
   {
     path: 'login',

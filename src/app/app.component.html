@@ -1,4 +1,4 @@
-<nav>
+<!-- <nav>
   <a routerLink="home">Home</a>
   <a routerLink="about">About</a>
   <a routerLink="profile">Profile</a>
@@ -7,6 +7,48 @@
   <a routerLink="customerService">Customer Service</a>
   <a routerLink="tripPlanning/new">Trip Planning</a>
   <button (click)="logout()">Logout</button>
-</nav>
+</nav> -->
+<div class="tm-top-bar-bg"></div>
+<div class="tm-top-bar" id="tm-top-bar">
+  <div class="container">
+    <div class="row">
+      <nav class="navbar navbar-expand-lg narbar-light">
+        <a class="navbar-brand mr-auto">
+          <img src="img/logo.jpg" alt="Site logo" width="125" height="95">
+        </a>
+        <button type="button" id="nav-toggle" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#mainNav" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="mainNav" class="collapse navbar-collapse tm-bg-white">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#top">Search
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#tm-section-4">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#tm-section-6">Travel Plan</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#tm-section-5">Partnership</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#tm-section-6">Career</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#tm-section-6">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+        <a href="#" class="btn-primary tm-btn-primary">Log In</a>
+        <a href="#" class="btn-primary tm-btn-primary">Sign Up</a>
+      </nav>
+    </div>
+  </div>
+</div>
 
 <router-outlet></router-outlet>
