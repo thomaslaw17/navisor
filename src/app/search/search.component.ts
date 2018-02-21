@@ -10,6 +10,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
   public keyword: string;
+  public selected: string;
+  public catagory: string;
+  public catagories: Array<string>;
+
+  public show: boolean;
 
   constructor(
     private router: Router,
@@ -17,5 +22,18 @@ export class SearchComponent implements OnInit {
     private angularFireDatanase: AngularFireDatabase
   ) {}
 
-  ngOnInit() {}
+  search() {
+    this.show = true; // temp
+    // query from database
+    // this.keyword, this.catagory
+  }
+
+  ngOnInit() {
+    if (this.authService.checkLogin()) {
+      this.show = false;
+      this.catagories = ['cat 1', 'cat 2', 'cat 3'];
+    } else {
+      this.router.navigate(['login']);
+    }
+  }
 }

@@ -35,8 +35,8 @@ export class TripPlanningComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.trip = new Trip();
     if (this.authService.checkLogin) {
+      this.trip = new Trip();
       this.route.paramMap.switchMap((params: ParamMap) => {
         this.tripId = params.get('tripId');
         if (this.tripId !== undefined && this.tripId !== null) {
