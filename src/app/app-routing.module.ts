@@ -37,10 +37,6 @@ const routes: Routes = [
     component: EditProfileComponent
   },
   {
-    path: 'login',
-    component: LoginComponent
-  },
-  {
     path: 'messaging',
     component: MessagingComponent
   },
@@ -63,10 +59,6 @@ const routes: Routes = [
   {
     path: 'search',
     component: SearchComponent
-  },
-  {
-    path: 'reward',
-    component: RewardComponent
   },
   {
     path: 'tripPlanning/:tripId',
