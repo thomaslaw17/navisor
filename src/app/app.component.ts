@@ -1,3 +1,4 @@
+import { NavBarService } from './nav-bar.service';
 import { AuthService } from './auth.service';
 import { Component } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
@@ -10,20 +11,24 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Navisor';
-  item: Observable<any>;
+  public title = 'Navisor';
+  public item: Observable<any>;
+
   constructor(
     private angularFireDatabase: AngularFireDatabase,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    public navBarService: NavBarService
   ) {
+    this.navBarService.showNavbar();
     this.item = angularFireDatabase.object('item').valueChanges();
   }
 
   logout() {
     this.authService.logout().then(
       resolve => {
-        this.router.navigate(['login']);
+        this.router.navigate(['']);
+        this.navBarService.showLoginAndHideLogout();
       },
       reject => {
         console.log('Logout Error', reject);

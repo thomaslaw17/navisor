@@ -30,6 +30,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { RegisterComponent } from './register/register.component';
 
 import { AuthService } from './auth.service';
+import { NavBarService } from './nav-bar.service';
 import { AppGlobal } from './app.global';
 
 import Popper from 'popper.js';
@@ -66,7 +67,7 @@ import { CareerComponent } from './career/career.component';
     RegisterComponent,
     CareerComponent
   ],
-  providers: [AngularFireAuth, AuthService, AppGlobal],
+  providers: [AngularFireAuth, AuthService, NavBarService, AppGlobal],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
