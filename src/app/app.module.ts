@@ -35,6 +35,7 @@ import { AppGlobal } from './app.global';
 import Popper from 'popper.js';
 import bootstrap from 'bootstrap';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CareerComponent } from './career/career.component';
 
 @NgModule({
   imports: [
@@ -62,7 +63,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     EditProfileComponent,
     CalendarComponent,
     NotFoundComponent,
-    RegisterComponent
+    RegisterComponent,
+    CareerComponent
   ],
   providers: [AngularFireAuth, AuthService, AppGlobal],
   bootstrap: [AppComponent]

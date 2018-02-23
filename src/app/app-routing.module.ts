@@ -1,8 +1,6 @@
+import { CareerComponent } from './career/career.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { RegisterComponent } from './register/register.component';
-import { RouterModule, Routes } from '@angular/router';
-import { NgModule } from '@angular/core';
-
 import { TripPlanningComponent } from './trip-planning/trip-planning.component';
 import { RewardComponent } from './reward/reward.component';
 import { PaymentComponent } from './payment/payment.component';
@@ -14,6 +12,9 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+
+import { RouterModule, Routes } from '@angular/router';
+import { NgModule } from '@angular/core';
 
 const routes: Routes = [
   {
@@ -35,6 +36,10 @@ const routes: Routes = [
   {
     path: 'profile/edit',
     component: EditProfileComponent
+  },
+  {
+    path: 'career',
+    component: CareerComponent
   },
   {
     path: 'messaging',

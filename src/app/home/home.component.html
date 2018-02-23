@@ -7,20 +7,20 @@
             <div class="form-row tm-search-form-row">
               <div class="form-group tm-form-element tm-form-element-100">
                 <i class="fa fa-map-marker fa-2x tm-form-element-icon"></i>
-                <input name="location" type="text" class="form-control" id="inputLocation" placeholder="Desired Location">
+                <input name="location" type="text" class="form-control" id="inputLocation" placeholder="Desired Location" [(ngModel)]="appGlobal.search.location">
               </div>
               <div class="form-group tm-form-element tm-form-element-50">
                 <i class="fa fa-calendar fa-2x tm-form-element-icon"></i>
-                <input name="Start Date" type="text" class="form-control" id="inputStartDate" placeholder="Start Date">
+                <input name="Start Date" type="date" class="form-control" id="inputStartDate" placeholder="Start Date" [(ngModel)]="appGlobal.search.startDate">
               </div>
               <div class="form-group tm-form-element tm-form-element-50">
                 <i class="fa fa-calendar fa-2x tm-form-element-icon"></i>
-                <input name="End Date" type="text" class="form-control" id="inputEndDate" placeholder="End Date">
+                <input name="End Date" type="date" class="form-control" id="inputEndDate" placeholder="End Date" [(ngModel)]="appGlobal.search.endDate">
               </div>
             </div>
             <div class="form-row tm-search-form-row">
               <div class="form-group tm-form-element tm-form-element-2">
-                <select name="theme" class="form-control tm-select" id="theme">
+                <select name="theme" class="form-control tm-select" id="theme" [(ngModel)]="appGlobal.search.theme">
                   <option value="">Theme</option>
                   <option value="1">Cultural & Heritage</option>
                   <option value="2">Nature</option>
@@ -32,7 +32,7 @@
                 <i class="fa fa-map-marker fa-2x tm-form-element-icon"></i>
               </div>
               <div class="form-group tm-form-element tm-form-element-2">
-                <select name="budget" class="form-control tm-select" id="budget">
+                <select name="budget" class="form-control tm-select" id="budget" [(ngModel)]="appGlobal.search.budget">
                   <option value="">Budget</option>
                   <option value="0">$500-$1,000</option>
                   <option value="1">$1,000-$1500</option>
@@ -42,8 +42,8 @@
                 <i class="fa fa-2x fa-user tm-form-element-icon"></i>
               </div>
               <div class="form-group tm-form-element tm-form-element-2">
-                <select name="NumberOfTravellers" class="form-control tm-select" id="NumberOfTravellers">
-                  <option value="">Number of travellers</option>
+                <select name="NumberOfTravellers" class="form-control tm-select" id="NumberOfTravellers" [(ngModel)]="appGlobal.search.numberOfTravellers">
+                  <option value="0">Number of travellers</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
@@ -60,10 +60,8 @@
               </div>
               <div class="form-group tm-form-element tm-form-element-2">
                 <em class="fa fa-2x fa-user tm-form-element-icon"></em>
-                <input name="navigator" type="text" class="form-control" id="inputNavigator" placeholder="Name of Navigator">
+                <input name="navigator" type="text" class="form-control" id="inputNavigator" placeholder="Name of Navigator" [(ngModel)]="appGlobal.search.nameOfNavigator">
               </div>
-
-
             </div>
 
             <div class="form-row clearfix pl-2 pr-2 tm-fx-col-xs">
@@ -76,6 +74,7 @@
                   <button type="submit" class="btn btn-primary">Search</button>
                 </em>
               </div>
+
             </div>
 
           </form>
@@ -96,7 +95,6 @@
           <input type="text" name="emailAddress" value="email address">
           <input href="#" class="tm-color-white tm-btn-white-bordered" type="submit" value="Subscribe Newletters">
         </form>
-
       </div>
     </div>
   </div>
@@ -326,4 +324,3 @@
     </div>
   </div>
 </footer>
-
