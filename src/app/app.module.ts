@@ -30,6 +30,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { RegisterComponent } from './register/register.component';
 
 import { AuthService } from './auth.service';
+import { NavBarService } from './nav-bar.service';
 import { AppGlobal } from './app.global';
 
 import Popper from 'popper.js';
@@ -64,7 +65,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NotFoundComponent,
     RegisterComponent
   ],
-  providers: [AngularFireAuth, AuthService, AppGlobal],
+  providers: [AngularFireAuth, AuthService, NavBarService, AppGlobal],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
