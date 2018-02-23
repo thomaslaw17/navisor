@@ -20,41 +20,22 @@
             </div>
             <div class="form-row tm-search-form-row">
               <div class="form-group tm-form-element tm-form-element-2">
-                <select name="theme" class="form-control tm-select" id="theme" [(ngModel)]="appGlobal.search.theme">
-                  <option value="">Theme</option>
-                  <option value="1">Cultural & Heritage</option>
-                  <option value="2">Nature</option>
-                  <option value="3">Foodie</option>
-                  <option value="4">Photography</option>
-                  <option value="5">University Tour</option>
-                  <option value="6">Others</option>
+                <select name="theme" class="form-control tm-select" id="theme" [(ngModel)]="theme">
+                  <option *ngFor="let theme of themes" [value]="theme" [attr.selected]="theme == 'Theme'">
+                    {{theme}}
+                  </option>
                 </select>
                 <i class="fa fa-map-marker fa-2x tm-form-element-icon"></i>
               </div>
               <div class="form-group tm-form-element tm-form-element-2">
                 <select name="budget" class="form-control tm-select" id="budget" [(ngModel)]="appGlobal.search.budget">
-                  <option value="">Budget</option>
-                  <option value="0">$500-$1,000</option>
-                  <option value="1">$1,000-$1500</option>
-                  <option value="2">$1,500-$2,000</option>
-                  <option value="3">&#62; $2,000</option>
+                  <option *ngFor="let budget of budgets" value="budget">{{budget}}</option>
                 </select>
                 <i class="fa fa-2x fa-user tm-form-element-icon"></i>
               </div>
               <div class="form-group tm-form-element tm-form-element-2">
                 <select name="NumberOfTravellers" class="form-control tm-select" id="NumberOfTravellers" [(ngModel)]="appGlobal.search.numberOfTravellers">
-                  <option value="0">Number of travellers</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
-                  <option value="8">8</option>
-                  <option value="9">9</option>
-                  <option value="10">10</option>
-                  <option value="10">&#62; 10</option>
+                  <option *ngFor="let numberOfTraveller of numberOfTravellers" value="numberOfTraveller">{{numberOfTraveller}}</option>
                 </select>
                 <i class="fa fa-2x fa-user tm-form-element-icon"></i>
               </div>

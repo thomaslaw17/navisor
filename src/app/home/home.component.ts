@@ -44,6 +44,12 @@ import { Router } from '@angular/router';
   ]
 })
 export class HomeComponent implements OnInit {
+  public themes: Array<string>;
+  public budgets: Array<string>;
+  public numberOfTravellers: Array<string>;
+
+  public theme: string;
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -55,14 +61,14 @@ export class HomeComponent implements OnInit {
     let alerted = false;
     const today = new Date();
     if (
-      this.appGlobal.search.location !== undefined ||
-      this.appGlobal.search.location !== null ||
+      this.appGlobal.search.location !== undefined &&
+      this.appGlobal.search.location !== null &&
       this.appGlobal.search.location !== ''
     ) {
       filled = true;
     }
     if (
-      this.appGlobal.search.startDate !== undefined ||
+      this.appGlobal.search.startDate !== undefined &&
       this.appGlobal.search.startDate !== null
     ) {
       filled = true;
@@ -71,7 +77,7 @@ export class HomeComponent implements OnInit {
         alert('Start date is before date');
       }
       if (
-        this.appGlobal.search.endDate !== undefined ||
+        this.appGlobal.search.endDate !== undefined &&
         this.appGlobal.search.endDate !== null
       ) {
         filled = true;
@@ -87,31 +93,31 @@ export class HomeComponent implements OnInit {
       }
     }
     if (
-      this.appGlobal.search.theme !== undefined ||
-      this.appGlobal.search.theme !== null ||
+      this.appGlobal.search.theme !== undefined &&
+      this.appGlobal.search.theme !== null &&
       this.appGlobal.search.theme !== ''
     ) {
       filled = true;
     }
     if (
-      this.appGlobal.search.budget !== undefined ||
+      this.appGlobal.search.budget !== undefined &&
       this.appGlobal.search.budget !== null
     ) {
       filled = true;
-      if (this.appGlobal.search.budget < 0 && !alerted) {
+      if ((this.appGlobal.search.budget = 0 && !alerted)) {
         alert('Budget below zero');
       }
     }
     if (
-      this.appGlobal.search.numberOfTravellers !== undefined ||
-      this.appGlobal.search.numberOfTravellers !== null ||
+      this.appGlobal.search.numberOfTravellers !== undefined &&
+      this.appGlobal.search.numberOfTravellers !== null &&
       this.appGlobal.search.numberOfTravellers !== 0
     ) {
       filled = true;
     }
     if (
-      this.appGlobal.search.nameOfNavigator !== undefined ||
-      this.appGlobal.search.nameOfNavigator !== null ||
+      this.appGlobal.search.nameOfNavigator !== undefined &&
+      this.appGlobal.search.nameOfNavigator !== null &&
       this.appGlobal.search.nameOfNavigator !== ''
     ) {
       filled = true;
@@ -121,5 +127,37 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.themes = [
+      'Theme',
+      'Cultural & Heritage',
+      'Nature',
+      'Foodie',
+      'Photography',
+      'University Tour',
+      'Others'
+    ];
+
+    this.budgets = [
+      'Budget',
+      '$500-$1000',
+      '$1001-$1500',
+      '$1501-$2000',
+      '$2000+'
+    ];
+
+    this.numberOfTravellers = [
+      'Number of travellers',
+      '1',
+      '2',
+      '3',
+      '4',
+      '5',
+      '6',
+      '7',
+      '8',
+      '9',
+      '10'
+    ];
+  }
 }

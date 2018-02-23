@@ -11,4 +11,16 @@ export class AppGlobal {
     numberOfTravellers: number;
     nameOfNavigator: string;
   };
+
+  constructor() {
+    this.search = {
+      location: '',
+      startDate: new Date(),
+      endDate: new Date(),
+      theme: 'Theme',
+      budget: 0,
+      numberOfTravellers: 0,
+      nameOfNavigator: ''
+    };
+  }
 }

@@ -29,11 +29,7 @@ export class SearchComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (this.authService.checkLogin()) {
-      this.show = false;
-      this.catagories = ['cat 1', 'cat 2', 'cat 3'];
-    } else {
-      this.router.navigate(['login']);
-    }
+    this.show = false;
+    this.catagories = ['cat 1', 'cat 2', 'cat 3'];
   }
 }
