@@ -35,6 +35,8 @@ import { AuthService } from './auth.service';
 import Popper from 'popper.js';
 import bootstrap from 'bootstrap';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SearchDetailComponent } from './search-detail/search-detail.component';
+import { BookingConfirmComponent } from './booking-confirm/booking-confirm.component';
 
 @NgModule({
   imports: [
@@ -63,7 +65,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     EditProfileComponent,
     CalendarComponent,
     NotFoundComponent,
-    RegisterComponent
+    RegisterComponent,
+    SearchDetailComponent,
+    BookingConfirmComponent
   ],
   providers: [AngularFireAuth, AuthService],
   bootstrap: [AppComponent]
