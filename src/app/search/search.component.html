@@ -1,15 +1,269 @@
-<div>
-  <input type="search" placeholder="Search somthing..." [(ngModel)]="keyword" />
-  <select [(ngModel)]="catagory">
-    <option *ngFor="let cat of catagories" [value]="catagory">
-      {{cat}}
-    </option>
-  </select>
-  <button (click)="search()">Search</button>
-  <div *ngIf="!show">
-    <h3>No search results</h3>
+<div class="tm-main-content" id="top">
+  <div class="tm-top-bar-bg"></div>
+  <div class="tm-top-bar" id="tm-top-bar">
+    <!-- Top Navbar -->
+    <div class="container">
+      <div class="row">
+
+        <nav class="navbar navbar-expand-lg narbar-light">
+          <p>
+            <a class="navbar-brand mr-auto" href="#">
+              <img src="https://firebasestorage.googleapis.com/v0/b/navisor-b9b70.appspot.com/o/home%2Fimg%2Flogo.jpg?alt=media&token=cc9200bf-2527-4f71-86dd-f7ea57712d17"
+                alt="Site logo" width="115" height="95">
+            </a>
+          </p>
+
+          <div id="mainNav" class="collapse navbar-collapse tm-bg-white">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="#top">Home
+                  <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#tm-section-4">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#tm-section-5">Travel Plan</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#tm-section-6">Partnership</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#tm-section-7">Career</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#tm-section-8">Contact Us</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
   </div>
-  <div *ngIf="show">
-    <div>this is search results</div>
+  <div class="tm-section tm-bg-img" id="tm-section-1">
+    <div class="tm-bg-white ie-container-width-fix-2">
+      <div class="container ie-h-align-center-fix">
+        <div class="row">
+          <div class="col-xs-12 ml-auto mr-auto ie-container-width-fix">
+            <form action="index.html" method="get" class="tm-search-form tm-section-pad-2">
+              <div class="form-row tm-search-form-row">
+                <div class="form-group tm-form-element tm-form-element-100">
+                  <i class="fa fa-map-marker fa-2x tm-form-element-icon"></i>
+                  <input name="location" type="text" class="form-control" id="inputLocation" placeholder="Desired Location">
+                </div>
+                <div class="form-group tm-form-element tm-form-element-50">
+                  <i class="fa fa-calendar fa-2x tm-form-element-icon"></i>
+                  <input name="Start Date" type="text" class="form-control" id="inputStartDate" placeholder="Start Date">
+                </div>
+                <div class="form-group tm-form-element tm-form-element-50">
+                  <i class="fa fa-calendar fa-2x tm-form-element-icon"></i>
+                  <input name="End Date" type="text" class="form-control" id="inputEndDate" placeholder="End Date">
+                </div>
+              </div>
+              <div class="form-row tm-search-form-row">
+                <div class="form-group tm-form-element tm-form-element-2">
+                  <select name="theme" class="form-control tm-select" id="theme">
+                    <option value="">Theme</option>
+                    <option value="1">Cultural & Heritage</option>
+                    <option value="2">Nature</option>
+                    <option value="3">Foodie</option>
+                    <option value="4">Photography</option>
+                    <option value="5">University Tour</option>
+                    <option value="6">Others</option>
+                  </select>
+                  <i class="fa fa-map-marker fa-2x tm-form-element-icon"></i>
+                </div>
+                <div class="form-group tm-form-element tm-form-element-2">
+                  <select name="budget" class="form-control tm-select" id="budget">
+                    <option value="">Budget</option>
+                    <option value="0">$500-$1,000</option>
+                    <option value="1">$1,000-$1500</option>
+                    <option value="2">$1,500-$2,000</option>
+                    <option value="3">&#62; $2,000</option>
+                  </select>
+                  <i class="fa fa-2x fa-user tm-form-element-icon"></i>
+                </div>
+                <div class="form-group tm-form-element tm-form-element-2">
+                  <select name="NumberOfTravellers" class="form-control tm-select" id="NumberOfTravellers">
+                    <option value="">Number of travellers</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="10">&#62; 10</option>
+                  </select>
+                  <i class="fa fa-2x fa-user tm-form-element-icon"></i>
+                </div>
+                <div class="form-group tm-form-element tm-form-element-2">
+                  <em class="fa fa-2x fa-user tm-form-element-icon"></em>
+                  <input name="navigator" type="text" class="form-control" id="inputNavigator" placeholder="Name of Navigator">
+                </div>
+
+
+              </div>
+
+              <div class="form-row clearfix pl-2 pr-2 tm-fx-col-xs">
+                <p class="tm-margin-b-0">
+                  <em>Search your desired travel plan now!</em>
+                </p>
+
+                <div class="form-group tm-form-element tm-form-element-2 tm-btn-search">
+                  <em>
+                    <button type="submit" class="btn btn-primary">Search</button>
+                  </em>
+                </div>
+              </div>
+
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tm-section-2">
+    <div class="container">
+      <div class="row">
+        <div class="col text-center">
+          <h2 class="tm-section-title">Search Results</h2>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tm-section tm-position-relative">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" class="tm-section-down-arrow">
+      <polygon fill="#ee5057" points="0,0  100,0  50,60"></polygon>
+    </svg>
+
   </div>
 </div>
+
+<div class="tm-section tm-section-pad tm-bg-gray" id="tm-section-4">
+  <div>
+
+    <div class="column">
+
+      <article class="tm-bg-white mr-2">
+        <img src="img/img-01.jpg" alt="Image" class="img-fluid">
+        <div class="tm-article-pad">
+          <header>
+            <h3 class="text-uppercase tm-article-title-2">Nunc in felis aliquet metus luctus iaculis</h3>
+          </header>
+          <p>Aliquam ac lacus volutpat, dictum risus at, scelerisque nulla. Nullam sollicitudin at augue venenatis eleifend.
+            Nulla ligula ligula, egestas sit amet viverra id, iaculis sit amet ligula.</p>
+          <a href="#" class="text-uppercase btn-primary tm-btn-primary">Get More Info.</a>
+        </div>
+
+        <div>&nbsp;</div>
+
+        <img src="img/img-01.jpg" alt="Image" class="img-fluid">
+        <div class="tm-article-pad">
+          <header>
+            <h3 class="text-uppercase tm-article-title-2">Nunc in felis aliquet metus luctus iaculis</h3>
+          </header>
+          <p>Aliquam ac lacus volutpat, dictum risus at, scelerisque nulla. Nullam sollicitudin at augue venenatis eleifend.
+            Nulla ligula ligula, egestas sit amet viverra id, iaculis sit amet ligula.</p>
+          <a href="#" class="text-uppercase btn-primary tm-btn-primary">Get More Info.</a>
+        </div>
+      </article>
+
+
+
+    </div>
+
+  </div>
+
+  <div>
+
+    <div class="column">
+
+      <article class="tm-bg-white mr-2">
+        <img src="img/img-01.jpg" alt="Image" class="img-fluid">
+        <div class="tm-article-pad">
+          <header>
+            <h3 class="text-uppercase tm-article-title-2">Nunc in felis aliquet metus luctus iaculis</h3>
+          </header>
+          <p>Aliquam ac lacus volutpat, dictum risus at, scelerisque nulla. Nullam sollicitudin at augue venenatis eleifend.
+            Nulla ligula ligula, egestas sit amet viverra id, iaculis sit amet ligula.</p>
+          <a href="#" class="text-uppercase btn-primary tm-btn-primary">Get More Info.</a>
+        </div>
+
+        <div>&nbsp;</div>
+
+        <img src="img/img-01.jpg" alt="Image" class="img-fluid">
+        <div class="tm-article-pad">
+          <header>
+            <h3 class="text-uppercase tm-article-title-2">Nunc in felis aliquet metus luctus iaculis</h3>
+          </header>
+          <p>Aliquam ac lacus volutpat, dictum risus at, scelerisque nulla. Nullam sollicitudin at augue venenatis eleifend.
+            Nulla ligula ligula, egestas sit amet viverra id, iaculis sit amet ligula.</p>
+          <a href="#" class="text-uppercase btn-primary tm-btn-primary">Get More Info.</a>
+        </div>
+      </article>
+
+
+
+    </div>
+
+
+  </div>
+
+  <div>
+
+    <div class="column">
+
+      <article class="tm-bg-white mr-2">
+        <img src="img/img-01.jpg" alt="Image" class="img-fluid">
+        <div class="tm-article-pad">
+          <header>
+            <h3 class="text-uppercase tm-article-title-2">Nunc in felis aliquet metus luctus iaculis</h3>
+          </header>
+          <p>Aliquam ac lacus volutpat, dictum risus at, scelerisque nulla. Nullam sollicitudin at augue venenatis eleifend.
+            Nulla ligula ligula, egestas sit amet viverra id, iaculis sit amet ligula.</p>
+          <a href="#" class="text-uppercase btn-primary tm-btn-primary">Get More Info.</a>
+        </div>
+
+        <div>&nbsp;</div>
+
+        <img src="img/img-01.jpg" alt="Image" class="img-fluid">
+        <div class="tm-article-pad">
+          <header>
+            <h3 class="text-uppercase tm-article-title-2">Nunc in felis aliquet metus luctus iaculis</h3>
+          </header>
+          <p>Aliquam ac lacus volutpat, dictum risus at, scelerisque nulla. Nullam sollicitudin at augue venenatis eleifend.
+            Nulla ligula ligula, egestas sit amet viverra id, iaculis sit amet ligula.</p>
+          <a href="#" class="text-uppercase btn-primary tm-btn-primary">Get More Info.</a>
+        </div>
+      </article>
+
+
+
+
+    </div>
+
+  </div>
+  &nbsp;</div>
+
+<div>
+
+  <footer class="tm-bg-dark-blue">
+    <div class="container">
+      <div class="row">
+        <p class="col-sm-12 text-center tm-font-light tm-color-white p-4 tm-margin-b-0">
+          Copyright &copy;
+          <span class="tm-current-year">2018</span> Navisor - Designed by
+          <a href="http://www.tooplate.com" class="tm-color-primary tm-font-normal" target="_parent">Navisor</a>
+        </p>
+      </div>
+    </div>
+  </footer>

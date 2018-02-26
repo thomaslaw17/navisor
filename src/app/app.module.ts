@@ -1,3 +1,4 @@
+import { CareerComponent } from './career/career.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
@@ -36,7 +37,8 @@ import { AppGlobal } from './app.global';
 import Popper from 'popper.js';
 import bootstrap from 'bootstrap';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { CareerComponent } from './career/career.component';
+import { SearchDetailComponent } from './search-detail/search-detail.component';
+import { BookingConfirmComponent } from './booking-confirm/booking-confirm.component';
 
 @NgModule({
   imports: [
@@ -64,8 +66,10 @@ import { CareerComponent } from './career/career.component';
     EditProfileComponent,
     CalendarComponent,
     NotFoundComponent,
+    CareerComponent,
     RegisterComponent,
-    CareerComponent
+    SearchDetailComponent,
+    BookingConfirmComponent
   ],
   providers: [AngularFireAuth, AuthService, NavBarService, AppGlobal],
   bootstrap: [AppComponent]
