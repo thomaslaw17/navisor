@@ -20,7 +20,7 @@
             </div>
             <div class="form-row tm-search-form-row">
               <div class="form-group tm-form-element tm-form-element-2">
-                <select name="theme" class="form-control tm-select" id="theme" [(ngModel)]="theme">
+                <select name="theme" class="form-control tm-select" id="theme" [(ngModel)]="this.appGlobal.search.theme">
                   <option *ngFor="let theme of themes" [value]="theme" [attr.selected]="theme == 'Theme'">
                     {{theme}}
                   </option>
