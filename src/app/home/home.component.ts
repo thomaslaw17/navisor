@@ -72,6 +72,7 @@ export class HomeComponent implements OnInit {
       filled = true;
       if (this.appGlobal.search.startDate < today && !alerted) {
         alerted = true;
+        filled = false;
         alert('Start date is before date');
       }
       if (
@@ -81,12 +82,16 @@ export class HomeComponent implements OnInit {
         filled = true;
         if (this.appGlobal.search.endDate < today && !alerted) {
           alert('End date is before today');
+          alerted = true;
+          filled = false;
         }
         if (
           this.appGlobal.search.endDate < this.appGlobal.search.startDate &&
           !alerted
         ) {
           alert('Start date is after end date');
+          alerted = true;
+          filled = false;
         }
       }
     }
@@ -121,7 +126,7 @@ export class HomeComponent implements OnInit {
       filled = true;
     }
     if (!filled) {
-      alert('Please enter at least one arguement for search');
+      alert('Please enter valid arguement for search');
     } else {
       this.router.navigate(['search']);
     }
