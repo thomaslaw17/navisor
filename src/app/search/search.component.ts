@@ -28,7 +28,7 @@ export class SearchComponent implements OnInit {
     // this.keyword, this.catagory
   }
 
-  detail(id) {
+  searchDetail(id) {
     this.router.navigate(['search/detail/' + id]);
   }
 

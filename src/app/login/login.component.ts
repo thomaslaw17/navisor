@@ -1,3 +1,4 @@
+import { NavBarService } from './../nav-bar.service';
 import { Router } from '@angular/router';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AuthService } from './../auth.service';
@@ -20,8 +21,9 @@ export class LoginComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private angularFireDatabase: AngularFireDatabase,
-    private router: Router
-  ) {}
+    private router: Router,
+    private navBarService: NavBarService
+  ) { }
 
   login() {
     this.authService
@@ -78,6 +80,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.show = false;
     this.loginState = this.authService.checkLogin();
+    this.navBarService.hideNavBar();
     if (this.loginState) {
       this.router.navigate(['home']);
     }
