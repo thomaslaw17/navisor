@@ -48,8 +48,6 @@ export class HomeComponent implements OnInit {
   public budgets: Array<string>;
   public numberOfTravellers: Array<string>;
 
-  public theme: string;
-
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -104,9 +102,9 @@ export class HomeComponent implements OnInit {
       this.appGlobal.search.budget !== null
     ) {
       filled = true;
-      if ((this.appGlobal.search.budget = 0 && !alerted)) {
-        alert('Budget below zero');
-      }
+      // if (this.appGlobal.search.budget == 0 && !alerted) {
+      //   alert('Budget below zero');
+      // }
     }
     if (
       this.appGlobal.search.numberOfTravellers !== undefined &&
@@ -124,6 +122,8 @@ export class HomeComponent implements OnInit {
     }
     if (!filled) {
       alert('Please enter at least one arguement for search');
+    } else {
+      this.router.navigate(['search']);
     }
   }
 
@@ -159,5 +159,23 @@ export class HomeComponent implements OnInit {
       '9',
       '10'
     ];
+    if (
+      this.appGlobal.search.theme === undefined ||
+      this.appGlobal.search.theme === null
+    ) {
+      this.appGlobal.search.theme = 'Theme';
+    }
+    if (
+      this.appGlobal.search.location === undefined ||
+      this.appGlobal.search.location === null
+    ) {
+      this.appGlobal.search.location = 'Location';
+    }
+    if (
+      this.appGlobal.search.budget === undefined ||
+      this.appGlobal.search.budget === null
+    ) {
+      this.appGlobal.search.budget = 'Budget';
+    }
   }
 }

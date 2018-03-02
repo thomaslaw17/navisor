@@ -7,7 +7,7 @@ export class AppGlobal {
     startDate: Date;
     endDate: Date;
     theme: string;
-    budget: number;
+    budget: string;
     numberOfTravellers: number;
     nameOfNavigator: string;
   };
@@ -17,8 +17,8 @@ export class AppGlobal {
       location: '',
       startDate: new Date(),
       endDate: new Date(),
-      theme: 'Theme',
-      budget: 0,
+      theme: '',
+      budget: '',
       numberOfTravellers: 0,
       nameOfNavigator: ''
     };

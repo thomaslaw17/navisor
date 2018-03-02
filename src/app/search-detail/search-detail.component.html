@@ -2,11 +2,12 @@
   <div class="container">
     <div class="row">
       <div class="col text-center">
-        <h2 class="tm-section-title">View Plan Details</h2>
-
+        <h2 class="tm-section-title" *ngIf="!confirm">View Plan Details</h2>
+        <h2 class="tm-section-title" *ngIf="confirm">Book a Travel Plan Now</h2>
         <div>&nbsp;</div>
 
-        <a href="#" class="tm-color-white tm-btn-white-bordered">BACK TO SEARCH RESULTS</a>
+        <a class="tm-color-white tm-btn-white-bordered" *ngIf="!confirm" (click)="backToSearch()">BACK TO SEARCH RESULTS</a>
+        <a class="tm-color-white tm-btn-white-bordered" *ngIf="confirm" (click)="backToDetail()">BACK TO RESULTS DETAILS</a>
       </div>
     </div>
   </div>
@@ -53,21 +54,61 @@
         <div class="tm-bg-white">
 
           <div class="tm-bg-primary tm-sidebar-pad">
-            <h3 class="tm-color-white tm-sidebar-title">Book This Plan Now</h3>
+            <h3 class="tm-color-white tm-sidebar-title" *ngIf="!confirm">Book This Plan Now</h3>
+            <h3 class="tm-color-white tm-sidebar-title" *ngIf="confirm">Confirm Booking Details</h3>
           </div>
           <div class="tm-sidebar-pad-2">
 
-            <header>
-              <h3 class="text-uppercase tm-article-title-2">Prices</h3>
+            <header *ngIf="!confirm">
+              <h3 class="text-uppercase tm-article-title-2" *ngIf="!confirm">Prices</h3>
             </header>
+            <div *ngIf="confirm">
+              <header>
+                <h3 class="text-uppercase tm-article-title-2">Name of the Travel Plan</h3>
+              </header>
 
-            <p>Regular Price: $1,200</p>
-            <p>Early Bird: $1,080</p>
+              <p>Induldge in Local Arts</p>
 
-            <div align="center">
-              <a href="#" class="text-uppercase btn-primary tm-btn-primary">Book Now</a>
+              <header>
+                <h3 class="text-uppercase tm-article-title-2">Date and Time</h3>
+              </header>
+
+              <p>1 April 2018 10 a.m. - 10 p.m.</p>
+
+              <header>
+                <h3 class="text-uppercase tm-article-title-2">Price</h3>
+              </header>
             </div>
 
+
+            <p>Regular Price: $1,200</p>
+            <p *ngIf="!confirm">Early Bird: $1,080</p>
+
+            <div align="center" *ngIf="!confirm">
+              <a class="text-uppercase btn-primary tm-btn-primary" (click)="bookNow()">Book Now</a>
+            </div>
+
+            <div *ngIf="confirm">
+
+              <div align="center">
+                <a class="text-uppercase btn-primary tm-btn-primary">Confirm and Pay by Paypal</a>
+              </div>
+              <div>
+                &nbsp;</div>
+
+              <div align="center">
+                <a class="text-uppercase btn-primary tm-btn-primary">Confirm and Pay by Apply Pay</a>
+              </div>
+
+              <div>&nbsp;</div>
+
+              <div align="center">
+                <a class="text-uppercase btn-primary tm-btn-primary">Confirm and Pay by WeChat Pay</a>
+              </div>
+
+              <div>&nbsp;</div>
+
+            </div>
           </div>
 
           <div class="tm-bg-primary tm-sidebar-pad">
@@ -87,32 +128,32 @@
             <p class="tm-color-white tm-margin-b-0 tm-font-light">Explore other travel plans which fit your needs.</p>
           </div>
           <div class="tm-sidebar-pad-2">
-            <a href="#" class="media tm-media tm-recommended-item">
+            <a class="media tm-media tm-recommended-item">
               <img src="img/tn-img-01.jpg" alt="Image">
               <div class="media-body tm-media-body tm-bg-gray">
                 <h4 class="text-uppercase tm-font-semibold tm-sidebar-item-title">Cultural & Heritage</h4>
               </div>
             </a>
-            <a href="#" class="media tm-media tm-recommended-item">
+            <a class="media tm-media tm-recommended-item">
               <img src="img/tn-img-02.jpg" alt="Image">
               <div class="media-body tm-media-body tm-bg-gray">
                 <h4 class="text-uppercase tm-font-semibold tm-sidebar-item-title">Nature</h4>
               </div>
             </a>
-            <a href="#" class="media tm-media tm-recommended-item">
+            <a class="media tm-media tm-recommended-item">
               <img src="img/tn-img-03.jpg" alt="Image">
               <div class="media-body tm-media-body tm-bg-gray">
                 <h4 class="text-uppercase tm-font-semibold tm-sidebar-item-title">Foodie </h4>
               </div>
             </a>
-            <a href="#" class="media tm-media tm-recommended-item">
+            <a class="media tm-media tm-recommended-item">
               <img src="img/tn-img-04.jpg" alt="Image">
               <div class="media-body tm-media-body tm-bg-gray">
                 <h4 class="text-uppercase tm-font-semibold tm-sidebar-item-title">Photography</h4>
               </div>
             </a>
 
-            <a href="#" class="media tm-media tm-recommended-item">
+            <a class="media tm-media tm-recommended-item">
               <img src="img/tn-img-04.jpg" alt="Image">
               <div class="media-body tm-media-body tm-bg-gray">
                 <h4 class="text-uppercase tm-font-semibold tm-sidebar-item-title">Univerity Tour</h4>

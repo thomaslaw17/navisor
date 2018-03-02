@@ -28,6 +28,10 @@ export class SearchComponent implements OnInit {
     // this.keyword, this.catagory
   }
 
+  searchDetail(id) {
+    this.router.navigate(['search/detail/' + id]);
+  }
+
   ngOnInit() {
     this.show = false;
     this.catagories = ['cat 1', 'cat 2', 'cat 3'];
