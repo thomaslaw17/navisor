@@ -20,12 +20,16 @@ export class SearchComponent implements OnInit {
     private router: Router,
     private authService: AuthService,
     private angularFireDatanase: AngularFireDatabase
-  ) {}
+  ) { }
 
   search() {
     this.show = true; // temp
     // query from database
     // this.keyword, this.catagory
+  }
+
+  searchDetail(id) {
+    this.router.navigate(['search/detail/' + id]);
   }
 
   ngOnInit() {

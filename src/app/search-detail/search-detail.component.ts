@@ -1,3 +1,5 @@
+import { AuthService } from './../auth.service';
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchDetailComponent implements OnInit {
 
-  constructor() { }
+  confirm: boolean;
 
+  constructor(private router: Router, private authService: AuthService) { }
+
+  bookNow() {
+    this.confirm = true;
+  }
+
+  backToDetail() {
+    this.confirm = false;
+  }
+
+  backToSearch() {
+    this.router.navigate(['search']);
+  }
   ngOnInit() {
+    this.confirm = false;
   }
 
 }

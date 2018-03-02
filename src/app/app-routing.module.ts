@@ -1,3 +1,5 @@
+import { BookingConfirmComponent } from './booking-confirm/booking-confirm.component';
+import { SearchDetailComponent } from './search-detail/search-detail.component';
 import { CareerComponent } from './career/career.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { RegisterComponent } from './register/register.component';
@@ -66,6 +68,14 @@ const routes: Routes = [
     component: SearchComponent
   },
   {
+    path: 'search/detail/:id',
+    component: SearchDetailComponent
+  },
+  {
+    path: 'confirmBooking',
+    component: BookingConfirmComponent,
+  },
+  {
     path: 'tripPlanning/:tripId',
     component: TripPlanningComponent
   },
@@ -79,4 +89,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

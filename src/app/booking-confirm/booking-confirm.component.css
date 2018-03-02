@@ -1,0 +1,83 @@
+.tm-article-pad {
+  padding: 25px;
+}
+
+.tm-sidebar-pad-2 {
+  padding: 21px 10px;
+}
+
+.tm-section {
+  min-height: 70px;
+}
+
+.tm-section-pad {
+  padding-top: 50px;
+  padding-bottom: 100px;
+}
+
+#tm-section-6 {
+  /* background-image: url('../img/bg-img-3.jpg'); */
+}
+
+.tm-bg-img {
+  justify-content: center
+}
+
+#contact_message {
+  height: 100px
+}
+
+.form-control:focus {
+  box-shadow: 0 0 0 0.2rem rgba(238, 80, 87, 25);
+}
+
+.btn-primary {
+  font-size: 0.75rem;
+  padding: 13px;
+  text-align: center;
+  display: inline-block;
+  float: center;
+  width: 155px;
+}
+
+#ButtonsGroup>div {
+  display: inline-block;
+  margin: auto;
+  height: 4em;
+  border: 1px solid #abc;
+}
+
+select:not([multiple]) {
+  padding: .5em;
+  padding-right: 1.5em
+}
+
+.tm-btn-primary {
+  display: block;
+  text-align: center;
+  margin-left: 15px;
+  margin-right: 15px;
+  font-size: 0.75rem;
+}
+
+.tm-recommended-item:hover .tm-bg-gray {
+  background: #DDD;
+}
+
+.contact-form .form-control {
+  background-color: #F4F4F4;
+  border: none;
+  font-size: 0.8rem;
+  font-weight: 300;
+  margin-left: 15px;
+  width: 320px;
+}
+
+.clearfix:after {
+  content: " ";
+  /* Older brofwser do not support empty content */
+  visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both;
+}
