@@ -50,66 +50,13 @@ export class HomeComponent implements OnInit {
   public budgets: Array<string>;
   public numberOfTravellers: Array<string>;
 
-  public itemList: Array<{ title: string; color: string }>;
-
   public Config: NgxCarousel;
-
-  slideConfig = { slidesToShow: 4, slidesToScroll: 4 };
-  slides = [
-    { img: 'http://placehold.it/350x150/000000' },
-    { img: 'http://placehold.it/350x150/111111' },
-    { img: 'http://placehold.it/350x150/333333' },
-    { img: 'http://placehold.it/350x150/666666' }
-  ];
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     public appGlobal: AppGlobal
   ) {
-    this.itemList = [
-      {
-        title: 'slide 1',
-        color: 'green'
-      },
-      {
-        title: 'slide 2',
-        color: 'blue'
-      },
-      {
-        title: 'slide 3',
-        color: 'red'
-      },
-      {
-        title: 'slide 4',
-        color: 'yellow'
-      },
-      {
-        title: 'slide 5',
-        color: 'black'
-      },
-      {
-        title: 'slide 6',
-        color: 'purple'
-      },
-      {
-        title: 'slide 7',
-        color: 'magenta'
-      },
-      {
-        title: 'slide 8',
-        color: 'pink'
-      },
-      {
-        title: 'slide 9',
-        color: 'grey'
-      },
-      {
-        title: 'slide 10',
-        color: 'orange'
-      }
-    ];
-
     this.Config = {
       grid: { xs: 2, sm: 2, md: 2, lg: 2, all: 0 },
       slide: 2,

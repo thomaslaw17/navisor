@@ -39,6 +39,7 @@ import bootstrap from 'bootstrap';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SlickModule } from 'ngx-slick';
 import { NgxCarouselModule } from 'ngx-carousel';
+import 'hammerjs';
 import { SearchDetailComponent } from './search-detail/search-detail.component';
 import { BookingConfirmComponent } from './booking-confirm/booking-confirm.component';
 
