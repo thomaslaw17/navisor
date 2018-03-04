@@ -61,7 +61,7 @@ a:focus {
 }
 
 .tm-bg-gray {
-  background: #F4F4F4;
+  background: #f4f4f4;
 }
 
 .tm-bg-white {
@@ -87,7 +87,13 @@ a:focus {
 }
 
 .tm-article-pad {
-  padding: 25px
+  padding: 25px;
+}
+
+.tm-booking-pad {
+  padding: 25px;
+  width: 1000px;
+  align-items: center;
 }
 
 .tm-sidebar-pad {
@@ -207,6 +213,10 @@ p {
   padding-bottom: 100px;
 }
 
+#tm-section-5 {
+  background-image: url('https://firebasestorage.googleapis.com/v0/b/navisor-b9b70.appspot.com/o/resultdetail%2Fimg%2F1.jpg?alt=media&token=43db21d0-f551-48e3-b5cf-b50d2fa45ac6');
+}
+
 #tm-section-6 {
   background-image: url('../img/bg-img-3.jpg');
   background-position: top center;
@@ -229,7 +239,7 @@ p {
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
-  justify-content: center
+  justify-content: center;
 }
 
 .form-control {
@@ -238,7 +248,7 @@ p {
 }
 
 #contact_message {
-  height: 100px
+  height: 100px;
 }
 
 .form-control:focus {
@@ -274,8 +284,8 @@ select:not([multiple]) {
   background-position: right 50%;
   background-repeat: no-repeat;
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAMCAYAAABSgIzaAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NDZFNDEwNjlGNzFEMTFFMkJEQ0VDRTM1N0RCMzMyMkIiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NDZFNDEwNkFGNzFEMTFFMkJEQ0VDRTM1N0RCMzMyMkIiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo0NkU0MTA2N0Y3MUQxMUUyQkRDRUNFMzU3REIzMzIyQiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo0NkU0MTA2OEY3MUQxMUUyQkRDRUNFMzU3REIzMzIyQiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PuGsgwQAAAA5SURBVHjaYvz//z8DOYCJgUxAf42MQIzTk0D/M+KzkRGPoQSdykiKJrBGpOhgJFYTWNEIiEeAAAMAzNENEOH+do8AAAAASUVORK5CYII=);
-  padding: .5em;
-  padding-right: 1.5em
+  padding: 0.5em;
+  padding-right: 1.5em;
 }
 
 /* https://stackoverflow.com/questions/20163079/remove-select-arrow-on-ie */
@@ -386,6 +396,14 @@ select.tm-select::-ms-expand {
   font-size: 0.75rem;
 }
 
+.tm-btn-booking {
+  display: block;
+  text-align: center;
+  margin-left: 150px;
+  margin-right: 15px;
+  font-size: 0.75rem;
+}
+
 .column {
   box-sizing: border-box;
   float: left;
@@ -397,7 +415,7 @@ select.tm-select::-ms-expand {
 .img-fluid {
   display: block;
   margin-left: auto;
-  margin-right: auto
+  margin-right: auto;
 }
 
 .tm-recommended-item .tm-bg-gray {
@@ -405,7 +423,7 @@ select.tm-select::-ms-expand {
 }
 
 .tm-recommended-item:hover .tm-bg-gray {
-  background: #DDD;
+  background: #ddd;
 }
 
 .tm-recommended-item h4 {
@@ -475,7 +493,7 @@ select.tm-select::-ms-expand {
 }
 
 .contact-form .form-control {
-  background-color: #F4F4F4;
+  background-color: #f4f4f4;
   border: none;
   font-size: 0.8rem;
   font-weight: 300;
@@ -484,7 +502,7 @@ select.tm-select::-ms-expand {
 }
 
 .clearfix:after {
-  content: " ";
+  content: ' ';
   /* Older brofwser do not support empty content */
   visibility: hidden;
   display: block;
@@ -587,8 +605,7 @@ select.tm-select::-ms-expand {
 
 /* IE Fixes */
 
-@media all and (-ms-high-contrast: none),
-(-ms-high-contrast: active) {
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
   /* IE10+ CSS styles go here */
   .ie-h-align-center-fix {
     margin-left: 0;
@@ -598,20 +615,20 @@ select.tm-select::-ms-expand {
     float: right;
   }
   .tm-media-body,
-  .tm-media-body>* {
+  .tm-media-body > * {
     width: 100%;
   }
   .tm-media-body-1,
-  .tm-media-body-1>* {
+  .tm-media-body-1 > * {
     width: 100%;
   }
-  .tm-media-1>* {
+  .tm-media-1 > * {
     flex: 1 1 auto;
   }
 }
 
 @media all and (max-width: 1199px) and (-ms-high-contrast: none),
-(-ms-high-contrast: active) {
+  (-ms-high-contrast: active) {
   .ie-container-width-fix {
     width: 960px;
   }
@@ -624,7 +641,7 @@ select.tm-select::-ms-expand {
 }
 
 @media all and (max-width: 560px) and (-ms-high-contrast: none),
-(-ms-high-contrast: active) {
+  (-ms-high-contrast: active) {
   .ie-container-width-fix {
     max-width: 530px;
     width: 100%;
