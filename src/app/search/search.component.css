@@ -1,5 +1,5 @@
 .tm-article-pad {
-  padding: 25px
+  padding: 25px;
 }
 
 .tm-section {
@@ -28,7 +28,7 @@
 }
 
 .tm-bg-img {
-  justify-content: center
+  justify-content: center;
 }
 
 .form-control:focus {
@@ -39,12 +39,11 @@
 .btn-primary {
   font-size: 0.9rem;
   position: relative;
-  margin-left: 545px;
 }
 
 select:not([multiple]) {
-  padding: .5em;
-  padding-right: 1.5em
+  padding: 0.5em;
+  padding-right: 1.5em;
 }
 
 .tm-btn-search {
@@ -63,9 +62,9 @@ select:not([multiple]) {
 .img-fluid {
   display: block;
   margin-left: auto;
-  margin-right: auto
+  margin-right: auto;
 }
 
 .tm-recommended-item:hover .tm-bg-gray {
-  background: #DDD;
+  background: #ddd;
 }

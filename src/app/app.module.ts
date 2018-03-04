@@ -42,6 +42,7 @@ import { NgxCarouselModule } from 'ngx-carousel';
 import 'hammerjs';
 import { SearchDetailComponent } from './search-detail/search-detail.component';
 import { BookingConfirmComponent } from './booking-confirm/booking-confirm.component';
+import { CustomTripComponent } from './custom-trip/custom-trip.component';
 
 @NgModule({
   imports: [
@@ -74,7 +75,8 @@ import { BookingConfirmComponent } from './booking-confirm/booking-confirm.compo
     CareerComponent,
     RegisterComponent,
     SearchDetailComponent,
-    BookingConfirmComponent
+    BookingConfirmComponent,
+    CustomTripComponent
   ],
   providers: [AngularFireAuth, AuthService, NavBarService, AppGlobal],
   bootstrap: [AppComponent]

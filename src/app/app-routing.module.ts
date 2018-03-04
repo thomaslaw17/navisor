@@ -17,6 +17,7 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
+import { CustomTripComponent } from './custom-trip/custom-trip.component';
 
 const routes: Routes = [
   {
@@ -76,8 +77,12 @@ const routes: Routes = [
     component: BookingConfirmComponent
   },
   {
-    path: 'tripPlanning/:tripId',
+    path: 'tripPlanning',
     component: TripPlanningComponent
+  },
+  {
+    path: 'customTrip/:tripId',
+    component: CustomTripComponent
   },
   {
     path: '**',
