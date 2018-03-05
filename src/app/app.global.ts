@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 
 @Injectable()
@@ -12,7 +13,11 @@ export class AppGlobal {
     nameOfNavigator: string;
   };
 
-  constructor() {
+  gotoHome() {
+    this.router.navigate(['']);
+  }
+
+  constructor(private router: Router) {
     this.search = {
       location: '',
       startDate: new Date(),

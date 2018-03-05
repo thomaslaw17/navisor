@@ -24,6 +24,14 @@ export class AppComponent {
     this.item = angularFireDatabase.object('item').valueChanges();
   }
 
+  gotoLogin() {
+    this.router.navigate(['login']);
+  }
+
+  gotoRegister() {
+    this.router.navigate(['register']);
+  }
+
   logout() {
     this.authService.logout().then(
       resolve => {

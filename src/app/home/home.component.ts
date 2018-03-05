@@ -1,3 +1,4 @@
+import { NavBarService } from './../nav-bar.service';
 import { AppGlobal } from './../app.global';
 import { Component, OnInit } from '@angular/core';
 import {
@@ -48,10 +49,18 @@ export class HomeComponent implements OnInit {
   public budgets: Array<string>;
   public numberOfTravellers: Array<string>;
 
+  public contact: {
+    name: string;
+    email: string;
+    subject: string;
+    msg: string;
+  };
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    public appGlobal: AppGlobal
+    public appGlobal: AppGlobal,
+    private navBarService: NavBarService
   ) {}
 
   search() {
@@ -132,7 +141,48 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  sendContactMessage() {
+    let filled = false;
+    if (
+      this.contact.name !== undefined &&
+      this.contact.name !== null &&
+      this.contact.name !== ''
+    ) {
+      filled = true;
+    }
+    if (
+      this.contact.email !== undefined &&
+      this.contact.email !== null &&
+      this.contact.email !== ''
+    ) {
+      filled = true;
+    }
+    if (
+      this.contact.subject !== undefined &&
+      this.contact.subject !== null &&
+      this.contact.subject !== ''
+    ) {
+      filled = true;
+    }
+    if (
+      this.contact.msg !== undefined &&
+      this.contact.msg !== null &&
+      this.contact.msg !== ''
+    ) {
+      filled = true;
+    }
+
+    if (filled) {
+      // sendEmail();
+    } else {
+      alert(
+        'Please fill in the form to contact us or you can email us at contactus@navisor.com'
+      );
+    }
+  }
+
   ngOnInit() {
+    this.navBarService.showNavbar();
     this.themes = [
       'Theme',
       'Cultural & Heritage',
@@ -182,5 +232,12 @@ export class HomeComponent implements OnInit {
     ) {
       this.appGlobal.search.budget = 'Budget';
     }
+
+    this.contact = {
+      name: '',
+      email: '',
+      subject: '',
+      msg: ''
+    };
   }
 }

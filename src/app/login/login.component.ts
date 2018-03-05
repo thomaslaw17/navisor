@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
     private angularFireDatabase: AngularFireDatabase,
     private router: Router,
     private navBarService: NavBarService
-  ) { }
+  ) {}
 
   login() {
     this.authService
@@ -76,6 +76,8 @@ export class LoginComponent implements OnInit {
   gotoRegister() {
     this.router.navigate(['register']);
   }
+
+  forgetPassword() {}
 
   ngOnInit() {
     this.show = false;
