@@ -92,72 +92,119 @@
     <div class="row">
       <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8">
         <div class="tm-article-carousel">
-          <article class="tm-bg-white mr-2 tm-carousel-item">
-            <img src="https://firebasestorage.googleapis.com/v0/b/navisor-b9b70.appspot.com/o/home%2Fimg%2Fimg-01.jpg?alt=media&token=86b77455-9052-48e4-be25-98d870fd612f"
-              alt="Image" class="img-fluid">
-            <div class="tm-article-pad">
-              <header>
-                <h3 class="text-uppercase tm-article-title-2">Night view from the peak</h3>
-              </header>
-              <p>Here is the peak.</p>
-              <a href="#" class="text-uppercase btn-primary tm-btn-primary">Get More Info.</a>
-            </div>
-          </article>
-          <article class="tm-bg-white mr-2 tm-carousel-item">
-            <img src="https://firebasestorage.googleapis.com/v0/b/navisor-b9b70.appspot.com/o/home%2Fimg%2Fimg-02.jpg?alt=media&token=622bc5c4-adb7-41a2-adb1-13afcb1b0668"
-              alt="Image" class="img-fluid">
-            <div class="tm-article-pad">
-              <header>
-                <h3 class="text-uppercase tm-article-title-2">Boat ride in the victoria habour</h3>
-              </header>
-              <p>Boat trip.</p>
-              <a href="#" class="text-uppercase btn-primary tm-btn-primary">View Detail</a>
-            </div>
-          </article>
-          <article class="tm-bg-white mr-2 tm-carousel-item">
-            <img src="https://firebasestorage.googleapis.com/v0/b/navisor-b9b70.appspot.com/o/home%2Fimg%2Fimg-03.jpg?alt=media&token=0459d797-8ac4-47b0-be1d-0c5f41086a89"
-              alt="Image" class="img-fluid">
-            <div class="tm-article-pad">
-              <header>
-                <h3 class="text-uppercase tm-article-title-2">St. John's Cathedral</h3>
-              </header>
-              <p>One of the oldest church in Hong Kong.</p>
-              <a href="#" class="text-uppercase btn-primary tm-btn-primary">More Info.</a>
-            </div>
-          </article>
-          <article class="tm-bg-white mr-2 tm-carousel-item">
-            <img src="https://firebasestorage.googleapis.com/v0/b/navisor-b9b70.appspot.com/o/home%2Fimg%2Fimg-04.jpg?alt=media&token=93e9653d-425f-4a00-b23e-f2a60a6a22fd"
-              alt="Image" class="img-fluid">
-            <div class="tm-article-pad">
-              <header>
-                <h3 class="text-uppercase tm-article-title-2">Mong Kok Ladies' Market</h3>
-              </header>
-              <p>You can do shopping here!</p>
-              <a href="#" class="text-uppercase btn-primary tm-btn-primary">Detail Info.</a>
-            </div>
-          </article>
-          <article class="tm-bg-white mr-2 tm-carousel-item">
-            <img src="https://firebasestorage.googleapis.com/v0/b/navisor-b9b70.appspot.com/o/home%2Fimg%2Fimg-05.jpg?alt=media&token=66600295-fbca-4646-8941-7796545ffcc4"
-              alt="Image" class="img-fluid">
-            <div class="tm-article-pad">
-              <header>
-                <h3 class="text-uppercase tm-article-title-2">Lai Chi Wo Village</h3>
-              </header>
-              <p>The village resides next to a geopark.</p>
-              <a href="#" class="text-uppercase btn-primary tm-btn-primary">Read More</a>
-            </div>
-          </article>
-          <article class="tm-bg-white tm-carousel-item">
-            <img src="https://firebasestorage.googleapis.com/v0/b/navisor-b9b70.appspot.com/o/home%2Fimg%2Fimg-06.jpg?alt=media&token=97261f4d-73e4-4fc2-b7f7-f49daef99d12"
-              alt="Image" class="img-fluid">
-            <div class="tm-article-pad">
-              <header>
-                <h3 class="text-uppercase tm-article-title-2">Graffiti on Graham Street</h3>
-              </header>
-              <p>This is a nice place to take photos.</p>
-              <a href="#" class="text-uppercase btn-primary tm-btn-primary">More Details</a>
-            </div>
-          </article>
+          <ngx-carousel [inputs]="Config">
+            <ngx-item NgxCarouselItem>
+              <article class="tm-bg-white mr-2 tm-carousel-item">
+                <img src="https://firebasestorage.googleapis.com/v0/b/navisor-b9b70.appspot.com/o/home%2Fimg%2Fimg-01.jpg?alt=media&token=86b77455-9052-48e4-be25-98d870fd612f"
+                  alt="Image" class="img-fluid">
+                <div class="tm-article-pad">
+                  <header>
+                    <h3 class="text-uppercase tm-article-title-2">Night view from the peak</h3>
+                  </header>
+                  <p>Here is the peak.</p>
+                  <a href="#" class="text-uppercase btn-primary tm-btn-primary">Get More Info.</a>
+                </div>
+              </article>
+            </ngx-item>
+            <ngx-item NgxCarouselItem>
+              <article class="tm-bg-white mr-2 tm-carousel-item">
+                <img src="https://firebasestorage.googleapis.com/v0/b/navisor-b9b70.appspot.com/o/home%2Fimg%2Fimg-02.jpg?alt=media&token=622bc5c4-adb7-41a2-adb1-13afcb1b0668"
+                  alt="Image" class="img-fluid">
+                <div class="tm-article-pad">
+                  <header>
+                    <h3 class="text-uppercase tm-article-title-2">Boat ride in the victoria habour</h3>
+                  </header>
+                  <p>Boat trip.</p>
+                  <a href="#" class="text-uppercase btn-primary tm-btn-primary">View Detail</a>
+                </div>
+              </article>
+
+            </ngx-item>
+            <ngx-item NgxCarouselItem>
+              <article class="tm-bg-white mr-2 tm-carousel-item">
+                <img src="https://firebasestorage.googleapis.com/v0/b/navisor-b9b70.appspot.com/o/home%2Fimg%2Fimg-03.jpg?alt=media&token=0459d797-8ac4-47b0-be1d-0c5f41086a89"
+                  alt="Image" class="img-fluid">
+                <div class="tm-article-pad">
+                  <header>
+                    <h3 class="text-uppercase tm-article-title-2">St. John's Cathedral</h3>
+                  </header>
+                  <p>One of the oldest church in Hong Kong.</p>
+                  <a href="#" class="text-uppercase btn-primary tm-btn-primary">More Info.</a>
+                </div>
+              </article>
+
+            </ngx-item>
+            <ngx-item NgxCarouselItem>
+              <article class="tm-bg-white mr-2 tm-carousel-item">
+                <img src="https://firebasestorage.googleapis.com/v0/b/navisor-b9b70.appspot.com/o/home%2Fimg%2Fimg-04.jpg?alt=media&token=93e9653d-425f-4a00-b23e-f2a60a6a22fd"
+                  alt="Image" class="img-fluid">
+                <div class="tm-article-pad">
+                  <header>
+                    <h3 class="text-uppercase tm-article-title-2">Mong Kok Ladies' Market</h3>
+                  </header>
+                  <p>You can do shopping here!</p>
+                  <a href="#" class="text-uppercase btn-primary tm-btn-primary">Detail Info.</a>
+                </div>
+              </article>
+            </ngx-item>
+            <ngx-item NgxCarouselItem>
+              <article class="tm-bg-white mr-2 tm-carousel-item">
+                <img src="https://firebasestorage.googleapis.com/v0/b/navisor-b9b70.appspot.com/o/home%2Fimg%2Fimg-05.jpg?alt=media&token=66600295-fbca-4646-8941-7796545ffcc4"
+                  alt="Image" class="img-fluid">
+                <div class="tm-article-pad">
+                  <header>
+                    <h3 class="text-uppercase tm-article-title-2">Lai Chi Wo Village</h3>
+                  </header>
+                  <p>The village resides next to a geopark.</p>
+                  <a href="#" class="text-uppercase btn-primary tm-btn-primary">Read More</a>
+                </div>
+              </article>
+
+            </ngx-item>
+            <ngx-item NgxCarouselItem>
+              <article class="tm-bg-white tm-carousel-item">
+                <img src="https://firebasestorage.googleapis.com/v0/b/navisor-b9b70.appspot.com/o/home%2Fimg%2Fimg-06.jpg?alt=media&token=97261f4d-73e4-4fc2-b7f7-f49daef99d12"
+                  alt="Image" class="img-fluid">
+                <div class="tm-article-pad">
+                  <header>
+                    <h3 class="text-uppercase tm-article-title-2">Graffiti on Graham Street</h3>
+                  </header>
+                  <p>This is a nice place to take photos.</p>
+                  <a href="#" class="text-uppercase btn-primary tm-btn-primary">More Details</a>
+                </div>
+              </article>
+
+            </ngx-item>
+
+            <button NgxCarouselPrev class="leftRs">&lt;</button>
+            <button NgxCarouselNext class="rightRs">&gt;</button>
+          </ngx-carousel>
+
+
+
+          <!-- <ngb-carousel>
+            <ng-template ngbSlide>
+              <img src="https://lorempixel.com/900/500?r=4" alt="Random first slide">
+              <div class="carousel-caption">
+                <h3>10 seconds between slides...</h3>
+                <p>This carousel uses customized default values.</p>
+              </div>
+            </ng-template>
+            <ng-template ngbSlide>
+              <img src="https://lorempixel.com/900/500?r=5" alt="Random second slide">
+              <div class="carousel-caption">
+                <h3>No keyboard...</h3>
+                <p>This carousel uses customized default values.</p>
+              </div>
+            </ng-template>
+            <ng-template ngbSlide>
+              <img src="https://lorempixel.com/900/500?r=6" alt="Random third slide">
+              <div class="carousel-caption">
+                <h3>And no wrap after last slide.</h3>
+                <p>This carousel uses customized default values.</p>
+              </div>
+            </ng-template>
+          </ngb-carousel> -->
         </div>
       </div>
 
@@ -169,7 +216,7 @@
           </div>
           <div class="tm-sidebar-pad-2">
             <a href="#" class="media tm-media tm-recommended-item">
-              <img src="img/tn-img-01.jpg" alt="Image">
+              <img src="img/tn-img-04.jpg" alt="Image">
               <div class="media-body tm-media-body tm-bg-gray">
                 <h4 class="text-uppercase tm-font-semibold tm-sidebar-item-title">Cultual & Heritage</h4>
               </div>

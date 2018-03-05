@@ -1,6 +1,7 @@
 import { NavBarService } from './../nav-bar.service';
 import { AppGlobal } from './../app.global';
 import { Component, OnInit } from '@angular/core';
+import * as $ from 'jquery';
 import {
   trigger,
   style,
@@ -12,6 +13,7 @@ import {
 } from '@angular/animations';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import { NgxCarousel } from 'ngx-carousel';
 
 @Component({
   selector: 'app-home',
@@ -56,12 +58,29 @@ export class HomeComponent implements OnInit {
     msg: string;
   };
 
+  public Config: NgxCarousel;
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     public appGlobal: AppGlobal,
     private navBarService: NavBarService
-  ) {}
+  ) {
+    this.Config = {
+      grid: { xs: 2, sm: 2, md: 2, lg: 2, all: 0 },
+      slide: 2,
+      speed: 400,
+      point: {
+        visible: true
+      },
+      loop: false,
+      touch: true
+    };
+  }
+
+  afterChange() {
+    console.log('afterChange');
+  }
 
   search() {
     let filled = false;

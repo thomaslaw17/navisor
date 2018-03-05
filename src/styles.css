@@ -5,6 +5,7 @@
 
 @import '~bootstrap/dist/css/bootstrap.css';
 @import '~font-awesome/css/font-awesome.min.css';
+
 body {
   font-family: 'Open Sans', Helvetica, Arial, sans-serif;
   font-size: 13px;
@@ -689,8 +690,7 @@ video {
 
 /* IE Fixes */
 
-@media all and (-ms-high-contrast: none),
-(-ms-high-contrast: active) {
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
   /* IE10+ CSS styles go here */
   .ie-h-align-center-fix {
     margin-left: 0;
@@ -700,20 +700,20 @@ video {
     float: right;
   }
   .tm-media-body,
-  .tm-media-body>* {
+  .tm-media-body > * {
     width: 100%;
   }
   .tm-media-body-1,
-  .tm-media-body-1>* {
+  .tm-media-body-1 > * {
     width: 100%;
   }
-  .tm-media-1>* {
+  .tm-media-1 > * {
     flex: 1 1 auto;
   }
 }
 
 @media all and (max-width: 1199px) and (-ms-high-contrast: none),
-(-ms-high-contrast: active) {
+  (-ms-high-contrast: active) {
   .ie-container-width-fix {
     width: 960px;
   }
@@ -726,7 +726,7 @@ video {
 }
 
 @media all and (max-width: 560px) and (-ms-high-contrast: none),
-(-ms-high-contrast: active) {
+  (-ms-high-contrast: active) {
   .ie-container-width-fix {
     max-width: 530px;
     width: 100%;
