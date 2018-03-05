@@ -1,3 +1,4 @@
+import { NavBarService } from './../nav-bar.service';
 import { AuthService } from './../auth.service';
 import { User } from './../../model/User';
 import { AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
@@ -24,7 +25,8 @@ export class RegisterComponent implements OnInit {
   constructor(
     private router: Router,
     private authService: AuthService,
-    private angularFireDatabase: AngularFireDatabase
+    private angularFireDatabase: AngularFireDatabase,
+    private navBarService: NavBarService
   ) {
     this.user = new User();
   }
@@ -68,5 +70,7 @@ export class RegisterComponent implements OnInit {
       });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.navBarService.showNavbar();
+  }
 }

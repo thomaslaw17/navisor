@@ -339,18 +339,21 @@
           <form action="index.html" method="post" class="contact-form">
             <div class="form-group">
               <p>Office Hour: Monday - Friday 9:30-18:00</p>
-              <input type="text" id="contact_name" name="contact_name" class="form-control" placeholder="Name" required/>
+              <input type="text" id="contact_name" name="contact_name" class="form-control" placeholder="Name" required [(ngModel)]="contact.name"
+              />
             </div>
             <div class="form-group">
-              <input type="email" id="contact_email" name="contact_email" class="form-control" placeholder="Email" required/>
+              <input type="email" id="contact_email" name="contact_email" class="form-control" placeholder="Email" required [(ngModel)]="contact.email"
+              />
             </div>
             <div class="form-group">
-              <input type="text" id="contact_subject" name="contact_subject" class="form-control" placeholder="Subject" required/>
+              <input type="text" id="contact_subject" name="contact_subject" class="form-control" placeholder="Subject" required [(ngModel)]="contact.subject"
+              />
             </div>
             <div class="form-group">
-              <textarea id="contact_message" name="contact_message" class="form-control" rows="9" placeholder="Message" required></textarea>
+              <textarea id="contact_message" name="contact_message" class="form-control" rows="9" placeholder="Message" required [(ngModel)]="contact.msg"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary tm-btn-primary">Send Message Now</button>
+            <button type="submit" class="btn btn-primary tm-btn-primary" (click)="sendContactMessage()">Send Message Now</button>
           </form>
         </div>
       </div>
@@ -363,7 +366,8 @@
     <div class="row">
       <p class="col-sm-12 text-center tm-font-light tm-color-white p-4 tm-margin-b-0">
         Copyright &copy;
-        <span class="tm-current-year">2018</span> Navisor
+        <span class="tm-current-year">2018</span>
+        <a class="tm-color-primary tm-font-normal" (click)="appGlobal.gotoHome()">Navisor</a>
       </p>
     </div>
   </div>
