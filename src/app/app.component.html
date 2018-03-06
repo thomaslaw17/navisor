@@ -9,7 +9,7 @@
   <a routerLink="calendar">Calendar</a>
   <button (click)="logout()">Logout</button>
 </nav> -->
-<div class="tm-top-bar-bg"></div>
+<div class="tm-top-bar-bg" *ngIf="navBarService.show"></div>
 <div class="tm-top-bar" id="tm-top-bar" *ngIf="navBarService.show">
   <div class="container">
     <div class="row">
@@ -33,16 +33,16 @@
               <a class="nav-link" href="#tm-section-4">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#tm-section-6" routerLink="tripPlanning">Travel Plan</a>
+              <a class="nav-link" routerLink="tripPlanning">Travel Plan</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#tm-section-5">Partnership</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#tm-section-6" routerLink="career">Career</a>
+              <a class="nav-link" routerLink="career">Career</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#tm-section-6">Contact Us</a>
+              <a class="nav-link" href="#tm-section-7">Contact Us</a>
             </li>
           </ul>
         </div>

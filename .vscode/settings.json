@@ -7,5 +7,5 @@
   "tslint.configFile": "tslint.json",
   "prettier.singleQuote": true,
   "vsicons.presets.angular": true,
-  "tslint.ignoreDefinitionFiles": false,
+  "tslint.ignoreDefinitionFiles": false
 }

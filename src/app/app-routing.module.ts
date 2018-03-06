@@ -1,3 +1,4 @@
+import { NewPlaceComponent } from './new-place/new-place.component';
 import { BookingConfirmComponent } from './booking-confirm/booking-confirm.component';
 import { SearchDetailComponent } from './search-detail/search-detail.component';
 import { CareerComponent } from './career/career.component';
@@ -87,6 +88,10 @@ const routes: Routes = [
   {
     path: 'customTrip/:tripId',
     component: CustomTripComponent
+  },
+  {
+    path: 'editPlace/:id',
+    component: NewPlaceComponent
   },
   {
     path: '**',

@@ -1,3 +1,4 @@
+import { Place } from './../../model/Place';
 import { NavBarService } from './../nav-bar.service';
 import { AppGlobal } from './../app.global';
 import { Component, OnInit } from '@angular/core';
@@ -57,6 +58,14 @@ export class HomeComponent implements OnInit {
     subject: string;
     msg: string;
   };
+
+  public suggestPlace: Array<Place>;
+
+  public suggestNavigator: Array<{
+    name: string;
+    description: string;
+    pic: string;
+  }>;
 
   public Config: NgxCarousel;
 
@@ -200,6 +209,10 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  gotoCareer() {
+    this.router.navigate(['career']);
+  }
+
   ngOnInit() {
     this.navBarService.showNavbar();
     this.themes = [
@@ -258,5 +271,82 @@ export class HomeComponent implements OnInit {
       subject: '',
       msg: ''
     };
+
+    const firebasePrefix =
+      'https://firebasestorage.googleapis.com/v0/b/navisor-b9b70.appspot.com/';
+    this.suggestPlace = [
+      {
+        name: 'Night view from the peak',
+        price: 100,
+        description: 'Here is the peak.',
+        type: 'View',
+        photoUrl:
+          firebasePrefix +
+          'o/home%2Fimg%2Fimg-01.jpg?alt=media&token=86b77455-9052-48e4-be25-98d870fd612f'
+      },
+      {
+        name: 'Boat ride in the victoria habour',
+        price: 300,
+        description: 'Boat trip.',
+        type: 'View',
+        photoUrl:
+          firebasePrefix +
+          'o/home%2Fimg%2Fimg-02.jpg?alt=media&token=622bc5c4-adb7-41a2-adb1-13afcb1b0668'
+      },
+      {
+        name: "St. John's Cathedral",
+        price: 300,
+        description: 'One of the oldest church in Hong Kong ',
+        type: 'View',
+        photoUrl:
+          firebasePrefix +
+          'o/home%2Fimg%2Fimg-03.jpg?alt=media&token=0459d797-8ac4-47b0-be1d-0c5f41086a89'
+      },
+      {
+        name: "Mong Kok Ladies' Market",
+        price: 300,
+        description: 'You can do shopping here!',
+        type: 'View',
+        photoUrl:
+          firebasePrefix +
+          'o/home%2Fimg%2Fimg-04.jpg?alt=media&token=93e9653d-425f-4a00-b23e-f2a60a6a22fd'
+      },
+      {
+        name: 'Lai Chi Wo Village',
+        price: 300,
+        description: 'The village resides next to a geopark',
+        type: 'View',
+        photoUrl:
+          firebasePrefix +
+          'o/home%2Fimg%2Fimg-05.jpg?alt=media&token=66600295-fbca-4646-8941-7796545ffcc4'
+      },
+      {
+        name: 'Graffiti on Graham Street',
+        price: 300,
+        description: 'This is a nice place to take photos',
+        type: 'View',
+        photoUrl:
+          firebasePrefix +
+          'o/home%2Fimg%2Fimg-06.jpg?alt=media&token=97261f4d-73e4-4fc2-b7f7-f49daef99d12'
+      }
+    ];
+
+    this.suggestNavigator = [
+      {
+        name: 'Amy',
+        description: 'HKU BBA(IS) Year 4',
+        pic: 'img/andy.jpg'
+      },
+      {
+        name: 'Ann',
+        description: 'HKU BBA(IS) Year 4',
+        pic: 'img/erwin.jpg'
+      },
+      {
+        name: 'Hong',
+        description: 'HKU BBA(IS) Year 4',
+        pic: 'img/thomas.jpg'
+      }
+    ];
   }
 }

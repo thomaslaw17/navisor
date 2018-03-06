@@ -8,20 +8,20 @@
               <div class="form-row tm-search-form-row">
                 <div class="form-group tm-form-element tm-form-element-100">
                   <i class="fa fa-map-marker fa-2x tm-form-element-icon"></i>
-                  <input name="location" type="text" class="form-control" id="inputLocation" placeholder="Desired Location">
+                  <input name="location" type="text" class="form-control" id="inputLocation" placeholder="Desired Location" [(ngModel)]="appGlobal.search.location">
                 </div>
                 <div class="form-group tm-form-element tm-form-element-50">
                   <i class="fa fa-calendar fa-2x tm-form-element-icon"></i>
-                  <input name="Start Date" type="text" class="form-control" id="inputStartDate" placeholder="Start Date">
+                  <input name="Start Date" type="date" class="form-control" id="inputStartDate" placeholder="Start Date" [(ngModel)]="appGlobal.search.startDate">
                 </div>
                 <div class="form-group tm-form-element tm-form-element-50">
                   <i class="fa fa-calendar fa-2x tm-form-element-icon"></i>
-                  <input name="End Date" type="text" class="form-control" id="inputEndDate" placeholder="End Date">
+                  <input name="End Date" type="date" class="form-control" id="inputEndDate" placeholder="End Date" [(ngModel)]="appGlobal.search.endDate">
                 </div>
               </div>
               <div class="form-row tm-search-form-row">
                 <div class="form-group tm-form-element tm-form-element-2">
-                  <select name="theme" class="form-control tm-select" id="theme">
+                  <select name="theme" class="form-control tm-select" id="theme" [(ngModel)]="appGlobal.search.theme">
                     <option value="">Theme</option>
                     <option value="1">Cultural & Heritage</option>
                     <option value="2">Nature</option>
@@ -33,7 +33,7 @@
                   <i class="fa fa-map-marker fa-2x tm-form-element-icon"></i>
                 </div>
                 <div class="form-group tm-form-element tm-form-element-2">
-                  <select name="budget" class="form-control tm-select" id="budget">
+                  <select name="budget" class="form-control tm-select" id="budget" [(ngModel)]="appGlobal.search.budget">
                     <option value="">Budget</option>
                     <option value="0">$500-$1,000</option>
                     <option value="1">$1,000-$1500</option>
@@ -43,7 +43,7 @@
                   <i class="fa fa-2x fa-user tm-form-element-icon"></i>
                 </div>
                 <div class="form-group tm-form-element tm-form-element-2">
-                  <select name="NumberOfTravellers" class="form-control tm-select" id="NumberOfTravellers">
+                  <select name="NumberOfTravellers" class="form-control tm-select" id="NumberOfTravellers" [(ngModel)]="appGlobal.search.numberOfTravellers">
                     <option value="">Number of travellers</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -61,7 +61,7 @@
                 </div>
                 <div class="form-group tm-form-element tm-form-element-2">
                   <em class="fa fa-2x fa-user tm-form-element-icon"></em>
-                  <input name="navigator" type="text" class="form-control" id="inputNavigator" placeholder="Name of Navigator">
+                  <input name="navigator" type="text" class="form-control" id="inputNavigator" placeholder="Name of Navigator" [(ngModel)]="appGlobal.search.nameOfNavigator">
                 </div>
 
 
@@ -106,10 +106,23 @@
   </div>
 </div>
 
-<div class="tm-section tm-section-pad tm-bg-gray" id="tm-section-4">
-  <div>
+<div class="tm-section tm-section-pad tm-bg-gray flex-row" id="tm-section-4">
+  <div class="container">
+    <div class="card-deck row" *ngFor="let resultRow of results">
+      <article class="card col-md-4 tm-bg-white" *ngFor="let result of resultRow">
+        <img src="{{result.photo}}" alt="Image" class="img-fluid">
+        <div class="tm-article-pad">
+          <header>
+            <h3 class="text-uppercase tm-article-title-2">{{result.name}}</h3>
+          </header>
+          <p>{{result.detail}}</p>
 
-    <div class="column">
+          <a class="text-uppercase btn-primary tm-btn-primary" (click)="searchDetail(result.type, result.id)">Get More Info.</a>
+        </div>
+      </article>
+    </div>
+
+    <!-- <div class="column">
 
       <article class="tm-bg-white mr-2">
         <img src="img/img-01.jpg" alt="Image" class="img-fluid">
@@ -208,7 +221,7 @@
 
 
 
-    </div>
+    </div> -->
 
   </div>
   &nbsp;</div>

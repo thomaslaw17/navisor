@@ -4,6 +4,7 @@ import { AuthService } from './../auth.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { AppGlobal } from '../app.global';
+import { Result } from '../../model/Result';
 
 @Component({
   selector: 'app-search',
@@ -18,7 +19,7 @@ export class SearchComponent implements OnInit {
 
   public show: boolean;
 
-  public results: Array<Event>;
+  public results: Result[][];
 
   constructor(
     private router: Router,
@@ -34,7 +35,7 @@ export class SearchComponent implements OnInit {
     // this.keyword, this.catagory
   }
 
-  searchDetail(id) {
+  searchDetail(type, id) {
     this.router.navigate(['search/detail/' + id]);
   }
 
@@ -42,5 +43,23 @@ export class SearchComponent implements OnInit {
     this.navBarSerive.showNavbar();
     this.show = false;
     this.catagories = ['cat 1', 'cat 2', 'cat 3'];
+
+    // testing
+    this.results = new Array<Result[]>();
+    for (let i = 0; i < 6 / 3; i++) {
+      const row: Result[] = new Array<Result>();
+      for (let j = 0; j < 3; j++) {
+        row.push({
+          id: '1',
+          name: 'Nunc in felis aliquet metus luctus iaculis',
+          detail:
+            'Aliquam ac lacus volutpat, dictum risus at, scelerisque nulla. Nullam sollicitudin at augue venenatis eleifend.' +
+            'Nulla ligula ligula, egestas sit amet viverra id, iaculis sit amet ligula.',
+          photo: '/img/1/',
+          type: 'event'
+        });
+      }
+      this.results.push(row);
+    }
   }
 }

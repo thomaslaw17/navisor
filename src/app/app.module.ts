@@ -43,6 +43,7 @@ import 'hammerjs';
 import { SearchDetailComponent } from './search-detail/search-detail.component';
 import { BookingConfirmComponent } from './booking-confirm/booking-confirm.component';
 import { CustomTripComponent } from './custom-trip/custom-trip.component';
+import { NewPlaceComponent } from './new-place/new-place.component';
 
 @NgModule({
   imports: [
@@ -76,7 +77,8 @@ import { CustomTripComponent } from './custom-trip/custom-trip.component';
     RegisterComponent,
     SearchDetailComponent,
     BookingConfirmComponent,
-    CustomTripComponent
+    CustomTripComponent,
+    NewPlaceComponent
   ],
   providers: [AngularFireAuth, AuthService, NavBarService, AppGlobal],
   bootstrap: [AppComponent]
