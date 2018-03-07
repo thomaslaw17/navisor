@@ -1,3 +1,8 @@
+import { AppGlobal } from './../app.global';
+import { NavBarService } from './../nav-bar.service';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { AuthService } from './../auth.service';
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +11,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./custom-trip.component.css']
 })
 export class CustomTripComponent implements OnInit {
-
-  constructor() { }
+  constructor(
+    private router: Router,
+    private authService: AuthService,
+    private angularFireDatanase: AngularFireDatabase,
+    private navBarService: NavBarService,
+    public appGlobal: AppGlobal
+  ) {}
 
   ngOnInit() {
+    this.navBarService.showNavbar();
   }
-
 }

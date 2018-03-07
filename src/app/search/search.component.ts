@@ -25,7 +25,7 @@ export class SearchComponent implements OnInit {
     private router: Router,
     private authService: AuthService,
     private angularFireDatanase: AngularFireDatabase,
-    private navBarSerive: NavBarService,
+    private navBarService: NavBarService,
     public appGlobal: AppGlobal
   ) {}
 
@@ -40,7 +40,7 @@ export class SearchComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.navBarSerive.showNavbar();
+    this.navBarService.showNavbar();
     this.show = false;
     this.catagories = ['cat 1', 'cat 2', 'cat 3'];
 
