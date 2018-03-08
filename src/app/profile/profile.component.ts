@@ -21,12 +21,12 @@ export class ProfileComponent implements OnInit {
     private authService: AuthService,
     private angularFireDatanase: AngularFireDatabase
   ) {
-    if (authService.checkLogin()) {
-      const userState = authService.getAuthState();
-      this.userObj = angularFireDatanase.object('User/' + userState.uid);
-    } else {
-      this.router.navigate(['login']);
-    }
+    // if (authService.checkLogin()) {
+    //   const userState = authService.getAuthState();
+    //   this.userObj = angularFireDatanase.object('User/' + userState.uid);
+    // } else {
+    //   this.router.navigate(['login']);
+    // }
   }
 
   gotoCalendar() {}
