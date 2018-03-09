@@ -15,6 +15,7 @@ import {
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { NgxCarousel } from 'ngx-carousel';
+import { Trip } from '../../model/Trip';
 
 @Component({
   selector: 'app-home',
@@ -59,7 +60,12 @@ export class HomeComponent implements OnInit {
     msg: string;
   };
 
-  public suggestPlace: Array<Place>;
+  public suggestTrips: Array<{
+    tripId: string;
+    name: string;
+    photoUrl: string;
+    description: string;
+  }>;
 
   public suggestNavigator: Array<{
     name: string;
@@ -274,60 +280,55 @@ export class HomeComponent implements OnInit {
 
     const firebasePrefix =
       'https://firebasestorage.googleapis.com/v0/b/navisor-b9b70.appspot.com/';
-    this.suggestPlace = [
+    this.suggestTrips = [
       {
+        tripId: '1',
         name: 'Night view from the peak',
-        price: 100,
-        description: 'Here is the peak.',
-        type: 'View',
         photoUrl:
           firebasePrefix +
-          'o/home%2Fimg%2Fimg-01.jpg?alt=media&token=86b77455-9052-48e4-be25-98d870fd612f'
+          'o/home%2Fimg%2Fimg-01.jpg?alt=media&token=86b77455-9052-48e4-be25-98d870fd612f',
+        description: 'Here is the peak.'
       },
       {
+        tripId: '2',
         name: 'Boat ride in the victoria habour',
-        price: 300,
-        description: 'Boat trip.',
-        type: 'View',
         photoUrl:
           firebasePrefix +
-          'o/home%2Fimg%2Fimg-02.jpg?alt=media&token=622bc5c4-adb7-41a2-adb1-13afcb1b0668'
+          'o/home%2Fimg%2Fimg-02.jpg?alt=media&token=622bc5c4-adb7-41a2-adb1-13afcb1b0668',
+        description: 'Boat trip.'
       },
       {
+        tripId: '3',
         name: "St. John's Cathedral",
-        price: 300,
-        description: 'One of the oldest church in Hong Kong ',
-        type: 'View',
         photoUrl:
           firebasePrefix +
-          'o/home%2Fimg%2Fimg-03.jpg?alt=media&token=0459d797-8ac4-47b0-be1d-0c5f41086a89'
+          'o/home%2Fimg%2Fimg-03.jpg?alt=media&token=0459d797-8ac4-47b0-be1d-0c5f41086a89',
+          description: 'One of the oldest church in Hong Kong '
       },
       {
+        tripId: '4',
         name: "Mong Kok Ladies' Market",
-        price: 300,
-        description: 'You can do shopping here!',
-        type: 'View',
         photoUrl:
           firebasePrefix +
-          'o/home%2Fimg%2Fimg-04.jpg?alt=media&token=93e9653d-425f-4a00-b23e-f2a60a6a22fd'
+          'o/home%2Fimg%2Fimg-04.jpg?alt=media&token=93e9653d-425f-4a00-b23e-f2a60a6a22fd',
+        description: 'You can do shopping here!'
       },
       {
+        tripId: '5',
         name: 'Lai Chi Wo Village',
-        price: 300,
-        description: 'The village resides next to a geopark',
-        type: 'View',
         photoUrl:
           firebasePrefix +
-          'o/home%2Fimg%2Fimg-05.jpg?alt=media&token=66600295-fbca-4646-8941-7796545ffcc4'
+          'o/home%2Fimg%2Fimg-05.jpg?alt=media&token=66600295-fbca-4646-8941-7796545ffcc4',
+
+        description: 'The village resides next to a geopark'
       },
       {
+        tripId: '6',
         name: 'Graffiti on Graham Street',
-        price: 300,
-        description: 'This is a nice place to take photos',
-        type: 'View',
         photoUrl:
           firebasePrefix +
-          'o/home%2Fimg%2Fimg-06.jpg?alt=media&token=97261f4d-73e4-4fc2-b7f7-f49daef99d12'
+          'o/home%2Fimg%2Fimg-06.jpg?alt=media&token=97261f4d-73e4-4fc2-b7f7-f49daef99d12',
+          description: 'This is a nice place to take photos'
       }
     ];
 

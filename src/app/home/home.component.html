@@ -112,14 +112,14 @@
       <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8">
         <div class="tm-article-carousel">
           <ngx-carousel [inputs]="Config">
-            <ngx-item NgxCarouselItem *ngFor="let place of suggestPlace">
+            <ngx-item NgxCarouselItem *ngFor="let trip of suggestTrips">
               <article class="tm-bg-white mr-2 tm-carousel-item">
-                <img src="{{place.photoUrl}}" alt="Image" class="img-fluid">
+                <img src="{{trip.photoUrl}}" alt="Image" class="img-fluid">
                 <div class="tm-article-pad">
                   <header>
-                    <h3 class="text-uppercase tm-article-title-2">{{place.name}}</h3>
+                    <h3 class="text-uppercase tm-article-title-2">{{trip.name}}</h3>
                   </header>
-                  <p>{{place.description}}</p>
+                  <p>{{trip.description}}</p>
                   <a href="#" class="text-uppercase btn-primary tm-btn-primary">Get More Info.</a>
                 </div>
               </article>
@@ -209,14 +209,13 @@
 </div>
 
 <div class="tm-bg-video">
-  <div class="overlay">
-    <i class="fa fa-5x fa-play-circle tm-btn-play"></i>
-    <i class="fa fa-5x fa-pause-circle tm-btn-pause"></i>
-  </div>
 
-  <video controls="" loop="" class="tmVideo">
+
+  <video class="tmVideo" autoplay controls muted onloadedmetadata="this.muted = true" onmouseenter="play()" onmouseleave="pause()">
     <source src="https://firebasestorage.googleapis.com/v0/b/navisor-b9b70.appspot.com/o/home%2Fvideo%2Fvideo.mp4?alt=media&token=cccbd037-7c06-427f-a5e2-89a7de60aec3"
       type="video/mp4">
+    <!-- <source src="https://firebasestorage.googleapis.com/v0/b/navisor-b9b70.appspot.com/o/home%2Fvideo%2Fvideo.mp4?alt=media&token=cccbd037-7c06-427f-a5e2-89a7de60aec3"
+      type="video/mp4"> -->
   </video>
 </div>
 
