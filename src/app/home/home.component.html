@@ -211,11 +211,9 @@
 <div class="tm-bg-video">
 
 
-  <video class="tmVideo" autoplay controls muted onloadedmetadata="this.muted = true" onmouseenter="play()" onmouseleave="pause()">
+  <video id="homeVideo" class="tmVideo" autoplay controls muted onloadedmetadata="this.muted = true" ng-click="videoControl($event)">
     <source src="https://firebasestorage.googleapis.com/v0/b/navisor-b9b70.appspot.com/o/home%2Fvideo%2Fvideo.mp4?alt=media&token=cccbd037-7c06-427f-a5e2-89a7de60aec3"
       type="video/mp4">
-    <!-- <source src="https://firebasestorage.googleapis.com/v0/b/navisor-b9b70.appspot.com/o/home%2Fvideo%2Fvideo.mp4?alt=media&token=cccbd037-7c06-427f-a5e2-89a7de60aec3"
-      type="video/mp4"> -->
   </video>
 </div>
 

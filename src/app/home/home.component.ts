@@ -97,6 +97,10 @@ export class HomeComponent implements OnInit {
     console.log('afterChange');
   }
 
+  videoControl(event) {
+    //   document.getElementById('homeVideo').play();
+  }
+
   search() {
     let filled = false;
     let alerted = false;
@@ -303,7 +307,7 @@ export class HomeComponent implements OnInit {
         photoUrl:
           firebasePrefix +
           'o/home%2Fimg%2Fimg-03.jpg?alt=media&token=0459d797-8ac4-47b0-be1d-0c5f41086a89',
-          description: 'One of the oldest church in Hong Kong '
+        description: 'One of the oldest church in Hong Kong '
       },
       {
         tripId: '4',
@@ -328,7 +332,7 @@ export class HomeComponent implements OnInit {
         photoUrl:
           firebasePrefix +
           'o/home%2Fimg%2Fimg-06.jpg?alt=media&token=97261f4d-73e4-4fc2-b7f7-f49daef99d12',
-          description: 'This is a nice place to take photos'
+        description: 'This is a nice place to take photos'
       }
     ];
 
