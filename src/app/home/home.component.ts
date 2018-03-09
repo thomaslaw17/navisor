@@ -101,6 +101,10 @@ export class HomeComponent implements OnInit {
     //   document.getElementById('homeVideo').play();
   }
 
+  gotoTripDetail(tripId) {
+    this.router.navigate(['searchDetail/' + tripId]);
+  }
+
   search() {
     let filled = false;
     let alerted = false;
@@ -284,9 +288,10 @@ export class HomeComponent implements OnInit {
 
     const firebasePrefix =
       'https://firebasestorage.googleapis.com/v0/b/navisor-b9b70.appspot.com/';
+
     this.suggestTrips = [
       {
-        tripId: '1',
+        tripId: 'tripId',
         name: 'Night view from the peak',
         photoUrl:
           firebasePrefix +
