@@ -420,3 +420,8 @@ body {
   color: #607d8b;
   overflow: visible;
 }
+
+.fb-button{
+  background-color: #374B94;
+  border-color: #374B94;
+}
