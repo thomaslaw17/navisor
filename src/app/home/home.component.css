@@ -32,3 +32,8 @@ ngx-carousel button[NgxCarouselPrev] {
 ngx-carousel button[NgxCarouselNext] {
   right: 50px;
 }
+
+.recommendedTrips {
+  width: 140px;
+  height: 100px;
+}
