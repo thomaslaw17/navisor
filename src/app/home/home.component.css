@@ -37,3 +37,10 @@ ngx-carousel button[NgxCarouselNext] {
   width: 140px;
   height: 100px;
 }
+
+.tm-section-6 {
+  background-image: url('https://firebasestorage.googleapis.com/v0/b/navisor-b9b70.appspot.com/o/home%2Fimg%2FsectionBg%2FchoiHungEstatev2.jpg?alt=media&token=b3b39cfd-de77-4bfb-aba0-e53921f56715');
+  background-position: top center;
+  padding-top: 120px;
+  padding-bottom: 60px;
+}

@@ -43,7 +43,7 @@
               </div>
               <div class="form-group tm-form-element tm-form-element-2">
                 <select name="NumberOfTravellers" class="form-control tm-select" id="NumberOfTravellers" [(ngModel)]="appGlobal.search.numberOfTravellers">
-                  <option value="">Number of travellers</option>
+                  <option value="0">Number of travellers</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
@@ -65,20 +65,15 @@
             </div>
 
             <div class="form-row clearfix pl-2 pr-2 tm-fx-col-xs">
-              <p class="tm-margin-b-0">
+              <p class="tm-margin-b-0 col-lg-3">
                 <em>Search your desired travel plan now!</em>
               </p>
 
-              <div class="form-group tm-form-element tm-form-element-2 tm-btn-search">
-                <em>
-                  <button type="submit" class="btn btn-primary" (click)="search()">Search</button>
-                </em>
+              <div class="form-group tm-form-element tm-form-element-2 tm-btn-search col-lg-9" style="width: 75%; padding: 0px;">
+                <button type="submit" class="btn btn-primary" style="float:right;" (click)="search()">Search</button>
               </div>
-
             </div>
-
           </form>
-
         </div>
       </div>
     </div>
@@ -120,7 +115,7 @@
                     <h3 class="text-uppercase tm-article-title-2">{{trip.name}}</h3>
                   </header>
                   <p>{{trip.description}}</p>
-                  <a href="#" class="text-uppercase btn-primary tm-btn-primary">Get More Info.</a>
+                  <a href="#" class="text-uppercase btn-primary tm-btn-primary">View Details</a>
                 </div>
               </article>
             </ngx-item>
@@ -181,7 +176,21 @@
 
 <div class="container tm-pt-5 tm-pb-4" id="tm-section-4">
   <h1 class="text-uppercase tm-section-title-2 text-center">About Us</h1>
-  <p>We are ........</p>
+  <h5>Hong Kong has long been praised as a “shopping haven” and is famous for its numerous tourist attractions. Through engaging
+    in the local trips from traditional package tour, travellers usually visit popular travellers spots like Tsim Sha Tsui
+    and Mongkok for shopping, the Peak for sightseeing and Ocean Park for recreating. Yet, they lack the opportunities to
+    explore the other sides of Hong Kong, for example the natural scenery, local cuisines, heritage and nightlife. We endeavor
+    to provide travellers around the world with customized local trips where they will have a brand new experience in exploration
+    of the fantasy in Hong Kong. With our young, energetic “navigators” who are aged from 18 to 40, travellers can indulge
+    themselves in the unique culture and beauty of Hong Kong and act like a local!
+  </h5>
+  <br/>
+  <p>Interested in being a Hong Kong local for one day or some days? With Navisor, you can customize your own local trips simply
+    by browsing our website on your phone or laptop. Time, budget, theme of the trip, etc. can all be under your control.
+    Having no idea of where to visit, what to experience in Hong Kong? Our “navigators” could offer the most authentic travelling
+    itineraries to you.
+  </p>
+
   <h1 class="text-uppercase tm-section-title-2 text-center">Founders</h1>
   <div class="row text-center">
     <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 tm-article">
@@ -220,7 +229,7 @@
   </video>
 </div>
 
-<div class="container tm-pt-5 tm-pb-4" id="tm-section-6">
+<div class="tm-pt-5 tm-pb-4 tm-section-6">
   <h1 class="text-uppercase tm-section-title-2 text-center">Meet our Navigators</h1>
   <div class="row text-center">
     <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 tm-article" *ngFor="let navigator of suggestNavigator">
