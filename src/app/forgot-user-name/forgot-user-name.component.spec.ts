@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NewPlaceComponent } from './new-place.component';
+import { ForgotUserNameComponent } from './forgot-user-name.component';
 
-describe('NewPlaceComponent', () => {
-  let component: NewPlaceComponent;
-  let fixture: ComponentFixture<NewPlaceComponent>;
+describe('ForgotUserNameComponent', () => {
+  let component: ForgotUserNameComponent;
+  let fixture: ComponentFixture<ForgotUserNameComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NewPlaceComponent ]
+      declarations: [ ForgotUserNameComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NewPlaceComponent);
+    fixture = TestBed.createComponent(ForgotUserNameComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,4 +1,5 @@
-import { NewPlaceComponent } from './new-place/new-place.component';
+import { ForgotUserNameComponent } from './forgot-user-name/forgot-user-name.component';
+import { EditPlaceComponent } from './edit-place/edit-place.component';
 import { BookingConfirmComponent } from './booking-confirm/booking-confirm.component';
 import { SearchDetailComponent } from './search-detail/search-detail.component';
 import { CareerComponent } from './career/career.component';
@@ -19,6 +20,7 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CustomTripComponent } from './custom-trip/custom-trip.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 const routes: Routes = [
   {
@@ -32,6 +34,14 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'login/forgetPassword',
+    component: ForgotPasswordComponent
+  },
+  {
+    path: 'login/forgetUserName',
+    component: ForgotUserNameComponent
   },
   {
     path: 'calendar',
@@ -91,7 +101,7 @@ const routes: Routes = [
   },
   {
     path: 'editPlace/:id',
-    component: NewPlaceComponent
+    component: EditPlaceComponent
   },
   {
     path: '**',

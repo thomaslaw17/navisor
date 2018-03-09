@@ -7,11 +7,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-new-place',
-  templateUrl: './new-place.component.html',
-  styleUrls: ['./new-place.component.css']
+  selector: 'app-edit-place',
+  templateUrl: './edit-place.component.html',
+  styleUrls: ['./edit-place.component.css']
 })
-export class NewPlaceComponent implements OnInit {
+export class EditPlaceComponent implements OnInit {
   public placeId: string;
   public placeObj: Observable<Place>;
   public places: AngularFireList<Place>;
