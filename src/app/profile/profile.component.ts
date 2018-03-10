@@ -19,7 +19,7 @@ export class ProfileComponent implements OnInit {
   constructor(
     private router: Router,
     private authService: AuthService,
-    private angularFireDatanase: AngularFireDatabase
+    private angularFireDatabase: AngularFireDatabase
   ) {
     // if (authService.checkLogin()) {
     //   const userState = authService.getAuthState();
@@ -37,9 +37,17 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     this.user = new User(); // waiting for user
-    this.userObj.valueChanges().subscribe(user => {
-      this.user = user;
-      this.type = user.type === 0 ? 'Traveller' : 'Navigator';
+
+    this.authService.getAuthState().subscribe(res => {
+      if (res && res.uid) {
+        this.userObj = this.angularFireDatabase.object('User/' + res.uid);
+        this.userObj.valueChanges().subscribe(user => {
+          this.user = user;
+          this.type = user.type === 0 ? 'Traveller' : 'Navigator';
+        });
+      } else {
+        this.router.navigate(['login']);
+      }
     });
   }
 }
