@@ -21,6 +21,18 @@ export class AppComponent {
     public navBarService: NavBarService
   ) {
     this.navBarService.showNavbar();
+    this.authService.getAuthState().subscribe(res => {
+      if (res) {
+        this.navBarService.showLogoutAndHideLogin();
+      } else {
+        this.navBarService.showLoginAndHideLogout();
+      }
+    });
+    // if (this.authService.checkLogin()) {
+    //   this.navBarService.showLogoutAndHideLogin();
+    // } else {
+    //   this.navBarService.showLoginAndHideLogout();
+    // }
     this.item = angularFireDatabase.object('item').valueChanges();
   }
 

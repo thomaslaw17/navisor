@@ -46,6 +46,7 @@ import { CustomTripComponent } from './custom-trip/custom-trip.component';
 import { EditPlaceComponent } from './edit-place/edit-place.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ForgotUserNameComponent } from './forgot-user-name/forgot-user-name.component';
+import { TripCategoryComponent } from './trip-category/trip-category.component';
 
 @NgModule({
   imports: [
@@ -82,7 +83,8 @@ import { ForgotUserNameComponent } from './forgot-user-name/forgot-user-name.com
     CustomTripComponent,
     EditPlaceComponent,
     ForgotPasswordComponent,
-    ForgotUserNameComponent
+    ForgotUserNameComponent,
+    TripCategoryComponent
   ],
   providers: [AngularFireAuth, AuthService, NavBarService, AppGlobal],
   bootstrap: [AppComponent]

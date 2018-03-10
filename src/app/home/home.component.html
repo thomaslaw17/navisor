@@ -224,33 +224,11 @@
   <h1 class="text-uppercase tm-section-title-2 text-center">Meet our Navigators</h1>
   <div class="row text-center">
     <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 tm-article" *ngFor="let navigator of suggestNavigator">
-      <img src="navigator.pic" alt="{{navigator.name}}" style="width:150px; height:150px;">
+      <img src="{{navigator.pic}}" alt="{{navigator.name}}" style="width:150px; height:150px;">
       <h3 class="tm-color-primary tm-article-title-1">{{navigator.name}}</h3>
       <p>{{navigator.description}}</p>
     </article>
 
-    <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 tm-article">
-      <img src="https://firebasestorage.googleapis.com/v0/b/navisor-b9b70.appspot.com/o/home%2Fimg%2Fnavigator%2Famy.jpg?alt=media&token=97b8de08-1ea3-4834-9a11-c36abef4a69c"
-        alt="Amy" style="width:150px; height:150px;">
-      <h3 class="tm-color-primary tm-article-title-1">Amy</h3>
-      <p>HKU BBA(IS) Year 4</p>
-      <a href="#" class="text-uppercase tm-color-primary tm-font-semibold">Continue reading...</a>
-    </article>
-    <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 tm-article">
-      <img src="https://firebasestorage.googleapis.com/v0/b/navisor-b9b70.appspot.com/o/home%2Fimg%2Fnavigator%2Fann.jpg?alt=media&token=716cae0c-8250-422c-9d10-9c583cf1a567"
-        alt="Ann" style="width:150px; height:150px;">
-      <h3 class="tm-color-primary tm-article-title-1">Ann</h3>
-      <p>HKU BBA(IS) Year 4
-        <br> Magic Club Exco 2014-15</p>
-      <a href="#" class="text-uppercase tm-color-primary tm-font-semibold">Continue reading...</a>
-    </article>
-    <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 tm-article">
-      <img src="https://firebasestorage.googleapis.com/v0/b/navisor-b9b70.appspot.com/o/home%2Fimg%2Fnavigator%2Fhong.jpg?alt=media&token=dae3690b-b2df-4ac2-8ae8-659f634daab9"
-        alt="Hong" style="width:150px; height:150px;">
-      <h3 class="tm-color-primary tm-article-title-1">Hong</h3>
-      <p>HKU BBA(IS) Year 4</p>
-      <a href="#" class="text-uppercase tm-color-primary tm-font-semibold">Continue reading...</a>
-    </article>
     <a href="#" class="text-uppercase btn-primary tm-btn-primary" (click)="gotoCareer()">Join Us</a>
   </div>
 </div>

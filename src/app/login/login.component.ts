@@ -1,3 +1,4 @@
+import { AppGlobal } from './../app.global';
 import { NavBarService } from './../nav-bar.service';
 import { Router } from '@angular/router';
 import { AngularFireDatabase } from 'angularfire2/database';
@@ -22,13 +23,15 @@ export class LoginComponent implements OnInit {
     private authService: AuthService,
     private angularFireDatabase: AngularFireDatabase,
     private router: Router,
-    private navBarService: NavBarService
+    private navBarService: NavBarService,
+    private appGlobal: AppGlobal
   ) {}
 
   login() {
     this.authService
       .login(this.email, this.password)
       .then(res => {
+        this.navBarService.showLogoutAndHideLogin();
         console.log('Login Success', res);
         this.router.navigate(['home']);
       })
@@ -77,14 +80,22 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['register']);
   }
 
-  forgetPassword() {}
+  forgetPassword() {
+    this.router.navigate(['forgetPassword']);
+  }
+
+  forgetUserName() {
+    this.router.navigate(['forgetUserName']);
+  }
 
   ngOnInit() {
     this.show = false;
-    this.loginState = this.authService.checkLogin();
     this.navBarService.hideNavBar();
-    if (this.loginState) {
-      this.router.navigate(['home']);
-    }
+    this.authService.getAuthState().subscribe(res => {
+      if (res) {
+        this.router.navigate(['home']);
+        this.navBarService.showLogoutAndHideLogin();
+      }
+    });
   }
 }

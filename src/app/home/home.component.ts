@@ -345,17 +345,23 @@ export class HomeComponent implements OnInit {
       {
         name: 'Amy',
         description: 'HKU BBA(IS) Year 4',
-        pic: 'img/andy.jpg'
+        pic:
+          firebasePrefix +
+          'o/home%2Fimg%2Fnavigator%2Famy.jpg?alt=media&token=97b8de08-1ea3-4834-9a11-c36abef4a69c'
       },
       {
         name: 'Ann',
         description: 'HKU BBA(IS) Year 4',
-        pic: 'img/erwin.jpg'
+        pic:
+          firebasePrefix +
+          'o/home%2Fimg%2Fnavigator%2Fann.jpg?alt=media&token=716cae0c-8250-422c-9d10-9c583cf1a567'
       },
       {
         name: 'Hong',
         description: 'HKU BBA(IS) Year 4',
-        pic: 'img/thomas.jpg'
+        pic:
+          firebasePrefix +
+          'o/home%2Fimg%2Fnavigator%2Fhong.jpg?alt=media&token=dae3690b-b2df-4ac2-8ae8-659f634daab9'
       }
     ];
   }

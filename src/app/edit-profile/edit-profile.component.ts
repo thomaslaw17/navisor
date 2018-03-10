@@ -56,11 +56,12 @@ export class EditProfileComponent implements OnInit {
   ngOnInit() {
     this.user = new User(); // waiting for user
     if (this.authService.checkLogin()) {
-      const userState = this.authService.getAuthState();
-      this.userObj = this.angularFireDatabase.object('User/' + userState.uid);
-      this.userObj.valueChanges().subscribe(user => {
-        this.user = user;
-        this.type = user.type === 0 ? 'Traveller' : 'Navigator';
+      this.authService.getAuthState().subscribe(res => {
+        this.userObj = this.angularFireDatabase.object('User/' + res.uid);
+        this.userObj.valueChanges().subscribe(user => {
+          this.user = user;
+          this.type = user.type === 0 ? 'Traveller' : 'Navigator';
+        });
       });
     } else {
       this.router.navigate(['login']);

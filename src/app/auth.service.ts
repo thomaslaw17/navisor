@@ -1,9 +1,11 @@
+import { NavBarService } from './nav-bar.service';
+import { AppGlobal } from './app.global';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 import { User } from './../model/User';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Injectable } from '@angular/core';
-import * as firebase from 'firebase';
+import * as firebase from 'firebase/app';
 
 @Injectable()
 export class AuthService {
@@ -11,17 +13,27 @@ export class AuthService {
 
   constructor(
     private afAuth: AngularFireAuth,
-    private angularFireDatabase: AngularFireDatabase
+    private angularFireDatabase: AngularFireDatabase,
+    private appGlobal: AppGlobal,
+    private navBarService: NavBarService
   ) {
     this.userRef = angularFireDatabase.list('User');
   }
 
   checkLogin() {
-    return firebase.auth().currentUser ? true : false;
+    this.afAuth.authState.subscribe(res => {
+      if (res) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+    // return firebase.auth().currentUser ? true : false;
   }
 
   getAuthState() {
-    return firebase.auth().currentUser;
+    return this.afAuth.authState;
+    // return firebase.auth().currentUser;
   }
 
   login(email: string, password: string) {
@@ -35,6 +47,7 @@ export class AuthService {
   }
 
   logout() {
+    this.navBarService.showLoginAndHideLogout();
     return this.afAuth.auth.signOut();
   }
 

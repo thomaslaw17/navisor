@@ -1,3 +1,4 @@
+import { TripCategoryComponent } from './trip-category/trip-category.component';
 import { ForgotUserNameComponent } from './forgot-user-name/forgot-user-name.component';
 import { EditPlaceComponent } from './edit-place/edit-place.component';
 import { BookingConfirmComponent } from './booking-confirm/booking-confirm.component';
@@ -94,6 +95,10 @@ const routes: Routes = [
   {
     path: 'tripPlanning',
     component: TripPlanningComponent
+  },
+  {
+    path: 'tripPlanning/:category',
+    component: TripCategoryComponent
   },
   {
     path: 'customTrip/:tripId',
