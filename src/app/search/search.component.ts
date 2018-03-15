@@ -24,7 +24,7 @@ export class SearchComponent implements OnInit {
   constructor(
     private router: Router,
     private authService: AuthService,
-    private angularFireDatanase: AngularFireDatabase,
+    private angularFireDatabase: AngularFireDatabase,
     private navBarService: NavBarService,
     public appGlobal: AppGlobal
   ) {}
@@ -36,7 +36,8 @@ export class SearchComponent implements OnInit {
   }
 
   searchDetail(type, id) {
-    this.router.navigate(['search/detail/' + id]);
+    // this.router.navigate(['search/detail/' + id]);
+    this.router.navigate(['search/detail/trip/tripID']);
   }
 
   ngOnInit() {

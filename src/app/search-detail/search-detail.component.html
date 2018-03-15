@@ -30,7 +30,7 @@
             <img src="img/img-01.jpg" alt="Image" class="img-fluid">
             <div class="tm-article-pad">
               <header>
-                <h3 class="text-uppercase tm-article-title-2">Eget diam pellentesque interdum ut porta</h3>
+                <h3 class="text-uppercase tm-article-title-2">Eget diam pellentesque interdum ut porta {{trip.name}}</h3>
               </header>
               <p>Aenean finibus tempor nulla, et maximus nibh dapibus ac. Duis consequat sed sapien venenatis consequat. Aliquam
                 ac lacus volutpat, dictum risus at, scelerisque nulla.Aenean finibus tempor nulla, et maximus nibh dapibus
@@ -43,8 +43,10 @@
                 consequat sed sapien venenatis consequat. Aliquam ac lacus volutpat, dictum risus at, scelerisque nulla.Aenean
                 finibus tempor nulla, et maximus nibh dapibus ac. Duis qdsfds consequat sed sapien venenatis consequat. Aliquam
                 ac lacus volutpat, dictum risus at, scelerisque nulla.Aenean finibus tempor nulla, et maximus nibh dapibus
-                ac. Duisfdgf </p>
+                ac. Duisfdgf {{trip.description}}</p>
 
+            </div>
+            <div *ngFor="let event of trip.events">
             </div>
           </article>
         </div>
@@ -67,13 +69,13 @@
                 <h3 class="text-uppercase tm-article-title-2">Name of the Travel Plan</h3>
               </header>
 
-              <p>Induldge in Local Arts</p>
+              <p>Induldge in Local Arts {{trip.name}}</p>
 
               <header>
                 <h3 class="text-uppercase tm-article-title-2">Date and Time</h3>
               </header>
 
-              <p>1 April 2018 10 a.m. - 10 p.m.</p>
+              <p>1 April 2018 10 a.m. - 10 p.m.{{trip.startDate}} - {{trip.endDate}}</p>
 
               <header>
                 <h3 class="text-uppercase tm-article-title-2">Price</h3>
@@ -81,7 +83,7 @@
             </div>
 
 
-            <p>Regular Price: $1,200</p>
+            <p>Regular Price: $1,200 {{trip.price}}</p>
             <p *ngIf="!confirm">Early Bird: $1,080</p>
 
             <div align="center">

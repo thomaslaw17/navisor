@@ -23,7 +23,7 @@ export class ProfileComponent implements OnInit {
   ) {
     // if (authService.checkLogin()) {
     //   const userState = authService.getAuthState();
-    //   this.userObj = angularFireDatanase.object('User/' + userState.uid);
+    //   this.userObj = angularFireDatabase.object('User/' + userState.uid);
     // } else {
     //   this.router.navigate(['login']);
     // }

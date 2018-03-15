@@ -43,7 +43,6 @@ import 'hammerjs';
 import { SearchDetailComponent } from './search-detail/search-detail.component';
 import { BookingConfirmComponent } from './booking-confirm/booking-confirm.component';
 import { CustomTripComponent } from './custom-trip/custom-trip.component';
-import { EditPlaceComponent } from './edit-place/edit-place.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ForgotUserNameComponent } from './forgot-user-name/forgot-user-name.component';
 import { TripCategoryComponent } from './trip-category/trip-category.component';
@@ -81,7 +80,6 @@ import { TripCategoryComponent } from './trip-category/trip-category.component';
     SearchDetailComponent,
     BookingConfirmComponent,
     CustomTripComponent,
-    EditPlaceComponent,
     ForgotPasswordComponent,
     ForgotUserNameComponent,
     TripCategoryComponent

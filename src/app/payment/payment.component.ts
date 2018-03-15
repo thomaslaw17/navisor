@@ -13,7 +13,7 @@ export class PaymentComponent implements OnInit {
   constructor(
     private router: Router,
     private authService: AuthService,
-    private angularFireDatanase: AngularFireDatabase,
+    private angularFireDatabase: AngularFireDatabase,
     private navBarService: NavBarService
   ) {}
 

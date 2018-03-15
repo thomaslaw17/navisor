@@ -1,6 +1,5 @@
 import { TripCategoryComponent } from './trip-category/trip-category.component';
 import { ForgotUserNameComponent } from './forgot-user-name/forgot-user-name.component';
-import { EditPlaceComponent } from './edit-place/edit-place.component';
 import { BookingConfirmComponent } from './booking-confirm/booking-confirm.component';
 import { SearchDetailComponent } from './search-detail/search-detail.component';
 import { CareerComponent } from './career/career.component';
@@ -85,7 +84,7 @@ const routes: Routes = [
     component: SearchComponent
   },
   {
-    path: 'search/detail/:id',
+    path: 'search/detail/:obj/:id',
     component: SearchDetailComponent
   },
   {
@@ -103,10 +102,6 @@ const routes: Routes = [
   {
     path: 'customTrip/:tripId',
     component: CustomTripComponent
-  },
-  {
-    path: 'editPlace/:id',
-    component: EditPlaceComponent
   },
   {
     path: '**',
