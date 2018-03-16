@@ -53,6 +53,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { ForgotUserNameComponent } from './forgot-user-name/forgot-user-name.component';
 import { TripCategoryComponent } from './trip-category/trip-category.component';
 import { UtilService } from './util.service';
+import { FeatureTripComponent } from './feature-trip/feature-trip.component';
 
 @NgModule({
   imports: [
@@ -91,7 +92,8 @@ import { UtilService } from './util.service';
     CustomTripComponent,
     ForgotPasswordComponent,
     ForgotUserNameComponent,
-    TripCategoryComponent
+    TripCategoryComponent,
+    FeatureTripComponent
   ],
   providers: [
     AngularFireAuth,
