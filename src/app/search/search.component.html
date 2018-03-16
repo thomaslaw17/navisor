@@ -110,20 +110,15 @@
   <div class="container">
     <div class="card-deck row" *ngFor="let resultRow of results">
       <article class="card col-md-4 tm-bg-white" *ngFor="let result of resultRow">
-        <img src="{{result.photo}}" alt="Image" class="img-fluid">
-        <div class="tm-article-pad">
-          <header>
-            <h3 class="text-uppercase tm-article-title-2">{{result.name}}</h3>
-          </header>
-          <p>{{result.detail}}</p>
 
-          <a class="text-uppercase btn-primary tm-btn-primary" (click)="searchDetail(result.type, result.id)">Get More Info.</a>
-        </div>
+        <app-search-result [result]=result></app-search-result>
+
       </article>
     </div>
 
   </div>
-  &nbsp;</div>
+  &nbsp;
+</div>
 
 <div>
 

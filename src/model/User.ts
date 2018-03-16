@@ -1,4 +1,3 @@
-import { AngularFireList } from 'angularfire2/database';
 export class User {
   public address: string;
   public birthday: Date;
