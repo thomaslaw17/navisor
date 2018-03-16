@@ -8,11 +8,13 @@
               <div class="form-row tm-search-form-row">
                 <div class="form-group tm-form-element tm-form-element-100">
                   <i class="fa fa-map-marker fa-2x tm-form-element-icon"></i>
-                  <input name="location" type="text" class="form-control" id="inputLocation" placeholder="Desired Location" [(ngModel)]="appGlobal.search.location">
+                  <input name="location" type="text" class="form-control" id="inputLocation" placeholder="Desired Location"
+                    [(ngModel)]="appGlobal.search.location">
                 </div>
                 <div class="form-group tm-form-element tm-form-element-50">
                   <i class="fa fa-calendar fa-2x tm-form-element-icon"></i>
-                  <input name="Start Date" type="date" class="form-control" id="inputStartDate" placeholder="Start Date" [(ngModel)]="appGlobal.search.startDate">
+                  <input name="Start Date" type="date" class="form-control" id="inputStartDate" placeholder="Start Date"
+                    [(ngModel)]="appGlobal.search.startDate">
                 </div>
                 <div class="form-group tm-form-element tm-form-element-50">
                   <i class="fa fa-calendar fa-2x tm-form-element-icon"></i>
@@ -35,10 +37,14 @@
                 <div class="form-group tm-form-element tm-form-element-2">
                   <select name="budget" class="form-control tm-select" id="budget" [(ngModel)]="appGlobal.search.budget">
                     <option value="">Budget</option>
-                    <option value="0">$500-$1,000</option>
-                    <option value="1">$1,000-$1500</option>
-                    <option value="2">$1,500-$2,000</option>
-                    <option value="3">&#62; $2,000</option>
+                    <option value="0">$500-$1, 000
+                    </option>
+                    <option value="1">$1, 000-$1500
+                    </option>
+                    <option value="2">$1, 500-$2, 000
+                    </option>
+                    <option value="3">&#62; $2, 000
+                    </option>
                   </select>
                   <i class="fa fa-2x fa-user tm-form-element-icon"></i>
                 </div>
@@ -55,79 +61,63 @@
                     <option value="8">8</option>
                     <option value="9">9</option>
                     <option value="10">10</option>
-                    <option value="10">&#62; 10</option>
+                    <option value="10">&#62; 10
+                    </option>
                   </select>
                   <i class="fa fa-2x fa-user tm-form-element-icon"></i>
                 </div>
                 <div class="form-group tm-form-element tm-form-element-2">
                   <em class="fa fa-2x fa-user tm-form-element-icon"></em>
-                  <input name="navigator" type="text" class="form-control" id="inputNavigator" placeholder="Name of Navigator" [(ngModel)]="appGlobal.search.nameOfNavigator">
+                  <input name="navigator" type="text" class="form-control" id="inputNavigator" placeholder="Name of Navigator"
+                    [(ngModel)]="appGlobal.search.nameOfNavigator">
                 </div>
-
-
               </div>
-
               <div class="form-row clearfix pl-2 pr-2 tm-fx-col-xs">
                 <p class="tm-margin-b-0">
                   <em>Search your desired travel plan now!</em>
                 </p>
-
                 <div class="form-group tm-form-element tm-form-element-2 tm-btn-search">
                   <em>
                     <button type="submit" class="btn btn-primary">Search</button>
                   </em>
                 </div>
               </div>
-
             </form>
-
           </div>
         </div>
       </div>
     </div>
   </div>
-
   <div class="tm-section-2">
     <div class="container">
       <div class="row">
         <div class="col text-center">
           <h2 class="tm-section-title">Search Results</h2>
-
         </div>
       </div>
     </div>
   </div>
-
   <div class="tm-section tm-position-relative">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" class="tm-section-down-arrow">
       <polygon fill="#ee5057" points="0,0  100,0  50,60"></polygon>
     </svg>
-
   </div>
 </div>
-
 <div class="tm-section tm-section-pad tm-bg-gray flex-row" id="tm-section-4">
   <div class="container">
     <div class="card-deck row" *ngFor="let resultRow of results">
       <article class="card col-md-4 tm-bg-white" *ngFor="let result of resultRow">
-
         <app-search-result [result]=result></app-search-result>
-
       </article>
     </div>
-
-  </div>
-  &nbsp;
+  </div>&nbsp;
 </div>
-
 <div>
-
   <footer class="tm-bg-dark-blue">
     <div class="container">
       <div class="row">
-        <p class="col-sm-12 text-center tm-font-light tm-color-white p-4 tm-margin-b-0">
-          Copyright &copy;
-          <span class="tm-current-year">2018</span> Navisor - Designed by
+        <p class="col-sm-12 text-center tm-font-light tm-color-white p-4 tm-margin-b-0">Copyright &copy;
+          <span class="tm-current-year">2018</span>Navisor - Designed by
           <a class="tm-color-primary tm-font-normal" (click)="appGlobal.gotoHome()">Navisor</a>
         </p>
       </div>
