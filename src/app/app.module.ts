@@ -52,6 +52,7 @@ import { CustomTripComponent } from './custom-trip/custom-trip.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ForgotUserNameComponent } from './forgot-user-name/forgot-user-name.component';
 import { TripCategoryComponent } from './trip-category/trip-category.component';
+import { UtilService } from './util.service';
 
 @NgModule({
   imports: [
@@ -92,7 +93,13 @@ import { TripCategoryComponent } from './trip-category/trip-category.component';
     ForgotUserNameComponent,
     TripCategoryComponent
   ],
-  providers: [AngularFireAuth, AuthService, NavBarService, AppGlobal],
+  providers: [
+    AngularFireAuth,
+    AuthService,
+    NavBarService,
+    UtilService,
+    AppGlobal
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

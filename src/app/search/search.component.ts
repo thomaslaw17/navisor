@@ -46,13 +46,13 @@ export class SearchComponent implements OnInit {
       const row: Result[] = new Array<Result>();
       for (let j = 0; j < 3; j++) {
         row.push({
-          id: '1',
+          id: 'tripID',
           name: 'Nunc in felis aliquet metus luctus iaculis',
           detail:
             'Aliquam ac lacus volutpat, dictum risus at, scelerisque nulla. Nullam sollicitudin at augue venenatis eleifend.' +
             'Nulla ligula ligula, egestas sit amet viverra id, iaculis sit amet ligula.',
           photo: '/img/1/',
-          type: 'event'
+          type: 'Trip'
         });
       }
       this.results.push(row);
@@ -72,7 +72,7 @@ export class SearchResultComponent implements OnInit {
 
   searchDetail(type, id) {
     // this.router.navigate(['search/detail/' + id]);
-    this.router.navigate(['search/detail/Trip/tripID']);
+    this.router.navigate(['search/detail/' + type + '/' + id]);
   }
 
   ngOnInit() {}
