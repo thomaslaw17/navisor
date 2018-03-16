@@ -38,6 +38,11 @@ ngx-carousel button[NgxCarouselNext] {
   height: 100px;
 }
 
+tm-section{
+  /* background-image: url('https://firebasestorage.googleapis.com/v0/b/navisor-b9b70.appspot.com/o/home%2Fimg%2FsectionBg%2FHill.jpg?alt=media&token=7d7e9d98-4e6e-4bc8-9517-ad033d141589'); */
+  background-color: grey;
+} 
+
 .tm-section-6 {
   background-image: url('https://firebasestorage.googleapis.com/v0/b/navisor-b9b70.appspot.com/o/home%2Fimg%2FsectionBg%2FpottingerStreet.png?alt=media&token=49ac5f52-6cf7-454a-b0eb-b27a051436b5');
   background-position: top center;
@@ -46,11 +51,24 @@ ngx-carousel button[NgxCarouselNext] {
   background-size: 100% 100%;
 }
 
+.tm-section-8 {
+  background-image: url('https://firebasestorage.googleapis.com/v0/b/navisor-b9b70.appspot.com/o/home%2Fimg%2FsectionBg%2Fhillv2.png?alt=media&token=ccc9aed0-d1c3-4baf-a207-781904a9ca8f');
+  background-position: top center;
+  padding-top: 120px;
+  padding-bottom: 60px;
+  background-size: 100% 100%;
+} 
+
 .paraText {
+  color: white;
   text-align: justify;
-  font-size: 20px;
+  font-size: 15px;
 }
 
-.meetOurNavigatorSection{
-  color:whitesmoke;
+.meetOurNavigatorSection {
+  color: whitesmoke;
+}
+
+.joinUsBtn {
+  width: 15%;
 }
