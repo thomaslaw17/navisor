@@ -1,6 +1,6 @@
 import { CareerComponent } from './career/career.component';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ChangeDetectorRef } from '@angular/core';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -48,12 +48,16 @@ import {
   SearchEventItemComponent
 } from './search-detail/search-detail.component';
 import { BookingConfirmComponent } from './booking-confirm/booking-confirm.component';
-import { CustomTripComponent } from './custom-trip/custom-trip.component';
+import {
+  CustomTripComponent,
+  CustomEventComponent
+} from './custom-trip/custom-trip.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ForgotUserNameComponent } from './forgot-user-name/forgot-user-name.component';
 import { TripCategoryComponent } from './trip-category/trip-category.component';
 import { UtilService } from './util.service';
 import { FeatureTripComponent } from './feature-trip/feature-trip.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 @NgModule({
   imports: [
@@ -90,10 +94,12 @@ import { FeatureTripComponent } from './feature-trip/feature-trip.component';
     SearchEventItemComponent,
     BookingConfirmComponent,
     CustomTripComponent,
+    CustomEventComponent,
     ForgotPasswordComponent,
     ForgotUserNameComponent,
     TripCategoryComponent,
-    FeatureTripComponent
+    FeatureTripComponent,
+    NavBarComponent
   ],
   providers: [
     AngularFireAuth,

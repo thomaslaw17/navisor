@@ -3,6 +3,9 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class AppGlobal {
+  public showNavBar: boolean;
+  public loggedIn: boolean;
+
   public search: {
     location: string;
     startDate: Date;
