@@ -1,3 +1,5 @@
+import { AttractionService } from './attraction.service';
+import { TripService } from './trip.service';
 import { CareerComponent } from './career/career.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ChangeDetectorRef } from '@angular/core';
@@ -104,6 +106,8 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
   providers: [
     AngularFireAuth,
     AuthService,
+    TripService,
+    AttractionService,
     NavBarService,
     UtilService,
     AppGlobal

@@ -1,3 +1,6 @@
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { AttractionService } from './../attraction.service';
+import { Attraction } from './../../model/Attraction';
 import { UtilService } from './../util.service';
 import { Trip } from './../../model/Trip';
 import { Observable } from 'rxjs/Observable';
@@ -63,11 +66,47 @@ export class CustomEventComponent implements OnInit {
   @Input() tripId: string;
   @Input() event: Event;
 
-  // @Output() createEvent = new EventEmitter<Event>();
-
   private eventObj: Observable<Event>;
+  private attractionObj: Observable<Attraction>;
+  public attraction: Attraction;
 
-  constructor(private angularFireDatabase: AngularFireDatabase) {}
+  public attractions: Array<Attraction>;
+  private startAt: BehaviorSubject<string | null> = new BehaviorSubject('');
+  private endAt: BehaviorSubject<string | null> = new BehaviorSubject('\uf8ff');
+  private lastKeyPress: number;
 
-  ngOnInit() {}
+  constructor(
+    private angularFireDatabase: AngularFireDatabase,
+    private attractionService: AttractionService
+  ) {}
+
+  ngOnInit() {
+    this.attraction = new Attraction();
+    this.attractionObj = this.angularFireDatabase
+      .object<Attraction>('Attraction/' + this.event.attractionId)
+      .valueChanges();
+    this.attractionObj.subscribe(attraction => {
+      if (attraction !== undefined && attraction !== null) {
+        this.attraction = attraction;
+        console.log(attraction);
+      }
+    });
+    this.attractionService
+      .getAttractions(this.startAt, this.endAt)
+      .subscribe(attractions => {
+        this.attractions = attractions;
+      });
+  }
+
+  search($event) {
+    if ($event.timeStamp - this.lastKeyPress > 200) {
+      const q = $event.target.value;
+      this.startAt.next(q);
+      this.endAt.next(q + '\uf8ff');
+    }
+    this.lastKeyPress = $event.timeStamp;
+
+    // this.startAt.next(q);
+    // this.endAt.next(q + '\uf8ff');
+  }
 }
