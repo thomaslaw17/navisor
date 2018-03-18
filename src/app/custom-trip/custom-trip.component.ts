@@ -6,7 +6,8 @@ import { NavBarService } from './../nav-bar.service';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AuthService } from './../auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Event } from '../../model/Event';
 
 @Component({
   selector: 'app-custom-trip',
@@ -36,13 +37,20 @@ export class CustomTripComponent implements OnInit {
         .object<Trip>('Trip/' + this.tripId)
         .valueChanges();
       this.tripObj.subscribe(trip => {
-        if (trip !== undefined || trip != null) {
+        if (trip !== undefined && trip !== null) {
           this.trip = trip;
           this.trip.events = this.util.objectToArray(trip.events);
+        } else {
+          this.trip.events = new Array();
+          this.trip.events.push(new Event());
         }
       });
     });
     this.navBarService.showNavbar();
+  }
+
+  addEvent() {
+    this.trip.events.push(new Event());
   }
 }
 
@@ -53,16 +61,13 @@ export class CustomTripComponent implements OnInit {
 })
 export class CustomEventComponent implements OnInit {
   @Input() tripId: string;
-  @Input() eventId: string;
+  @Input() event: Event;
+
+  // @Output() createEvent = new EventEmitter<Event>();
 
   private eventObj: Observable<Event>;
-  private event: Event;
 
   constructor(private angularFireDatabase: AngularFireDatabase) {}
 
-  ngOnInit(): void {
-    this.eventObj = this.angularFireDatabase
-      .object<Event>('Trip/' + this.tripId + '/events/' + this.eventId)
-      .valueChanges();
-  }
+  ngOnInit() {}
 }
