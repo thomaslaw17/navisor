@@ -125,7 +125,7 @@ export class RegisterComponent implements OnInit {
         }
         break;
       default:
-        return;
+        break;
     }
   }
 
