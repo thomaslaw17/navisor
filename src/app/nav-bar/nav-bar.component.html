@@ -1,0 +1,48 @@
+<div class="tm-top-bar-bg" *ngIf="show"></div>
+<div class="tm-top-bar" id="tm-top-bar" *ngIf="show">
+  <div class="container">
+    <div class="row">
+      <nav class="navbar navbar-expand-lg narbar-light">
+        <a class="navbar-brand mr-auto" href="#">
+          <img src="https://firebasestorage.googleapis.com/v0/b/navisor-b9b70.appspot.com/o/home%2Fimg%2Flogo.jpg?alt=media&token=cc9200bf-2527-4f71-86dd-f7ea57712d17"
+            alt="Site logo" width="125" height="95">
+        </a>
+        <button type="button" id="nav-toggle" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#mainNav" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="mainNav" class="collapse navbar-collapse tm-bg-white">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#top">Search
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#aboutUs">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="tripPlanning">Travel Plan</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#partnership">Partnership</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="career">Career</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#tm-section-7">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+        <div *ngIf="!loggedIn">
+          <a class="btn-primary tm-btn-primary" (click)="gotoLogin()" routerLink="login">Log In</a>
+          <a class="btn-primary tm-btn-primary" (click)="gotoRegister()" routerLink="register">Sign Up</a>
+        </div>
+        <div *ngIf="loggedIn">
+          <a class="btn-primary tm-btn-primary" (click)="logout()">Log Out</a>
+        </div>
+      </nav>
+    </div>
+  </div>
+</div>

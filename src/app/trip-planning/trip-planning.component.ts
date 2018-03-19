@@ -29,12 +29,12 @@ export class TripPlanningComponent implements OnInit {
     private angularFireDatabase: AngularFireDatabase
   ) {}
 
-  addEvent() {
+  addEvent(): void {
     const newEvent = new Event();
     this.trip.events.push(newEvent);
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     if (this.authService.checkLogin) {
       this.trip = new Trip();
       this.route.paramMap.switchMap((params: ParamMap) => {

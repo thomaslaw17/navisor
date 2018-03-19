@@ -7,5 +7,23 @@
   "tslint.configFile": "tslint.json",
   "prettier.singleQuote": true,
   "vsicons.presets.angular": true,
-  "tslint.ignoreDefinitionFiles": false
+  "tslint.ignoreDefinitionFiles": false,
+  "auto-close-tag.activationOnLanguage": [
+    "xml",
+    "php",
+    "blade",
+    "ejs",
+    "jinja",
+    "javascript",
+    "javascriptreact",
+    "typescriptreact",
+    "plaintext",
+    "markdown",
+    "vue",
+    "liquid",
+    "erb",
+    "lang-cfml",
+    "cfml",
+    "HTML (Eex)"
+  ]
 }

@@ -107,7 +107,7 @@ export class HomeComponent implements OnInit {
 
   search() {
     let filled = false;
-    let alerted = false;
+    // let alerted = false;
     const today = new Date();
     if (
       this.appGlobal.search.location !== undefined &&
@@ -121,30 +121,6 @@ export class HomeComponent implements OnInit {
       this.appGlobal.search.startDate !== null
     ) {
       filled = true;
-      if (this.appGlobal.search.startDate < today && !alerted) {
-        alerted = true;
-        filled = false;
-        alert('Start date is before date');
-      }
-      if (
-        this.appGlobal.search.endDate !== undefined &&
-        this.appGlobal.search.endDate !== null
-      ) {
-        filled = true;
-        if (this.appGlobal.search.endDate < today && !alerted) {
-          alert('End date is before today');
-          alerted = true;
-          filled = false;
-        }
-        if (
-          this.appGlobal.search.endDate < this.appGlobal.search.startDate &&
-          !alerted
-        ) {
-          alert('Start date is after end date');
-          alerted = true;
-          filled = false;
-        }
-      }
     }
     if (
       this.appGlobal.search.theme !== undefined &&
@@ -347,7 +323,7 @@ export class HomeComponent implements OnInit {
         description: 'HKU BBA(IS) Year 4',
         pic:
           firebasePrefix +
-          'o/home%2Fimg%2Fnavigator%2Famy.jpg?alt=media&token=97b8de08-1ea3-4834-9a11-c36abef4a69c'
+          'o/home%2Fimg%2Fnavigator%2Famy.png?alt=media&token=2adde141-99ad-4f17-ba01-ab026589bd6d'
       },
       {
         name: 'Ann',

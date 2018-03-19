@@ -1,4 +1,3 @@
-import { NavBarService } from './nav-bar.service';
 import { AppGlobal } from './app.global';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
@@ -14,8 +13,7 @@ export class AuthService {
   constructor(
     private afAuth: AngularFireAuth,
     private angularFireDatabase: AngularFireDatabase,
-    private appGlobal: AppGlobal,
-    private navBarService: NavBarService
+    private appGlobal: AppGlobal
   ) {
     this.userRef = angularFireDatabase.list('User');
   }
@@ -23,8 +21,10 @@ export class AuthService {
   checkLogin() {
     this.afAuth.authState.subscribe(res => {
       if (res) {
+        this.appGlobal.loggedIn = true;
         return true;
       } else {
+        this.appGlobal.loggedIn = false;
         return false;
       }
     });
@@ -47,7 +47,6 @@ export class AuthService {
   }
 
   logout() {
-    this.navBarService.showLoginAndHideLogout();
     return this.afAuth.auth.signOut();
   }
 

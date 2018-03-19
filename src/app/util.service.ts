@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 export class UtilService {
   constructor() {}
 
-  objectToArray(obj: any) {
+  public objectToArray(obj: any): any[] {
     const array = Array();
     for (const id in obj) {
       if (id !== '') {
