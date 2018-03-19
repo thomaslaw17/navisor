@@ -21,8 +21,10 @@ export class AuthService {
   checkLogin() {
     this.afAuth.authState.subscribe(res => {
       if (res) {
+        this.appGlobal.loggedIn = true;
         return true;
       } else {
+        this.appGlobal.loggedIn = false;
         return false;
       }
     });

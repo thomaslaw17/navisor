@@ -38,7 +38,7 @@ export class AppComponent {
     //   this.navBarService.showLoginAndHideLogout();
     // }
     this.show = true;
-    if (this.authService.checkLogin) {
+    if (this.authService.checkLogin()) {
       this.loggedIn = true;
       this.appGlobal.loggedIn = true;
     } else {

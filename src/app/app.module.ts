@@ -1,3 +1,4 @@
+import { MaterialModule } from './material/material.module';
 import { AttractionService } from './attraction.service';
 import { TripService } from './trip.service';
 import { CareerComponent } from './career/career.component';
@@ -73,7 +74,9 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     AppRoutingModule,
     NgbModule.forRoot(),
     NgxCarouselModule,
-    SlickModule.forRoot()
+    SlickModule.forRoot(),
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   declarations: [
     AppComponent,
