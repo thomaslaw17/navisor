@@ -46,7 +46,16 @@
                 ac. Duisfdgf {{trip.description}}</p>
 
             </div>
-            <div *ngFor="let event of trip.events">
+            <div *ngIf="targetObject == 'Trip'">
+              <div *ngFor="let event of trip.events">
+                <app-search-event-item [attractionId]=event.attractionId [startTime]=event.startTime [endTime]=event.endTime></app-search-event-item>
+              </div>
+            </div>
+            <div *ngIf="targetObject == 'Place'">
+              Place
+            </div>
+            <div *ngIf="targetObject == 'Attraction'">
+              Attraction
             </div>
           </article>
         </div>

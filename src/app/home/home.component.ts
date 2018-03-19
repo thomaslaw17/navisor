@@ -107,7 +107,7 @@ export class HomeComponent implements OnInit {
 
   search() {
     let filled = false;
-    let alerted = false;
+    // let alerted = false;
     const today = new Date();
     if (
       this.appGlobal.search.location !== undefined &&
@@ -121,30 +121,6 @@ export class HomeComponent implements OnInit {
       this.appGlobal.search.startDate !== null
     ) {
       filled = true;
-      if (this.appGlobal.search.startDate < today && !alerted) {
-        alerted = true;
-        filled = false;
-        alert('Start date is before date');
-      }
-      if (
-        this.appGlobal.search.endDate !== undefined &&
-        this.appGlobal.search.endDate !== null
-      ) {
-        filled = true;
-        if (this.appGlobal.search.endDate < today && !alerted) {
-          alert('End date is before today');
-          alerted = true;
-          filled = false;
-        }
-        if (
-          this.appGlobal.search.endDate < this.appGlobal.search.startDate &&
-          !alerted
-        ) {
-          alert('Start date is after end date');
-          alerted = true;
-          filled = false;
-        }
-      }
     }
     if (
       this.appGlobal.search.theme !== undefined &&

@@ -2,7 +2,7 @@ import { NavBarService } from './../nav-bar.service';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AuthService } from './../auth.service';
 import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { AppGlobal } from '../app.global';
 import { Result } from '../../model/Result';
 
@@ -35,11 +35,6 @@ export class SearchComponent implements OnInit {
     // this.keyword, this.catagory
   }
 
-  searchDetail(type, id) {
-    // this.router.navigate(['search/detail/' + id]);
-    this.router.navigate(['search/detail/trip/tripID']);
-  }
-
   ngOnInit() {
     this.navBarService.showNavbar();
     this.show = false;
@@ -51,16 +46,34 @@ export class SearchComponent implements OnInit {
       const row: Result[] = new Array<Result>();
       for (let j = 0; j < 3; j++) {
         row.push({
-          id: '1',
+          id: 'tripID',
           name: 'Nunc in felis aliquet metus luctus iaculis',
           detail:
             'Aliquam ac lacus volutpat, dictum risus at, scelerisque nulla. Nullam sollicitudin at augue venenatis eleifend.' +
             'Nulla ligula ligula, egestas sit amet viverra id, iaculis sit amet ligula.',
           photo: '/img/1/',
-          type: 'event'
+          type: 'Trip'
         });
       }
       this.results.push(row);
     }
   }
+}
+
+@Component({
+  selector: 'app-search-result',
+  templateUrl: './search-result.component.html',
+  styleUrls: ['./search-result.component.css']
+})
+export class SearchResultComponent implements OnInit {
+  @Input() result: Result;
+
+  constructor(private router: Router) {}
+
+  searchDetail(type, id) {
+    // this.router.navigate(['search/detail/' + id]);
+    this.router.navigate(['search/detail/' + type + '/' + id]);
+  }
+
+  ngOnInit() {}
 }

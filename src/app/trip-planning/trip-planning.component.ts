@@ -1,4 +1,4 @@
-import { Place } from './../../model/Place';
+import { Attraction } from './../../model/Attraction';
 import { Trip } from './../../model/Trip';
 import { Observable } from 'rxjs/Observable';
 import { AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
@@ -17,8 +17,8 @@ export class TripPlanningComponent implements OnInit {
   public tripId: string;
   public trip: Trip;
 
-  public placeIds: Array<string>;
-  public places: Array<Place>;
+  public attractionIds: Array<string>;
+  public attractions: Array<Attraction>;
 
   private tripObj: AngularFireObject<Trip>;
 
@@ -29,12 +29,12 @@ export class TripPlanningComponent implements OnInit {
     private angularFireDatabase: AngularFireDatabase
   ) {}
 
-  addEvent() {
+  addEvent(): void {
     const newEvent = new Event();
     this.trip.events.push(newEvent);
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     if (this.authService.checkLogin) {
       this.trip = new Trip();
       this.route.paramMap.switchMap((params: ParamMap) => {
@@ -43,17 +43,17 @@ export class TripPlanningComponent implements OnInit {
           this.tripObj.valueChanges().subscribe(trip => {
             this.trip = trip;
             this.trip.events.forEach(event => {
-              this.placeIds.push(event.placeId);
-              const placeRef = this.angularFireDatabase.object<Place>(
-                'Place/' + event.placeId
+              this.attractionIds.push(event.attractionId);
+              const attractionRef = this.angularFireDatabase.object<Attraction>(
+                'Attraction/' + event.attractionId
               );
-              placeRef.valueChanges().subscribe(place => {
-                const pos = this.placeIds
+              attractionRef.valueChanges().subscribe(attraction => {
+                const pos = this.attractionIds
                   .map(function(x) {
                     return x;
                   })
-                  .indexOf(event.placeId);
-                this.places[pos] = place;
+                  .indexOf(event.attractionId);
+                this.attractions[pos] = attraction;
               });
             });
           });

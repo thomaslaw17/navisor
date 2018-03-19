@@ -9,5 +9,7 @@ export class Trip {
   public numberOfTravellers: number;
   public events: Array<Event>;
   public description: string;
+  public theme: string;
+  public remark: string;
   public status: number; // 0: pending 1: published
 }

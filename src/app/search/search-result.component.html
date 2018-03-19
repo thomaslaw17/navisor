@@ -1,0 +1,10 @@
+<div>
+  <img src="{{result.photo}}" alt="Image" class="img-fluid">
+  <div class="tm-article-pad">
+    <header>
+      <h3 class="text-uppercase tm-article-title-nmni2">{{result.name}}</h3>
+    </header>
+    <p>{{result.detail}}</p>
+    <a class="text-uppercase btn-primary tm-btn-primary" (click)="searchDetail(result.type, result.id)">Get More Info.</a>
+  </div>
+</div>

@@ -1,9 +1,10 @@
-import { NavBarService } from './nav-bar.service';
+// import { NavBarService } from './nav-bar.service';
 import { AuthService } from './auth.service';
 import { Component } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
+import { AppGlobal } from './app.global';
 
 @Component({
   selector: 'app-root',
@@ -14,45 +15,37 @@ export class AppComponent {
   public title = 'Navisor';
   public item: Observable<any>;
 
+  public show: boolean;
+  public loggedIn: boolean;
+
   constructor(
     private angularFireDatabase: AngularFireDatabase,
     private authService: AuthService,
     private router: Router,
-    public navBarService: NavBarService
+    public appGlobal: AppGlobal // public navBarService: NavBarService
   ) {
-    this.navBarService.showNavbar();
-    this.authService.getAuthState().subscribe(res => {
-      if (res) {
-        this.navBarService.showLogoutAndHideLogin();
-      } else {
-        this.navBarService.showLoginAndHideLogout();
-      }
-    });
+    // this.navBarService.showNavbar();
+    // this.authService.getAuthState().subscribe(res => {
+    //   if (res) {
+    //     this.navBarService.showLogoutAndHideLogin();
+    //   } else {
+    //     this.navBarService.showLoginAndHideLogout();
+    //   }
+    // });
     // if (this.authService.checkLogin()) {
     //   this.navBarService.showLogoutAndHideLogin();
     // } else {
     //   this.navBarService.showLoginAndHideLogout();
     // }
+    this.show = true;
+    if (this.authService.checkLogin()) {
+      this.loggedIn = true;
+      this.appGlobal.loggedIn = true;
+    } else {
+      this.loggedIn = false;
+      this.appGlobal.loggedIn = false;
+    }
+
     this.item = angularFireDatabase.object('item').valueChanges();
-  }
-
-  gotoLogin() {
-    this.router.navigate(['login']);
-  }
-
-  gotoRegister() {
-    this.router.navigate(['register']);
-  }
-
-  logout() {
-    this.authService.logout().then(
-      resolve => {
-        this.router.navigate(['']);
-        this.navBarService.showLoginAndHideLogout();
-      },
-      reject => {
-        console.log('Logout Error', reject);
-      }
-    );
   }
 }

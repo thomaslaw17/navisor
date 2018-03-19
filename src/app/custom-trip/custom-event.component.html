@@ -1,0 +1,20 @@
+<div class="form-group tm-form-element tm-form-element-100 card">
+  <table>
+    <tr>
+      <td>Place:</td>
+      <td>
+        <i class="fa fa-map-marker fa-2x tm-form-element-icon"></i>
+        <input type="text" name="place" (keydown)="search($event)">
+        <div *ngFor="let attraction of attractions">
+          <div>{{attraction.name}}</div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Time:</td>
+      <td>
+        <input name="time">
+      </td>
+    </tr>
+  </table>
+</div>

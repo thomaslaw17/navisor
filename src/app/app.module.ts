@@ -1,6 +1,9 @@
+import { MaterialModule } from './material/material.module';
+import { AttractionService } from './attraction.service';
+import { TripService } from './trip.service';
 import { CareerComponent } from './career/career.component';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ChangeDetectorRef } from '@angular/core';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -16,7 +19,10 @@ import { environment } from './../environments/environment';
 
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
-import { SearchComponent } from './search/search.component';
+import {
+  SearchComponent,
+  SearchResultComponent
+} from './search/search.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router'; // for router-outlet element in html
@@ -40,12 +46,21 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SlickModule } from 'ngx-slick';
 import { NgxCarouselModule } from 'ngx-carousel';
 import 'hammerjs';
-import { SearchDetailComponent } from './search-detail/search-detail.component';
+import {
+  SearchDetailComponent,
+  SearchEventItemComponent
+} from './search-detail/search-detail.component';
 import { BookingConfirmComponent } from './booking-confirm/booking-confirm.component';
-import { CustomTripComponent } from './custom-trip/custom-trip.component';
+import {
+  CustomTripComponent,
+  CustomEventComponent
+} from './custom-trip/custom-trip.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ForgotUserNameComponent } from './forgot-user-name/forgot-user-name.component';
 import { TripCategoryComponent } from './trip-category/trip-category.component';
+import { UtilService } from './util.service';
+import { FeatureTripComponent } from './feature-trip/feature-trip.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 @NgModule({
   imports: [
@@ -59,13 +74,16 @@ import { TripCategoryComponent } from './trip-category/trip-category.component';
     AppRoutingModule,
     NgbModule.forRoot(),
     NgxCarouselModule,
-    SlickModule.forRoot()
+    SlickModule.forRoot(),
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
     SearchComponent,
+    SearchResultComponent,
     ProfileComponent,
     TripPlanningComponent,
     PaymentComponent,
@@ -78,13 +96,25 @@ import { TripCategoryComponent } from './trip-category/trip-category.component';
     CareerComponent,
     RegisterComponent,
     SearchDetailComponent,
+    SearchEventItemComponent,
     BookingConfirmComponent,
     CustomTripComponent,
+    CustomEventComponent,
     ForgotPasswordComponent,
     ForgotUserNameComponent,
-    TripCategoryComponent
+    TripCategoryComponent,
+    FeatureTripComponent,
+    NavBarComponent
   ],
-  providers: [AngularFireAuth, AuthService, NavBarService, AppGlobal],
+  providers: [
+    AngularFireAuth,
+    AuthService,
+    TripService,
+    AttractionService,
+    NavBarService,
+    UtilService,
+    AppGlobal
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

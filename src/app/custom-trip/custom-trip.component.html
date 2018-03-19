@@ -1,113 +1,98 @@
+<br>
 <div class="tm-section tm-bg-img" id="tm-section-1">
   <div class="tm-bg-white ie-container-width-fix-2">
     <div class="container ie-h-align-center-fix">
-      <div class="row">
 
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <h3>Trip Planning Form</h3>
+      <br>
 
-        <form action="index.html" method="get" class="tm-search-form tm-section-pad-2">
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <h3>Trip Planning Form</h3>
+      <div class="form-row tm-search-form-row">
+        <div class="card">
+          <h6>Trip Type:</h6>
+          <div class="form-group tm-form-element tm-form-element-2">
+            <select name="adult" class="form-control tm-select" id="adult">
+              <option value="Cultural & Heritage">Cultural & Heritage</option>
+              <option value="Nature">Nature</option>
+              <option value="Foodie">Foodie</option>
+              <option value="Photography">Photography</option>
+              <option value="University Tour">University Tour</option>
+              <option value="Others">Others</option>
+            </select>
 
-          <br>
-
-          <div class="form-row tm-search-form-row">
-            <h6>Trip Type:</h6>
-            <div class="form-group tm-form-element tm-form-element-2">
-              <select name="adult" class="form-control tm-select" id="adult">
-                <option value="Cultural & Heritage">Cultural & Heritage</option>
-                <option value="Nature">Nature</option>
-                <option value="Foodie">Foodie</option>
-                <option value="Photography">Photography</option>
-                <option value="University Tour">University Tour</option>
-                <option value="Others">Others</option>
-              </select>
-              <i class="fa fa-2x fa-user tm-form-element-icon"></i>
-            </div>
           </div>
 
           <div class="form-row tm-search-form-row">
-            <h6>Destination: </h6>
-            <div class="form-group tm-form-element tm-form-element-100">
+            <h6>Destination:</h6>
+            <div class="form-group tm-form-element tm-form-element-2">
               <i class="fa fa-map-marker fa-2x tm-form-element-icon"></i>
-              <input name="destination" type="text" class="form-control" id="inputDest" placeholder="Type your destination...">
+              <input name="destination" type="text" class="form-control" id="inputDest" placeholder=" Type your destination...">
             </div>
           </div>
 
           <div class="form-row tm-search-form-row">
             <h6>Number of Travellers:</h6>
-            <div class="form-group tm-form-element tm-form-element-100">
+            <div class="form-group tm-form-element tm-form-element-2">
               <i class="fa fa-map-marker fa-2x tm-form-element-icon"></i>
-              <input name="Travellers" type="text" class="form-control" id="inputTravellers" placeholder="Type the number of travellers…">
+              <input name="Travellers" type="text" class="form-control" id="inputTravellers" placeholder=" Number of travellers…" style="width:220px">
             </div>Persons
           </div>
 
-
           <div class="form-row tm-search-form-row">
-            <h6>Duration: </h6>
-            <div class="form-group tm-form-element tm-form-element-100">
+            <h6>Duration:</h6>
+            <div class="form-group tm-form-element tm-form-element-2">
               <i class="fa fa-map-marker fa-2x tm-form-element-icon"></i>
-              <input name="duration" type="text" class="form-control" id="inputDuration" placeholder="Type the number of days…">
+              <input name="duration" type="text" class="form-control" id="inputDuration" placeholder=" Number of days…" style="width:250px">
             </div>Days
           </div>
 
           <div class="form-row tm-search-form-row">
             <h6>Budget (each traveller):</h6>
             <div class="form-group tm-form-element tm-form-element-2">
-              <select name="adult" class="form-control tm-select" id="adult">
+              <select name="adult" class="form-control tm-select dropdown" id="adult">
                 <option value="$500-$1000">$500-$1000</option>
                 <option value="$1001-$1500">$1001-$1500</option>
                 <option value="$1500-$2000">$1500-$2000</option>
                 <option value="$2000+">$2000+</option>
               </select>
-              <i class="fa fa-2x fa-user tm-form-element-icon"></i>
             </div>
           </div>
+        </div>
 
-
-          <div class="form-row tm-search-form-row">
-            <h6>Place:</h6>
-            <div class="form-group tm-form-element tm-form-element-100">
-              <i class="fa fa-map-marker fa-2x tm-form-element-icon"></i>
-              <input name="place" type="text" class="form-control" id="inputPlace" placeholder="Type the place that you want to go…">
-            </div>
-          </div>
-
-          <br>
-
+        <div class="card">
           <div class="form-row tm-search-form-row">
             <h6>Activity:</h6>
-            <div class="form-group tm-form-element tm-form-element-100">
-              <i class="fa fa-map-marker fa-2x tm-form-element-icon"></i>
-              <input name="activity" type="text" class="form-control" id="inputActivity" placeholder="Type the activity that you want…">
+            <div *ngFor="let event of trip.events">
+              <app-custom-event [tripId]='tripId' [event]='event'></app-custom-event>
             </div>
-
+            <button type="submit" (click)="addEvent()">+</button>
           </div>
+        </div>
 
-
-
+        <div>
           <div class="form-row tm-search-form-row">
             <h6>Food:</h6>
             <div class="form-group tm-form-element tm-form-element-100">
-
               <i class="fa fa-map-marker fa-2x tm-form-element-icon"></i>
-              <input name="food" type="text" class="form-control" id="inputFood" placeholder="Type the food that you want to try…">
+              <input name="food" type="text" class="form-control" id="inputFood" placeholder=" Type the food that you want to try…" style="width:400px">
             </div>
           </div>
-
 
           <div class="form-row tm-search-form-row">
             <h6>Remarks:</h6>
             <div class="form-group tm-form-element tm-form-element-200">
               <i class="fa fa-map-marker fa-2x tm-form-element-icon"></i>
-              <input name="remark" type="text" class="form-control" id="inputRemarks" placeholder="Type any remarks…">
+              <input name="remark" type="text" class="form-control" id="inputRemarks" placeholder=" Type any remarks…" style="width:600px"
+                [(ngModel)]='trip.remark'>
             </div>
           </div>
 
@@ -115,12 +100,12 @@
             <div class="form-row tm-search-form-row">
               <button type="submit" class="btn btn-primary tm-btn-search">Submit</button>
             </div>
-            <div class="form-row clearfix pl-2 pr-2 tm-fx-col-xs"></div>
-
           </div>
+        </div>
 
+        <div class="form-row clearfix pl-2 pr-2 tm-fx-col-xs">
           <a href="#" class="ie-10-ml-auto ml-auto mt-1 tm-font-semibold tm-color-primary">Help</a>
-        </form>
+        </div>
       </div>
     </div>
   </div>
