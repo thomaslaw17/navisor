@@ -16,7 +16,6 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
-
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CustomTripComponent } from './custom-trip/custom-trip.component';
