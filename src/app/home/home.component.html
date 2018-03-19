@@ -108,7 +108,7 @@
         <div class="tm-article-carousel">
           <ngx-carousel [inputs]="Config">
             <ngx-item NgxCarouselItem *ngFor="let trip of suggestTrips">
-              <article class="tm-bg-white mr-2 tm-carousel-item" ng-click="gotoTripDetail(trip.id)">
+              <article class="tm-bg-white mr-2 tm-carousel-item">
                 <img src="{{trip.photoUrl}}" alt="Image" class="img-fluid">
                 <div class="tm-article-pad">
                   <header>
@@ -237,7 +237,7 @@
   <h1 class="text-uppercase tm-section-title-2 text-center meetOurNavigatorSection">Meet our Navigators</h1>
   <div class="row text-center">
     <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 tm-article" *ngFor="let navigator of suggestNavigator">
-      <img src="{{navigator.pic}}" alt="{{navigator.name}}" style="width:150px; height:150px; border-radius: 50%; border: 0px">
+      <img src="navigator.pic" alt="{{navigator.name}}" style="width:150px; height:150px; border-radius:50%">
       <h3 class="tm-color-primary tm-article-title-1">{{navigator.name}}</h3>
       <p>{{navigator.description}}</p>
     </article>

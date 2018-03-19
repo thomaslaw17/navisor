@@ -51,3 +51,65 @@ export class ProfileComponent implements OnInit {
     });
   }
 }
+
+@Component({
+  selector: 'app-profile-edit',
+  templateUrl: './profile-edit.component.html',
+  styleUrls: ['./profile-edit.component.css']
+})
+export class ProfileEditComponent implements OnInit {
+
+  constructor(private router: Router) {}
+
+  ngOnInit() {}
+}
+
+@Component({
+  selector: 'app-profile-past-event',
+  templateUrl: './profile-pastEvent.component.html',
+  styleUrls: ['./profile-pastEvent.component.css']
+})
+export class ProfilePastEventComponent implements OnInit {
+
+  constructor(private router: Router) {}
+
+  ngOnInit() {}
+}
+
+@Component({
+  selector: 'app-profile-payment-method',
+  templateUrl: './profile-paymentMethod.component.html',
+  styleUrls: ['./profile-paymentMethod.component.css']
+})
+export class ProfilePaymentMethodComponent implements OnInit {
+
+  constructor(private router: Router) {}
+
+  ngOnInit() {}
+}
+
+@Component({
+  selector: 'app-profile-reward-points',
+  templateUrl: './profile-rewardPoints.component.html',
+  styleUrls: ['./profile-rewardPoints.component.css']
+})
+export class ProfileRewardPointsComponent implements OnInit {
+
+  constructor(private router: Router) {}
+
+  ngOnInit() {}
+}
+
+@Component({
+  selector: 'app-profile-schedule',
+  templateUrl: './profile-schedule.component.html',
+  styleUrls: ['./profile-schedule.component.css']
+})
+export class ProfileScheduleComponent implements OnInit {
+
+  constructor(private router: Router) {}
+
+  ngOnInit() {}
+}
+
+

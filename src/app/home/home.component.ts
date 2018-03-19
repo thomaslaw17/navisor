@@ -323,7 +323,7 @@ export class HomeComponent implements OnInit {
         description: 'HKU BBA(IS) Year 4',
         pic:
           firebasePrefix +
-          'o/home%2Fimg%2Fnavigator%2Famy.jpg?alt=media&token=97b8de08-1ea3-4834-9a11-c36abef4a69c'
+          'o/home%2Fimg%2Fnavigator%2Famy.png?alt=media&token=2adde141-99ad-4f17-ba01-ab026589bd6d'
       },
       {
         name: 'Ann',

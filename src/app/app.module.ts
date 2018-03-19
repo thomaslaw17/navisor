@@ -23,7 +23,7 @@ import {
   SearchComponent,
   SearchResultComponent
 } from './search/search.component';
-import { ProfileComponent } from './profile/profile.component';
+import { ProfileComponent, ProfileEditComponent, ProfilePastEventComponent, ProfilePaymentMethodComponent, ProfileRewardPointsComponent, ProfileScheduleComponent } from './profile/profile.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router'; // for router-outlet element in html
 import { TripPlanningComponent } from './trip-planning/trip-planning.component';
@@ -85,6 +85,11 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     SearchComponent,
     SearchResultComponent,
     ProfileComponent,
+    ProfileEditComponent,
+    ProfilePastEventComponent,
+    ProfilePaymentMethodComponent,
+    ProfileRewardPointsComponent,
+    ProfileScheduleComponent,
     TripPlanningComponent,
     PaymentComponent,
     RewardComponent,
