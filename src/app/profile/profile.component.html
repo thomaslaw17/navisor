@@ -77,7 +77,7 @@
         </div>
         <div class="col-md-12">
           <ul class="list-group">
-            <li class="list-group-item" (click)="switchTab('')">
+            <li class="list-group-item" (click)="switchTab('edit')">
               <span class="fa fa-user"></span> Profile
             </li>
             <li class="list-group-item" (click)="switchTab('schedule')">
@@ -145,22 +145,22 @@
       </div> -->
     </div>
     <div class="col-md-8 col-sm-12 pull-left posttimeline">
-      <<<<<<< HEAD <app-profile-edit *ngIf="tab === 'edit'">
-        </app-profile-edit>
-        <app-profile-past-event *ngIf="tab === 'past-event'"></app-profile-past-event>
-        <app-profile-payment-method *ngIf="tab === 'payment-method'"></app-profile-payment-method>
-        <app-profile-reward-points *ngIf="tab === 'reward-points'"></app-profile-reward-points>
-        <app-profile-schedule *ngIf="tab === 'schedule'"></app-profile-schedule>
-        =======
-        <!-- <app-profile-edit></app-profile-edit> -->
-        <!-- <app-profile-past-event></app-profile-past-event> -->
-        <app-profile-reward-points></app-profile-reward-points>
+      <app-profile-edit *ngIf="tab === 'edit'">
+      </app-profile-edit>
+      <app-profile-past-event *ngIf="tab === 'past-event'"></app-profile-past-event>
+      <app-profile-payment-method *ngIf="tab === 'payment-method'"></app-profile-payment-method>
+      <app-profile-reward-points *ngIf="tab === 'reward-points'"></app-profile-reward-points>
+      <app-profile-schedule *ngIf="tab === 'schedule'"></app-profile-schedule>
+
+      <!-- <app-profile-edit></app-profile-edit> -->
+      <!-- <app-profile-past-event></app-profile-past-event> -->
+      <!-- <app-profile-reward-points></app-profile-reward-points> -->
 
 
 
 
-        >>>>>>> erwinwong
-        <!-- <div class="panel panel-default">
+
+      <!-- <div class="panel panel-default">
         <div class="panel-body">
           <div class="status-upload nopaddingbtm">
             <form>
@@ -188,8 +188,8 @@
           </div>
         </div>
     </div> -->
-        <div class="panel panel-default">
-          <!-- <div class="btn-group pull-right postbtn">
+      <div class="panel panel-default">
+        <!-- <div class="btn-group pull-right postbtn">
           <button type="button" class="dotbtn dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
             <span class="dots"></span>
           </button>
@@ -202,7 +202,7 @@
             </li>
           </ul>
         </div> -->
-          <!-- <div class="col-md-12">
+        <!-- <div class="col-md-12">
           <div class="media">
             <div class="media-left">
               <a href="javascript:void(0)">
@@ -217,9 +217,9 @@
             </div>
           </div>
         </div> -->
-        </div>
-        <div class="panel panel-default">
-          <!-- <div class="btn-group pull-right postbtn">
+      </div>
+      <div class="panel panel-default">
+        <!-- <div class="btn-group pull-right postbtn">
           <button type="button" class="dotbtn dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
             <span class="dots"></span>
           </button>
@@ -232,7 +232,7 @@
             </li>
           </ul>
         </div> -->
-          <!-- <div class="col-md-12">
+        <!-- <div class="col-md-12">
           <div class="media">
             <div class="media-left">
               <a href="javascript:void(0)">
@@ -262,7 +262,7 @@
             </div>
           </div>
         </div> -->
-          <!-- <div class="col-md-12 border-top">
+        <!-- <div class="col-md-12 border-top">
           <div class="status-upload">
             <form>
               <label>Comment</label>
@@ -289,7 +289,7 @@
             </form>
           </div>
         </div> -->
-        </div>
+      </div>
     </div>
   </div>
 </div>
