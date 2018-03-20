@@ -20,7 +20,7 @@
             </div>
             <div class="form-row tm-search-form-row">
               <div class="form-group tm-form-element tm-form-element-2">
-                <select name="theme" class="form-control tm-select" id="theme" [(ngModel)]="this.appGlobal.search.theme">
+                <select name="theme" class="form-control tm-select" id="theme" [(ngModel)]="appGlobal.search.theme">
                   <option value="">Theme</option>
                   <option value="1">Cultural & Heritage</option>
                   <option value="2">Nature</option>
@@ -284,7 +284,7 @@
 </div>
 
 <h1 class="text-uppercase tm-section-title-2 text-center">Contact Us</h1>
-<div class="tm-section tm-section-pad tm-bg-img tm-position-relative" id="tm-section-7">
+<div class="tm-section tm-section-pad tm-bg-img tm-position-relative" id="contactUs">
   <div class="container ie-h-align-center-fix">
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-7">
@@ -322,45 +322,4 @@
     </div>
   </div>
 </div>
-
-
-<footer class="footer-distributed">
-
-  <div class="footer-right">
-
-    <a href="#">
-      <i class="fa fa-facebook"></i>
-    </a>
-    <a href="#">
-      <i class="fa fa-twitter"></i>
-    </a>
-    <a href="#">
-      <i class="fa fa-linkedin"></i>
-    </a>
-    <a href="#">
-      <i class="fa fa-github"></i>
-    </a>
-
-  </div>
-
-  <div class="footer-left">
-
-    <p class="footer-links">
-      <a href="#">Home</a>
-      ·
-      <a href="#">About us</a>
-      ·
-      <a href="#">Register</a>
-      ·
-      <a href="#">Login In</a>
-      ·
-      <a href="#">Partnership</a>
-      ·
-      <a href="#">Contact</a>
-    </p>
-
-    <p>NAVISOR &copy; 2015</p>
-  </div>
-
-
-</footer>
+<app-footer></app-footer>
