@@ -8,7 +8,7 @@ export class User {
   public firstName: string;
   public lastName: string;
   public nickName: string;
-  public phoneNumber: string; //need to add to UI
+  public phoneNumber: string;
   public photoURl: string; // profile picture url
   public recoveryEmail: string;
   public selfIntroduction: string;
