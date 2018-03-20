@@ -20,6 +20,10 @@ export class RegisterComponent implements OnInit {
 
   public step: number;
 
+  public birthDay: number;
+  public birthMonth: number;
+  public birthYear: number;
+
   constructor(
     private router: Router,
     private authService: AuthService,
@@ -39,9 +43,49 @@ export class RegisterComponent implements OnInit {
   }
 
   register() {
-    if (this.termsAndConditions) {
+    if (
+      this.birthDay !== undefined &&
+      this.birthDay !== null &&
+      this.birthDay > 0 &&
+      this.birthMonth !== undefined &&
+      this.birthMonth !== null &&
+      this.birthDay > 0 &&
+      this.birthYear !== undefined &&
+      this.birthYear !== null &&
+      this.birthYear > 1800
+    ) {
+      this.user.birthday = new Date(
+        this.birthDay +
+          '-' +
+          this.birthMonth +
+          '-' +
+          this.birthYear +
+          'T00:00:00'
+      );
+    } else {
+      alert('Please enter a valid birthday');
+    }
+    let msg = 'Please fill in your ';
+    if (
+      this.user.firstName === undefined ||
+      this.user.firstName === null ||
+      this.user.firstName === ''
+    ) {
+      msg += 'First Name ';
+    }
+    if (
+      this.user.lastName === undefined ||
+      this.user.lastName === null ||
+      this.user.lastName === ''
+    ) {
+      msg += 'Last Name ';
+    }
+
+    if (msg !== 'Please fill in your ' && this.termsAndConditions) {
       alert('Please accept the terms and conditions');
       return;
+    } else if (msg !== 'Please fill in your ') {
+      alert(msg);
     }
 
     if (this.password !== this.passwordCheck) {
@@ -55,7 +99,7 @@ export class RegisterComponent implements OnInit {
         this.authService.sendEmailVerification();
         this.userObj = this.angularFireDatabase.object('User/' + value.uid);
         this.userObj.set(this.user);
-        this.router.navigate(['home']);
+        this.router.navigate(['']);
         console.log('Register Success');
       })
       .catch(error => {
@@ -85,16 +129,9 @@ export class RegisterComponent implements OnInit {
       case 2:
         let msg = 'Please fill in your ';
         if (
-          this.user.name === undefined ||
-          this.user.name === null ||
-          this.user.name === ''
-        ) {
-          msg += 'User Name ';
-        }
-        if (
           this.user.email === undefined ||
           this.user.email === null ||
-          this.user.name === ''
+          this.user.email === ''
         ) {
           msg += 'Email ';
         }
@@ -110,7 +147,7 @@ export class RegisterComponent implements OnInit {
           this.password === null ||
           this.password === ''
         ) {
-          msg += 'Password';
+          msg += 'Password ';
         }
         if (
           this.passwordCheck !== this.password &&

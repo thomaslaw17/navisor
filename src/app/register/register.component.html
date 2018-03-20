@@ -26,12 +26,6 @@
   <div class="row">
     <h4>Account Information</h4>
     <div class="input-group input-group-icon">
-      <input type="text" placeholder="Username" [(ngModel)]="user.name" />
-      <div class="input-icon">
-        <i class="fa fa-user"></i>
-      </div>
-    </div>
-    <div class="input-group input-group-icon">
       <input type="email" placeholder="Email Adress" [(ngModel)]="user.email" />
       <div class="input-icon">
         <i class="fa fa-envelope"></i>
@@ -59,6 +53,7 @@
 
   <div class="wrapper">
     <a class="next" (click)="nextStep()">Next &raquo;</a>
+    <a class="next" (click)="previousStep()">Back &raquo;</a>
   </div>
 </div>
 
@@ -67,13 +62,13 @@
   <div class="row">
     <h4>Personal Information</h4>
     <div class="input-group input-group-icon">
-      <input type="text" placeholder="First Name" />
+      <input type="text" placeholder="First Name" [(ngModel)]='user.firstName' />
       <div class="input-icon">
         <i class="fa fa-user"></i>
       </div>
     </div>
     <div class="input-group input-group-icon">
-      <input type="text" placeholder="Last Name" />
+      <input type="text" placeholder="Last Name" [(ngModel)]='user.lastName' />
       <div class="input-icon">
         <i class="fa fa-user"></i>
       </div>
@@ -499,13 +494,13 @@
         <h4>Date of Birth</h4>
         <div class="input-group">
           <div class="col-third">
-            <input type="text" placeholder="DD" />
+            <input type="text" placeholder="DD" [(ngModel)]="birthDay" />
           </div>
           <div class="col-third">
-            <input type="text" placeholder="MM" />
+            <input type="text" placeholder="MM" [(ngModel)]="birthMonth" />
           </div>
           <div class="col-third">
-            <input type="text" placeholder="YYYY" />
+            <input type="text" placeholder="YYYY" [(ngModel)]="birthYear" />
           </div>
         </div>
       </div>
@@ -541,12 +536,6 @@
   <div class="row">
     <h4>Account Information</h4>
     <div class="input-group input-group-icon">
-      <input type="text" placeholder="Username" [(ngModel)]="user.name" />
-      <div class="input-icon">
-        <i class="fa fa-user"></i>
-      </div>
-    </div>
-    <div class="input-group input-group-icon">
       <input type="email" placeholder="Email Adress" [(ngModel)]="user.email" />
       <div class="input-icon">
         <i class="fa fa-envelope"></i>
@@ -574,6 +563,7 @@
 
   <div class="wrapper">
     <a class="next" (click)="nextStep()">Next &raquo;</a>
+    <a class="next" (click)="previousStep()">Back &raquo;</a>
   </div>
 
 </div>
@@ -583,13 +573,13 @@
   <div class="row">
     <h4>Personal Information</h4>
     <div class="input-group input-group-icon">
-      <input type="text" placeholder="First Name" />
+      <input type="text" placeholder="First Name" [(ngModel)]='user.firstName' />
       <div class="input-icon">
         <i class="fa fa-user"></i>
       </div>
     </div>
     <div class="input-group input-group-icon">
-      <input type="text" placeholder="Last Name" />
+      <input type="text" placeholder="Last Name" [(ngModel)]='user.lastName' />
       <div class="input-icon">
         <i class="fa fa-user"></i>
       </div>
@@ -998,23 +988,32 @@
     </div>
   </div>
 
-  <div>
-    <input [matDatepicker]="datepicker">
-    <mat-datepicker #datepicker></mat-datepicker>
-  </div>
+  <!-- <mat-form-field>
+    <input matInput [matDatepicker]="myDatepicker">
+    <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+    <mat-datepicker #myDatepicker></mat-datepicker>
+  </mat-form-field> -->
+
 
   <div class="row">
     <div class="col-half">
       <h4>Date of Birth</h4>
+      <!-- <div>
+        <mat-form-field>
+          <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div> -->
       <div class="input-group">
         <div class="col-third">
-          <input type="text" placeholder="DD" />
+          <input type="text" placeholder="DD" [(ngModel)]="birthDay" />
         </div>
         <div class="col-third">
-          <input type="text" placeholder="MM" />
+          <input type="text" placeholder="MM" [(ngModel)]="birthMonth" />
         </div>
         <div class="col-third">
-          <input type="text" placeholder="YYYY" />
+          <input type="text" placeholder="YYYY" [(ngModel)]="birthYear" />
         </div>
       </div>
     </div>
@@ -1041,5 +1040,6 @@
 
   <div class="wrapper">
     <a class="next" (click)="register()">Create &raquo;</a>
+    <a class="next" (click)="previousStep()">Back &raquo;</a>
   </div>
 </div>

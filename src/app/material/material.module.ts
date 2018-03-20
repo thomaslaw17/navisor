@@ -3,11 +3,30 @@ import { CommonModule } from '@angular/common';
 import {
   MatButtonModule,
   MatDatepickerModule,
-  MatNativeDateModule
+  MatNativeDateModule,
+  MatFormField,
+  MatDatepickerToggle,
+  MatFormFieldModule,
+  MatInputModule
 } from '@angular/material';
+import { OverlayModule } from '@angular/cdk/overlay';
 
 @NgModule({
-  imports: [MatButtonModule, MatDatepickerModule, MatNativeDateModule],
-  exports: [MatButtonModule, MatDatepickerModule, MatNativeDateModule]
+  imports: [
+    MatInputModule,
+    MatButtonModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    OverlayModule
+  ],
+  exports: [
+    MatInputModule,
+    MatButtonModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    OverlayModule
+  ]
 })
 export class MaterialModule {}

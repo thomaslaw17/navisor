@@ -4,7 +4,8 @@ export class User {
   public email: string;
   public gender: string;
   public language: string;
-  public name: string;
+  public firstName: string;
+  public lastName: string;
   public nickName: string;
   public phoneNumber: string;
   public photoURl: string; // profile picture url

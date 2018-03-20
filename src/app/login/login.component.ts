@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
       .then(res => {
         this.navBarService.showLogoutAndHideLogin();
         console.log('Login Success', res);
-        this.router.navigate(['home']);
+        this.router.navigate(['']);
       })
       .catch(reject => {
         if (reject.code === 'auth/wrong-password') {

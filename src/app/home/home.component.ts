@@ -1,7 +1,7 @@
 import { Place } from './../../model/Place';
 import { NavBarService } from './../nav-bar.service';
 import { AppGlobal } from './../app.global';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import * as $ from 'jquery';
 import {
   trigger,
@@ -48,7 +48,9 @@ import { Trip } from '../../model/Trip';
     ])
   ]
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, AfterViewInit {
+  public section: string;
+
   public themes: Array<string>;
   public budgets: Array<string>;
   public numberOfTravellers: Array<string>;
@@ -76,7 +78,7 @@ export class HomeComponent implements OnInit {
   public Config: NgxCarousel;
 
   constructor(
-    private route: ActivatedRoute,
+    private activatedRoute: ActivatedRoute,
     private router: Router,
     public appGlobal: AppGlobal,
     private navBarService: NavBarService
@@ -103,6 +105,10 @@ export class HomeComponent implements OnInit {
 
   gotoTripDetail(tripId) {
     this.router.navigate(['searchDetail/' + tripId]);
+  }
+
+  gotoCareer() {
+    this.router.navigate(['career']);
   }
 
   search() {
@@ -199,12 +205,15 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  gotoCareer() {
-    this.router.navigate(['career']);
-  }
-
   ngOnInit() {
     this.navBarService.showNavbar();
+    this.activatedRoute.params.subscribe(params => {
+      if (params.section !== undefined && params.section !== null && params.section !== '') {
+        this.section = params.section;
+      } else {
+        this.section = 'top';
+      }
+    });
     this.themes = [
       'Theme',
       'Cultural & Heritage',
@@ -340,5 +349,11 @@ export class HomeComponent implements OnInit {
           'o/home%2Fimg%2Fnavigator%2Fhong.jpg?alt=media&token=dae3690b-b2df-4ac2-8ae8-659f634daab9'
       }
     ];
+  }
+
+  ngAfterViewInit() {
+    try {
+      document.querySelector('#' + this.section).scrollIntoView();
+    } catch (e) {}
   }
 }
