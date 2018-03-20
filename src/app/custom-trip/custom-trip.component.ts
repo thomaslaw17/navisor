@@ -1,13 +1,13 @@
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { AttractionService } from './../attraction.service';
+import { AttractionService } from './../services/attraction.service';
 import { Attraction } from './../../model/Attraction';
-import { UtilService } from './../util.service';
+import { UtilService } from './../services/util.service';
 import { Trip } from './../../model/Trip';
 import { Observable } from 'rxjs/Observable';
 import { AppGlobal } from './../app.global';
-import { NavBarService } from './../nav-bar.service';
+import { NavBarService } from './../services/nav-bar.service';
 import { AngularFireDatabase } from 'angularfire2/database';
-import { AuthService } from './../auth.service';
+import { AuthService } from './../services/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Event } from '../../model/Event';

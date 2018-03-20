@@ -1,6 +1,6 @@
-import { NavBarService } from './../nav-bar.service';
+import { NavBarService } from './../services/nav-bar.service';
 import { AngularFireDatabase } from 'angularfire2/database';
-import { AuthService } from './../auth.service';
+import { AuthService } from './../services/auth.service';
 import { Router } from '@angular/router';
 import { Component, OnInit, Input } from '@angular/core';
 import { AppGlobal } from '../app.global';

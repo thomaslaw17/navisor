@@ -2,7 +2,7 @@ import { Attraction } from './../../model/Attraction';
 import { Trip } from './../../model/Trip';
 import { Observable } from 'rxjs/Observable';
 import { AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
-import { AuthService } from './../auth.service';
+import { AuthService } from './../services/auth.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Event } from './../../model/Event';
 import { Component, OnInit } from '@angular/core';

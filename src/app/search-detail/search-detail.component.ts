@@ -1,10 +1,10 @@
-import { UtilService } from './../util.service';
+import { UtilService } from './../services/util.service';
 import { Attraction } from './../../model/Attraction';
 import { Observable } from 'rxjs/Observable';
 import { AngularFireObject, AngularFireDatabase } from 'angularfire2/database';
-import { NavBarService } from './../nav-bar.service';
+import { NavBarService } from './../services/nav-bar.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { AuthService } from './../auth.service';
+import { AuthService } from './../services/auth.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { AppGlobal } from '../app.global';
 import { Trip } from '../../model/Trip';

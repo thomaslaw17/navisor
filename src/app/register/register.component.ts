@@ -1,5 +1,5 @@
-import { NavBarService } from './../nav-bar.service';
-import { AuthService } from './../auth.service';
+import { NavBarService } from './../services/nav-bar.service';
+import { AuthService } from './../services/auth.service';
 import { User } from './../../model/User';
 import { AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
 import { Component, OnInit } from '@angular/core';

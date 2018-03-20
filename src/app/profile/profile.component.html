@@ -6,8 +6,8 @@
           <div class="userpic">
             <img src="https://firebasestorage.googleapis.com/v0/b/navisor-b9b70.appspot.com/o/home%2Fimg%2Fnavigator%2Famy.png?alt=media&token=2adde141-99ad-4f17-ba01-ab026589bd6d"
               alt="" class="userpicimg"> </div>
-          <h3 class="username">Amy Mok</h3>
-          <p>Hong Kong, China</p>
+          <h3 class="username">{{user.firstName}} {{user.lastName}}</h3>
+          <p>{{user.address}}</p>
           <div class="socials tex-center">
             <a href="" class="btn btn-circle btn-primary fb-button ">
               <i class="fa fa-facebook"></i>
@@ -77,22 +77,22 @@
         </div>
         <div class="col-md-12">
           <ul class="list-group">
-            <li class="list-group-item">
+            <li class="list-group-item" (click)="switchTab('')">
               <span class="fa fa-user"></span> Profile
             </li>
-            <li class="list-group-item">
+            <li class="list-group-item" (click)="switchTab('schedule')">
               <span class="fa fa-calendar"></span> Schedule
             </li>
-            <li class="list-group-item">
+            <li class="list-group-item" (click)="switchTab('payment-method')">
               <span class="fa fa-credit-card"></span> Payment Method
             </li>
-            <li class="list-group-item">
+            <li class="list-group-item" (click)="switchTab('reward-points')">
               <span class="fa fa-gift"></span> Reward Points
             </li>
-            <li class="list-group-item">
+            <li class="list-group-item" (click)="switchTab('past-event')">
               <span class="fa fa-history"></span> Past Event
             </li>
-            <li class="list-group-item">
+            <li class="list-group-item" (click)="switchTab('language')">
               <span class="fa fa-language"></span> Languages
             </li>
           </ul>
@@ -145,6 +145,11 @@
       </div> -->
     </div>
     <div class="col-md-8 col-sm-12 pull-left posttimeline">
+      <app-profile-edit *ngIf="tab === 'edit'"></app-profile-edit>
+      <app-profile-past-event *ngIf="tab === 'past-event'"></app-profile-past-event>
+      <app-profile-payment-method *ngIf="tab === 'payment-method'"></app-profile-payment-method>
+      <app-profile-reward-points *ngIf="tab === 'reward-points'"></app-profile-reward-points>
+      <app-profile-schedule *ngIf="tab === 'schedule'"></app-profile-schedule>
       <!-- <div class="panel panel-default">
         <div class="panel-body">
           <div class="status-upload nopaddingbtm">
@@ -172,7 +177,7 @@
             </form>
           </div>
         </div>
-      </div> -->
+    </div> -->
       <div class="panel panel-default">
         <!-- <div class="btn-group pull-right postbtn">
           <button type="button" class="dotbtn dropdown-toggle" data-toggle="dropdown" aria-expanded="false">

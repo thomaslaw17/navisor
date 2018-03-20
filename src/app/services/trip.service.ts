@@ -1,6 +1,6 @@
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
-import { Trip } from './../model/Trip';
+import { Trip } from './../../model/Trip';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { Injectable } from '@angular/core';
 

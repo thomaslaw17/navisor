@@ -1,5 +1,5 @@
 import { Place } from './../../model/Place';
-import { NavBarService } from './../nav-bar.service';
+import { NavBarService } from './../services/nav-bar.service';
 import { AppGlobal } from './../app.global';
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import * as $ from 'jquery';
@@ -208,7 +208,11 @@ export class HomeComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.navBarService.showNavbar();
     this.activatedRoute.params.subscribe(params => {
-      if (params.section !== undefined && params.section !== null && params.section !== '') {
+      if (
+        params.section !== undefined &&
+        params.section !== null &&
+        params.section !== ''
+      ) {
         this.section = params.section;
       } else {
         this.section = 'top';

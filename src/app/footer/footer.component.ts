@@ -16,15 +16,15 @@ export class FooterComponent implements OnInit {
   }
 
   gotoAbout() {
-    this.router.navigate(['/#aboutUs']);
+    this.router.navigate(['#aboutUs']);
   }
 
   gotoTripPlanning() {
-    this.router.navigate(['/tripPlanning']);
+    this.router.navigate(['tripPlanning']);
   }
 
   gotoPartnership() {
-    this.router.navigate(['/#partnership']);
+    this.router.navigate(['#partnership']);
   }
 
   gotoCareer() {
@@ -32,6 +32,6 @@ export class FooterComponent implements OnInit {
   }
 
   gotoContactUs() {
-    this.router.navigate(['#tm-section-7']);
+    this.router.navigate(['#contactUs']);
   }
 }

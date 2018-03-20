@@ -2,7 +2,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/zip';
 import 'rxjs/add/operator/switchMap';
-import { Attraction } from './../model/Attraction';
+import { Attraction } from './../../model/Attraction';
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 

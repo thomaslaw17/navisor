@@ -1,7 +1,7 @@
-import { AppGlobal } from './app.global';
+import { AppGlobal } from './../app.global';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
-import { User } from './../model/User';
+import { User } from './../../model/User';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Injectable } from '@angular/core';
 import * as firebase from 'firebase/app';

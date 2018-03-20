@@ -1,5 +1,5 @@
 import { User } from './../../model/User';
-import { AuthService } from './../auth.service';
+import { AuthService } from './../services/auth.service';
 import { AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';

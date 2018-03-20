@@ -1,6 +1,6 @@
 import { MaterialModule } from './material/material.module';
-import { AttractionService } from './attraction.service';
-import { TripService } from './trip.service';
+import { AttractionService } from './services/attraction.service';
+import { TripService } from './services/trip.service';
 import { CareerComponent } from './career/career.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ChangeDetectorRef } from '@angular/core';
@@ -43,8 +43,8 @@ import { CalendarComponent } from './calendar/calendar.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { RegisterComponent } from './register/register.component';
 
-import { AuthService } from './auth.service';
-import { NavBarService } from './nav-bar.service';
+import { AuthService } from './services/auth.service';
+import { NavBarService } from './services/nav-bar.service';
 import { AppGlobal } from './app.global';
 
 import Popper from 'popper.js';
@@ -65,10 +65,11 @@ import {
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ForgotUserNameComponent } from './forgot-user-name/forgot-user-name.component';
 import { TripCategoryComponent } from './trip-category/trip-category.component';
-import { UtilService } from './util.service';
+import { UtilService } from './services/util.service';
 import { FeatureTripComponent } from './feature-trip/feature-trip.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { FooterComponent } from './footer/footer.component';
+import { AssistantComponent } from './assistant/assistant.component';
 
 @NgModule({
   imports: [
@@ -118,7 +119,8 @@ import { FooterComponent } from './footer/footer.component';
     TripCategoryComponent,
     FeatureTripComponent,
     NavBarComponent,
-    FooterComponent
+    FooterComponent,
+    AssistantComponent
   ],
   providers: [
     AngularFireAuth,

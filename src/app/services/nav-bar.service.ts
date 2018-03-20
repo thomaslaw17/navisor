@@ -1,4 +1,4 @@
-import { AppGlobal } from './app.global';
+import { AppGlobal } from './../app.global';
 import { Injectable } from '@angular/core';
 
 @Injectable()

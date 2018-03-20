@@ -1,5 +1,5 @@
-// import { NavBarService } from './nav-bar.service';
-import { AuthService } from './auth.service';
+// import { NavBarService } from './services/nav-bar.service';
+import { AuthService } from './services/auth.service';
 import { Component } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';

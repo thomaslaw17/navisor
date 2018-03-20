@@ -3,7 +3,8 @@ import { AngularFireObject, AngularFireDatabase } from 'angularfire2/database';
 import { User } from './../../model/User';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../services/auth.service';
+import { NavBarService } from '../services/nav-bar.service';
 
 @Component({
   selector: 'app-profile',
@@ -13,13 +14,15 @@ import { AuthService } from '../auth.service';
 export class ProfileComponent implements OnInit {
   public userObj: AngularFireObject<User>;
   public user: User;
+  public tab: string;
 
   public type: string;
 
   constructor(
     private router: Router,
     private authService: AuthService,
-    private angularFireDatabase: AngularFireDatabase
+    private angularFireDatabase: AngularFireDatabase,
+    private navBarService: NavBarService
   ) {
     // if (authService.checkLogin()) {
     //   const userState = authService.getAuthState();
@@ -27,6 +30,10 @@ export class ProfileComponent implements OnInit {
     // } else {
     //   this.router.navigate(['login']);
     // }
+  }
+
+  switchTab(name) {
+    this.tab = name;
   }
 
   gotoCalendar() {}
@@ -37,7 +44,7 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     this.user = new User(); // waiting for user
-
+    this.navBarService.showNavbar();
     this.authService.getAuthState().subscribe(res => {
       if (res && res.uid) {
         this.userObj = this.angularFireDatabase.object('User/' + res.uid);
@@ -58,7 +65,6 @@ export class ProfileComponent implements OnInit {
   styleUrls: ['./profile-edit.component.css']
 })
 export class ProfileEditComponent implements OnInit {
-
   constructor(private router: Router) {}
 
   ngOnInit() {}
@@ -70,7 +76,6 @@ export class ProfileEditComponent implements OnInit {
   styleUrls: ['./profile-pastEvent.component.css']
 })
 export class ProfilePastEventComponent implements OnInit {
-
   constructor(private router: Router) {}
 
   ngOnInit() {}
@@ -82,7 +87,6 @@ export class ProfilePastEventComponent implements OnInit {
   styleUrls: ['./profile-paymentMethod.component.css']
 })
 export class ProfilePaymentMethodComponent implements OnInit {
-
   constructor(private router: Router) {}
 
   ngOnInit() {}
@@ -94,7 +98,6 @@ export class ProfilePaymentMethodComponent implements OnInit {
   styleUrls: ['./profile-rewardPoints.component.css']
 })
 export class ProfileRewardPointsComponent implements OnInit {
-
   constructor(private router: Router) {}
 
   ngOnInit() {}
@@ -106,10 +109,7 @@ export class ProfileRewardPointsComponent implements OnInit {
   styleUrls: ['./profile-schedule.component.css']
 })
 export class ProfileScheduleComponent implements OnInit {
-
   constructor(private router: Router) {}
 
   ngOnInit() {}
 }
-
-
