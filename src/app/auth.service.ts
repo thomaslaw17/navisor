@@ -29,7 +29,9 @@ export class AuthService {
   }
 
   loginWithFb() {
-    return this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+    return this.afAuth.auth.signInWithPopup(
+      new firebase.auth.GoogleAuthProvider()
+    );
   }
 
   logout() {
@@ -39,7 +41,27 @@ export class AuthService {
   // return true if register successful
   // return false if register failed.
   register(user: User, password: string) {
-    return this.afAuth.auth.createUserWithEmailAndPassword(user.email, password);
+    return this.afAuth.auth.createUserWithEmailAndPassword(
+      user.email,
+      password
+    );
+  }
+
+  sendEmailVerification() {
+    this.afAuth.authState.subscribe(newUser => {
+      newUser
+        .sendEmailVerification()
+        .then(() => console.log('Confirmation Email sent'))
+        .catch(err => console.log(err));
+    });
+  }
+
+  resetPassword() {
+    return null;
+  }
+
+  sendResetPasswordEmail(email: string) {
+    return this.afAuth.auth.sendPasswordResetEmail(email);
   }
 
   // registerWithFb(){

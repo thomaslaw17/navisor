@@ -1,8 +1,8 @@
+import { BookingConfirmComponent } from './booking-confirm/booking-confirm.component';
+import { SearchDetailComponent } from './search-detail/search-detail.component';
+import { CareerComponent } from './career/career.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { RegisterComponent } from './register/register.component';
-import { RouterModule, Routes } from '@angular/router';
-import { NgModule } from '@angular/core';
-
 import { TripPlanningComponent } from './trip-planning/trip-planning.component';
 import { RewardComponent } from './reward/reward.component';
 import { PaymentComponent } from './payment/payment.component';
@@ -12,21 +12,27 @@ import { SearchComponent } from './search/search.component';
 import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
+import { RouterModule, Routes } from '@angular/router';
+import { NgModule } from '@angular/core';
+
 const routes: Routes = [
   {
-    path: 'home',
+    path: '',
     component: HomeComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   },
   {
     path: 'calendar',
     component: CalendarComponent
   },
   {
-    path: 'customer-service',
+    path: 'customerService',
     component: CustomerServiceComponent
   },
   {
@@ -34,16 +40,8 @@ const routes: Routes = [
     component: EditProfileComponent
   },
   {
-    path: 'about',
-    component: AboutComponent
-  },
-  {
-    path: '',
-    component: LoginComponent
-  },
-  {
-    path: 'login',
-    component: LoginComponent
+    path: 'career',
+    component: CareerComponent
   },
   {
     path: 'messaging',
@@ -70,11 +68,15 @@ const routes: Routes = [
     component: SearchComponent
   },
   {
-    path: 'reward',
-    component: RewardComponent
+    path: 'search/detail/:id',
+    component: SearchDetailComponent
   },
   {
-    path: 'tripPlanning',
+    path: 'confirmBooking',
+    component: BookingConfirmComponent
+  },
+  {
+    path: 'tripPlanning/:tripId',
     component: TripPlanningComponent
   },
   {

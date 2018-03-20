@@ -1,3 +1,7 @@
+import { NavBarService } from './../nav-bar.service';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { AuthService } from './../auth.service';
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +10,36 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./payment.component.css']
 })
 export class PaymentComponent implements OnInit {
+  constructor(
+    private router: Router,
+    private authService: AuthService,
+    private angularFireDatanase: AngularFireDatabase,
+    private navBarService: NavBarService
+  ) {}
 
-  constructor() { }
-
-  ngOnInit() {
+  selectCreditCard() {
+    if (
+      !document
+        .getElementById('creditCardLabel')
+        .classList.contains('blue-border')
+    ) {
+      document.getElementById('creditCardLabel').classList.add('blue-border');
+      document.getElementById('payPalLabel').classList.remove('blue-border');
+    }
   }
 
+  selectPayPal() {
+    if (
+      !document.getElementById('payPalLabel').classList.contains('blue-border')
+    ) {
+      document.getElementById('payPalLabel').classList.add('blue-border');
+      document
+        .getElementById('creditCardLabel')
+        .classList.remove('blue-border');
+    }
+  }
+
+  ngOnInit() {
+    this.navBarService.hideNavBar();
+  }
 }

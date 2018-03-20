@@ -1,3 +1,4 @@
+import { CareerComponent } from './career/career.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
@@ -15,7 +16,6 @@ import { environment } from './../environments/environment';
 
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
 import { SearchComponent } from './search/search.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -31,10 +31,14 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { RegisterComponent } from './register/register.component';
 
 import { AuthService } from './auth.service';
+import { NavBarService } from './nav-bar.service';
+import { AppGlobal } from './app.global';
 
 import Popper from 'popper.js';
 import bootstrap from 'bootstrap';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SearchDetailComponent } from './search-detail/search-detail.component';
+import { BookingConfirmComponent } from './booking-confirm/booking-confirm.component';
 
 @NgModule({
   imports: [
@@ -52,7 +56,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AppComponent,
     LoginComponent,
     HomeComponent,
-    AboutComponent,
     SearchComponent,
     ProfileComponent,
     TripPlanningComponent,
@@ -63,9 +66,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     EditProfileComponent,
     CalendarComponent,
     NotFoundComponent,
-    RegisterComponent
+    CareerComponent,
+    RegisterComponent,
+    SearchDetailComponent,
+    BookingConfirmComponent
   ],
-  providers: [AngularFireAuth, AuthService],
+  providers: [AngularFireAuth, AuthService, NavBarService, AppGlobal],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -43,6 +43,7 @@ export class RegisterComponent implements OnInit {
     this.authService
       .register(this.user, this.password)
       .then(value => {
+        this.authService.sendEmailVerification();
         this.userObj = this.angularFireDatabase.object('User/' + value.uid);
         this.userObj.set(this.user);
         this.router.navigate(['home']);

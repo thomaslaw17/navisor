@@ -29,18 +29,6 @@ export class ProfileComponent implements OnInit {
     }
   }
 
-  saveProfile() {
-    this.userObj.set(this.user).then(
-      resolve => {
-        console.log('Profile updated', resolve);
-        this.router.navigate(['profile']);
-      },
-      reject => {
-        console.log('Profile update failed', reject);
-      }
-    );
-  }
-
   gotoCalendar() {}
 
   gotoEditProfile() {
@@ -48,6 +36,7 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.user = new User(); // waiting for user
     this.userObj.valueChanges().subscribe(user => {
       this.user = user;
       this.type = user.type === 0 ? 'Traveller' : 'Navigator';

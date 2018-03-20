@@ -1,3 +1,4 @@
+import { NavBarService } from './../nav-bar.service';
 import { Router } from '@angular/router';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AuthService } from './../auth.service';
@@ -14,11 +15,15 @@ export class LoginComponent implements OnInit {
   public password: string;
   public loginState: boolean;
 
+  public show: boolean;
+  public resetPasswordEmail: string;
+
   constructor(
     private authService: AuthService,
     private angularFireDatabase: AngularFireDatabase,
-    private router: Router
-  ) {}
+    private router: Router,
+    private navBarService: NavBarService
+  ) { }
 
   login() {
     this.authService
@@ -51,13 +56,31 @@ export class LoginComponent implements OnInit {
       });
   }
 
+  showResetPassword(show) {
+    this.show = show;
+  }
+
+  sendResetPasswordEmail() {
+    if (
+      this.resetPasswordEmail !== null &&
+      this.resetPasswordEmail !== undefined &&
+      this.resetPasswordEmail !== '' &&
+      this.resetPasswordEmail.includes('@') === true
+    ) {
+      this.authService.sendResetPasswordEmail(this.resetPasswordEmail);
+    } else {
+      alert('Please enter a valid email');
+    }
+  }
+
   gotoRegister() {
     this.router.navigate(['register']);
   }
 
   ngOnInit() {
+    this.show = false;
     this.loginState = this.authService.checkLogin();
-
+    this.navBarService.hideNavBar();
     if (this.loginState) {
       this.router.navigate(['home']);
     }
