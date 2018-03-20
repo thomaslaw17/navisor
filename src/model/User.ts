@@ -4,10 +4,11 @@ export class User {
   public email: string;
   public gender: string;
   public language: string;
+  public nationality: string;
   public firstName: string;
   public lastName: string;
   public nickName: string;
-  public phoneNumber: string;
+  public phoneNumber: string; //need to add to UI
   public photoURl: string; // profile picture url
   public recoveryEmail: string;
   public selfIntroduction: string;
