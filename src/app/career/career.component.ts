@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { NavBarService } from './../services/nav-bar.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +8,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./career.component.css']
 })
 export class CareerComponent implements OnInit {
-
-  constructor() { }
+  constructor(private router: Router, private navBarService: NavBarService) {}
 
   ngOnInit() {
+    this.navBarService.showNavbar();
   }
-
 }

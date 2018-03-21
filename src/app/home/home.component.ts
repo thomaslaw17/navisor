@@ -55,6 +55,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
   public budgets: Array<string>;
   public numberOfTravellers: Array<string>;
 
+  public lastKeyPress: number;
+
   public contact: {
     name: string;
     email: string;
@@ -163,6 +165,15 @@ export class HomeComponent implements OnInit, AfterViewInit {
     } else {
       this.router.navigate(['search']);
     }
+  }
+
+  updateSearch($event) {
+    if ($event.timeStamp - this.lastKeyPress > 200) {
+      const q = $event.target.value;
+      this.appGlobal.search.startAt.next(q);
+      this.appGlobal.search.endAt.next(q + '\uf8ff');
+    }
+    this.lastKeyPress = $event.timeStamp;
   }
 
   sendContactMessage() {

@@ -8,16 +8,14 @@
               <div class="form-row tm-search-form-row">
                 <div class="form-group tm-form-element tm-form-element-100">
                   <i class="fa fa-map-marker fa-2x tm-form-element-icon"></i>
-                  <input name="location" type="text" class="form-control" id="inputLocation" placeholder="Desired Location" (keypress)="updateSearch($event)">
+                  <input name="location" type="text" class="form-control" id="inputLocation" placeholder="Desired Location" (click)="updateSearch($event)"
+                    [(ngModel)]="appGlobal.search.location">
                 </div>
                 <div class="form-group tm-form-element tm-form-element-50">
                   <i class="fa fa-calendar fa-2x tm-form-element-icon"></i>
                   <input name="Start Date" type="date" class="form-control" id="inputStartDate" placeholder="Start Date" [(ngModel)]="appGlobal.search.startDate">
                 </div>
-                <div class="form-group tm-form-element tm-form-element-50">
-                  <i class="fa fa-calendar fa-2x tm-form-element-icon"></i>
-                  <input name="End Date" type="date" class="form-control" id="inputEndDate" placeholder="End Date">
-                </div>
+
               </div>
               <div class="form-row tm-search-form-row">
                 <div class="form-group tm-form-element tm-form-element-2">
@@ -66,13 +64,12 @@
               </div>
 
               <div class="form-row clearfix pl-2 pr-2 tm-fx-col-xs">
-                <p class="tm-margin-b-0">
+                <p class="tm-margin-b-0 col-lg-3">
                   <em>Search your desired travel plan now!</em>
                 </p>
-                <div class="form-group tm-form-element tm-form-element-2 tm-btn-search">
-                  <em>
-                    <button type="submit" class="btn btn-primary">Search</button>
-                  </em>
+
+                <div class="form-group tm-form-element tm-form-element-2 tm-btn-search col-lg-9" style="width: 75%; padding: 0px;">
+                  <button type="submit" class="btn btn-primary" style="float:right;" (click)="search()">Search</button>
                 </div>
               </div>
             </form>

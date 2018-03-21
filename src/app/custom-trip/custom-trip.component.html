@@ -1,5 +1,4 @@
-<br>
-<div class="tm-section tm-bg-img" id="tm-section-1">
+<!-- <div class="tm-section tm-bg-img" id="tm-section-1">
   <div class="tm-bg-white ie-container-width-fix-2">
     <div class="container ie-h-align-center-fix">
 
@@ -18,7 +17,7 @@
 
       <div class="form-row tm-search-form-row">
         <div class="card">
-          <h6>Trip Type:</h6>
+          <div>Trip Type:</h6>
           <div class="form-group tm-form-element tm-form-element-2">
             <select name="adult" class="form-control tm-select" id="adult">
               <option value="Cultural & Heritage">Cultural & Heritage</option>
@@ -32,7 +31,7 @@
           </div>
 
           <div class="form-row tm-search-form-row">
-            <h6>Destination:</h6>
+            <div>Destination:</h6>
             <div class="form-group tm-form-element tm-form-element-2">
               <i class="fa fa-map-marker fa-2x tm-form-element-icon"></i>
               <input name="destination" type="text" class="form-control" id="inputDest" placeholder=" Type your destination...">
@@ -40,7 +39,7 @@
           </div>
 
           <div class="form-row tm-search-form-row">
-            <h6>Number of Travellers:</h6>
+            <div>Number of Travellers:</h6>
             <div class="form-group tm-form-element tm-form-element-2">
               <i class="fa fa-map-marker fa-2x tm-form-element-icon"></i>
               <input name="Travellers" type="text" class="form-control" id="inputTravellers" placeholder=" Number of travellers…" style="width:220px">
@@ -48,7 +47,7 @@
           </div>
 
           <div class="form-row tm-search-form-row">
-            <h6>Duration:</h6>
+            <div>Duration:</h6>
             <div class="form-group tm-form-element tm-form-element-2">
               <i class="fa fa-map-marker fa-2x tm-form-element-icon"></i>
               <input name="duration" type="text" class="form-control" id="inputDuration" placeholder=" Number of days…" style="width:250px">
@@ -56,7 +55,7 @@
           </div>
 
           <div class="form-row tm-search-form-row">
-            <h6>Budget (each traveller):</h6>
+            <div>Budget (each traveller):</h6>
             <div class="form-group tm-form-element tm-form-element-2">
               <select name="adult" class="form-control tm-select dropdown" id="adult">
                 <option value="$500-$1000">$500-$1000</option>
@@ -70,7 +69,7 @@
 
         <div class="card">
           <div class="form-row tm-search-form-row">
-            <h6>Activity:</h6>
+            <div>Activity:</h6>
             <div *ngFor="let event of trip.events">
               <app-custom-event [tripId]='tripId' [event]='event'></app-custom-event>
             </div>
@@ -80,7 +79,7 @@
 
         <div>
           <div class="form-row tm-search-form-row">
-            <h6>Food:</h6>
+            <div>Food:</h6>
             <div class="form-group tm-form-element tm-form-element-100">
               <i class="fa fa-map-marker fa-2x tm-form-element-icon"></i>
               <input name="food" type="text" class="form-control" id="inputFood" placeholder=" Type the food that you want to try…" style="width:400px">
@@ -88,7 +87,7 @@
           </div>
 
           <div class="form-row tm-search-form-row">
-            <h6>Remarks:</h6>
+            <div>Remarks:</h6>
             <div class="form-group tm-form-element tm-form-element-200">
               <i class="fa fa-map-marker fa-2x tm-form-element-icon"></i>
               <input name="remark" type="text" class="form-control" id="inputRemarks" placeholder=" Type any remarks…" style="width:600px"
@@ -109,4 +108,163 @@
       </div>
     </div>
   </div>
+</div> -->
+
+
+<h3>Trip Planning Form</h3>
+<br>
+
+<!--Trip Type-->
+<div class="form-row tm-search-form-row">
+  <div>
+    <h6 class="tab1">Trip Type: &nbsp</h6>
+    <div class="form-group tm-form-element tm-form-element-2">
+      <select name="adult" class="form-control tm-select" id="adult">
+        <option value="Cultural & Heritage">Cultural & Heritage</option>
+        <option value="Nature">Nature</option>
+        <option value="Foodie">Foodie</option>
+        <option value="Photography">Photography</option>
+        <option value="University Tour">University Tour</option>
+        <option value="Others">Others</option>
+      </select>
+    </div>
+  </div>
+
+  <!--Destination-->
+  <div class="form-row tm-search-form-row">
+    <div>
+      <h6 class="tab1">Destination: &nbsp</h6>
+      <div class="form-group tm-form-element tm-form-element-100">
+        <i class="fa fa-map-marker fa-2x tm-form-element-icon"></i>
+        <input name="destination" type="text" class="form-control" id="inputDest" placeholder="&nbsp&nbsp&nbsp&nbsp&nbsp Type your destination...">
+      </div>
+    </div>
+  </div>
+
+  <!--Number of Travellers-->
+  <div class="form-row tm-search-form-row">
+    <div>
+      <h6 class="tab1">Number of Travellers: &nbsp</h6>
+      <div class="form-group tm-form-element tm-form-element-100">
+        <i class="fa fa-map-marker fa-2x tm-form-element-icon"></i>
+        <input name="Travellers" type="text" class="form-control" id="inputTravellers" placeholder="&nbsp&nbsp&nbsp&nbsp&nbsp Number of travellers…"
+          style="width:220px">
+      </div>&nbsp Persons
+    </div>
+  </div>
+
+  <!--Duration-->
+  <div class="form-row tm-search-form-row">
+    <div>
+      <h6 class="tab1">Duration: &nbsp</h6>
+      <div class="form-group tm-form-element tm-form-element-100">
+        <i class="fa fa-map-marker fa-2x tm-form-element-icon"></i>
+        <input name="duration" type="text" class="form-control" id="inputDuration" placeholder="&nbsp&nbsp&nbsp&nbsp&nbsp Number of days…"
+          style="width:250px">
+      </div>&nbsp Days
+    </div>
+  </div>
+
+  <!--Budget-->
+  <div class="form-row tm-search-form-row">
+    <div>
+      <h6 class="tab1">Budget (each traveller): &nbsp</h6>
+      <div class="form-group tm-form-element tm-form-element-2">
+        <select name="adult" class="form-control tm-select" id="adult">
+          <option value="$500-$1000">$500-$1000</option>
+          <option value="$1001-$1500">$1001-$1500</option>
+          <option value="$1500-$2000">$1500-$2000</option>
+          <option value="$2000+">$2000+</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!--Activity-->
+  <div class="form-row tm-search-form-row">
+    <div>
+      <h6 class="tab1">Activity: &nbsp</h6>
+      <div class="form-group tm-form-element tm-form-element-100">
+        <i class="fa fa-map-marker fa-2x tm-form-element-icon"></i>
+        <table id="addRow">
+          <tr>
+            <td> Place:
+              <input name="place" id="inputPlace">
+              <br> Time:
+              <input name="time" id="inputTime"> </td>
+          </tr>
+        </table>
+        <br>
+        <button type="submit" onclick="add()">+</button>
+      </div>
+    </div>
+  </div>
+
+  <!--Food-->
+  <div class="form-row tm-search-form-row">
+    <div>
+      <h6 class="tab1">Food: &nbsp</h6>
+      <div class="form-group tm-form-element tm-form-element-100">
+        <i class="fa fa-map-marker fa-2x tm-form-element-icon"></i>
+        <input name="food" type="text" class="form-control" id="inputFood" placeholder="&nbsp&nbsp&nbsp&nbsp&nbsp Type the food that you want to try…"
+          style="width:400px">
+      </div>
+    </div>
+  </div>
+
+  <!--Remarks-->
+  <div class="form-row tm-search-form-row">
+    <div>
+      <h6 class="tab1">Remarks: &nbsp</h6>
+      <div class="form-group tm-form-element tm-form-element-200">
+        <i class="fa fa-map-marker fa-2x tm-form-element-icon"></i>
+        <input name="remark" type="text" class="form-control" id="inputRemarks" placeholder="&nbsp&nbsp&nbsp&nbsp&nbsp Type any remarks…"
+          style="width:600px">
+      </div>
+    </div>
+  </div>
+
+  <!--Submit button-->
+  <div class="form-row tm-search-form-row">
+    <div class="form-row tm-search-form-row">
+      <button type="submit" class="btn btn-primary tm-btn-search">Submit</button>
+    </div>
+  </div>
+
+  <!--"Help" hyperlink-->
+  <div class="form-row clearfix pl-2 pr-2 tm-fx-col-xs">
+    <a href="#" class="ie-10-ml-auto ml-auto mt-1 tm-font-semibold tm-color-primary">Help</a>
+  </div>
 </div>
+
+
+<!--Script for adding table-->
+<script>
+  function add() {
+    var table = document.getElementById("addRow");
+    var row = table.insertRow(-1);
+    var value = row.insertCell(-1);
+    value.innerHTML = value.innerHTML + "Place: ";
+    value.innerHTML = value.innerHTML + '<input name="place" id="inputPlace">';
+    value.innerHTML = value.innerHTML + "<br>";
+    value.innerHTML = value.innerHTML + "Time: ";
+    value.innerHTML = value.innerHTML + '<input name="time" id="inputTime">';
+
+  }
+
+</script>
+
+
+<!--Format for the added table & Tab space-->
+<style>
+  table,
+  td {
+    border: 1px solid #ccc;
+    padding: 25px;
+  }
+
+  .tab1 {
+    padding-left: 1em;
+  }
+
+</style>

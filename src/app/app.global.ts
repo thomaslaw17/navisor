@@ -8,6 +8,7 @@ export class AppGlobal {
   public loggedIn: boolean;
 
   public search: {
+    location: string;
     startAt: BehaviorSubject<string>;
     endAt: BehaviorSubject<string>;
     startDate: Date;
@@ -24,6 +25,7 @@ export class AppGlobal {
 
   constructor(private router: Router) {
     this.search = {
+      location: '',
       startAt: new BehaviorSubject<string>(''),
       endAt: new BehaviorSubject<string>(''),
       startDate: new Date(),

@@ -67,7 +67,7 @@ export class SearchComponent implements OnInit {
               name: trips[i].name,
               detail: trips[i].description,
               photo: trips[i].url,
-              type: trips[i].type
+              type: 'trip'
             });
           }
           this.results.push(row);

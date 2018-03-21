@@ -36,14 +36,9 @@ export class ProfileComponent implements OnInit {
     this.tab = name;
   }
 
-  gotoCalendar() {}
-
-  gotoEditProfile() {
-    this.router.navigate(['profile/edit']);
-  }
-
   ngOnInit() {
     this.user = new User(); // waiting for user
+    this.tab = 'edit';
     this.navBarService.showNavbar();
     this.authService.getAuthState().subscribe(res => {
       if (res && res.uid) {
