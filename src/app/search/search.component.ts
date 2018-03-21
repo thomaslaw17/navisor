@@ -19,7 +19,12 @@ export class SearchComponent implements OnInit {
   public catagories: Array<string>;
   public lastKeyPress: number;
   public show: boolean;
-  public results: Array<Result[]>; // public results: Result[][];
+  public results: Array<Result[]>;
+
+  public budgetFilter: any;
+  public themeFilter: any;
+  public languageFilter: any;
+
   constructor(
     private router: Router,
     private authService: AuthService,
@@ -33,6 +38,7 @@ export class SearchComponent implements OnInit {
     // query from database
     // this.keyword, this.catagory
   }
+
   updateSearch($event) {
     if ($event.timeStamp - this.lastKeyPress > 200) {
       const q = $event.target.value;
@@ -41,10 +47,34 @@ export class SearchComponent implements OnInit {
     }
     this.lastKeyPress = $event.timeStamp;
   }
+
   ngOnInit() {
     this.navBarService.showNavbar();
     this.show = false;
     this.catagories = ['cat 1', 'cat 2', 'cat 3'];
+    this.budgetFilter = {
+      0: true,
+      1: false,
+      2: false,
+      3: false
+    };
+    this.themeFilter = {
+      nature: true,
+      foodie: false,
+      photography: false,
+      university: false,
+      others: false
+    };
+
+    this.languageFilter = {
+      english: true,
+      mandarin: false,
+      french: false,
+      german: false,
+      italian: false,
+      others: false
+    };
+
     this.tripService
       .getTrips(this.appGlobal.search.startAt, this.appGlobal.search.endAt)
       .subscribe(trips => {

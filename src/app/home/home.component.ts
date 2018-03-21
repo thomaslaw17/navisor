@@ -109,6 +109,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.router.navigate(['searchDetail/' + tripId]);
   }
 
+  gotoCustomTrip() {
+    this.router.navigate(['customTrip/new']);
+  }
+
   gotoCareer() {
     this.router.navigate(['career']);
   }
@@ -210,24 +214,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
       '9',
       '10'
     ];
-    if (
-      this.appGlobal.search.theme === undefined ||
-      this.appGlobal.search.theme === null
-    ) {
-      this.appGlobal.search.theme = 'Theme';
-    }
-    if (
-      this.appGlobal.search.location === undefined ||
-      this.appGlobal.search.location === null
-    ) {
-      this.appGlobal.search.location = 'Location';
-    }
-    if (
-      this.appGlobal.search.budget === undefined ||
-      this.appGlobal.search.budget === null
-    ) {
-      this.appGlobal.search.budget = 'Budget';
-    }
+    
 
     this.contact = {
       name: '',

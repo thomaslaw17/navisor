@@ -13,8 +13,9 @@ export class AppGlobal {
     endAt: BehaviorSubject<string>;
     startDate: Date;
     duration: number;
-    theme: string;
-    budget: string;
+    theme: Array<string>;
+    budgetMax: number;
+    budgetMin: number;
     numberOfTravellers: number;
     nameOfNavigator: string;
   };
@@ -30,8 +31,9 @@ export class AppGlobal {
       endAt: new BehaviorSubject<string>(''),
       startDate: new Date(),
       duration: 0,
-      theme: '',
-      budget: '',
+      theme: new Array<string>(),
+      budgetMax: 0,
+      budgetMin: 0,
       numberOfTravellers: 0,
       nameOfNavigator: ''
     };
