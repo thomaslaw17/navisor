@@ -1,54 +1,58 @@
+body {
+  margin-left: 30px;
+}
+
 h3 {
-    padding: 20px;
-    text-align: center;
+  padding: 20px;
+  text-align: center;
 }
 
 ngx-carousel .ngxcarouselPointDefault {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 ngx-carousel .ngxcarouselPoint li {
-    transform: scale(1);
+  transform: scale(1);
 }
 
 ngx-carousel button {
-    border: none;
-    position: absolute;
-    bottom: 0;
-    top: 0;
-    width: 50px;
-    height: 50px;
-    border-radius: 999%;
-    margin: auto;
+  border: none;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 999%;
+  margin: auto;
 }
 
 ngx-carousel button[NgxCarouselPrev] {
-    left: 50px;
+  left: 50px;
 }
 
 ngx-carousel button[NgxCarouselNext] {
-    right: 50px;
+  right: 50px;
 }
 
 .recommendedTrips {
-    width: 140px;
-    height: 100px;
+  width: 140px;
+  height: 100px;
 }
 
-tm-section{
+tm-section {
   /* background-image: url('https://firebasestorage.googleapis.com/v0/b/navisor-b9b70.appspot.com/o/home%2Fimg%2FsectionBg%2FHill.jpg?alt=media&token=7d7e9d98-4e6e-4bc8-9517-ad033d141589'); */
   background-color: grey;
-} 
+}
 
 .tm-section-6 {
-    background-image: url('https://firebasestorage.googleapis.com/v0/b/navisor-b9b70.appspot.com/o/home%2Fimg%2FsectionBg%2FpottingerStreet.png?alt=media&token=49ac5f52-6cf7-454a-b0eb-b27a051436b5');
-    background-position: top center;
-    padding-top: 120px;
-    padding-bottom: 60px;
-    background-size: 100% 100%;
+  background-image: url('https://firebasestorage.googleapis.com/v0/b/navisor-b9b70.appspot.com/o/home%2Fimg%2FsectionBg%2FpottingerStreet.png?alt=media&token=49ac5f52-6cf7-454a-b0eb-b27a051436b5');
+  background-position: top center;
+  padding-top: 120px;
+  padding-bottom: 60px;
+  background-size: 100% 100%;
 }
 
 .tm-section-8 {
@@ -57,7 +61,7 @@ tm-section{
   padding-top: 120px;
   padding-bottom: 60px;
   background-size: 100% 100%;
-} 
+}
 
 .paraText {
   color: white;
