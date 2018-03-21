@@ -7,7 +7,6 @@ import { Router } from '@angular/router';
 import { Component, OnInit, Input } from '@angular/core';
 import { AppGlobal } from '../app.global';
 import { Result } from '../../model/Result';
-
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -18,14 +17,9 @@ export class SearchComponent implements OnInit {
   public selected: string;
   public catagory: string;
   public catagories: Array<string>;
-
   public lastKeyPress: number;
-
   public show: boolean;
-
-  public results: Array<Result[]>;
-  // public results: Result[][];
-
+  public results: Array<Result[]>; // public results: Result[][];
   constructor(
     private router: Router,
     private authService: AuthService,
@@ -34,13 +28,11 @@ export class SearchComponent implements OnInit {
     public appGlobal: AppGlobal,
     private tripService: TripService
   ) {}
-
   search() {
     this.show = true; // temp
     // query from database
     // this.keyword, this.catagory
   }
-
   updateSearch($event) {
     if ($event.timeStamp - this.lastKeyPress > 200) {
       const q = $event.target.value;
@@ -49,12 +41,10 @@ export class SearchComponent implements OnInit {
     }
     this.lastKeyPress = $event.timeStamp;
   }
-
   ngOnInit() {
     this.navBarService.showNavbar();
     this.show = false;
     this.catagories = ['cat 1', 'cat 2', 'cat 3'];
-
     this.tripService
       .getTrips(this.appGlobal.search.startAt, this.appGlobal.search.endAt)
       .subscribe(trips => {
@@ -83,13 +73,10 @@ export class SearchComponent implements OnInit {
 })
 export class SearchResultComponent implements OnInit {
   @Input() result: Result;
-
   constructor(private router: Router) {}
-
   searchDetail(type, id) {
     // this.router.navigate(['search/detail/' + id]);
     this.router.navigate(['search/detail/' + type + '/' + id]);
   }
-
   ngOnInit() {}
 }
