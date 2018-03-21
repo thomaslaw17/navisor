@@ -3,7 +3,6 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { AuthService } from './../services/auth.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-
 @Component({
   selector: 'app-payment',
   templateUrl: './payment.component.html',
@@ -16,7 +15,6 @@ export class PaymentComponent implements OnInit {
     private angularFireDatabase: AngularFireDatabase,
     private navBarService: NavBarService
   ) {}
-
   selectCreditCard() {
     if (
       !document
@@ -27,7 +25,6 @@ export class PaymentComponent implements OnInit {
       document.getElementById('payPalLabel').classList.remove('blue-border');
     }
   }
-
   selectPayPal() {
     if (
       !document.getElementById('payPalLabel').classList.contains('blue-border')
@@ -38,7 +35,6 @@ export class PaymentComponent implements OnInit {
         .classList.remove('blue-border');
     }
   }
-
   ngOnInit() {
     this.navBarService.hideNavBar();
   }

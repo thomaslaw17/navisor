@@ -3,7 +3,7 @@
     <div class="container ie-h-align-center-fix">
       <div class="row">
         <div class="col-xs-12 ml-auto mr-auto ie-container-width-fix">
-          <form action="index.html" method="get" class="tm-search-form tm-section-pad-2">
+          <!-- <form action="index.html" method="get" class="tm-search-form tm-section-pad-2">
             <div class="form-row tm-search-form-row">
               <div class="form-group tm-form-element tm-form-element-100">
                 <i class="fa fa-map-marker fa-2x tm-form-element-icon"></i>
@@ -72,6 +72,68 @@
 
               <div class="form-group tm-form-element tm-form-element-2 tm-btn-search col-lg-9" style="width: 75%; padding: 0px;">
                 <button type="submit" class="btn btn-primary" style="float:right;" (click)="search()">Search</button>
+              </div>
+            </div>
+          </form> -->
+          <form action="index.html" method="get" class="tm-search-form tm-section-pad-2">
+            <div class="form-row tm-search-form-row">
+              <div class="form-group tm-form-element tm-form-element-100 searchBox">
+                <i class="fa fa-map-marker fa-2x tm-form-element-icon"></i>
+                <input name="location" type="text" class="form-control" id="inputLocation" placeholder="Desired Location" [(ngModel)]="appGlobal.search.location">
+              </div>
+              <div class="form-group tm-form-element tm-form-element-50 searchBox">
+                <i class="fa fa-calendar fa-2x tm-form-element-icon"></i>
+                <input name="Start Date" type="date" class="form-control" id="inputStartDate" placeholder="Start Date" [(ngModel)]="appGlobal.search.startDate">
+              </div>
+
+            </div>
+            <div class="form-row tm-search-form-row">
+              <div class="form-group tm-form-element tm-form-element-500 searchBox">
+                <select name="theme" class="form-control tm-select" id="theme" [(ngModel)]="appGlobal.search.theme">
+                  <option value="">Duration</option>
+                  <option value="1">1 day</option>
+                  <option value="2">2 days</option>
+                  <option value="3">3 days</option>
+                  <option value="4">4 days</option>
+                  <option value="5">5 days</option>
+                  <option value="6">&#62; 5 days</option>
+                </select>
+                <i class="fa fa-calendar fa-2x tm-form-element-icon"></i>
+              </div>
+
+              <div class="form-group tm-form-element tm-form-element-500 searchBox">
+                <select name="NumberOfTravellers" class="form-control tm-select" id="NumberOfTravellers" [(ngModel)]="appGlobal.search.numberOfTravellers">
+                  <option value="0">Number of travellers</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="10">&#62; 10</option>
+                </select>
+                <i class="fa fa-2x fa-user tm-form-element-icon"></i>
+              </div>
+
+            </div>
+
+            <div class="form-row clearfix pl-2 pr-2 tm-fx-col-xs">
+              <p class="tm-margin-b-0">
+                <em>Search your desired travel plan now!</em>
+              </p>
+              <div class="form-group tm-form-element tm-form-element-2 tm-btn-search">
+                <em>
+                  <button type="submit" class="btn btn-primary">Search</button>
+                </em>
+              </div>
+              <div class="form-group tm-form-element tm-form-element-2 tm-btn-customize">
+                <em>
+                  <button type="submit" class="btn btn-primary">Customize Travel Plan</button>
+                </em>
               </div>
             </div>
           </form>

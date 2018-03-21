@@ -1,3 +1,7 @@
+body {
+  margin-left: 30px;
+}
+
 h3 {
   padding: 20px;
   text-align: center;
@@ -71,4 +75,9 @@ tm-section {
 
 .joinUsBtn {
   width: 15%;
+}
+
+.searchBox {
+  width: 50%;
+  padding: 0 5 px;
 }
