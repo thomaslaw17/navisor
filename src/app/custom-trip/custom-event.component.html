@@ -1,20 +1,33 @@
 <div class="form-group tm-form-element tm-form-element-100 card">
   <table>
-    <tr>
-      <td>Place:</td>
-      <td>
-        <i class="fa fa-map-marker fa-2x tm-form-element-icon"></i>
-        <input type="text" name="place" (keydown)="search($event)">
-        <div *ngFor="let attraction of attractions">
-          <div>{{attraction.name}}</div>
+
+    <div class="form-group">
+      <label for="Time">Place:</label>
+      <div class="col-sm-10">
+        <input name="place" type="text" class="form-control" id="inputPlace" (keydown)="search($event)">
+      </div>
+      <div *ngFor="let attraction of attractions">
+        <div>{{attraction.name}}</div>
+      </div>
+    </div>
+
+    <div class="form-row">
+
+      <div class="form-group col-md-5">
+        <label for="startTime">Start Time:</label>
+        <div class="col-lg-12">
+          <input name="startTime" type="text" class="form-control" id="inputTime">
         </div>
-      </td>
-    </tr>
-    <tr>
-      <td>Time:</td>
-      <td>
-        <input name="time">
-      </td>
-    </tr>
+      </div>
+    
+      <div class="form-group col-md-5">
+        <label for="endTime">End Time:</label>
+        <div class="col-lg-12">
+          <input name="endTime" type="text" class="form-control" id="inputTime">
+        </div>
+      </div>
+
+    </div>
+
   </table>
 </div>
