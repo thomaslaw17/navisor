@@ -48,6 +48,10 @@ export class SearchComponent implements OnInit {
     this.lastKeyPress = $event.timeStamp;
   }
 
+  gotoCustomTrip() {
+    this.router.navigate(['customTrip/new']);
+  }
+
   ngOnInit() {
     this.navBarService.showNavbar();
     this.show = false;

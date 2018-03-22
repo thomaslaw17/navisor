@@ -214,7 +214,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
       '9',
       '10'
     ];
-    
 
     this.contact = {
       name: '',
