@@ -127,12 +127,12 @@
               </p>
               <div class="form-group tm-form-element tm-form-element-2 tm-btn-search">
                 <em>
-                  <button type="submit" class="btn btn-primary" (click)="search()">Search</button>
+                  <button type="submit" class="btn btn-primary">Search</button>
                 </em>
               </div>
-              <div class="form-group tm-form-element tm-form-element-2 ">
+              <div class="form-group tm-form-element tm-form-element-2 tm-btn-customize">
                 <em>
-                  <button type="submit" class="btn btn-primary" (click)="gotoCustomTrip()">Customize Travel Plan</button>
+                  <button type="submit" class="btn btn-primary">Customize Travel Plan</button>
                 </em>
               </div>
             </div>
@@ -151,7 +151,7 @@
         <p class="tm-color-white tm-section-subtitle">Subscribe to get our newsletters</p>
         <form action="/subscribe.php">
           <input type="text" name="emailAddress" value="email address">
-          <input class="tm-color-white tm-btn-white-bordered" type="submit" value="Subscribe Newletters">
+          <input href="#" class="tm-color-white tm-btn-white-bordered" type="submit" value="Subscribe Newletters">
         </form>
       </div>
     </div>
@@ -309,7 +309,9 @@
 </div>
 
 <div class="container tm-pb-4" id="tm-section-4">
+  <p>&nbsp;</p>
   <h1 id="partnership" class="text-uppercase tm-section-title-2 text-center">Partnership</h1>
+  <p>&nbsp;</p>
   <div class="row">
     <article class="col-sm-3 col-md-3 col-lg-3">
       <img src="https://firebasestorage.googleapis.com/v0/b/navisor-b9b70.appspot.com/o/home%2Fimg%2FpartnerLogo%2FhkjcLogo.jpg?alt=media&token=c120c2b3-6275-4fff-971d-2bb89c086b73"
@@ -317,7 +319,7 @@
     </article>
     <article class="col-sm-3 col-md-3 col-lg-3">
       <img src="https://firebasestorage.googleapis.com/v0/b/navisor-b9b70.appspot.com/o/home%2Fimg%2FpartnerLogo%2FlcsdLogo.gif?alt=media&token=f648777f-673d-47cf-885b-2493f4d50a74"
-        alt="LCSD">
+        alt="LCSD" style="width:auto; height:35%;">
     </article>
     <article class="col-sm-3 col-md-3 col-lg-3">
       <img src="https://firebasestorage.googleapis.com/v0/b/navisor-b9b70.appspot.com/o/home%2Fimg%2FpartnerLogo%2FttoeLogo.jpg?alt=media&token=4e3aeca3-390f-4567-a9e1-89c9823853ee"
@@ -352,13 +354,14 @@
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-7">
         <div id="google-map">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.8677528267854!2d114.1348961146122!3d22.2829988853326!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3403ff8427b43597%3A0x2c48f5d3cd6fc8d8!2sThe+University+of+Hong+Kong!5e0!3m2!1sen!2shk!4v1521654102166"
-            width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+          <iframe width="100%" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=KKL%20601%20Building%2C%20The%20University%20of%20Hong%20Kong%2C%20Pokfulam%2C%20HK&key=AIzaSyBwbFp_0RkA3m3SVzxbaRoC-NvCH0la-gY"
+            allowfullscreen>
+          </iframe>
         </div>
       </div>
 
       <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-5 mt-3 mt-md-0">
-        <div class="tm-bg-white">
+        <div class="tm-bg-white tm-p-4">
           <form action="index.html" method="post" class="contact-form">
             <div class="form-group">
               <p>Office Hour: Monday - Friday 9:30-18:00</p>
