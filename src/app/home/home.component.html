@@ -199,7 +199,7 @@
               <img class="recommendedTrips" src="https://firebasestorage.googleapis.com/v0/b/navisor-b9b70.appspot.com/o/home%2Fimg%2FrecommendedTrips%2Fcultural%26heritage%2FfinalCourtOfAppeal.jpg?alt=media&token=8fcc3d39-853d-4a17-9bf7-f88512af41c8"
                 alt="Image">
               <div class="media-body tm-media-body tm-bg-gray">
-                <h4 class="text-uppercase tm-font-semibold tm-sidebar-item-title">Cultual & Heritage</h4>
+                <h4 class="text-uppercase tm-font-semibold tm-sidebar-item-title">Culture & Heritage</h4>
               </div>
             </a>
             <a href="#" class="media tm-media tm-recommended-item">
@@ -275,16 +275,24 @@
       <img src="https://firebasestorage.googleapis.com/v0/b/navisor-b9b70.appspot.com/o/home%2Fimg%2Ffounder%2Ferwin.jpg?alt=media&token=ed62bf88-b205-4601-80ca-10a7f4b63635"
         alt="Erwin" style="width:150px; height:150px;">
       <h3 class="tm-color-primary tm-article-title-1">Erwin</h3>
-      <p>HKU BBA(IS) Year 4
-        <br> samll potato</p>
+      <p>Erwin is double major (computer science and business) student from the University of Hong Kong. He is an experience
+        UI designer and front-end developer. He has worked in digital marketing company before. He is sentive to market trend
+        and often give useful opinions on promoting the compnay. Erwin believes that the best way to learn a language is
+        to interact with a native person and the best way to know a culture is to immerse himself or herself in such culture.
+        He believes that Navisor not only amplify the benefits of shared economy but also giving more exposure to local Hong
+        Kong's students.
+
+      </p>
       <a href="#" class="text-uppercase tm-color-primary tm-font-semibold">Continue reading...</a>
     </article>
     <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 tm-article">
       <img src="https://firebasestorage.googleapis.com/v0/b/navisor-b9b70.appspot.com/o/home%2Fimg%2Ffounder%2Fthomas.jpg?alt=media&token=b2defffc-9555-4952-bfac-e99f03cc0cd1"
         alt="Thomas" style="width:150px; height:150px;">
       <h3 class="tm-color-primary tm-article-title-1">Thomas</h3>
-      <p>HKU BBA(IS) Year 4
-        <br> St.John's College Exco 2015-16</p>
+      <p>Thomas is currently a computer science student from the University of Hong Kong. He is a full-stack developers who
+        has worked for a few start-ups before. His previous experience in those start-ups has made him the perfect founder
+        for Navisor. He has rich knowledge on different programming languages (C, C++, C#, Java, Javascript, Python, Ruby,
+        PHP), framworks (React, Angular) and databses (Firebase, Oracle). He also believe the concepts of sharing economy.</p>
       <a href="#" class="text-uppercase tm-color-primary tm-font-semibold">Continue reading...</a>
     </article>
   </div>
@@ -305,7 +313,7 @@
     <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 tm-article" *ngFor="let navigator of suggestNavigator">
       <img src="{{navigator.pic}}" alt="{{navigator.name}}" style="width:150px; height:150px; border-radius:50%">
       <h3 class="tm-color-primary tm-article-title-1">{{navigator.name}}</h3>
-      <p>{{navigator.description}}</p>
+      <p class=paraText>{{navigator.description}}</p>
     </article>
     <a href="#" class="text-uppercase btn-primary tm-btn-primary joinUsBtn" (click)="gotoCareer()">Join Us</a>
   </div>

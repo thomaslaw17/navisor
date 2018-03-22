@@ -65,8 +65,7 @@ tm-section {
 
 .paraText {
   color: white;
-  text-align: justify;
-  font-size: 15px;
+  line-height: 1.9;
 }
 
 .meetOurNavigatorSection {
