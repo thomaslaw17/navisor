@@ -8,7 +8,8 @@
           <div class="form-row tm-search-form-row">
             <div class="form-group tm-form-element tm-form-element-100 searchBox">
               <i class="fa fa-map-marker fa-2x tm-form-element-icon"></i>
-              <input name="location" type="text" class="form-control" id="inputLocation" placeholder="Desired Location" [(ngModel)]="appGlobal.search.location">
+              <input name="location" type="text" class="form-control" id="inputLocation" placeholder="Desired Location" [(ngModel)]="appGlobal.search.location"
+                (keypress)="updateSearch($event)">
             </div>
             <div class="form-group tm-form-element tm-form-element-50 searchBox">
               <i class="fa fa-calendar fa-2x tm-form-element-icon"></i>
@@ -59,9 +60,10 @@
                 <button type="submit" class="btn btn-primary">Search</button>
               </em>
             </div>
-            <div class="form-group tm-form-element tm-form-element-2 tm-btn-customize">
+            <div class="form-group tm-form-element tm-form-element-2">
               <em>
-                <button type="customize" class="btn btn-primary">Customize Travel Plan</button>
+                <button type="customize" class="btn btn-primary" (click)="gotoCustomTrip()">Customize Travel Plan</button>
+                <!-- <button type="submit" class="btn btn-primary">Customize Travel Plan</button> -->
               </em>
             </div>
           </div>
@@ -190,47 +192,9 @@
         </article>
       </div>
     </div>
-    &nbsp;</div>
-
-  <div>
-
-    <footer class="footer-distributed">
-
-      <div class="footer-right">
-
-        <a href="#">
-          <i class="fa fa-facebook"></i>
-        </a>
-        <a href="#">
-          <i class="fa fa-twitter"></i>
-        </a>
-        <a href="#">
-          <i class="fa fa-linkedin"></i>
-        </a>
-        <a href="#">
-          <i class="fa fa-github"></i>
-        </a>
-
-      </div>
-
-      <div class="footer-left">
-
-        <p class="footer-links">
-          <a href="#">Home</a>
-          ·
-          <a href="#">About us</a>
-          ·
-          <a href="#">Register</a>
-          ·
-          <a href="#">Login In</a>
-          ·
-          <a href="#">Partnership</a>
-          ·
-          <a href="#">Contact</a>
-        </p>
-
-        <p>NAVISOR &copy; 2015</p>
-      </div>
-
-    </footer>
+    &nbsp;
   </div>
+
+</div>
+
+<app-footer></app-footer>

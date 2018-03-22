@@ -36,18 +36,23 @@ export class CustomTripComponent implements OnInit {
     this.trip = new Trip();
     this.activatedRoute.params.subscribe(params => {
       this.tripId = params.tripId;
-      this.tripObj = this.angularFireDatabase
-        .object<Trip>('Trip/' + this.tripId)
-        .valueChanges();
-      this.tripObj.subscribe(trip => {
-        if (trip !== undefined && trip !== null) {
-          this.trip = trip;
-          this.trip.events = this.util.objectToArray(trip.events);
-        } else {
-          this.trip.events = new Array();
-          this.trip.events.push(new Event());
-        }
-      });
+      if (this.tripId === 'new') {
+        this.trip.events = new Array();
+        this.trip.events.push(new Event());
+      } else {
+        this.tripObj = this.angularFireDatabase
+          .object<Trip>('Trip/' + this.tripId)
+          .valueChanges();
+        this.tripObj.subscribe(trip => {
+          if (trip !== undefined && trip !== null) {
+            this.trip = trip;
+            this.trip.events = this.util.objectToArray(trip.events);
+          } else {
+            this.trip.events = new Array();
+            this.trip.events.push(new Event());
+          }
+        });
+      }
     });
     this.navBarService.showNavbar();
   }
@@ -70,7 +75,7 @@ export class CustomEventComponent implements OnInit {
   private attractionObj: Observable<Attraction>;
   public attraction: Attraction;
 
-  public attractions: Array<Attraction>;
+  public attractions: Array<any>;
   private startAt: BehaviorSubject<string | null> = new BehaviorSubject('');
   private endAt: BehaviorSubject<string | null> = new BehaviorSubject('\uf8ff');
   private lastKeyPress: number;

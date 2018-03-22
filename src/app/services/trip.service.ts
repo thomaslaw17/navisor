@@ -11,10 +11,10 @@ export class TripService {
   getTrips(
     start: BehaviorSubject<string>,
     end: BehaviorSubject<string>
-  ): Observable<Trip[]> {
+  ): Observable<any[]> {
     return Observable.zip(start, end).switchMap(param => {
       return this.angularFireDatabase
-        .list<Trip>('/Trip', ref =>
+        .list('/Trip', ref =>
           ref
             .orderByChild('name')
             .limitToFirst(10)

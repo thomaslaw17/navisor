@@ -55,6 +55,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
   public budgets: Array<string>;
   public numberOfTravellers: Array<string>;
 
+  public lastKeyPress: number;
+
   public contact: {
     name: string;
     email: string;
@@ -107,62 +109,25 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.router.navigate(['searchDetail/' + tripId]);
   }
 
+  gotoCustomTrip() {
+    this.router.navigate(['customTrip/new']);
+  }
+
   gotoCareer() {
     this.router.navigate(['career']);
   }
 
   search() {
-    let filled = false;
-    // let alerted = false;
-    const today = new Date();
-    if (
-      this.appGlobal.search.location !== undefined &&
-      this.appGlobal.search.location !== null &&
-      this.appGlobal.search.location !== ''
-    ) {
-      filled = true;
+    this.router.navigate(['search']);
+  }
+
+  updateSearch($event) {
+    if ($event.timeStamp - this.lastKeyPress > 200) {
+      const q = $event.target.value;
+      this.appGlobal.search.startAt.next(q);
+      this.appGlobal.search.endAt.next(q + '\uf8ff');
     }
-    if (
-      this.appGlobal.search.startDate !== undefined &&
-      this.appGlobal.search.startDate !== null
-    ) {
-      filled = true;
-    }
-    if (
-      this.appGlobal.search.theme !== undefined &&
-      this.appGlobal.search.theme !== null &&
-      this.appGlobal.search.theme !== ''
-    ) {
-      filled = true;
-    }
-    if (
-      this.appGlobal.search.budget !== undefined &&
-      this.appGlobal.search.budget !== null
-    ) {
-      filled = true;
-      // if (this.appGlobal.search.budget == 0 && !alerted) {
-      //   alert('Budget below zero');
-      // }
-    }
-    if (
-      this.appGlobal.search.numberOfTravellers !== undefined &&
-      this.appGlobal.search.numberOfTravellers !== null &&
-      this.appGlobal.search.numberOfTravellers !== 0
-    ) {
-      filled = true;
-    }
-    if (
-      this.appGlobal.search.nameOfNavigator !== undefined &&
-      this.appGlobal.search.nameOfNavigator !== null &&
-      this.appGlobal.search.nameOfNavigator !== ''
-    ) {
-      filled = true;
-    }
-    if (!filled) {
-      alert('Please enter valid arguement for search');
-    } else {
-      this.router.navigate(['search']);
-    }
+    this.lastKeyPress = $event.timeStamp;
   }
 
   sendContactMessage() {
@@ -249,24 +214,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
       '9',
       '10'
     ];
-    if (
-      this.appGlobal.search.theme === undefined ||
-      this.appGlobal.search.theme === null
-    ) {
-      this.appGlobal.search.theme = 'Theme';
-    }
-    if (
-      this.appGlobal.search.location === undefined ||
-      this.appGlobal.search.location === null
-    ) {
-      this.appGlobal.search.location = 'Location';
-    }
-    if (
-      this.appGlobal.search.budget === undefined ||
-      this.appGlobal.search.budget === null
-    ) {
-      this.appGlobal.search.budget = 'Budget';
-    }
 
     this.contact = {
       name: '',

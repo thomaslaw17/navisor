@@ -27,23 +27,12 @@
         <div class="tm-article-carousel">
           <article class="tm-bg-white mr-2 tm-carousel-item">
             <div>&nbsp;</div>
-            <img src="img/img-01.jpg" alt="Image" class="img-fluid">
+            <img src="{{trip.photoUrl}}" alt="Image" class="img-fluid">
             <div class="tm-article-pad">
               <header>
-                <h3 class="text-uppercase tm-article-title-2">Eget diam pellentesque interdum ut porta {{trip.name}}</h3>
+                <h3 class="text-uppercase tm-article-title-2">{{trip.name}}</h3>
               </header>
-              <p>Aenean finibus tempor nulla, et maximus nibh dapibus ac. Duis consequat sed sapien venenatis consequat. Aliquam
-                ac lacus volutpat, dictum risus at, scelerisque nulla.Aenean finibus tempor nulla, et maximus nibh dapibus
-                ac. Duis qdsfds consequat sed sapien venenatis consequat. Aliquam ac lacus volutpat, dictum risus at, scelerisque
-                nulla.Aenean finibus tempor nulla, et maximus nibh dapibus ac. Duisfdgf Aenean finibus tempor nulla, et maximus
-                nibh dapibus ac. Duis consequat sed sapien venenatis consequat. Aliquam ac lacus volutpat, dictum risus at,
-                scelerisque nulla.Aenean finibus tempor nulla, et maximus nibh dapibus ac. Duis qdsfds consequat sed sapien
-                venenatis consequat. Aliquam ac lacus volutpat, dictum risus at, scelerisque nulla.Aenean finibus tempor
-                nulla, et maximus nibh dapibus ac. DuisfdgfAenean finibus tempor nulla, et maximus nibh dapibus ac. Duis
-                consequat sed sapien venenatis consequat. Aliquam ac lacus volutpat, dictum risus at, scelerisque nulla.Aenean
-                finibus tempor nulla, et maximus nibh dapibus ac. Duis qdsfds consequat sed sapien venenatis consequat. Aliquam
-                ac lacus volutpat, dictum risus at, scelerisque nulla.Aenean finibus tempor nulla, et maximus nibh dapibus
-                ac. Duisfdgf {{trip.description}}</p>
+              <p>{{trip.description}}</p>
 
             </div>
             <div *ngIf="targetObject == 'Trip'">
@@ -69,34 +58,10 @@
             <h3 class="tm-color-white tm-sidebar-title" *ngIf="confirm">Confirm Booking Details</h3>
           </div>
           <div class="tm-sidebar-pad-2">
-
-            <header *ngIf="!confirm">
-              <h3 class="text-uppercase tm-article-title-2" *ngIf="!confirm">Prices</h3>
-            </header>
-            <div *ngIf="confirm">
-              <header>
-                <h3 class="text-uppercase tm-article-title-2">Name of the Travel Plan</h3>
-              </header>
-
-              <p>Induldge in Local Arts {{trip.name}}</p>
-
-              <header>
-                <h3 class="text-uppercase tm-article-title-2">Date and Time</h3>
-              </header>
-
-              <p>1 April 2018 10 a.m. - 10 p.m.{{trip.startDate}} - {{trip.endDate}}</p>
-
-              <header>
-                <h3 class="text-uppercase tm-article-title-2">Price</h3>
-              </header>
-            </div>
-
-
-            <p>Regular Price: $1,200 {{trip.price}}</p>
-            <p *ngIf="!confirm">Early Bird: $1,080</p>
-
+            <p>Regular Price: ${{trip.price}}</p>
+            <!-- <p>Early Bird: $1,080</p> -->
             <div align="center">
-              <a class="text-uppercase btn-primary tm-btn-primary">Book Now</a>
+              <a class="text-uppercase btn-primary tm-btn-primary" href="#bookNow">Book Now</a>
             </div>
           </div>
         </div>
@@ -180,16 +145,14 @@
     </div>
   </div>
 </div>
-<div class="tm-section tm-section-pad tm-bg-img" id="tm-section-5">
+<div class="tm-section tm-section-pad tm-bg-img book-now-bg" id="bookNow">
   <div class="container ie-h-align-center-fix">
     <div class="row tm-flex-align-center">
 
 
       <div class="column">
-
-        <div class="col-xs-12 col-md-12 col-lg-3 col-xl-3 tm-media-title-container">
-
-          <h3 class="tm-color-primary tm-font-semibold tm-section-subtitle-2">Confirm Booking Details</h3>
+        <div class="col-xs-12 col-md-12 col-lg-12 col-xl-12 tm-media-title-container">
+          <h3 class="tm-color-primary tm-font-semibold tm-section-subtitle-1">Confirm Booking Details</h3>
         </div>
       </div>
 
@@ -208,7 +171,7 @@
             <p>With accommodation included</p>
             <div>&nbsp;</div>
             <div align="left">
-              <a href="#" class="text-uppercase btn-primary .tm-btn-booking">View Details</a>
+              <a class="text-uppercase btn-primary .tm-btn-booking" (click)="gotoPayment()">Confirm</a>
             </div>
 
           </article>
@@ -217,42 +180,4 @@
     </div>
   </div>
 </div>
-<footer class="footer-distributed">
-
-  <div class="footer-right">
-
-    <a href="#">
-      <i class="fa fa-facebook"></i>
-    </a>
-    <a href="#">
-      <i class="fa fa-twitter"></i>
-    </a>
-    <a href="#">
-      <i class="fa fa-linkedin"></i>
-    </a>
-    <a href="#">
-      <i class="fa fa-github"></i>
-    </a>
-
-  </div>
-
-  <div class="footer-left">
-
-    <p class="footer-links">
-      <a href="#">Home</a>
-      ·
-      <a href="#">About us</a>
-      ·
-      <a href="#">Register</a>
-      ·
-      <a href="#">Login In</a>
-      ·
-      <a href="#">Partnership</a>
-      ·
-      <a href="#">Contact</a>
-    </p>
-
-    <p>NAVISOR &copy; 2015</p>
-  </div>
-
-</footer>
+<app-footer></app-footer>
