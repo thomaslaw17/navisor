@@ -30,7 +30,7 @@
      
      	<div class="input-group input-group-icon">
       
-      <select name="Nationality">
+      <select name="Nationality" [(ngModel)]="user.nationality">
   <center>
   <option value="">Nationality</option>
   <option value="afghan">Afghan</option>
@@ -229,7 +229,7 @@
 </select>
 
 
-<select name="Preferred Language">
+<select name="Preferred Language" [(ngModel)]="user.language">
   <center>
   <option value="">Preferred Language</option>
   <option value="afghan">Afghan</option>
