@@ -4,21 +4,20 @@
       <div class="panel panel-default">
         <div class="userprofile social ">
           <div class="userpic">
-            <img src="https://firebasestorage.googleapis.com/v0/b/navisor-b9b70.appspot.com/o/home%2Fimg%2Fnavigator%2Famy.png?alt=media&token=2adde141-99ad-4f17-ba01-ab026589bd6d"
-              alt="" class="userpicimg"> </div>
+            <img src="{{user.photoUrl}}" alt="" class="userpicimg"> </div>
           <h3 class="username">{{user.firstName}} {{user.lastName}}</h3>
-          <p>{{user.address}}</p>
+          <p>{{user.addressStreet}} {{user.addressCity}} {{user.addressState}} </p>
           <div class="socials tex-center">
-            <a href="" class="btn btn-circle btn-primary fb-button ">
+            <a class="btn btn-circle btn-primary fb-button ">
               <i class="fa fa-facebook"></i>
             </a>
-            <a href="" class="btn btn-circle btn-danger ">
+            <a class="btn btn-circle btn-danger ">
               <i class="fa fa-instagram"></i>
             </a>
-            <a href="" class="btn btn-circle btn-info ">
+            <a class="btn btn-circle btn-info ">
               <i class="fa fa-twitter"></i>
             </a>
-            <a href="" class="btn btn-circle btn-warning ">
+            <a class="btn btn-circle btn-warning ">
               <i class="fa fa-envelope"></i>
             </a>
           </div>

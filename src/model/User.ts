@@ -1,5 +1,7 @@
 export class User {
-  public address: string;
+  public addressStreet: string;
+  public addressCity: string;
+  public addressState: string;
   public birthday: Date;
   public email: string;
   public gender: string;
@@ -9,7 +11,7 @@ export class User {
   public lastName: string;
   public nickName: string;
   public phoneNumber: string;
-  public photoURl: string; // profile picture url
+  public photoUrl: string; // profile picture url
   public recoveryEmail: string;
   public selfIntroduction: string;
   public type: number; // 0: traveller 1: navigator

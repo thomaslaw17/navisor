@@ -1,7 +1,10 @@
+import { User } from './../../model/User';
+import { AppGlobal } from './../app.global';
+import { Observable } from 'rxjs/Observable';
+import { AngularFireDatabase } from 'angularfire2/database';
 import { Router } from '@angular/router';
 import { AuthService } from './../services/auth.service';
 import { Component, OnInit, Input } from '@angular/core';
-import { AppGlobal } from '../app.global';
 
 @Component({
   selector: 'app-nav-bar',
@@ -12,9 +15,29 @@ export class NavBarComponent implements OnInit {
   @Input() show: boolean;
   @Input() loggedIn: boolean;
 
-  constructor(private authService: AuthService, private router: Router) {}
+  public user: User;
+  public userObj: Observable<User>;
 
-  ngOnInit() {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private angularFireDatabase: AngularFireDatabase,
+    private appGlobal: AppGlobal
+  ) {}
+
+  ngOnInit() {
+    this.user = new User();
+    this.authService.getAuthState().subscribe(res => {
+      if (res !== undefined && res !== null) {
+        this.userObj = this.angularFireDatabase
+          .object<User>('User/' + this.appGlobal.userId)
+          .valueChanges();
+        this.userObj.subscribe(user => {
+          this.user = user;
+        });
+      }
+    });
+  }
 
   logout() {
     this.authService.logout().then(
@@ -33,5 +56,9 @@ export class NavBarComponent implements OnInit {
 
   gotoRegister() {
     this.router.navigate(['register']);
+  }
+
+  gotoProfile() {
+    this.router.navigate(['profile']);
   }
 }

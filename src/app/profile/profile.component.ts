@@ -6,7 +6,6 @@ import { Component, OnInit, Input } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { NavBarService } from '../services/nav-bar.service';
 import { AppGlobal } from '../app.global';
-
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -16,9 +15,7 @@ export class ProfileComponent implements OnInit {
   public userObj: AngularFireObject<User>;
   public user: User;
   public tab: string;
-
   public type: string;
-
   constructor(
     private router: Router,
     private authService: AuthService,
@@ -42,15 +39,19 @@ export class ProfileComponent implements OnInit {
     this.user = new User(); // waiting for user
     this.tab = 'edit';
     this.navBarService.showNavbar();
-    this.userObj = this.angularFireDatabase.object(
-      'User/' + this.appGlobal.userId
-    );
-    this.userObj.valueChanges().subscribe(user => {
-      if (user !== undefined && user !== null) {
-        this.user = user;
-        this.type = user.type === 0 ? 'Traveller' : 'Navigator';
-      } else {
-        this.router.navigate(['login']);
+    this.authService.getAuthState().subscribe(res => {
+      if (res !== undefined || res !== null) {
+        this.userObj = this.angularFireDatabase.object<User>(
+          'User/' + this.appGlobal.userId
+        );
+        this.userObj.valueChanges().subscribe(user => {
+          if (user !== undefined && user !== null) {
+            this.user = user;
+            this.type = user.type === 0 ? 'Traveller' : 'Navigator';
+          } else {
+            this.router.navigate(['login']);
+          }
+        });
       }
     });
   }
@@ -73,22 +74,14 @@ export class ProfileEditComponent implements OnInit {
     private appGlobal: AppGlobal
   ) {}
 
-  updateProfile() {}
+  updateProfile() {
+    this.angularFireDatabase
+      .list('User/' + this.appGlobal.userId)
+      .push(this.user);
+  }
 
   ngOnInit() {
-    this.authService.getAuthState().subscribe();
-    this.user = new User();
-    this.userObj = this.angularFireDatabase
-      .object<User>('User/' + this.appGlobal.userId)
-      .valueChanges();
-
-    this.userObj.subscribe(user => {
-      if (this.user !== undefined || this.user !== null) {
-        this.user = user;
-      } else {
-        console.log('Cannot get user info');
-      }
-    });
+    console.log(this.user);
   }
 }
 
@@ -100,7 +93,6 @@ export class ProfileEditComponent implements OnInit {
 export class ProfilePastEventComponent implements OnInit {
   @Input() user: User;
   constructor(private router: Router) {}
-
   ngOnInit() {}
 }
 
@@ -112,7 +104,6 @@ export class ProfilePastEventComponent implements OnInit {
 export class ProfilePaymentMethodComponent implements OnInit {
   @Input() user: User;
   constructor(private router: Router) {}
-
   ngOnInit() {}
 }
 
@@ -124,7 +115,6 @@ export class ProfilePaymentMethodComponent implements OnInit {
 export class ProfileRewardPointsComponent implements OnInit {
   @Input() user: User;
   constructor(private router: Router) {}
-
   ngOnInit() {}
 }
 
@@ -136,6 +126,5 @@ export class ProfileRewardPointsComponent implements OnInit {
 export class ProfileScheduleComponent implements OnInit {
   @Input() user: User;
   constructor(private router: Router) {}
-
   ngOnInit() {}
 }
