@@ -5,8 +5,8 @@
       <label for="Time">Place:</label>
       <div class="col-sm-10">
         <!-- <input name="place" type="text" class="form-control" id="inputPlace" (keydown)="search($event)"> -->
-        <select class="form-control" [(ngModel)]="event.attractionId">
-          <option *ngFor="let attractionItem of attractions" [value]="attractionItem.key">{{attraction.name}}</option>
+        <select class="form-control" [(ngModel)]="event.attractionId" (click)="updateEvent()">
+          <option *ngFor="let attractionItem of attractions" [value]="attractionItem.key">{{attractionItem.name}}</option>
         </select>
       </div>
       <!-- <div *ngFor="let attraction of attractions">
@@ -19,14 +19,16 @@
       <div class="form-group col-md-5">
         <label for="startTime">Start Time:</label>
         <div class="col-lg-12">
-          <input name="startTime" type="text" class="form-control time" id="inputTime">
+          <input name="startTime" type="text" class="form-control time" id="inputTime" [(ngModel)]="event.startTime" (keypress)="updateEvent()"
+            (click)="updateEvent()">
         </div>
       </div>
 
       <div class="form-group col-md-5">
         <label for="endTime">End Time:</label>
         <div class="col-lg-12">
-          <input name="endTime" type="text" class="form-control time" id="inputTime">
+          <input name="endTime" type="text" class="form-control time" id="inputTime" [(ngModel)]="event.endTime" (keypress)="updateEvent()"
+            (click)="updateEvent()">
         </div>
       </div>
 

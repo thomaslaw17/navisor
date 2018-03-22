@@ -76,8 +76,9 @@ export class ProfileEditComponent implements OnInit {
 
   updateProfile() {
     this.angularFireDatabase
-      .list('User/' + this.appGlobal.userId)
-      .push(this.user);
+      .list('User')
+      .update(this.appGlobal.userId, this.user);
+    // .push(this.user);
   }
 
   ngOnInit() {

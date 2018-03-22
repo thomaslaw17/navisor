@@ -46,7 +46,7 @@
         <div class="form-group tm-search-form">
           <label for="Activity">Activity:</label>
           <div *ngFor="let event of trip.events">
-            <app-custom-event [tripId]='tripId' [event]='event'></app-custom-event>
+            <app-custom-event [tripId]='tripId' [event]='event' (change)="updateEvent($event)"></app-custom-event>
           </div>
           <button type="submit" (click)="addEvent()">+</button>
         </div>
@@ -64,7 +64,7 @@
         </div>
 
         <div class="form-row tm-search-form-row text-center col-md-4">
-          <button type="submit" class="btn btn-primary tm-btn-search" style="width:250px">Submit</button>
+          <button type="submit" class="btn btn-primary tm-btn-search" style="width:250px" (click)="submitTrip()">Submit</button>
         </div>
 
         <div class="form-row clearfix pl-2 pr-2 tm-fx-col-xs text-center">

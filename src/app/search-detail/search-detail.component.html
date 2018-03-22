@@ -27,7 +27,7 @@
         <div class="tm-article-carousel">
           <article class="tm-bg-white mr-2 tm-carousel-item">
             <div>&nbsp;</div>
-            <img src="{{trip.photoUrl}}" alt="Image" class="img-fluid">
+            <img src="{{trip.photoUrl}}" alt="Image" class="img-fluid" *ngIf="(trip.photoUrl !== undefined && trip.photoUrl !== null && trip.photoUrl !== '')">
             <div class="tm-article-pad">
               <header>
                 <h3 class="text-uppercase tm-article-title-2">{{trip.name}}</h3>
@@ -61,7 +61,7 @@
             <p>Regular Price: ${{trip.price}}</p>
             <!-- <p>Early Bird: $1,080</p> -->
             <div align="center">
-              <a class="text-uppercase btn-primary tm-btn-primary" href="#bookNow">Book Now</a>
+              <a class="text-uppercase btn-primary tm-btn-primary">Book Now</a>
             </div>
           </div>
         </div>
@@ -166,8 +166,8 @@
               <h3 class="text-uppercase tm-article-title-2">Stepping into the Nature with Your Family</h3>
             </header>
             <div>&nbsp;</div>
-            <p>Price: $1,080</p>
-            <p>Number of days: 2</p>
+            <p>Price: ${{trip.price}}</p>
+            <p>Number of days: {{trip.duration}}</p>
             <p>With accommodation included</p>
             <div>&nbsp;</div>
             <div align="left">

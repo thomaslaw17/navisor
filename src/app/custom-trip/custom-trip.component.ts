@@ -81,7 +81,7 @@ export class CustomTripComponent implements OnInit {
       msg += 'Catagory ';
     }
 
-    if (msg === 'Please input ') {
+    if (msg !== 'Please input ') {
       alert(msg);
       return;
     } else {
@@ -91,6 +91,10 @@ export class CustomTripComponent implements OnInit {
 
   addEvent() {
     this.trip.events.push(new Event());
+  }
+
+  updateEvent($event) {
+    console.log($event);
   }
 
   ngOnInit() {
@@ -128,13 +132,15 @@ export class CustomEventComponent implements OnInit {
   @Input() tripId: string;
   @Input() event: Event;
 
+  @Output() change: EventEmitter<Event> = new EventEmitter<Event>();
+
   private eventObj: Observable<Event>;
   private attractionObj: Observable<Attraction>;
   public attraction: Attraction;
 
   public attractions: Array<any>;
-  private startAt: BehaviorSubject<string | null> = new BehaviorSubject('');
-  private endAt: BehaviorSubject<string | null> = new BehaviorSubject('\uf8ff');
+  private startAt: BehaviorSubject<string> = new BehaviorSubject('');
+  private endAt: BehaviorSubject<string> = new BehaviorSubject('\uf8ff');
   private lastKeyPress: number;
 
   constructor(
@@ -154,21 +160,39 @@ export class CustomEventComponent implements OnInit {
     // this.endAt.next(q + '\uf8ff');
   }
 
+  updateEvent() {
+    this.change.emit(this.event);
+  }
+
   ngOnInit() {
     this.attraction = new Attraction();
-    this.attractionObj = this.angularFireDatabase
-      .object<Attraction>('Attraction/' + this.event.attractionId)
-      .valueChanges();
-    this.attractionObj.subscribe(attraction => {
-      if (attraction !== undefined && attraction !== null) {
-        this.attraction = attraction;
-        console.log(attraction);
-      }
-    });
-    this.attractionService
-      .getAttractions(this.startAt, this.endAt)
-      .subscribe(attractions => {
-        this.attractions = attractions;
+    if (
+      this.event.attractionId !== undefined &&
+      this.event.attractionId !== null &&
+      this.event.attractionId !== ''
+    ) {
+      this.attractionObj = this.angularFireDatabase
+        .object<Attraction>('Attraction/' + this.event.attractionId)
+        .valueChanges();
+      this.attractionObj.subscribe(attraction => {
+        if (attraction !== undefined && attraction !== null) {
+          this.attraction = attraction;
+          console.log(attraction);
+        }
       });
+    } else {
+      this.angularFireDatabase
+        .list<Attraction>('Attraction')
+        .valueChanges()
+        .subscribe(attractions => {
+          this.attractions = attractions;
+        });
+    }
+
+    // this.attractionService
+    //   .getAttractions(this.startAt, this.endAt)
+    //   .subscribe(attractions => {
+    //     this.attractions = attractions;
+    //   });
   }
 }
