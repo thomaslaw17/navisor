@@ -13,7 +13,7 @@ export class AttractionService {
   getAttractions(
     start: BehaviorSubject<string>,
     end: BehaviorSubject<string>
-  ): Observable<Attraction[]> {
+  ): Observable<any[]> {
     // return this.angularFireDatabse.list<Attraction>('Attraction', {
     //   query: {
     //     orderByChild: 'name'
@@ -21,7 +21,7 @@ export class AttractionService {
     // })
     return Observable.zip(start, end).switchMap(param => {
       return this.angularFireDatabse
-        .list<Attraction>('/Attraction', ref =>
+        .list('/Attraction', ref =>
           ref
             .orderByChild('name')
             .limitToFirst(10)

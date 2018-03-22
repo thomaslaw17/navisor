@@ -1,3 +1,4 @@
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 
@@ -8,10 +9,13 @@ export class AppGlobal {
 
   public search: {
     location: string;
+    startAt: BehaviorSubject<string>;
+    endAt: BehaviorSubject<string>;
     startDate: Date;
-    endDate: Date;
-    theme: string;
-    budget: string;
+    duration: number;
+    theme: Array<string>;
+    budgetMax: number;
+    budgetMin: number;
     numberOfTravellers: number;
     nameOfNavigator: string;
   };
@@ -23,10 +27,13 @@ export class AppGlobal {
   constructor(private router: Router) {
     this.search = {
       location: '',
+      startAt: new BehaviorSubject<string>(''),
+      endAt: new BehaviorSubject<string>(''),
       startDate: new Date(),
-      endDate: new Date(),
-      theme: '',
-      budget: '',
+      duration: 0,
+      theme: new Array<string>(),
+      budgetMax: 0,
+      budgetMin: 0,
       numberOfTravellers: 0,
       nameOfNavigator: ''
     };

@@ -87,7 +87,7 @@
               <span class="fa fa-credit-card"></span> Payment Method
             </li> -->
             <li class="list-group-item">
-              <span class="fa fa-gift"></span> Reward Points
+              <span class="fa fa-gift" (click)="switchTab('reward-points')"></span> Reward Points
             </li>
             <li class="list-group-item" (click)="switchTab('past-event')">
               <span class="fa fa-history"></span> Past Event
@@ -145,20 +145,14 @@
       </div> -->
     </div>
     <div class="col-md-8 col-sm-12 pull-left posttimeline">
-      <app-profile-edit *ngIf="tab === 'edit'">
-      </app-profile-edit>
+      <app-profile-edit *ngIf="tab === 'edit'"></app-profile-edit>
       <app-profile-past-event *ngIf="tab === 'past-event'"></app-profile-past-event>
       <app-profile-payment-method *ngIf="tab === 'payment-method'"></app-profile-payment-method>
       <app-profile-reward-points *ngIf="tab === 'reward-points'"></app-profile-reward-points>
       <app-profile-schedule *ngIf="tab === 'schedule'"></app-profile-schedule>
-
       <!-- <app-profile-edit></app-profile-edit> -->
       <!-- <app-profile-past-event></app-profile-past-event> -->
       <!-- <app-profile-reward-points></app-profile-reward-points> -->
-
-
-
-
 
       <!-- <div class="panel panel-default">
         <div class="panel-body">

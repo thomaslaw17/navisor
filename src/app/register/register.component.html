@@ -8,7 +8,7 @@
     <div class="container">
       <form>
         <div class="row">
-          <h2>
+          <h2 class="text-center">
             Choose your account
           </h2>
         </div>
@@ -93,9 +93,8 @@
 
       <div class=" input-group input-group-icon">
         <div class="col-lg-6">
-          <select name="Nationality" class="selectWidth">
-
-            <option value="">Nationality</option>
+          <select name="Nationality" class="selectWidth" [(ngModel)]="user.nationality">
+            <option value="0">Nationality</option>
             <option value="afghan">Afghan</option>
             <option value="albanian">Albanian</option>
             <option value="algerian">Algerian</option>
@@ -292,9 +291,9 @@
           </select>
         </div>
         <div class="col-lg-6 selectWidth">
-          <select name="Preferred Language" class="selectWidth">
+          <select name="Preferred Language" class="selectWidth" [(ngModel)]="user.language">
 
-            <option value="">Preferred Language</option>
+            <option value="0">Preferred Language</option>
             <option value="afghan">Afghan</option>
             <option value="albanian">Albanian</option>
             <option value="algerian">Algerian</option>
@@ -487,73 +486,73 @@
             <option value="yemenite">Yemenite</option>
             <option value="zambian">Zambian</option>
             <option value="zimbabwean">Zimbabwean</option>
-
           </select>
         </div>
-      </div>
 
-    </div>
-    <div class="row">
-      <h4>Address</h4>
-      <div class="input-group input-group-icon">
-        <input type="text" placeholder="" [(ngModel)]="user.address" />
-        <div class="input-icon">
-          <i class="fa fa-envelope"></i>
-        </div>
       </div>
-      <!-- <div class="input-group input-group-icon">
+      <div class="row">
+        <h4>Address</h4>
+        <div class="input-group input-group-icon">
+          <input type="text" placeholder="" [(ngModel)]="user.address" />
+          <div class="input-icon">
+            <i class="fa fa-envelope"></i>
+          </div>
+        </div>
+        <!-- <div class="input-group input-group-icon">
       <input type="text" placeholder="Line 2" [(ngModel)]="user.address" />
       <div class="input-icon">
         <i class="fa fa-envelope"></i>
       </div>
     </div> -->
 
-      <div class="row">
-        <div class="col-half">
-          <h4>Date of Birth</h4>
-          <div class="input-group">
-            <div class="col-third">
-              <input type="text" placeholder="DD" [(ngModel)]="birthDay" />
+        <div class="row">
+          <div class="col-half">
+            <h4>Date of Birth</h4>
+            <div class="input-group">
+              <div class="col-third">
+                <input type="text" placeholder="DD" [(ngModel)]="birthDay" />
+              </div>
+              <div class="col-third">
+                <input type="text" placeholder="MM" [(ngModel)]="birthMonth" />
+              </div>
+              <div class="col-third">
+                <input type="text" placeholder="YYYY" [(ngModel)]="birthYear" />
+              </div>
             </div>
-            <div class="col-third">
-              <input type="text" placeholder="MM" [(ngModel)]="birthMonth" />
-            </div>
-            <div class="col-third">
-              <input type="text" placeholder="YYYY" [(ngModel)]="birthYear" />
+          </div>
+
+          <div class="col-half">
+            <h4>Gender</h4>
+            <div class="input-group">
+              <input type="radio" name="Account_Type" value="Male" id="Account_Type-Male" (click)="gender('M')" />
+              <label for="Account_Type-Male">Male</label>
+              <input type="radio" name="Account_Type" value="Female" id="Account_Type-Female" (click)="gender('F')" />
+              <label for="Account_Type-Female">Female</label>
             </div>
           </div>
         </div>
 
-        <div class="col-half">
-          <h4>Gender</h4>
+        <div class="row">
+          <h4>Terms and Conditions</h4>
           <div class="input-group">
-            <input type="radio" name="Account_Type" value="Male" id="Account_Type-Male" (click)="gender('M')" />
-            <label for="Account_Type-Male">Male</label>
-            <input type="radio" name="Account_Type" value="Female" id="Account_Type-Female" (click)="gender('F')" />
-            <label for="Account_Type-Female">Female</label>
+            <input type="checkbox" id="terms" [(ngModel)]="termsAndConditions" />
+            <label for="terms">I accept the terms and conditions for signing up to this service, and hereby confirm I have read the privacy
+              policy.
+            </label>
           </div>
         </div>
       </div>
 
-      <div class="row">
-        <h4>Terms and Conditions</h4>
-        <div class="input-group">
-          <input type="checkbox" id="terms" [(ngModel)]="termsAndConditions" />
-          <label for="terms">I accept the terms and conditions for signing up to this service, and hereby confirm I have read the privacy policy.
-          </label>
+      <div class="wrapper row">
+        <div class="col-lg-6">
+          <a class="next btn-primary btnLeft" (click)="previousStep()">Back</a>
+        </div>
+        <div class="col-lg-6">
+          <a class="next btn-primary btnRight" (click)="register()">Create</a>
         </div>
       </div>
-    </div>
 
-    <div class="wrapper row">
-      <div class="col-lg-6">
-        <a class="next btn-primary btnLeft" (click)="previousStep()">Back</a>
-      </div>
-      <div class="col-lg-6">
-        <a class="next btn-primary btnRight" (click)="register()">Create</a>
-      </div>
     </div>
-
   </div>
 
   <div class="container" *ngIf="(step == 2 && user.type == 0)">
@@ -628,9 +627,9 @@
 
     <div class=" input-group input-group-icon">
       <div class="col-lg-6">
-        <select name="Nationality" class="selectWidth">
+        <select name="Nationality" class="selectWidth" [(ngModel)]="user.nationality">
 
-          <option value="">Nationality</option>
+          <option value="0">Nationality</option>
           <option value="afghan">Afghan</option>
           <option value="albanian">Albanian</option>
           <option value="algerian">Algerian</option>
@@ -827,7 +826,7 @@
         </select>
       </div>
       <div class="col-lg-6 selectWidth">
-        <select name="Preferred Language" class="selectWidth">
+        <select name="Preferred Language" class="selectWidth" [(ngModel)]="user.language">
 
           <option value="">Preferred Language</option>
           <option value="afghan">Afghan</option>

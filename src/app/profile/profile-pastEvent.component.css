@@ -1,6 +1,8 @@
 .event-primary h2 {
   margin-top: 10px;
-  color: #94cbcc;
+  /* color: #94cbcc; */
+  /* color: #8C9AC6; */
+  color: #C91C2C;
 }
 
 .nopadding {
@@ -15,6 +17,20 @@ time {
   text-align: center;
   text-transform: uppercase;
 }
+
+time.newyellow {
+  background-color: #DF5865;
+}
+
+time.newsolarizedyellow {
+  background-color: #FF437C;
+}
+
+
+.newpalepink {
+  background-color: #D20068;
+}
+
 
 time.pink {
   background-color: rgb(197, 44, 102);
@@ -164,9 +180,12 @@ time > .month {
 .panel {
   background-color: #f7f7f7;
 }
+
 .panel-primary > .panel-footer {
   color: #fff !important ;
-  background-color: #337ab7;
+  /* background-color: #337ab7; */
+  /* background-color: #FDB29B; */
+  background-color: #B9538D; 
   border-color: #337ab7;
 }
 .panel-primary > .panel-footer p,
