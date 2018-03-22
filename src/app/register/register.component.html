@@ -23,6 +23,7 @@
       </form>
     </div>
   </div>
+  
   <div class="container" *ngIf="(step == 2 && user.type == 1)">
     <div class="row">
       <h4>Account Information</h4>
@@ -94,7 +95,7 @@
       <div class=" input-group input-group-icon">
         <div class="col-lg-6">
           <select name="Nationality" class="selectWidth" [(ngModel)]="user.nationality">
-            <option value="0">Nationality</option>
+            <option value="">Nationality</option>
             <option value="afghan">Afghan</option>
             <option value="albanian">Albanian</option>
             <option value="algerian">Algerian</option>
@@ -288,12 +289,12 @@
             <option value="zambian">Zambian</option>
             <option value="zimbabwean">Zimbabwean</option>
 
-          </select>
-        </div>
-        <div class="col-lg-6 selectWidth">
+          </center>
+</select>
+        
           <select name="Preferred Language" class="selectWidth" [(ngModel)]="user.language">
 
-            <option value="0">Preferred Language</option>
+            <option value="">Preferred Language</option>
             <option value="afghan">Afghan</option>
             <option value="albanian">Albanian</option>
             <option value="algerian">Algerian</option>
