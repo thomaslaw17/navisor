@@ -37,6 +37,7 @@
         </div>
         <div *ngIf="!loggedIn">
           <a class="btn-primary tm-btn-primary" (click)="gotoLogin()" routerLink="login">Log In</a>
+          <br>
           <a class="btn-primary tm-btn-primary" (click)="gotoRegister()" routerLink="register">Sign Up</a>
         </div>
         <div *ngIf="loggedIn">
