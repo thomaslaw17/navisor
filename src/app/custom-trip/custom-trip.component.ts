@@ -32,6 +32,67 @@ export class CustomTripComponent implements OnInit {
     public appGlobal: AppGlobal
   ) {}
 
+  submitTrip() {
+    let msg = 'Please input ';
+    if (
+      this.trip.name === undefined ||
+      this.trip.name === null ||
+      this.trip.name === ''
+    ) {
+      msg += 'Destination ';
+    }
+    if (
+      this.trip.catagory === undefined ||
+      this.trip.catagory === null ||
+      this.trip.catagory === ''
+    ) {
+      msg += 'Catagory ';
+    }
+
+    if (
+      this.trip.numberOfTravellers === undefined ||
+      this.trip.numberOfTravellers === null ||
+      this.trip.numberOfTravellers === 0
+    ) {
+      msg += 'Number of Travellers ';
+    }
+
+    if (
+      this.trip.duration === undefined ||
+      this.trip.duration === null ||
+      this.trip.duration === 0
+    ) {
+      msg += 'Duration ';
+    }
+
+    if (
+      this.trip.price === undefined ||
+      this.trip.price === null ||
+      this.trip.price === ''
+    ) {
+      msg += 'Budget ';
+    }
+
+    if (
+      this.trip.events === undefined ||
+      this.trip.events === null ||
+      this.trip.events.length === 0
+    ) {
+      msg += 'Catagory ';
+    }
+
+    if (msg === 'Please input ') {
+      alert(msg);
+      return;
+    } else {
+      this.angularFireDatabase.list('Trip').push(this.trip);
+    }
+  }
+
+  addEvent() {
+    this.trip.events.push(new Event());
+  }
+
   ngOnInit() {
     this.trip = new Trip();
     this.activatedRoute.params.subscribe(params => {
@@ -55,10 +116,6 @@ export class CustomTripComponent implements OnInit {
       }
     });
     this.navBarService.showNavbar();
-  }
-
-  addEvent() {
-    this.trip.events.push(new Event());
   }
 }
 
@@ -85,6 +142,18 @@ export class CustomEventComponent implements OnInit {
     private attractionService: AttractionService
   ) {}
 
+  search($event) {
+    if ($event.timeStamp - this.lastKeyPress > 200) {
+      const q = $event.target.value;
+      this.startAt.next(q);
+      this.endAt.next(q + '\uf8ff');
+    }
+    this.lastKeyPress = $event.timeStamp;
+
+    // this.startAt.next(q);
+    // this.endAt.next(q + '\uf8ff');
+  }
+
   ngOnInit() {
     this.attraction = new Attraction();
     this.attractionObj = this.angularFireDatabase
@@ -101,17 +170,5 @@ export class CustomEventComponent implements OnInit {
       .subscribe(attractions => {
         this.attractions = attractions;
       });
-  }
-
-  search($event) {
-    if ($event.timeStamp - this.lastKeyPress > 200) {
-      const q = $event.target.value;
-      this.startAt.next(q);
-      this.endAt.next(q + '\uf8ff');
-    }
-    this.lastKeyPress = $event.timeStamp;
-
-    // this.startAt.next(q);
-    // this.endAt.next(q + '\uf8ff');
   }
 }
