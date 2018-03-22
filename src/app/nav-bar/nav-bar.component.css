@@ -4,3 +4,13 @@
   position: relative;
   text-align: right;
 }
+
+.userpic {
+  height: 40px;
+  align-content: center;
+  border-radius: 50%;
+}
+
+.userpicimg {
+  height: 40px;
+}

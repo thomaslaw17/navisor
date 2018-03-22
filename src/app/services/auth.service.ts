@@ -22,9 +22,11 @@ export class AuthService {
     this.afAuth.authState.subscribe(res => {
       if (res) {
         this.appGlobal.loggedIn = true;
+        this.appGlobal.userId = res.uid;
         return true;
       } else {
         this.appGlobal.loggedIn = false;
+        this.appGlobal.userId = '';
         return false;
       }
     });

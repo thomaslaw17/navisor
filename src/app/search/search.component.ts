@@ -40,12 +40,16 @@ export class SearchComponent implements OnInit {
   }
 
   updateSearch($event) {
-    if ($event.timeStamp - this.lastKeyPress > 200) {
-      const q = $event.target.value;
-      this.appGlobal.search.startAt.next(q);
-      this.appGlobal.search.endAt.next(q + '\uf8ff');
-    }
-    this.lastKeyPress = $event.timeStamp;
+    // if ($event.timeStamp - this.lastKeyPress > 200) {
+    const q = $event.target.value;
+    this.appGlobal.search.startAt.next(q);
+    this.appGlobal.search.endAt.next(q + '\uf8ff');
+    // }
+    // this.lastKeyPress = $event.timeStamp;
+  }
+
+  gotoCustomTrip() {
+    this.router.navigate(['customTrip/new']);
   }
 
   ngOnInit() {

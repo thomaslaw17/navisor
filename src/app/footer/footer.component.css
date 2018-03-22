@@ -4,12 +4,12 @@ section {
 
 section .section-title {
   text-align: center;
-  color: #007b5e;
+  color: #ee5057;
   margin-bottom: 50px;
   text-transform: uppercase;
 }
 #footer {
-  background: #007b5e !important;
+  background: #ee5057 !important;
 }
 #footer h5 {
   padding-left: 10px;

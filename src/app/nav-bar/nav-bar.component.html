@@ -40,6 +40,11 @@
           <a class="btn-primary tm-btn-primary" (click)="gotoRegister()" routerLink="register">Sign Up</a>
         </div>
         <div *ngIf="loggedIn">
+          <div class="userpic text-center">
+            <a>
+              <img src="{{user.photoUrl}}" alt="" class="userpicimg" (click)="gotoProfile()">
+            </a>
+          </div>
           <a class="btn-primary tm-btn-primary" (click)="logout()">Log Out</a>
         </div>
       </nav>
