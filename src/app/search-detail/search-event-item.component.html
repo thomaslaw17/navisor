@@ -1,5 +1,44 @@
 <div>
-  one Attraction
+
+  <!-- <div class="row"> -->
+  <div class="col-sm-4">
+    <div class="panel panel-primary event-primary">
+      <div class="panel-heading">
+        <h2>{{attraction.name}}</h2>
+      </div>
+      <div class="panel-body nopadding">
+        <img src="" alt="event image" class="img-responsive" />
+        <div class="row nopadding">
+          <div class="col-sm-6 nopadding">
+            <time class="start newyellow">
+              Start
+              <span class="month">{{startTime}}</span>
+              <!-- <span class="day">20</span>
+                    <span class="month">Apr</span>
+                    <span class="year">2016</span> -->
+            </time>
+          </div>
+          <div class="col-sm-6 nopadding">
+            <time class="end newsolarizedyellow">
+              End
+              <span class="month">{{endTime}}</span>
+              <!-- <span class="day">20</span>
+                    <span class="month">Apr</span>
+                    <span class="year">2016</span> -->
+            </time>
+          </div>
+        </div>
+      </div>
+      <div class="panel-footer panel-primary">
+        <p>{{attraction.description}}</p>
+        <p>$ {{attraction.price}} </p>
+        <a href="http://ulurudaytours.com.au/" class="btn newpalepink">Read more...</a>
+      </div>
+    </div>
+  </div>
+  <!-- </div> -->
+
+  <!-- one Attraction
   <div>
     {{attraction.name}}
   </div>
@@ -17,4 +56,4 @@
   <div>
     {{attraction.description}}
   </div>
-</div>
+</div> -->

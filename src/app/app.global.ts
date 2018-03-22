@@ -7,14 +7,17 @@ export class AppGlobal {
   public showNavBar: boolean;
   public loggedIn: boolean;
 
+  public userId: string;
+
   public search: {
     location: string;
     startAt: BehaviorSubject<string>;
     endAt: BehaviorSubject<string>;
     startDate: Date;
     duration: number;
-    theme: string;
-    budget: string;
+    theme: Array<string>;
+    budgetMax: number;
+    budgetMin: number;
     numberOfTravellers: number;
     nameOfNavigator: string;
   };
@@ -24,14 +27,17 @@ export class AppGlobal {
   }
 
   constructor(private router: Router) {
+    this.userId = '';
+
     this.search = {
       location: '',
       startAt: new BehaviorSubject<string>(''),
       endAt: new BehaviorSubject<string>(''),
       startDate: new Date(),
       duration: 0,
-      theme: '',
-      budget: '',
+      theme: new Array<string>(),
+      budgetMax: 0,
+      budgetMin: 0,
       numberOfTravellers: 0,
       nameOfNavigator: ''
     };

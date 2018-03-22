@@ -8,7 +8,8 @@
           <div class="form-row tm-search-form-row">
             <div class="form-group tm-form-element tm-form-element-100 searchBox">
               <i class="fa fa-map-marker fa-2x tm-form-element-icon"></i>
-              <input name="location" type="text" class="form-control" id="inputLocation" placeholder="Desired Location" [(ngModel)]="appGlobal.search.location">
+              <input name="location" type="text" class="form-control" id="inputLocation" placeholder="Desired Location" [(ngModel)]="appGlobal.search.location"
+                (keypress)="updateSearch($event)" (click)="updateSearch($event)">
             </div>
             <div class="form-group tm-form-element tm-form-element-50 searchBox">
               <i class="fa fa-calendar fa-2x tm-form-element-icon"></i>
@@ -59,9 +60,9 @@
                 <button type="submit" class="btn btn-primary">Search</button>
               </em>
             </div>
-            <div class="form-group tm-form-element tm-form-element-2 tm-btn-customize">
+            <div class="form-group tm-form-element tm-form-element-2">
               <em>
-                <button type="submit" class="btn btn-primary">Customize Travel Plan</button>
+                <button type="submit" class="btn btn-primary" (click)="gotoCustomTrip()">Customize Travel Plan</button>
               </em>
             </div>
           </div>
@@ -126,7 +127,7 @@
               <strong>
                 <h1> Language </h1>
               </strong>
-              <label class="container-2">English
+              <label class="container-2"> English
                 <input type="checkbox" checked="checked">
                 <span class="checkmark"></span>
               </label>
@@ -190,8 +191,9 @@
         </article>
       </div>
     </div>
-    &nbsp;</div>
+    &nbsp;
+  </div>
 
-  <div>
+</div>
 
-    <app-footer></app-footer>
+<app-footer></app-footer>

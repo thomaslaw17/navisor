@@ -47,6 +47,10 @@ export class SearchDetailComponent implements OnInit {
     this.router.navigate(['search']);
   }
 
+  gotoPayment() {
+    this.router.navigate(['payment']);
+  }
+
   ngOnInit() {
     this.targetObject = '';
     this.navBarService.showNavbar();

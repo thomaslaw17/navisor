@@ -7,7 +7,6 @@ import { Router } from '@angular/router';
 import { Component, OnInit, Input } from '@angular/core';
 import { AppGlobal } from '../app.global';
 import { Result } from '../../model/Result';
-
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -18,13 +17,13 @@ export class SearchComponent implements OnInit {
   public selected: string;
   public catagory: string;
   public catagories: Array<string>;
-
   public lastKeyPress: number;
-
   public show: boolean;
-
   public results: Array<Result[]>;
-  // public results: Result[][];
+
+  public budgetFilter: any;
+  public themeFilter: any;
+  public languageFilter: any;
 
   constructor(
     private router: Router,
@@ -34,7 +33,6 @@ export class SearchComponent implements OnInit {
     public appGlobal: AppGlobal,
     private tripService: TripService
   ) {}
-
   search() {
     this.show = true; // temp
     // query from database
@@ -42,18 +40,44 @@ export class SearchComponent implements OnInit {
   }
 
   updateSearch($event) {
-    if ($event.timeStamp - this.lastKeyPress > 200) {
-      const q = $event.target.value;
-      this.appGlobal.search.startAt.next(q);
-      this.appGlobal.search.endAt.next(q + '\uf8ff');
-    }
-    this.lastKeyPress = $event.timeStamp;
+    // if ($event.timeStamp - this.lastKeyPress > 200) {
+    const q = $event.target.value;
+    this.appGlobal.search.startAt.next(q);
+    this.appGlobal.search.endAt.next(q + '\uf8ff');
+    // }
+    // this.lastKeyPress = $event.timeStamp;
+  }
+
+  gotoCustomTrip() {
+    this.router.navigate(['customTrip/new']);
   }
 
   ngOnInit() {
     this.navBarService.showNavbar();
     this.show = false;
     this.catagories = ['cat 1', 'cat 2', 'cat 3'];
+    this.budgetFilter = {
+      0: true,
+      1: false,
+      2: false,
+      3: false
+    };
+    this.themeFilter = {
+      nature: true,
+      foodie: false,
+      photography: false,
+      university: false,
+      others: false
+    };
+
+    this.languageFilter = {
+      english: true,
+      mandarin: false,
+      french: false,
+      german: false,
+      italian: false,
+      others: false
+    };
 
     this.tripService
       .getTrips(this.appGlobal.search.startAt, this.appGlobal.search.endAt)
@@ -83,13 +107,10 @@ export class SearchComponent implements OnInit {
 })
 export class SearchResultComponent implements OnInit {
   @Input() result: Result;
-
   constructor(private router: Router) {}
-
   searchDetail(type, id) {
     // this.router.navigate(['search/detail/' + id]);
     this.router.navigate(['search/detail/' + type + '/' + id]);
   }
-
   ngOnInit() {}
 }
