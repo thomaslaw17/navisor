@@ -30,7 +30,7 @@
 }
 
 .book-now-bg {
-  background-image: url('https://firebasestorage.googleapis.com/v0/b/navisor-b9b70.appspot.com/o/resultdetail%2Fimg%2F1.jpg?alt=media&token=43db21d0-f551-48e3-b5cf-b50d2fa45ac6');
+  background-image: url('https://farm5.staticflickr.com/4786/26083763157_c2f5109198_b.jpg');
 }
 
 .tm-bg-img {
@@ -54,8 +54,6 @@ select:not([multiple]) {
 .tm-btn-primary {
   display: block;
   text-align: center;
-  margin-left: 15px;
-  margin-right: 15px;
   font-size: 0.75rem;
 }
 
