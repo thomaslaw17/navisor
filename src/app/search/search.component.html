@@ -19,7 +19,7 @@
           </div>
           <div class="form-row tm-search-form-row">
             <div class="form-group tm-form-element tm-form-element-500 searchBox">
-              <select name="theme" class="form-control tm-select" id="theme" [(ngModel)]="appGlobal.search.theme">
+              <select name="theme" class="form-control tm-select" id="theme" [(ngModel)]="appGlobal.search.duration">
                 <option value="">Duration</option>
                 <option value="1">1 day</option>
                 <option value="2">2 days</option>
@@ -57,7 +57,7 @@
             </p>
             <div class="form-group tm-form-element tm-form-element-2 tm-btn-search">
               <em>
-                <button type="submit" class="btn btn-primary">Search</button>
+                <button type="submit" class="btn btn-primary" (click)="search()">Search</button>
               </em>
             </div>
             <div class="form-group tm-form-element tm-form-element-2">
@@ -74,19 +74,19 @@
                 <h1> Budget </h1>
               </strong>
               <label class="container-2">$500-$1,000
-                <input type="checkbox" checked="checked">
+                <input type="checkbox" checked="checked" [(ngModel)]="appGlobal.searchFilter.budgetFilter['0']">
                 <span class="checkmark"></span>
               </label>
               <label class="container-2">$1,000-$1500
-                <input type="checkbox">
+                <input type="checkbox" checked="checked" [(ngModel)]="appGlobal.searchFilter.budgetFilter['1']">
                 <span class="checkmark"></span>
               </label>
               <label class="container-2">$1,500-$2,000
-                <input type="checkbox">
+                <input type="checkbox" checked="checked" [(ngModel)]="appGlobal.searchFilter.budgetFilter['2']">
                 <span class="checkmark"></span>
               </label>
               <label class="container-2">&#62; $2,000
-                <input type="checkbox">
+                <input type="checkbox" checked="checked" [(ngModel)]="appGlobal.searchFilter.budgetFilter['3']">
                 <span class="checkmark"></span>
               </label>
               <p>&nbsp;</p>
@@ -97,27 +97,27 @@
                 <h1> Theme </h1>
               </strong>
               <label class="container-2">Cultural & Heritage
-                <input type="checkbox" checked="checked">
+                <input type="checkbox" checked="checked" [(ngModel)]="appGlobal.searchFilter.themeFilter.culturalheritage">
                 <span class="checkmark"></span>
               </label>
               <label class="container-2"> Nature
-                <input type="checkbox">
+                <input type="checkbox" checked="checked" [(ngModel)]="appGlobal.searchFilter.themeFilter.nature">
                 <span class="checkmark"></span>
               </label>
               <label class="container-2"> Foodie
-                <input type="checkbox">
+                <input type="checkbox" checked="checked" [(ngModel)]="appGlobal.searchFilter.themeFilter.foodie">
                 <span class="checkmark"></span>
               </label>
               <label class="container-2"> Photography
-                <input type="checkbox">
+                <input type="checkbox" checked="checked" [(ngModel)]="appGlobal.searchFilter.themeFilter.photography">
                 <span class="checkmark"></span>
               </label>
               <label class="container-2"> University Tour
-                <input type="checkbox">
+                <input type="checkbox" checked="checked" [(ngModel)]="appGlobal.searchFilter.themeFilter.university">
                 <span class="checkmark"></span>
               </label>
               <label class="container-2"> Others
-                <input type="checkbox">
+                <input type="checkbox" checked="checked" [(ngModel)]="appGlobal.searchFilter.themeFilter.others">
                 <span class="checkmark"></span>
               </label>
               <p>&nbsp;</p>
@@ -128,34 +128,34 @@
                 <h1> Language </h1>
               </strong>
               <label class="container-2"> English
-                <input type="checkbox" checked="checked">
+                <input type="checkbox" checked="checked" [(ngModel)]="appGlobal.searchFilter.languageFilter.english">
                 <span class="checkmark"></span>
               </label>
               <label class="container-2"> Mandarin
-                <input type="checkbox">
+                <input type="checkbox" checked="checked" [(ngModel)]="appGlobal.searchFilter.languageFilter.mandarin">
                 <span class="checkmark"></span>
               </label>
               <label class="container-2"> French
-                <input type="checkbox">
+                <input type="checkbox" checked="checked" [(ngModel)]="appGlobal.searchFilter.languageFilter.french">
                 <span class="checkmark"></span>
               </label>
               <label class="container-2"> German
-                <input type="checkbox">
+                <input type="checkbox" checked="checked" [(ngModel)]="appGlobal.searchFilter.languageFilter.german">
                 <span class="checkmark"></span>
               </label>
               <label class="container-2"> Italian
-                <input type="checkbox">
+                <input type="checkbox" checked="checked" [(ngModel)]="appGlobal.searchFilter.languageFilter.italian">
                 <span class="checkmark"></span>
               </label>
               <label class="container-2"> Others
-                <input type="checkbox">
+                <input type="checkbox" checked="checked" [(ngModel)]="appGlobal.searchFilter.languageFilter.others">
                 <span class="checkmark"></span>
               </label>
               <p>&nbsp;</p>
             </div>
 
             <div class="column col-lg-8 col-md-8">
-              <a href="#" class="text-uppercase btn-primary tm-btn-filter">Filter</a>
+              <a class="text-uppercase btn-primary tm-btn-filter" (click)="search()">Filter</a>
             </div>
           </div>
         </div>
@@ -184,13 +184,13 @@
 
 
   <div class="tm-section tm-section-pad tm-bg-gray flex-row" id="tm-section-4">
-    <div class="container">
-      <div class="card-deck row" *ngFor="let resultRow of results">
-        <article class="card col-md-4 tm-bg-white" *ngFor="let result of resultRow">
+    <table class="container">
+      <tr class="card-deck row" *ngFor="let resultRow of results">
+        <td class="card col-md-4 tm-bg-white" *ngFor="let result of resultRow">
           <app-search-result [result]=result></app-search-result>
-        </article>
-      </div>
-    </div>
+        </td>
+      </tr>
+    </table>
     &nbsp;
   </div>
 

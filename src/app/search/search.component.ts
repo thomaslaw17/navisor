@@ -21,10 +21,6 @@ export class SearchComponent implements OnInit {
   public show: boolean;
   public results: Array<Result[]>;
 
-  public budgetFilter: any;
-  public themeFilter: any;
-  public languageFilter: any;
-
   constructor(
     private router: Router,
     private authService: AuthService,
@@ -35,8 +31,77 @@ export class SearchComponent implements OnInit {
   ) {}
   search() {
     this.show = true; // temp
-    // query from database
-    // this.keyword, this.catagory
+    this.angularFireDatabase
+      .list('Trip', ref =>
+        ref
+          .orderByChild('name')
+          .startAt('\u0000' + this.appGlobal.search.location)
+          .endAt(this.appGlobal.search.location + '\uf8ff')
+      )
+      .snapshotChanges()
+      .map(actions => {
+        return actions.map(action => ({
+          key: action.key,
+          ...action.payload.val()
+        }));
+      })
+      .subscribe(trips => {
+        this.results = new Array<Result[]>();
+        let count = 0;
+        for (let i = 0; i <= trips.length / 3; i++) {
+          const row: Result[] = new Array<Result>();
+          for (let j = 0; j < 3 && count < trips.length; j++) {
+            let done = false;
+            while (!done) {
+              if (count >= trips.length) {
+                done = true;
+              } else if (
+                (!this.appGlobal.searchFilter.themeFilter.culturalheritage &&
+                  trips[count].catagory === 'culturalheritage') ||
+                (!this.appGlobal.searchFilter.themeFilter.nature &&
+                  trips[count].catagory === 'nature') ||
+                (!this.appGlobal.searchFilter.themeFilter.foodie &&
+                  trips[count].catagory === 'foodie') ||
+                (!this.appGlobal.searchFilter.themeFilter.photography &&
+                  trips[count].catagory === 'photography') ||
+                (!this.appGlobal.searchFilter.themeFilter.others &&
+                  trips[count].catagory === 'others')
+              ) {
+                count++;
+              } else if (
+                (this.appGlobal.searchFilter.budgetFilter['0'] &&
+                  trips[count].budget >= 500 &&
+                  trips[count].bueget < 1000) ||
+                (this.appGlobal.searchFilter.budgetFilter['1'] &&
+                  trips[count].budget >= 1000 &&
+                  trips[count].budget < 1500) ||
+                (this.appGlobal.searchFilter.budgetFilter['2'] &&
+                  trips[count].budget >= 1500 &&
+                  trips[count].budget < 2000) ||
+                (this.appGlobal.searchFilter.budgetFilter['3'] &&
+                  trips[count].budget >= 2000)
+              ) {
+                count++;
+              } else {
+                row.push({
+                  id: trips[3 * i + j].key,
+                  name: trips[3 * i + j].name,
+                  detail:
+                    trips[3 * i + j].description.length > 150
+                      ? trips[3 * i + j].description.substring(0, 150) + '...'
+                      : trips[3 * i + j].description,
+                  photo: trips[3 * i + j].photoUrl,
+                  type: 'trip'
+                });
+                count++;
+                done = true;
+              }
+            }
+          }
+
+          this.results.push(row);
+        }
+      });
   }
 
   updateSearch($event) {
@@ -56,47 +121,29 @@ export class SearchComponent implements OnInit {
     this.navBarService.showNavbar();
     this.show = false;
     this.catagories = ['cat 1', 'cat 2', 'cat 3'];
-    this.budgetFilter = {
-      0: true,
-      1: false,
-      2: false,
-      3: false
-    };
-    this.themeFilter = {
-      nature: true,
-      foodie: false,
-      photography: false,
-      university: false,
-      others: false
-    };
 
-    this.languageFilter = {
-      english: true,
-      mandarin: false,
-      french: false,
-      german: false,
-      italian: false,
-      others: false
-    };
-
-    this.tripService
-      .getTrips(this.appGlobal.search.startAt, this.appGlobal.search.endAt)
-      .subscribe(trips => {
-        this.results = new Array<Result[]>();
-        for (let i = 0; i < trips.length / 3; i++) {
-          const row: Result[] = new Array<Result>();
-          for (let j = 0; j < 3 && i < trips.length; j++, i++) {
-            row.push({
-              id: trips[i].key,
-              name: trips[i].name,
-              detail: trips[i].description,
-              photo: trips[i].url,
-              type: 'trip'
-            });
-          }
-          this.results.push(row);
-        }
-      });
+    // this.tripService
+    //   .getTrips(this.appGlobal.search.startAt, this.appGlobal.search.endAt)
+    //   .subscribe(trips => {
+    //     this.results = new Array<Result[]>();
+    //     for (let i = 0; i <= trips.length / 3; i++) {
+    //       const row: Result[] = new Array<Result>();
+    //       for (let j = 0; j < 3 && 3 * i + j < trips.length; j++) {
+    //         row.push({
+    //           id: trips[3 * i + j].key,
+    //           name: trips[3 * i + j].name,
+    //           detail:
+    //             trips[3 * i + j].description.length > 150
+    //               ? trips[3 * i + j].description.substring(0, 150) + '...'
+    //               : trips[3 * i + j].description,
+    //           photo: trips[3 * i + j].photoUrl,
+    //           type: 'trip'
+    //         });
+    //       }
+    //       this.results.push(row);
+    //     }
+    //   });
+    this.search();
   }
 }
 

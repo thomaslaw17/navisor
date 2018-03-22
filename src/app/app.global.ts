@@ -22,6 +22,31 @@ export class AppGlobal {
     nameOfNavigator: string;
   };
 
+  public searchFilter: {
+    budgetFilter: {
+      0: boolean;
+      1: boolean;
+      2: boolean;
+      3: boolean;
+    };
+    themeFilter: {
+      culturalheritage: boolean;
+      nature: boolean;
+      foodie: boolean;
+      photography: boolean;
+      university: boolean;
+      others: boolean;
+    };
+    languageFilter: {
+      english: boolean;
+      mandarin: boolean;
+      french: boolean;
+      german: boolean;
+      italian: boolean;
+      others: boolean;
+    };
+  };
+
   gotoHome() {
     this.router.navigate(['']);
   }
@@ -40,6 +65,31 @@ export class AppGlobal {
       budgetMin: 0,
       numberOfTravellers: 0,
       nameOfNavigator: ''
+    };
+
+    this.searchFilter = {
+      budgetFilter: {
+        0: true,
+        1: true,
+        2: true,
+        3: true
+      },
+      themeFilter: {
+        culturalheritage: true,
+        nature: true,
+        foodie: true,
+        photography: true,
+        university: true,
+        others: true
+      },
+      languageFilter: {
+        english: true,
+        mandarin: true,
+        french: true,
+        german: true,
+        italian: true,
+        others: true
+      }
     };
   }
 }

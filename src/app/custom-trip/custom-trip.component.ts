@@ -181,12 +181,9 @@ export class CustomEventComponent implements OnInit {
         }
       });
     } else {
-      this.angularFireDatabase
-        .list<Attraction>('Attraction')
-        .valueChanges()
-        .subscribe(attractions => {
-          this.attractions = attractions;
-        });
+      this.attractionService.getAllAttractions().subscribe(attractions => {
+        this.attractions = attractions;
+      });
     }
 
     // this.attractionService

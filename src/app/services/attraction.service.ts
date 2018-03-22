@@ -8,7 +8,7 @@ import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 
 @Injectable()
 export class AttractionService {
-  constructor(private angularFireDatabse: AngularFireDatabase) {}
+  constructor(private angularFireDatabase: AngularFireDatabase) {}
 
   getAttractions(
     start: BehaviorSubject<string>,
@@ -20,7 +20,7 @@ export class AttractionService {
     //   }
     // })
     return Observable.zip(start, end).switchMap(param => {
-      return this.angularFireDatabse
+      return this.angularFireDatabase
         .list('/Attraction', ref =>
           ref
             .orderByChild('name')
@@ -35,5 +35,17 @@ export class AttractionService {
           });
         });
     });
+  }
+
+  getAllAttractions(): Observable<any[]> {
+    return this.angularFireDatabase
+      .list<any>('Attraction')
+      .snapshotChanges()
+      .map(actions => {
+        return actions.map(action => ({
+          key: action.key,
+          ...action.payload.val()
+        }));
+      });
   }
 }
