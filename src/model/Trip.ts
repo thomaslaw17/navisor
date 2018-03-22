@@ -9,7 +9,7 @@ export class Trip {
   public numberOfTravellers: number;
   public events: Array<Event>;
   public description: string;
-  public langugae: string;
+  public language: string;
   public theme: string;
   public remark: string;
   public photoUrl: string;

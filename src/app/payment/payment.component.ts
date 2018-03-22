@@ -14,7 +14,9 @@ export class PaymentComponent implements OnInit {
     private authService: AuthService,
     private angularFireDatabase: AngularFireDatabase,
     private navBarService: NavBarService
-  ) {}
+  ) {
+    this.navBarService.hideNavBar();
+  }
   selectCreditCard() {
     if (
       !document
