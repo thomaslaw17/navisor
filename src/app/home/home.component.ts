@@ -280,21 +280,36 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.suggestNavigator = [
       {
         name: 'Amy',
-        description: 'HKU BBA(IS) Year 4',
+        description:
+          'I like going outdoors, meeting new friends and sharing my precious moments in daily life with people.' +
+          'Trying delicate cuisines and visiting the nature are some of my favourite pastimes.' +
+          'Go on tailor-made local tours now with me now! You’ll be amazed by everything in Hong Kong and love this city more!',
         pic:
           firebasePrefix +
           'o/home%2Fimg%2Fnavigator%2Famy.png?alt=media&token=2adde141-99ad-4f17-ba01-ab026589bd6d'
       },
       {
         name: 'Ann',
-        description: 'HKU BBA(IS) Year 4',
+        description:
+          'I am 22 years old and I am currently a Year 4 student studying at the University of Hong Kong.' +
+          'I have studied abroad in UK for two years and I enjoy meeting people of different cultures.' +
+          'I love travelling, watching movies and listening to music.' +
+          'I was the booking secretary of The Magic Club, HKUSU 2015-2016,' +
+          'and I have hold various functions and workshops for the students and members of the club.' +
+          'I enjoy playing simple magic tricks and communicating with people',
         pic:
           firebasePrefix +
           'o/home%2Fimg%2Fnavigator%2Fann.jpg?alt=media&token=716cae0c-8250-422c-9d10-9c583cf1a567'
       },
       {
         name: 'Hong',
-        description: 'HKU BBA(IS) Year 4',
+        description:
+          'I am 23 years old and I am currently a Year 4 student studying at the University of Hong Kong.' +
+          'As a travel lover, I have visited 8 countries and more than 20 cities.' +
+          'I love exploring various culture in different countries and ' +
+          'I enjoy to eat various local foods from different countries during my trips.' +
+          'I also like to make new friends and communicate with some local people when i go travelling.' +
+          'I also love watching movie,listening music and playing basketball',
         pic:
           firebasePrefix +
           'o/home%2Fimg%2Fnavigator%2Fhong.jpg?alt=media&token=dae3690b-b2df-4ac2-8ae8-659f634daab9'

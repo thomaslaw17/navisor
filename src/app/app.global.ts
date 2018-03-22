@@ -7,6 +7,8 @@ export class AppGlobal {
   public showNavBar: boolean;
   public loggedIn: boolean;
 
+  public userId: string;
+
   public search: {
     location: string;
     startAt: BehaviorSubject<string>;
@@ -25,6 +27,8 @@ export class AppGlobal {
   }
 
   constructor(private router: Router) {
+    this.userId = '';
+
     this.search = {
       location: '',
       startAt: new BehaviorSubject<string>(''),
