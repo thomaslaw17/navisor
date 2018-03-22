@@ -1,5 +1,5 @@
 .tm-article-pad {
-  padding: 25px
+  padding: 25px;
 }
 
 .tm-sidebar-pad-2 {
@@ -23,11 +23,11 @@
 }
 
 .tm-bg-img {
-  justify-content: center
+  justify-content: center;
 }
 
 #contact_message {
-  height: 100px
+  height: 100px;
 }
 
 .form-control:focus {
@@ -40,8 +40,8 @@
 }
 
 select:not([multiple]) {
-  padding: .5em;
-  padding-right: 1.5em
+  padding: 0.5em;
+  padding-right: 1.5em;
 }
 
 .tm-btn-primary {
@@ -63,5 +63,5 @@ select:not([multiple]) {
 .img-fluid {
   display: block;
   margin-left: auto;
-  margin-right: auto
+  margin-right: auto;
 }
