@@ -145,11 +145,11 @@
       </div> -->
     </div>
     <div class="col-md-8 col-sm-12 pull-left posttimeline">
-      <app-profile-edit *ngIf="tab === 'edit'"></app-profile-edit>
-      <app-profile-past-event *ngIf="tab === 'past-event'"></app-profile-past-event>
-      <app-profile-payment-method *ngIf="tab === 'payment-method'"></app-profile-payment-method>
-      <app-profile-reward-points *ngIf="tab === 'reward-points'"></app-profile-reward-points>
-      <app-profile-schedule *ngIf="tab === 'schedule'"></app-profile-schedule>
+      <app-profile-edit *ngIf="tab === 'edit'" [user]="user"></app-profile-edit>
+      <app-profile-past-event *ngIf="tab === 'past-event'" [user]="user"></app-profile-past-event>
+      <app-profile-payment-method *ngIf="tab === 'payment-method'" [user]="user"></app-profile-payment-method>
+      <app-profile-reward-points *ngIf="tab === 'reward-points'" [user]="user"></app-profile-reward-points>
+      <app-profile-schedule *ngIf="tab === 'schedule'" [user]="user"></app-profile-schedule>
       <!-- <app-profile-edit></app-profile-edit> -->
       <!-- <app-profile-past-event></app-profile-past-event> -->
       <!-- <app-profile-reward-points></app-profile-reward-points> -->
