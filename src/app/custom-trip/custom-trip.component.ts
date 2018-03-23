@@ -86,6 +86,7 @@ export class CustomTripComponent implements OnInit {
       return;
     } else {
       this.angularFireDatabase.list('Trip').push(this.trip);
+      this.router.navigate(['']);
     }
   }
 

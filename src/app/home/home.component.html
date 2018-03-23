@@ -1,4 +1,4 @@
-<div class="tm-section tm-bg-img" id="tm-section-1">
+<div class="tm-section tm-bg-img searchBarBg" id="tm-section-1">
   <div class="tm-bg-white ie-container-width-fix-2">
     <div class="container ie-h-align-center-fix">
       <div class="row">
@@ -149,9 +149,9 @@
       <div class="col text-center">
         <h5 class="tm-section-title-1">"We endeavor to provide travellers around the world with customized local trips in Hong Kong"</h5>
         <p class="tm-color-white tm-section-subtitle">Subscribe to get our newsletters</p>
-        <form action="/subscribe.php">
-          <input type="text" name="emailAddress" value="email address">
-          <input href="#" class="tm-color-white tm-btn-white-bordered" type="submit" value="Subscribe Newletters">
+        <form>
+          <input type="text" name="emailAddress" value="email address" [(ngModel)]="subscribeEmail">
+          <input class="tm-color-white tm-btn-white-bordered" type="submit" value="Subscribe Newletters" (click)="subscribe()">
         </form>
       </div>
     </div>
@@ -238,26 +238,27 @@
 </div>
 
 <div class=" tm-pt-5 tm-pb-4 tm-section-8" id="tm-section-4">
-  <!--class = "container" -->
-  <h1 id="aboutUs" class="text-uppercase tm-section-title-2 text-center">About Us</h1>
-  <br>
-  <p class="paraText">Hong Kong has long been praised as a “shopping haven” and is famous for its numerous tourist attractions. Through engaging
-    in the local trips from traditional package tour, travellers usually visit popular travellers spots like Tsim Sha Tsui
-    and Mongkok for shopping, the Peak for sightseeing and Ocean Park for recreating. Yet, they lack the opportunities to
-    explore the other sides of Hong Kong, for example the natural scenery, local cuisines, heritage and nightlife.
-  </p>
-  <p class="paraText">
-    We endeavor to provide travellers around the world with customized local trips where they will have a brand new experience
-    in exploration of the fantasy in Hong Kong. With our young, energetic “navigators” who are aged from 18 to 40, travellers
-    can indulge themselves in the unique culture and beauty of Hong Kong and act like a local!
-  </p>
-  <p class="paraText">Interested in being a Hong Kong local for one day or some days? With Navisor, you can customize your own local trips simply
-    by browsing our website on your phone or laptop. Time, budget, theme of the trip, etc. can all be under your control.
-    Having no idea of where to visit, what to experience in Hong Kong? Our “navigators” could offer the most authentic travelling
-    itineraries to you.
-  </p>
+  <div class="container">
+    <h1 id="aboutUs" class="text-uppercase tm-section-title-2 text-center">About Us</h1>
+    <br>
+    <p class="blackText">Hong Kong has long been praised as a “shopping haven” and is famous for its numerous tourist attractions. Through engaging
+      in the local trips from traditional package tour, travellers usually visit popular travellers spots like Tsim Sha Tsui
+      and Mongkok for shopping, the Peak for sightseeing and Ocean Park for recreating. Yet, they lack the opportunities
+      to explore the other sides of Hong Kong, for example the natural scenery, local cuisines, heritage and nightlife.
+    </p>
+    <p class="blackText">
+      We endeavor to provide travellers around the world with customized local trips where they will have a brand new experience
+      in exploration of the fantasy in Hong Kong. With our young, energetic “navigators” who are aged from 18 to 40, travellers
+      can indulge themselves in the unique culture and beauty of Hong Kong and act like a local!
+    </p>
+    <p class="blackText">Interested in being a Hong Kong local for one day or some days? With Navisor, you can customize your own local trips
+      simply by browsing our website on your phone or laptop. Time, budget, theme of the trip, etc. can all be under your
+      control. Having no idea of where to visit, what to experience in Hong Kong? Our “navigators” could offer the most authentic
+      travelling itineraries to you.
+    </p>
+  </div>
 </div>
-<div class="container tm-pb-4" id="tm-section-4">
+<div class="container tm-pb-4 founderBackGround" id="tm-section-4">
   <h1 class="text-uppercase tm-section-title-2 text-center">Founders</h1>
   <div class="row text-center">
     <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 tm-article">
@@ -378,7 +379,7 @@
       </div>
 
       <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-5 mt-3 mt-md-0">
-        <div class="tm-bg-white tm-p-4">
+        <div class="tm-bg-white">
           <form action="index.html" method="post" class="contact-form">
             <div class="form-group">
               <p>Office Hour: Monday - Friday 9:30-18:00</p>

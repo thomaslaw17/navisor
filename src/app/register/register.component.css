@@ -12,12 +12,12 @@ body {
 }
 
 .register {
+    /* background: url(https://upload.wikimedia.org/wikipedia/commons/2/23/Hong_Kong_Skyline_Restitch_-_Dec_2007.jpg); */
     background: url(https://lh3.googleusercontent.com/lKzdh0KLUaj2kEZzprOx1wW1fO76aNk7MfM1zM5PyWpixPY6x72rpb2rvAJJkVophqep3SJ5bV6ey-e3pXRNB1UG7yfcYpw8mDZ-kzCp3j39PPR8k6V8UXAR-WarhhvY-PMfMtk0WCX3LqXeTTzHaCtpgIu_GeQsEZKl1xwSRum1pTrXwpIRUNixOGQBC5hEfqgtqKbKHmUQ7_f3jO5w6aN2A09isCkePPvlKZa2JSZhSaEeTZJ7pSalaUPkYrawfkA-Sx8BxOjXt5oj1F6HbQCMeRt2y1kL4e_4kZz3CjwxYWOFfhSeCFxXMx1WS77Qiqd9FDAsCxsHkmMUg9l0eOlpuCQoz9Ga0WVNwTyBqABgPbUi8nTprd7yTVyKcK_pP7r0irQRazE7yO32OcwaDKXQCa1BsUrooEAy1P56sIpmNH0r83Jdw2RafiQ9Epwy6kUkSuUG7K2WC0I9Sz6IM9oEoMKwxrXw4XsVn6VlYDtncQhMu64ntzDO377AFcyZF4fv6nHAJP8f6gB1nfB0F_k6gNuDy0tlTqWrywUPTfITz-ZmTrHvEtIsB4typ8k=s1424-w1424-h949-no) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    height: 1000px;
 }
 
 h4 {

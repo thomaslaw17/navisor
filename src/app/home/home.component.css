@@ -43,7 +43,7 @@ ngx-carousel button[NgxCarouselNext] {
 }
 
 tm-section {
-    /* background-image: url('https://firebasestorage.googleapis.com/v0/b/navisor-b9b70.appspot.com/o/home%2Fimg%2FsectionBg%2FHill.jpg?alt=media&token=7d7e9d98-4e6e-4bc8-9517-ad033d141589'); */
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/navisor-b9b70.appspot.com/o/home%2Fimg%2FsectionBg%2FHill.jpg?alt=media&token=7d7e9d98-4e6e-4bc8-9517-ad033d141589');
     background-color: grey;
 }
 
@@ -64,9 +64,8 @@ tm-section {
 }
 
 .paraText {
-    color: black;
-    text-align: justify;
-    font-size: 15px;
+    color: white;
+    line-height: 1.9;
 }
 
 .meetOurNavigatorSection {
@@ -80,4 +79,17 @@ tm-section {
 .searchBox {
     width: 50%;
     padding: 0 5 px;
+}
+
+.blackText {
+    color: grey;
+}
+
+.founderBackGround {
+    /* background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)); */
+    /* background-image: url(https://firebasestorage.googleapis.com/v0/b/navisor-b9b70.appspot.com/o/home%2Fimg%2Fhongkong1-700x445.jpg?alt=media&token=9d259458-d31f-436f-989b-6b36909037c6) fixed no-repeat; */
+}
+
+.searchBarBg {
+    background-image: url(https://firebasestorage.googleapis.com/v0/b/navisor-b9b70.appspot.com/o/home%2Fimg%2FBkda1K7YZ_930x525.jpg?alt=media&token=db011e9a-4945-4acf-aa6a-5afff6cbaa30);
 }

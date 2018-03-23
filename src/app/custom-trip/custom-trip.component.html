@@ -48,7 +48,7 @@
           <div *ngFor="let event of trip.events">
             <app-custom-event [tripId]='tripId' [event]='event' (change)="updateEvent($event)"></app-custom-event>
           </div>
-          <button type="submit" (click)="addEvent()">+</button>
+          <button (click)="addEvent()">+</button>
         </div>
 
         <div class="form-group ">

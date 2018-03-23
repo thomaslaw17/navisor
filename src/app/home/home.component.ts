@@ -1,3 +1,4 @@
+import { AngularFireDatabase } from 'angularfire2/database';
 import { Place } from './../../model/Place';
 import { NavBarService } from './../services/nav-bar.service';
 import { AppGlobal } from './../app.global';
@@ -54,6 +55,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   public themes: Array<string>;
   public budgets: Array<string>;
   public numberOfTravellers: Array<string>;
+  public subscribeEmail: string;
 
   public lastKeyPress: number;
 
@@ -83,7 +85,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
     private activatedRoute: ActivatedRoute,
     private router: Router,
     public appGlobal: AppGlobal,
-    private navBarService: NavBarService
+    private navBarService: NavBarService,
+    private angularFireDatabase: AngularFireDatabase
   ) {
     this.Config = {
       grid: { xs: 2, sm: 2, md: 2, lg: 2, all: 0 },
@@ -130,6 +133,15 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.lastKeyPress = $event.timeStamp;
   }
 
+  subscribe() {
+    if (
+      this.subscribeEmail !== undefined &&
+      this.subscribeEmail !== null &&
+      this.subscribeEmail !== ''
+    ) {
+      this.angularFireDatabase.list('Subscribe').push(this.subscribeEmail);
+    }
+  }
   sendContactMessage() {
     let filled = false;
     if (
