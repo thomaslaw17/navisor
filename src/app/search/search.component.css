@@ -70,7 +70,8 @@ select:not([multiple]) {
 }
 
 .tm-btn-filter {
-  margin-left: 1000px;
+  position: relative;
+  margin: 800px;
 }
 
 .searchRow {
