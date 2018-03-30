@@ -29,7 +29,9 @@ import {
   ProfilePastEventComponent,
   ProfilePaymentMethodComponent,
   ProfileRewardPointsComponent,
-  ProfileScheduleComponent
+  ProfileScheduleComponent,
+  ProfileEventComponent,
+  ProfileLanguageComponent
 } from './profile/profile.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router'; // for router-outlet element in html
@@ -99,6 +101,8 @@ import { AssistantComponent } from './assistant/assistant.component';
     ProfilePaymentMethodComponent,
     ProfileRewardPointsComponent,
     ProfileScheduleComponent,
+    ProfileEventComponent,
+    ProfileLanguageComponent,
     TripPlanningComponent,
     PaymentComponent,
     RewardComponent,

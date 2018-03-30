@@ -1,0 +1,11 @@
+.mat-button-toggle-checked {
+    background: red;
+}
+
+.mat-button-toggle {
+    color: black;
+}
+
+.mat-button-toggle-label {
+    margin: 0;
+}

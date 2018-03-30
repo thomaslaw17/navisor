@@ -1,5 +1,12 @@
+import { Event } from './../../model/Event';
+import { Trip } from './../../model/Trip';
+import { Booking } from './../../model/Booking';
 import { Observable } from 'rxjs/Observable';
-import { AngularFireObject, AngularFireDatabase } from 'angularfire2/database';
+import {
+  AngularFireObject,
+  AngularFireDatabase,
+  AngularFireList
+} from 'angularfire2/database';
 import { User } from './../../model/User';
 import { Router } from '@angular/router';
 import { Component, OnInit, Input } from '@angular/core';
@@ -82,7 +89,6 @@ export class ProfileEditComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.user);
   }
 }
 
@@ -126,6 +132,68 @@ export class ProfileRewardPointsComponent implements OnInit {
 })
 export class ProfileScheduleComponent implements OnInit {
   @Input() user: User;
+  public bookingList: Observable<Booking[]>;
+  public events: Array<Event>;
+
+  constructor(
+    private router: Router,
+    private angularFireDatebase: AngularFireDatabase,
+    private appGlobal: AppGlobal
+  ) {}
+
+  ngOnInit() {
+    this.events = new Array<Event>();
+    this.bookingList = this.angularFireDatebase
+      .list<Booking>(this.appGlobal.userId + '/Booking')
+      .valueChanges();
+    this.bookingList.subscribe(bookings => {
+      bookings.forEach(booking => {
+        this.angularFireDatebase
+          .object<Trip>('Trip/' + booking.tripId)
+          .valueChanges()
+          .subscribe(trip => {
+            trip.events.forEach(event => {
+              this.events.push(event);
+            });
+          });
+      });
+    });
+  }
+}
+
+@Component({
+  selector: 'app-profile-event',
+  templateUrl: './profile-event.component.html',
+  styleUrls: ['./profile-event.component.css']
+})
+export class ProfileEventComponent implements OnInit {
+  @Input() event: Event;
   constructor(private router: Router) {}
+  ngOnInit() {}
+}
+
+@Component({
+  selector: 'app-profile-language',
+  templateUrl: './profile-language.component.html',
+  styleUrls: ['./profile-language.component.css']
+})
+export class ProfileLanguageComponent implements OnInit {
+  @Input() user: User;
+
+  public choice: string;
+
+  constructor(
+    private router: Router,
+    private appGlobal: AppGlobal,
+    private angularFireDatabase: AngularFireDatabase
+  ) {}
+
+  changeLanguage(language) {
+    this.user.language = language;
+    this.angularFireDatabase
+      .object<User>('User/' + this.appGlobal.userId)
+      .update({ language: language });
+  }
+
   ngOnInit() {}
 }
