@@ -18,6 +18,10 @@ export class AppComponent {
   public show: boolean;
   public loggedIn: boolean;
 
+  onActivate(event) {
+    window.scroll(0, 0);
+  }
+
   constructor(
     private angularFireDatabase: AngularFireDatabase,
     private authService: AuthService,

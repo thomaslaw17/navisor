@@ -1,0 +1,5 @@
+<div mat-list-item [ngClass]="{'from': appGlobal.userId === message.senderId, 'receive': appGlobal.userId !== message.senderId}">
+  <div>
+    {{message.data}}
+  </div>
+</div>

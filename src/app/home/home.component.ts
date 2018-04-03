@@ -142,6 +142,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
       this.angularFireDatabase.list('Subscribe').push(this.subscribeEmail);
     }
   }
+
   sendContactMessage() {
     let filled = false;
     if (

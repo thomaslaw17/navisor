@@ -1,3 +1,4 @@
+import { UtilService } from './../services/util.service';
 import { Event } from './../../model/Event';
 import { Trip } from './../../model/Trip';
 import { Booking } from './../../model/Booking';
@@ -13,6 +14,10 @@ import { Component, OnInit, Input } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { NavBarService } from '../services/nav-bar.service';
 import { AppGlobal } from '../app.global';
+import {
+  AngularFireStorageReference,
+  AngularFireStorage
+} from 'angularfire2/storage';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -54,7 +59,11 @@ export class ProfileComponent implements OnInit {
         this.userObj.valueChanges().subscribe(user => {
           if (user !== undefined && user !== null) {
             this.user = user;
-            this.type = user.type === 0 ? 'Traveller' : 'Navigator';
+            if (user.type === 0) {
+              this.type = 'Traveller';
+            } else {
+              this.type = 'Navigator';
+            }
           } else {
             this.router.navigate(['login']);
           }
@@ -78,7 +87,8 @@ export class ProfileEditComponent implements OnInit {
     private router: Router,
     private angularFireDatabase: AngularFireDatabase,
     private authService: AuthService,
-    private appGlobal: AppGlobal
+    private appGlobal: AppGlobal,
+    private angularFireStorage: AngularFireStorage
   ) {}
 
   updateProfile() {
@@ -88,8 +98,24 @@ export class ProfileEditComponent implements OnInit {
     // .push(this.user);
   }
 
-  ngOnInit() {
+  uploadPhoto(event) {
+    const file = event.srcElement.files[0];
+    const url = this.angularFireStorage
+      .upload('user/' + this.appGlobal.userId, file)
+      .downloadURL()
+      .subscribe(downloadUrl => {
+        this.angularFireDatabase
+          .object('User/' + this.appGlobal.userId)
+          .update({ photoUrl: downloadUrl });
+      });
+    alert('Profile picture uploaded');
   }
+
+  openInputFile() {
+    document.getElementById('uploadPhoto').click();
+  }
+
+  ngOnInit() {}
 }
 
 @Component({
@@ -99,8 +125,16 @@ export class ProfileEditComponent implements OnInit {
 })
 export class ProfilePastEventComponent implements OnInit {
   @Input() user: User;
-  constructor(private router: Router) {}
-  ngOnInit() {}
+
+  constructor(
+    private router: Router,
+    private angularFireDatabase: AngularFireDatabase,
+    private util: UtilService
+  ) {}
+
+  ngOnInit() {
+    this.user.bookings = this.util.objectToArray(this.user.bookings);
+  }
 }
 
 @Component({
@@ -167,9 +201,59 @@ export class ProfileScheduleComponent implements OnInit {
   styleUrls: ['./profile-event.component.css']
 })
 export class ProfileEventComponent implements OnInit {
-  @Input() event: Event;
-  constructor(private router: Router) {}
-  ngOnInit() {}
+  @Input() bookingId: string;
+
+  public booking: Booking;
+
+  public trip: Trip;
+  public status: string;
+
+  private bookingObj: Observable<Booking>;
+  private tripObj: Observable<Trip>;
+
+  constructor(
+    private router: Router,
+    private angularFireDatabase: AngularFireDatabase
+  ) {}
+
+  gotoTripDetail() {
+    this.router.navigate(['search/detail/trip/' + this.booking.tripId]);
+  }
+
+  ngOnInit() {
+    this.booking = new Booking();
+    this.trip = new Trip();
+
+    this.bookingObj = this.angularFireDatabase
+      .object<Booking>('Booking/' + this.bookingId)
+      .valueChanges();
+    this.bookingObj.subscribe(booking => {
+      this.booking = booking;
+      this.tripObj = this.angularFireDatabase
+        .object<Trip>('Trip/' + booking.tripId)
+        .valueChanges();
+      this.tripObj.subscribe(trip => {
+        if (this.trip !== undefined && this.trip !== null) {
+          this.trip = trip;
+          switch (this.trip.status) {
+            case 0:
+              this.status = 'Pending';
+              break;
+            case 1:
+              this.status = 'Approved';
+              break;
+            case 2:
+              this.status = 'Finished';
+              break;
+            case 9:
+              this.status = 'Rejected';
+              break;
+            default:
+          }
+        }
+      });
+    });
+  }
 }
 
 @Component({
@@ -188,11 +272,10 @@ export class ProfileLanguageComponent implements OnInit {
     private angularFireDatabase: AngularFireDatabase
   ) {}
 
-  changeLanguage(language) {
-    this.user.language = language;
+  changeLanguage() {
     this.angularFireDatabase
       .object<User>('User/' + this.appGlobal.userId)
-      .update({ language: language });
+      .update({ language: this.user.language });
   }
 
   ngOnInit() {}

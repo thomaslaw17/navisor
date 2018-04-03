@@ -15,5 +15,5 @@ export class Trip {
   public theme: string;
   public remark: string;
   public photoUrl: string;
-  public status: number; // 0: pending 1: published
+  public status: number; // 0: pending 1: published 2: finished 9: rejected
 }

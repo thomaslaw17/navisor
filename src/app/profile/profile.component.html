@@ -6,6 +6,7 @@
           <div class="userpic">
             <img src="{{user.photoUrl}}" alt="" class="userpicimg"> </div>
           <h3 class="username">{{user.firstName}} {{user.lastName}}</h3>
+          <h6>{{type}}</h6>
           <p>{{user.addressStreet}} {{user.addressCity}} {{user.addressState}} </p>
           <div class="socials tex-center">
             <a class="btn btn-circle btn-primary fb-button ">
@@ -91,8 +92,8 @@
             <li class="list-group-item" (click)="switchTab('past-event')">
               <span class="fa fa-history"></span> Past Event
             </li>
-            <li class="list-group-item" (click)="switchTab('language')">
-              <span class="fa fa-language"></span> Languages
+            <li class="list-group-item" (click)="switchTab('messaging')">
+              <span class="fa fa-comments"></span> Messaging
             </li>
           </ul>
         </div>
@@ -150,9 +151,7 @@
       <app-profile-reward-points *ngIf="tab === 'reward-points'" [user]="user"></app-profile-reward-points>
       <app-profile-schedule *ngIf="tab === 'schedule'" [user]="user"></app-profile-schedule>
       <app-profile-language *ngIf="tab === 'language'" [user]="user"></app-profile-language>
-      <!-- <app-profile-edit></app-profile-edit> -->
-      <!-- <app-profile-past-event></app-profile-past-event> -->
-      <!-- <app-profile-reward-points></app-profile-reward-points> -->
+      <app-messaging *ngIf="tab === 'messaging'" [user]="user"></app-messaging>
 
       <!-- <div class="panel panel-default">
         <div class="panel-body">

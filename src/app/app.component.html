@@ -1,3 +1,3 @@
 <app-nav-bar [show]="appGlobal.showNavBar" [loggedIn]="appGlobal.loggedIn"></app-nav-bar>
 
-<router-outlet></router-outlet>
+<router-outlet (activate)="onActivate($event)"></router-outlet>

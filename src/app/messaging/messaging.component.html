@@ -1,3 +1,10 @@
-<p>
-  messaging works!
-</p>
+<div>
+  <div *ngIf="tab === 'list'">
+    <div *ngFor="let chatId of user.chats">
+      <app-messaging-chat-item [chatId]='chatId' (currentChatId)='updateCurrentChat($event)'></app-messaging-chat-item>
+    </div>
+  </div>
+  <div *ngIf="tab === 'chat'">
+    <app-messaging-chat [chatId]="currentChatId" (changeTab)="changeTab($event)"></app-messaging-chat>
+  </div>
+</div>

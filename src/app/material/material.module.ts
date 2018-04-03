@@ -10,7 +10,8 @@ import {
   MatInputModule,
   MatCardModule,
   MatButtonToggleModule,
-  MatButtonToggleGroup
+  MatButtonToggleGroup,
+  MatListModule
 } from '@angular/material';
 import { OverlayModule } from '@angular/cdk/overlay';
 
@@ -23,16 +24,18 @@ import { OverlayModule } from '@angular/cdk/overlay';
     MatFormFieldModule,
     MatCardModule,
     MatButtonToggleModule,
+    MatListModule,
     OverlayModule
   ],
   exports: [
-    MatCardModule,
     MatInputModule,
     MatButtonModule,
     MatDatepickerModule,
     MatNativeDateModule,
     MatFormFieldModule,
+    MatCardModule,
     MatButtonToggleModule,
+    MatListModule,
     OverlayModule
   ]
 })

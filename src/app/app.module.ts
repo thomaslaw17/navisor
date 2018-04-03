@@ -39,7 +39,12 @@ import { TripPlanningComponent } from './trip-planning/trip-planning.component';
 import { PaymentComponent } from './payment/payment.component';
 import { RewardComponent } from './reward/reward.component';
 import { CustomerServiceComponent } from './customer-service/customer-service.component';
-import { MessagingComponent } from './messaging/messaging.component';
+import {
+  MessagingComponent,
+  MessageComponent,
+  MessagingChatComponent,
+  MessagingChatItemComponent
+} from './messaging/messaging.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { NotFoundComponent } from './not-found/not-found.component';
@@ -108,6 +113,9 @@ import { AssistantComponent } from './assistant/assistant.component';
     RewardComponent,
     CustomerServiceComponent,
     MessagingComponent,
+    MessagingChatItemComponent,
+    MessagingChatComponent,
+    MessageComponent,
     EditProfileComponent,
     CalendarComponent,
     NotFoundComponent,

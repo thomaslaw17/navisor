@@ -1,6 +1,6 @@
 <div class="container">
-  <div class="row">
-    <app-profile-event></app-profile-event>
+  <div *ngFor="let bookingId of user.bookings">
+    <app-profile-event [bookingId]=bookingId></app-profile-event> 
 
   </div>
 </div>

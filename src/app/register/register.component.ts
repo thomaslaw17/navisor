@@ -93,6 +93,9 @@ export class RegisterComponent implements OnInit {
       return;
     }
 
+    this.user.photoUrl = 'https://firebasestorage.googleapis.com/v0/b/' +
+      'navisor-b9b70.appspot.com/o/user%2Fperson.png?alt=media&token=5f2fe16b-6f3f-4d19-ac5a-f454d3ac130a';
+
     this.authService
       .register(this.user, this.password)
       .then(value => {

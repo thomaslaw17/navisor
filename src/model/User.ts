@@ -15,6 +15,6 @@ export class User {
   public recoveryEmail: string;
   public selfIntroduction: string;
   public type: number; // 0: traveller 1: navigator
-  public trips: Array<string>; // List of tripID
+  public bookings: Array<string>; // List of tripID
   public chats: Array<string>; // List of chatID
 }
