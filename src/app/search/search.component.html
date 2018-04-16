@@ -1,214 +1,156 @@
-<div class="tm-main-content" id="top">
-  <div class="tm-section tm-bg-img" id="tm-section-1">
-
+<div class="tm-section tm-bg-img searchBarBg" id="tm-section-1">
+  <div class="tm-bg-white ie-container-width-fix-2">
     <div class="container ie-h-align-center-fix">
+      <div class="row">
+        <div class="col-xs-12 ml-auto mr-auto ie-container-width-fix">
+          <form action="index.html" method="get" class="tm-search-form tm-section-pad-2">
+            <div class="form-row tm-search-form-row">
+              <div class="form-group tm-form-element tm-form-element-100 searchBox">
+                <i class="fa fa-map-marker fa-2x tm-form-element-icon"></i>
+                <input name="location" type="text" class="form-control" id="inputLocation" placeholder="Desired Location" [(ngModel)]="appGlobal.search.location">
+              </div>
+              <div class="form-group tm-form-element tm-form-element-50 searchBox">
+                <i class="fa fa-calendar fa-2x tm-form-element-icon"></i>
+                <input name="Start Date" type="date" class="form-control" id="inputStartDate" placeholder="Start Date" [(ngModel)]="appGlobal.search.startDate">
+              </div>
 
-      <div class="col-xs-12 ml-auto mr-auto ie-container-width-fix">
-        <form action="index.html" method="get" class="tm-search-form tm-section-pad-2">
-          <div class="form-row tm-search-form-row">
-            <div class="form-group tm-form-element tm-form-element-100 searchBox">
-              <i class="fa fa-map-marker fa-2x tm-form-element-icon"></i>
-              <input name="location" type="text" class="form-control" id="inputLocation" placeholder="Desired Location" [(ngModel)]="appGlobal.search.location"
-                (keypress)="updateSearch($event)" (click)="updateSearch($event)">
             </div>
-            <div class="form-group tm-form-element tm-form-element-50 searchBox">
-              <i class="fa fa-calendar fa-2x tm-form-element-icon"></i>
-              <input name="Start Date" type="date" class="form-control" id="inputStartDate" placeholder="Start Date" [(ngModel)]="appGlobal.search.startDate">
+            <div class="form-row tm-search-form-row">
+              <div class="form-group tm-form-element tm-form-element-500 searchBox">
+                <select name="theme" class="form-control tm-select" id="theme" [(ngModel)]="appGlobal.search.theme">
+                  <option value="">Duration</option>
+                  <option value="1">1 day</option>
+                  <option value="2">2 days</option>
+                  <option value="3">3 days</option>
+                  <option value="4">4 days</option>
+                  <option value="5">5 days</option>
+                  <option value="6">&#62; 5 days</option>
+                </select>
+                <i class="fa fa-calendar fa-2x tm-form-element-icon"></i>
+              </div>
+
+              <div class="form-group tm-form-element tm-form-element-500 searchBox">
+                <select name="NumberOfTravellers" class="form-control tm-select" id="NumberOfTravellers" [(ngModel)]="appGlobal.search.numberOfTravellers">
+                  <option value="0">Number of travellers</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="10">&#62; 10</option>
+                </select>
+                <i class="fa fa-2x fa-user tm-form-element-icon"></i>
+              </div>
+
             </div>
 
-          </div>
-          <div class="form-row tm-search-form-row">
-            <div class="form-group tm-form-element tm-form-element-500 searchBox">
-              <select name="theme" class="form-control tm-select" id="theme" [(ngModel)]="appGlobal.search.duration">
-                <option value="">Duration</option>
-                <option value="1">1 day</option>
-                <option value="2">2 days</option>
-                <option value="3">3 days</option>
-                <option value="4">4 days</option>
-                <option value="5">5 days</option>
-                <option value="6">&#62; 5 days</option>
-              </select>
-              <i class="fa fa-calendar fa-2x tm-form-element-icon"></i>
-            </div>
-
-            <div class="form-group tm-form-element tm-form-element-500 searchBox">
-              <select name="NumberOfTravellers" class="form-control tm-select" id="NumberOfTravellers" [(ngModel)]="appGlobal.search.numberOfTravellers">
-                <option value="0">Number of travellers</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                <option value="10">&#62; 10</option>
-              </select>
-              <i class="fa fa-2x fa-user tm-form-element-icon"></i>
-            </div>
-
-          </div>
-
-          <div class="form-row clearfix pl-2 pr-2 tm-fx-col-xs">
-            <p class="tm-margin-b-0">
-              <em>Search your desired travel plan now!</em>
-            </p>
-
-            <div class="col-sm-10 pull-right">
-              <div class=" pull-right">
+            <div class="form-row clearfix pl-2 pr-2 tm-fx-col-xs">
+              <p class="tm-margin-b-0">
+                <em>Search your desired travel plan now!</em>
+              </p>
+              <div align="right" style="text-indent:1em">
                 <div class="form-group tm-form-element tm-form-element-2 tm-btn-search">
                   <em>
-                    <button type="submit" class="btn btn-primary" (click)="search()">Search</button>
+                    <button type="submit" class="btn btn-primary" (click)="search(); scrollTo(result)">Search</button>
                   </em>
                 </div>
               </div>
-            </div>
-
-            <div class="col-sm-10 pull-right">
-              <div class=" pull-right">
-                <div class="form-group tm-form-element tm-form-element-2">
+              <div align="right" style="text-indent:7em">
+                <div class="form-group tm-form-element tm-form-element-2 ">
                   <em>
-                    <button type="customize" class="btn btn-primary" (click)="gotoCustomTrip()">Customize Travel Plan</button>
-                    <!-- <button type="submit" class="btn btn-primary">Customize Travel Plan</button> -->
+                    <button type="submit" class="btn btn-primary" (click)="gotoCustomTrip()">Customize Travel Plan</button>
                   </em>
                 </div>
               </div>
             </div>
-          </div>
-        </form>
-        <div class="tm-sidebar-pad-2">
-          <div class="searchRow">
-            <div class="column">
-              <strong>
-                <h1> Budget </h1>
-              </strong>
-              <label class="container-2">$500-$1,000
-                <input type="checkbox" checked="checked" [(ngModel)]="appGlobal.searchFilter.budgetFilter['0']">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container-2">$1,000-$1500
-                <input type="checkbox" checked="checked" [(ngModel)]="appGlobal.searchFilter.budgetFilter['1']">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container-2">$1,500-$2,000
-                <input type="checkbox" checked="checked" [(ngModel)]="appGlobal.searchFilter.budgetFilter['2']">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container-2">&#62; $2,000
-                <input type="checkbox" checked="checked" [(ngModel)]="appGlobal.searchFilter.budgetFilter['3']">
-                <span class="checkmark"></span>
-              </label>
-              <p>&nbsp;</p>
-            </div>
-
-            <div class="column">
-              <strong>
-                <h1> Theme </h1>
-              </strong>
-              <label class="container-2">Cultural & Heritage
-                <input type="checkbox" checked="checked" [(ngModel)]="appGlobal.searchFilter.themeFilter.culturalheritage">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container-2"> Nature
-                <input type="checkbox" checked="checked" [(ngModel)]="appGlobal.searchFilter.themeFilter.nature">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container-2"> Foodie
-                <input type="checkbox" checked="checked" [(ngModel)]="appGlobal.searchFilter.themeFilter.foodie">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container-2"> Photography
-                <input type="checkbox" checked="checked" [(ngModel)]="appGlobal.searchFilter.themeFilter.photography">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container-2"> University Tour
-                <input type="checkbox" checked="checked" [(ngModel)]="appGlobal.searchFilter.themeFilter.university">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container-2"> Others
-                <input type="checkbox" checked="checked" [(ngModel)]="appGlobal.searchFilter.themeFilter.others">
-                <span class="checkmark"></span>
-              </label>
-              <p>&nbsp;</p>
-            </div>
-
-            <div class="column">
-              <strong>
-                <h1> Language </h1>
-              </strong>
-              <label class="container-2"> English
-                <input type="checkbox" checked="checked" [(ngModel)]="appGlobal.searchFilter.languageFilter.english">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container-2"> Mandarin
-                <input type="checkbox" checked="checked" [(ngModel)]="appGlobal.searchFilter.languageFilter.mandarin">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container-2"> French
-                <input type="checkbox" checked="checked" [(ngModel)]="appGlobal.searchFilter.languageFilter.french">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container-2"> German
-                <input type="checkbox" checked="checked" [(ngModel)]="appGlobal.searchFilter.languageFilter.german">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container-2"> Italian
-                <input type="checkbox" checked="checked" [(ngModel)]="appGlobal.searchFilter.languageFilter.italian">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container-2"> Others
-                <input type="checkbox" checked="checked" [(ngModel)]="appGlobal.searchFilter.languageFilter.others">
-                <span class="checkmark"></span>
-              </label>
-              <p>&nbsp;</p>
-            </div>
-
-            <div class="column col-lg-8 col-md-8">
-            </div>
-          </div>
-
-
-          <a class="text-uppercase btn-primary tm-btn-filter" (click)="search()">Filter</a>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-  <div class="tm-section-2">
-    <div class="container">
-      <div class="row">
-        <div class="col text-center">
-          <h2 class="tm-section-title"> Search Results</h2>
+          </form>
         </div>
       </div>
     </div>
   </div>
-  <div class="tm-section tm-position-relative">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" class="tm-section-down-arrow">
-      <polygon fill="#ee5057" points="0,0  100,0  50,60"></polygon>
-    </svg>
+</div>
+
+<div id="searchResult" class="tm-section-2" #result>
+  <div class="container">
+    <div class="row">
+      <div class="col text-center">
+        <h1>Search Results</h1>
+      </div>
+    </div>
   </div>
 </div>
-<div class="tm-bg-white">
 
-
-
-  <div class="tm-section tm-section-pad tm-bg-gray flex-row" id="tm-section-4">
-    <table class="container">
-      <tr class="card-deck row" *ngFor="let resultRow of results">
-        <td class="card col-md-4 tm-bg-white" *ngFor="let result of resultRow">
-          <app-search-result [result]=result></app-search-result>
-        </td>
-      </tr>
-    </table>
-    &nbsp;
-  </div>
-
+<div class="tm-pb-4 tm-position-relative">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" class="tm-section-down-arrow">
+    <polygon fill="#ee5057" points="0,0  100,0  50,60"></polygon>
+  </svg>
 </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2">
+      <div class="container">
+        <div>Catagory:</div>
+        <div class="row">
+          <input type="checkbox" [ngModel]="appGlobal.searchFilter.themeFilter.culturalheritage">
+          <div>Cultural Heritage</div>
+        </div>
+        <div class="row">
+          <input type="checkbox" [ngModel]="appGlobal.searchFilter.themeFilter.nature">
+          <div>Nature</div>
+        </div>
+        <div class="row">
+          <input type="checkbox" [ngModel]="appGlobal.searchFilter.themeFilter.foodie">
+          <div>Foodie</div>
+        </div>
+        <div class="row">
+          <input type="checkbox" [ngModel]="appGlobal.searchFilter.themeFilter.photography">
+          <div>Photography</div>
+        </div>
+        <div class="row">
+          <input type="checkbox" [ngModel]="appGlobal.searchFilter.themeFilter.others">
+          <div>Others</div>
+        </div>
+      </div>
+      <div class="container">
+        <div>Budget:</div>
+        <div class="row">
+          <input type="checkbox" [ngModel]="appGlobal.searchFilter.budgetFilter['0']">
+          <div>500-999</div>
+        </div>
+        <div class="row">
+          <input type="checkbox" [ngModel]="appGlobal.searchFilter.budgetFilter['1']">
+          <div>1000-1499</div>
+        </div>
+        <div class="row">
+          <input type="checkbox" [ngModel]="appGlobal.searchFilter.budgetFilter['2']">
+          <div>1500-2000</div>
+        </div>
+        <div class="row">
+          <input type="checkbox" [ngModel]="appGlobal.searchFilter.budgetFilter['3']">
+          <div>2000+</div>
+        </div>
+      </div>
+      <mat-button-toggle (click)="search()">
+        Filter
+      </mat-button-toggle>
+    </div>
+    <div class="col-lg-10">
+      <div class="container">
+        <div *ngFor="let resultRow of results" class="row">
+          <div *ngFor="let result of resultRow" class="col-lg-4">
+            <app-search-result [result]="result"></app-search-result>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <app-footer></app-footer>

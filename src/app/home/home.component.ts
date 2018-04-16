@@ -1,3 +1,4 @@
+import { element } from 'protractor';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Place } from './../../model/Place';
 import { NavBarService } from './../services/nav-bar.service';
@@ -106,6 +107,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   videoControl(event) {
     //   document.getElementById('homeVideo').play();
+  }
+
+  scrollTo(el) {
+    el.scrollIntoView();
   }
 
   gotoTripDetail(tripId) {

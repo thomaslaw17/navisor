@@ -1,3 +1,5 @@
+import { CalendarUtilModule } from './calendar-util/calendar-util.module';
+import { CalendarModule } from 'angular-calendar';
 import { MaterialModule } from './material/material.module';
 import { AttractionService } from './services/attraction.service';
 import { TripService } from './services/trip.service';
@@ -92,7 +94,9 @@ import { AssistantComponent } from './assistant/assistant.component';
     NgxCarouselModule,
     SlickModule.forRoot(),
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    CalendarModule.forRoot(),
+    CalendarUtilModule
   ],
   declarations: [
     AppComponent,

@@ -4,9 +4,22 @@ import { NavBarService } from './../services/nav-bar.service';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AuthService } from './../services/auth.service';
 import { Router } from '@angular/router';
-import { Component, OnInit, Input } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  ElementRef,
+  HostListener
+} from '@angular/core';
 import { AppGlobal } from '../app.global';
 import { Result } from '../../model/Result';
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition
+} from '@angular/animations';
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -113,6 +126,14 @@ export class SearchComponent implements OnInit {
     // this.lastKeyPress = $event.timeStamp;
   }
 
+  scrollTo(el) {
+    el.scrollIntoView();
+  }
+
+  scrollToSerach() {
+    document.getElementById('searchResult').scrollIntoView();
+  }
+
   gotoCustomTrip() {
     this.router.navigate(['customTrip/new']);
   }
@@ -150,14 +171,53 @@ export class SearchComponent implements OnInit {
 @Component({
   selector: 'app-search-result',
   templateUrl: './search-result.component.html',
-  styleUrls: ['./search-result.component.css']
+  styleUrls: ['./search-result.component.css'],
+  animations: [
+    trigger('scrollAnimation', [
+      state(
+        'show',
+        style({
+          opacity: 1,
+          transform: 'translateY(0) translateX(0) rotateX(0) rotateY(0)'
+        })
+      ),
+      state(
+        'hide',
+        style({
+          opacity: 0,
+          transform:
+            'translateY(100%) translateX(100%) rotateX(90deg) rotateY(90deg)'
+        })
+      ),
+      transition('show => hide', animate('700ms ease-out')),
+      transition('hide => show', animate('700ms ease-in'))
+    ])
+  ]
 })
 export class SearchResultComponent implements OnInit {
   @Input() result: Result;
-  constructor(private router: Router) {}
+
+  public state: string;
+
+  constructor(private router: Router, public elementRef: ElementRef) {
+    this.state = 'hide';
+  }
   searchDetail(type, id) {
     // this.router.navigate(['search/detail/' + id]);
     this.router.navigate(['search/detail/' + type + '/' + id]);
   }
+
+  @HostListener('window:scroll', ['$event'])
+  checkScroll() {
+    const componentPosition = this.elementRef.nativeElement.offsetTop;
+    const scrollPosition = window.pageYOffset;
+
+    if (scrollPosition >= componentPosition) {
+      this.state = 'show';
+    } else {
+      this.state = 'hide';
+    }
+  }
+
   ngOnInit() {}
 }

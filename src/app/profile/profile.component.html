@@ -149,7 +149,8 @@
       <app-profile-past-event *ngIf="tab === 'past-event'" [user]="user"></app-profile-past-event>
       <app-profile-payment-method *ngIf="tab === 'payment-method'" [user]="user"></app-profile-payment-method>
       <app-profile-reward-points *ngIf="tab === 'reward-points'" [user]="user"></app-profile-reward-points>
-      <app-profile-schedule *ngIf="tab === 'schedule'" [user]="user"></app-profile-schedule>
+      <!-- <app-profile-schedule *ngIf="tab === 'schedule'" [user]="user"></app-profile-schedule> -->
+      <app-calendar-component *ngIf="tab === 'schedule'"></app-calendar-component>
       <app-profile-language *ngIf="tab === 'language'" [user]="user"></app-profile-language>
       <app-messaging *ngIf="tab === 'messaging'" [user]="user"></app-messaging>
 

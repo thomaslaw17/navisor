@@ -1,6 +1,5 @@
 <div>
   <div style="height: 80%">
-
     <mat-list *ngFor="let message of chat.messages">
       <app-message [message]="message"></app-message>
     </mat-list>
@@ -9,6 +8,5 @@
     <mat-form-field>
       <input matInput [(ngModel)]="message" (keyup.enter)="sendMessage()">
     </mat-form-field>
-
   </div>
 </div>

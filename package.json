@@ -25,6 +25,7 @@
     "@angular/platform-browser-dynamic": "^5.2.0",
     "@angular/router": "^5.2.0",
     "@ng-bootstrap/ng-bootstrap": "^1.0.0",
+    "angular-calendar": "^0.23.7",
     "angularfire2": "^5.0.0-rc.6",
     "bootstrap": "^4.0.0",
     "copy-webpack-plugin": "4.3.0",

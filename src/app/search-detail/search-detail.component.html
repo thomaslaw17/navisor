@@ -36,8 +36,10 @@
 
             </div>
             <div *ngIf="targetObject == 'Trip'">
-              <div *ngFor="let event of trip.events">
-                <app-search-event-item [attractionId]=event.attractionId [startTime]=event.startTime [endTime]=event.endTime></app-search-event-item>
+              <div *ngFor="let eventRow of events">
+                <div *ngFor="let event of eventRow">
+                  <app-search-event-item [attractionId]=event.attractionId [startTime]=event.startTime [endTime]=event.endTime></app-search-event-item>
+                </div>
               </div>
             </div>
             <div *ngIf="targetObject == 'Place'">

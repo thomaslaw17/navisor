@@ -1,4 +1,4 @@
-<div>
+<mat-card [@scrollAnimation]="state">
   <img src="{{result.photo}}" alt="Image" class="img-fluid">
   <div class="tm-article-pad">
     <header>
@@ -7,4 +7,4 @@
     <p>{{result.detail}}</p>
     <a class="text-uppercase btn-primary tm-btn-primary" (click)="searchDetail(result.type, result.id)">Get More Info.</a>
   </div>
-</div>
+</mat-card>

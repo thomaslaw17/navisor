@@ -32,6 +32,7 @@ export class SearchDetailComponent implements OnInit {
   private obj: AngularFireObject<any>;
   public confirm: boolean;
   public trip: Trip;
+  public events: Array<Event[]>;
   public place: Place;
   public attraction: Attraction;
 
@@ -53,6 +54,7 @@ export class SearchDetailComponent implements OnInit {
 
   ngOnInit() {
     this.targetObject = '';
+    this.events = new Array<Event[]>();
     this.navBarService.showNavbar();
     this.confirm = false;
     this.trip = new Trip();
@@ -76,9 +78,13 @@ export class SearchDetailComponent implements OnInit {
               }
             }
             this.trip.events = events;
-            // trip.events.forEach(event => {
-            //   this.trip.events.push(event);
-            // });
+            for (let i = 0; i < events.length; i++) {
+              const row = new Array<Event>();
+              for (let j = 0; j < 3 && i < events.length; j++, i++) {
+                row.push(events[i]);
+              }
+              this.events.push(row);
+            }
           });
           break;
         case 'place':
