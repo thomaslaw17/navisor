@@ -1,79 +1,97 @@
-<div class="container">
-  <div class="tm-section tm-bg-img tm-bg-white ie-container-width-fix-2">
-    <div class="ie-h-align-center-fix col-md-10">
-      <div class="panel panel-default">
+<br>
+<div class="tm-main-content" id="top">
+  <div class="tm-section-2">
+    <div class="container">
+      <div class="row">
+        <div class="col text-center">
+          <h3 class="tm-section-title">Trip Planning Form</h3>
+          <p class="tm-color-white tm-section-subtitle">Customize your own travel plan</p>
 
-        <h3>Trip Planning Form</h3>
-        <br>
-
-        <div class="form-group">
-          <label for="tripType">Trip Type:</label>
-          <select name="adult" class="form-control tm-select" id="adult" [(ngModel)]="trip.catagory">
-            <option value="culturalHeritage">Cultural & Heritage</option>
-            <option value="nature">Nature</option>
-            <option value="foodie">Foodie</option>
-            <option value="photography">Photography</option>
-            <option value="university Tour">University Tour</option>
-            <option value="others">Others</option>
-          </select>
         </div>
-
-        <div class="form-group ">
-          <label for="destination">Destination:</label>
-          <input name="destination" type="text" class="form-control" id="inputDest" placeholder="Type your destination.." [(ngModel)]="trip.name">
-        </div>
-
-        <div class="form-group ">
-          <label for="travellers">Number of Travellers: (Persons)</label>
-          <input name="Travellers" type="text" class="form-control" id="inputTravellers" placeholder="Number of travellers..." [(ngModel)]="trip.numberOfTravellers">
-        </div>
-
-        <div class="form-group ">
-          <label for="Duration">Duration: (Days)</label>
-          <input name="duration" type="text" class="form-control" id="inputDuration" placeholder="Number of days..." [(ngModel)]="trip.duration">
-        </div>
-
-        <div class="form-group">
-          <label for="Budget">Budget (each traveller):</label>
-          <select name="adult" class="form-control tm-select" id="adult" [(ngModel)]="trip.price">
-            <option value="750">$500-$1000</option>
-            <option value="1250">$1001-$1500</option>
-            <option value="1750">$1500-$2000</option>
-            <option value="2000">$2000+</option>
-          </select>
-        </div>
-
-        <div class="form-group tm-search-form">
-          <label for="Activity">Activity:</label>
-          <div *ngFor="let event of trip.events">
-            <app-custom-event [tripId]='tripId' [event]='event' (change)="updateEvent($event)"></app-custom-event>
-          </div>
-          <button (click)="addEvent()">+</button>
-        </div>
-
-        <div class="form-group ">
-          <label for="Food：">Description：</label>
-          <input name="food" type="text" class="form-control" id="inputFood" placeholder="Type a brief description of this trip..."
-            [(ngModel)]="trip.description">
-        </div>
-
-        <div class="form-group ">
-          <label for="Remarks">Remarks</label>
-          <input name="remark" type="text" class="form-control" id="inputRemarks" placeholder="Type any things special for this trip..."
-            [(ngModel)]='trip.remark'>
-        </div>
-
-        <div class="form-row tm-search-form-row text-center col-md-4">
-          <button type="submit" class="btn btn-primary tm-btn-search" style="width:250px" (click)="submitTrip()">Submit</button>
-        </div>
-
-        <div class="form-row clearfix pl-2 pr-2 tm-fx-col-xs text-center">
-          <a href="#" class="ie-10-ml-auto ml-auto mt-1 tm-font-semibold tm-color-primary">Help</a>
-        </div>
-
-
-
       </div>
     </div>
   </div>
-</div>
+  <div class="tm-section tm-bg-img FormBg">
+    <div class="container">
+
+      <div class="tm-section tm-bg-img tm-bg-white ie-container-width-fix-2">
+
+        <div class="ie-h-align-center-fix col-md-10">
+          <div class="panel panel-default">
+
+
+            <div class="form-group">
+              <br>
+              <label for="tripType">Trip Type:</label>
+              <select name="adult" class="form-control tm-select" id="adult" [(ngModel)]="trip.catagory">
+                <option value="culturalHeritage">Cultural & Heritage</option>
+                <option value="nature">Nature</option>
+                <option value="foodie">Foodie</option>
+                <option value="photography">Photography</option>
+                <option value="university Tour">University Tour</option>
+                <option value="others">Others</option>
+              </select>
+            </div>
+
+            <div class="form-group ">
+              <label for="destination">Destination:</label>
+              <input name="destination" type="text" class="form-control" id="inputDest" placeholder="Type your destination.." [(ngModel)]="trip.name">
+            </div>
+
+            <div class="form-group ">
+              <label for="travellers">Number of Travellers: (Persons)</label>
+              <input name="Travellers" type="text" class="form-control" id="inputTravellers" placeholder="Number of travellers..." [(ngModel)]="trip.numberOfTravellers">
+            </div>
+
+            <div class="form-group ">
+              <label for="Duration">Duration: (Days)</label>
+              <input name="duration" type="text" class="form-control" id="inputDuration" placeholder="Number of days..." [(ngModel)]="trip.duration">
+            </div>
+
+            <div class="form-group">
+              <label for="Budget">Budget (each traveller):</label>
+              <select name="adult" class="form-control tm-select" id="adult" [(ngModel)]="trip.price">
+                <option value="750">$500-$1000</option>
+                <option value="1250">$1001-$1500</option>
+                <option value="1750">$1500-$2000</option>
+                <option value="2000">$2000+</option>
+              </select>
+            </div>
+
+            <div class="form-group tm-search-form">
+              <label for="Activity">Activity:</label>
+              <div *ngFor="let event of trip.events">
+                <app-custom-event [tripId]='tripId' [event]='event' (change)="updateEvent($event)"></app-custom-event>
+              </div>
+              <button (click)="addEvent()">+</button>
+            </div>
+
+            <div class="form-group ">
+              <label for="Food：">Description：</label>
+              <input name="food" type="text" class="form-control" id="inputFood" placeholder="Type a brief description of this trip..."
+                [(ngModel)]="trip.description">
+            </div>
+
+            <div class="form-group ">
+              <label for="Remarks">Remarks</label>
+              <input name="remark" type="text" class="form-control" id="inputRemarks" placeholder="Type any things special for this trip..."
+                [(ngModel)]='trip.remark'>
+            </div>
+
+            <div class="form-row tm-search-form-row text-center col-md-4">
+              <button type="submit" class="btn btn-primary tm-btn-search" style="width:250px" (click)="submitTrip()">Submit</button>
+            </div>
+
+            <div class="form-row clearfix pl-2 pr-2 tm-fx-col-xs text-center">
+              <a href="#seach" class="ie-10-ml-auto ml-auto mt-1 tm-font-semibold tm-color-primary" (click)="backToSearch()">Back</a>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <app-footer></app-footer>
