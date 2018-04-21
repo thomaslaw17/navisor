@@ -80,6 +80,7 @@ import { FeatureTripComponent } from './feature-trip/feature-trip.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { FooterComponent } from './footer/footer.component';
 import { AssistantComponent } from './assistant/assistant.component';
+import { RatingComponent } from './rating/rating.component';
 
 @NgModule({
   imports: [
@@ -138,7 +139,8 @@ import { AssistantComponent } from './assistant/assistant.component';
     FeatureTripComponent,
     NavBarComponent,
     FooterComponent,
-    AssistantComponent
+    AssistantComponent,
+    RatingComponent
   ],
   providers: [
     AngularFireAuth,
