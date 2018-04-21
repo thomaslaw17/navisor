@@ -3,7 +3,7 @@
 /* @import url('/styles/css/bootstrap.min.css');
 @import url('/styles/css/datepicker.css'); */
 
-@import '~bootstrap/dist/css/bootstrap.css';
+@import '~bootstrap/dist/css/bootstrap.min.css';
 @import '~font-awesome/css/font-awesome.min.css';
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 @import "~angular-calendar/css/angular-calendar.css";

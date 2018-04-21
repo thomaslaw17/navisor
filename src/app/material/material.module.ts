@@ -12,12 +12,14 @@ import {
   MatButtonToggleModule,
   MatButtonToggleGroup,
   MatListModule,
-  MatIconModule
+  MatIconModule,
+  MatCheckboxModule
 } from '@angular/material';
 import { OverlayModule } from '@angular/cdk/overlay';
 
 @NgModule({
   imports: [
+    MatCheckboxModule,
     MatInputModule,
     MatButtonModule,
     MatDatepickerModule,
@@ -30,6 +32,7 @@ import { OverlayModule } from '@angular/cdk/overlay';
     OverlayModule
   ],
   exports: [
+    MatCheckboxModule,
     MatInputModule,
     MatButtonModule,
     MatDatepickerModule,

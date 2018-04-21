@@ -94,46 +94,37 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-2">
+      <div>Catagory:</div>
       <div class="container">
-        <div>Catagory:</div>
         <div class="row">
-          <input type="checkbox" [ngModel]="appGlobal.searchFilter.themeFilter.culturalheritage">
-          <div>Cultural Heritage</div>
+          <mat-checkbox [ngModel]="appGlobal.searchFilter.themeFilter.culturalheritage">Cultural Heritage</mat-checkbox>
         </div>
         <div class="row">
-          <input type="checkbox" [ngModel]="appGlobal.searchFilter.themeFilter.nature">
-          <div>Nature</div>
+          <mat-checkbox [ngModel]="appGlobal.searchFilter.themeFilter.nature">Nature</mat-checkbox>
         </div>
         <div class="row">
-          <input type="checkbox" [ngModel]="appGlobal.searchFilter.themeFilter.foodie">
-          <div>Foodie</div>
+          <mat-checkbox [ngModel]="appGlobal.searchFilter.themeFilter.foodie">Foodie</mat-checkbox>
         </div>
         <div class="row">
-          <input type="checkbox" [ngModel]="appGlobal.searchFilter.themeFilter.photography">
-          <div>Photography</div>
+          <mat-checkbox [ngModel]="appGlobal.searchFilter.themeFilter.photography">Photography</mat-checkbox>
         </div>
         <div class="row">
-          <input type="checkbox" [ngModel]="appGlobal.searchFilter.themeFilter.others">
-          <div>Others</div>
+          <mat-checkbox [ngModel]="appGlobal.searchFilter.themeFilter.others">Others</mat-checkbox>
         </div>
       </div>
+      <div>Budget:</div>
       <div class="container">
-        <div>Budget:</div>
         <div class="row">
-          <input type="checkbox" [ngModel]="appGlobal.searchFilter.budgetFilter['0']">
-          <div>500-999</div>
+          <mat-checkbox [ngModel]="appGlobal.searchFilter.budgetFilter['0']">500-999</mat-checkbox>
         </div>
         <div class="row">
-          <input type="checkbox" [ngModel]="appGlobal.searchFilter.budgetFilter['1']">
-          <div>1000-1499</div>
+          <mat-checkbox [ngModel]="appGlobal.searchFilter.budgetFilter['1']">1000-1499</mat-checkbox>
         </div>
         <div class="row">
-          <input type="checkbox" [ngModel]="appGlobal.searchFilter.budgetFilter['2']">
-          <div>1500-2000</div>
+          <mat-checkbox [ngModel]="appGlobal.searchFilter.budgetFilter['2']">1500-1999</mat-checkbox>
         </div>
         <div class="row">
-          <input type="checkbox" [ngModel]="appGlobal.searchFilter.budgetFilter['3']">
-          <div>2000+</div>
+          <mat-checkbox [ngModel]="appGlobal.searchFilter.budgetFilter['3']">2000+</mat-checkbox>
         </div>
       </div>
       <mat-button-toggle (click)="search()">

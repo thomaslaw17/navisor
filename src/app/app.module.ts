@@ -9,6 +9,7 @@ import { NgModule, ChangeDetectorRef } from '@angular/core';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AngularFireModule } from 'angularfire2';
 import {
@@ -95,6 +96,7 @@ import { AssistantComponent } from './assistant/assistant.component';
     SlickModule.forRoot(),
     BrowserAnimationsModule,
     MaterialModule,
+    FlexLayoutModule,
     CalendarModule.forRoot(),
     CalendarUtilModule
   ],

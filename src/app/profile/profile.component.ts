@@ -100,6 +100,9 @@ export class ProfileEditComponent implements OnInit {
 
   uploadPhoto(event) {
     const file = event.srcElement.files[0];
+    if (file === undefined || file === null) {
+      return;
+    }
     const url = this.angularFireStorage
       .upload('user/' + this.appGlobal.userId, file)
       .downloadURL()
@@ -107,8 +110,8 @@ export class ProfileEditComponent implements OnInit {
         this.angularFireDatabase
           .object('User/' + this.appGlobal.userId)
           .update({ photoUrl: downloadUrl });
+        alert('Profile picture uploaded');
       });
-    alert('Profile picture uploaded');
   }
 
   openInputFile() {

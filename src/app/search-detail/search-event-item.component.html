@@ -1,20 +1,22 @@
-<div>
-  <mat-card>
-    <img mat-card-md-img src="{{attraction.photoUrl}}">
-    <mat-card-header>
-      <mat-card-title>{{attraction.name}}</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <p>{{attraction.description}}</p>
-    </mat-card-content>
-    <mat-card-footer>
-      <mat-icon>attach_money</mat-icon>
-      <span>{{attraction.price}}</span>
-      <mat-card-actions>
+<mat-card>
+  <div fxLayout="row">
+    <img mat-card-md-img src="{{attraction.photoUrl}}" fxFlex="25">
+    <div fxFlex="75">
+      <mat-card-header>
+        <mat-card-title>{{attraction.name}}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{attraction.description}}</p>
+      </mat-card-content>
+      <mat-card-footer>
+        <mat-icon>attach_money</mat-icon>
+        <span>{{attraction.price}}</span>
+        <mat-card-actions>
 
-      </mat-card-actions>
-    </mat-card-footer>
-  </mat-card>
+        </mat-card-actions>
+      </mat-card-footer>
+    </div>
 
+  </div>
 
-</div>
+</mat-card>
