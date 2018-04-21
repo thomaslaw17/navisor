@@ -2,7 +2,7 @@
   margin-top: 10px;
   /* color: #94cbcc; */
   /* color: #8C9AC6; */
-  color: #C91C2C;
+  color: #c91c2c;
 }
 
 .nopadding {
@@ -19,18 +19,16 @@ time {
 }
 
 time.newyellow {
-  background-color: #DF5865;
+  background-color: #df5865;
 }
 
 time.newsolarizedyellow {
-  background-color: #FF437C;
+  background-color: #ff437c;
 }
-
 
 .newpalepink {
-  background-color: #D20068;
+  background-color: #d20068;
 }
-
 
 time.pink {
   background-color: rgb(197, 44, 102);
@@ -185,10 +183,46 @@ time > .month {
   color: #fff !important ;
   /* background-color: #337ab7; */
   /* background-color: #FDB29B; */
-  background-color: #B9538D; 
+  background-color: #b9538d;
   border-color: #337ab7;
 }
 .panel-primary > .panel-footer p,
 .panel-primary a {
   color: #ffffff;
+}
+
+/* Tabs*/
+section {
+  padding: 60px 0;
+}
+
+section .section-title {
+  text-align: center;
+  color: #007b5e;
+  margin-bottom: 50px;
+  text-transform: uppercase;
+}
+#tabs {
+  background: #007b5e;
+  color: #eee;
+}
+#tabs h6.section-title {
+  color: #eee;
+}
+
+#tabs .nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
+  color: #f3f3f3;
+  background-color: transparent;
+  border-color: transparent transparent #f3f3f3;
+  border-bottom: 4px solid !important;
+  font-size: 20px;
+  font-weight: bold;
+}
+#tabs .nav-tabs .nav-link {
+  border: 1px solid transparent;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+  color: #eee;
+  font-size: 20px;
 }
