@@ -223,6 +223,10 @@ export class ProfileEventComponent implements OnInit {
     this.router.navigate(['search/detail/trip/' + this.booking.tripId]);
   }
 
+  gotoRating() {
+    this.router.navigate(['rating/' + this.booking.tripId]);
+  }
+
   ngOnInit() {
     this.booking = new Booking();
     this.trip = new Trip();

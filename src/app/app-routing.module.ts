@@ -109,7 +109,7 @@ const routes: Routes = [
     component: AssistantComponent
   },
   {
-    path: 'rate',
+    path: 'rating/:tripId',
     component: RatingComponent
   },
   {

@@ -89,7 +89,7 @@
             <li class="list-group-item" (click)="switchTab('reward-points')">
               <span class="fa fa-gift"></span> Reward Points
             </li>
-            <li class="list-group-item" (click)="switchTab('past-event')">
+            <li class="list-group-item" (click)="switchTab('booking')">
               <span class="fa fa-book"></span> My booking
             </li>
             <li class="list-group-item" (click)="switchTab('messaging')">
@@ -146,7 +146,7 @@
     </div>
     <div class="col-md-8 col-sm-12 pull-left posttimeline">
       <app-profile-edit *ngIf="tab === 'edit'" [user]="user"></app-profile-edit>
-      <app-profile-past-event *ngIf="tab === 'past-event'" [user]="user"></app-profile-past-event>
+      <app-profile-past-event *ngIf="tab === 'booking'" [user]="user"></app-profile-past-event>
       <app-profile-payment-method *ngIf="tab === 'payment-method'" [user]="user"></app-profile-payment-method>
       <app-profile-reward-points *ngIf="tab === 'reward-points'" [user]="user"></app-profile-reward-points>
       <!-- <app-profile-schedule *ngIf="tab === 'schedule'" [user]="user"></app-profile-schedule> -->

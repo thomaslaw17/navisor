@@ -13,7 +13,8 @@ import {
   MatButtonToggleGroup,
   MatListModule,
   MatIconModule,
-  MatCheckboxModule
+  MatCheckboxModule,
+  MatTabsModule
 } from '@angular/material';
 import { OverlayModule } from '@angular/cdk/overlay';
 
@@ -29,7 +30,8 @@ import { OverlayModule } from '@angular/cdk/overlay';
     MatButtonToggleModule,
     MatListModule,
     MatIconModule,
-    OverlayModule
+    OverlayModule,
+    MatTabsModule
   ],
   exports: [
     MatCheckboxModule,
@@ -42,7 +44,8 @@ import { OverlayModule } from '@angular/cdk/overlay';
     MatButtonToggleModule,
     MatListModule,
     MatIconModule,
-    OverlayModule
+    OverlayModule,
+    MatTabsModule
   ]
 })
 export class MaterialModule {}
