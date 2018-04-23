@@ -50,6 +50,18 @@ export class NavBarComponent implements OnInit {
     );
   }
 
+  gotoAbout() {
+    this.router.navigate(['home/aboutUs']);
+  }
+
+  gotoContact() {
+    this.router.navigate(['home/contact']);
+  }
+
+  gotoPartnership() {
+    this.router.navigate(['home/partnership']);
+  }
+
   gotoLogin() {
     this.router.navigate(['login']);
   }

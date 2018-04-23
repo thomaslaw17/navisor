@@ -33,6 +33,10 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
+    path: 'home/:section',
+    component: HomeComponent
+  },
+  {
     path: 'login',
     component: LoginComponent
   },
@@ -119,7 +123,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { useHash: true })],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule {}

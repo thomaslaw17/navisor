@@ -1,10 +1,17 @@
 <mat-tab-group>
   <mat-tab label="Upcoming">
-    <div *ngFor="let bookingId of user.bookings">
-      <app-profile-event [bookingId]=bookingId></app-profile-event>
+    <div *ngFor="let booking of upcomingBookings">
+      <app-profile-event [booking]=booking></app-profile-event>
     </div>
   </mat-tab>
-  <mat-tab label="Finished">Finished Trips</mat-tab>
-  <mat-tab label="Cancelled">Cencelled Trips</mat-tab>
-
+  <mat-tab label="Finished">
+    <div *ngFor="let booking of finishedBookings">
+      <app-profile-event [booking]=booking></app-profile-event>
+    </div>
+  </mat-tab>
+  <mat-tab label="Cancelled">
+    <div *ngFor="let booking of cancelledBookings">
+      <app-profile-event [booking]=booking></app-profile-event>
+    </div>
+  </mat-tab>
 </mat-tab-group>

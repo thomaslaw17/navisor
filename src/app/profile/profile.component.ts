@@ -33,15 +33,9 @@ export class ProfileComponent implements OnInit {
     private authService: AuthService,
     private angularFireDatabase: AngularFireDatabase,
     private navBarService: NavBarService,
-    private appGlobal: AppGlobal
-  ) {
-    // if (authService.checkLogin()) {
-    //   const userState = authService.getAuthState();
-    //   this.userObj = angularFireDatabase.object('User/' + userState.uid);
-    // } else {
-    //   this.router.navigate(['login']);
-    // }
-  }
+    private appGlobal: AppGlobal,
+    private util: UtilService
+  ) {}
 
   switchTab(name) {
     this.tab = name;
@@ -49,6 +43,7 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     this.user = new User(); // waiting for user
+    this.user.bookings = new Array<string>();
     this.tab = 'edit';
     this.navBarService.showNavbar();
     this.authService.getAuthState().subscribe(res => {
@@ -63,6 +58,14 @@ export class ProfileComponent implements OnInit {
               this.type = 'Traveller';
             } else {
               this.type = 'Navigator';
+            }
+            if (user.rewardPoints === undefined || user.rewardPoints == null) {
+              this.user.rewardPoints = 0;
+            }
+            if (user.bookings === undefined || user.bookings == null) {
+              this.user.bookings = Array<string>();
+            } else {
+              this.user.bookings = this.util.objectToArray(this.user.bookings);
             }
           } else {
             this.router.navigate(['login']);
@@ -129,14 +132,42 @@ export class ProfileEditComponent implements OnInit {
 export class ProfilePastEventComponent implements OnInit {
   @Input() user: User;
 
+  public upcomingBookings: Array<Booking>;
+  public finishedBookings: Array<Booking>;
+  public cancelledBookings: Array<Booking>;
+
   constructor(
     private router: Router,
     private angularFireDatabase: AngularFireDatabase,
-    private util: UtilService
+    private util: UtilService,
+    public appGlobal: AppGlobal
   ) {}
 
   ngOnInit() {
-    this.user.bookings = this.util.objectToArray(this.user.bookings);
+    this.upcomingBookings = new Array<Booking>();
+    this.finishedBookings = new Array<Booking>();
+    this.cancelledBookings = new Array<Booking>();
+    this.user.bookings.forEach(bookingId => {
+      this.angularFireDatabase
+        .object<Booking>('Booking/' + bookingId)
+        .valueChanges()
+        .subscribe(booking => {
+          switch (booking.status) {
+            case 0:
+            case 1:
+              this.upcomingBookings.push(booking);
+              break;
+            case 2:
+              this.finishedBookings.push(booking);
+              break;
+            case 3:
+              this.cancelledBookings.push(booking);
+              break;
+            default:
+              break;
+          }
+        });
+    });
   }
 }
 
@@ -204,9 +235,9 @@ export class ProfileScheduleComponent implements OnInit {
   styleUrls: ['./profile-event.component.css']
 })
 export class ProfileEventComponent implements OnInit {
-  @Input() bookingId: string;
+  // @Input() bookingId: string;
 
-  public booking: Booking;
+  @Input() booking: Booking;
 
   public trip: Trip;
   public status: string;
@@ -228,37 +259,30 @@ export class ProfileEventComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.booking = new Booking();
     this.trip = new Trip();
 
-    this.bookingObj = this.angularFireDatabase
-      .object<Booking>('Booking/' + this.bookingId)
+    this.tripObj = this.angularFireDatabase
+      .object<Trip>('Trip/' + this.booking.tripId)
       .valueChanges();
-    this.bookingObj.subscribe(booking => {
-      this.booking = booking;
-      this.tripObj = this.angularFireDatabase
-        .object<Trip>('Trip/' + booking.tripId)
-        .valueChanges();
-      this.tripObj.subscribe(trip => {
-        if (this.trip !== undefined && this.trip !== null) {
-          this.trip = trip;
-          switch (this.trip.status) {
-            case 0:
-              this.status = 'Pending';
-              break;
-            case 1:
-              this.status = 'Approved';
-              break;
-            case 2:
-              this.status = 'Finished';
-              break;
-            case 9:
-              this.status = 'Rejected';
-              break;
-            default:
-          }
+    this.tripObj.subscribe(trip => {
+      if (this.trip !== undefined && this.trip !== null) {
+        this.trip = trip;
+        switch (this.trip.status) {
+          case 0:
+            this.status = 'Pending';
+            break;
+          case 1:
+            this.status = 'Approved';
+            break;
+          case 2:
+            this.status = 'Finished';
+            break;
+          case 9:
+            this.status = 'Rejected';
+            break;
+          default:
         }
-      });
+      }
     });
   }
 }

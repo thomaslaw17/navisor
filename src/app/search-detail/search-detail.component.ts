@@ -37,8 +37,9 @@ export class SearchDetailComponent implements OnInit {
   public place: Place;
   public attraction: Attraction;
 
-  bookNow() {
+  gotoBookNow() {
     this.confirm = true;
+    document.getElementById('bookNow').scrollIntoView();
   }
 
   backToDetail() {
@@ -81,11 +82,6 @@ export class SearchDetailComponent implements OnInit {
             }
             this.trip.events = events;
             for (let i = 0; i < events.length; i++) {
-              // const row = new Array<Event>();
-              // for (let j = 0; j < 3 && i < events.length; j++, i++) {
-              //   row.push(events[i]);
-              // }
-              // this.events.push(row);
               this.events.push(events[i]);
             }
           });

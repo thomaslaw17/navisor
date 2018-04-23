@@ -1,5 +1,6 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { AppGlobal } from '../app.global';
 
 @Component({
   selector: 'app-footer',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private appGlobal: AppGlobal) {}
 
   ngOnInit() {}
 
@@ -16,15 +17,42 @@ export class FooterComponent implements OnInit {
   }
 
   gotoAbout() {
-    this.router.navigate(['#aboutUs']);
+    this.router.navigate(['home/aboutUs']);
   }
 
-  gotoTripPlanning() {
-    this.router.navigate(['tripPlanning']);
+  gotoTripPlanning(section) {
+    this.appGlobal.searchFilter.themeFilter.culturalheritage = false;
+    this.appGlobal.searchFilter.themeFilter.nature = false;
+    this.appGlobal.searchFilter.themeFilter.foodie = false;
+    this.appGlobal.searchFilter.themeFilter.photography = false;
+    this.appGlobal.searchFilter.themeFilter.university = false;
+    this.appGlobal.searchFilter.themeFilter.others = false;
+
+    switch (section) {
+      case 'Culture & Heritage':
+        this.appGlobal.searchFilter.themeFilter.culturalheritage = true;
+        break;
+      case 'Nature':
+        this.appGlobal.searchFilter.themeFilter.nature = true;
+        break;
+      case 'Foodie':
+        this.appGlobal.searchFilter.themeFilter.foodie = true;
+        break;
+      case 'Photography':
+        this.appGlobal.searchFilter.themeFilter.photography = true;
+        break;
+      case 'University':
+        this.appGlobal.searchFilter.themeFilter.university = true;
+        break;
+      default:
+        break;
+    }
+
+    this.router.navigate(['search']);
   }
 
   gotoPartnership() {
-    this.router.navigate(['#partnership']);
+    this.router.navigate(['home/partnership']);
   }
 
   gotoCareer() {
@@ -32,6 +60,6 @@ export class FooterComponent implements OnInit {
   }
 
   gotoContactUs() {
-    this.router.navigate(['#contactUs']);
+    this.router.navigate(['home/contactUs']);
   }
 }

@@ -118,12 +118,9 @@ export class SearchComponent implements OnInit {
   }
 
   updateSearch($event) {
-    // if ($event.timeStamp - this.lastKeyPress > 200) {
     const q = $event.target.value;
     this.appGlobal.search.startAt.next(q);
     this.appGlobal.search.endAt.next(q + '\uf8ff');
-    // }
-    // this.lastKeyPress = $event.timeStamp;
   }
 
   scrollTo(el) {
@@ -142,28 +139,6 @@ export class SearchComponent implements OnInit {
     this.navBarService.showNavbar();
     this.show = false;
     this.catagories = ['cat 1', 'cat 2', 'cat 3'];
-
-    // this.tripService
-    //   .getTrips(this.appGlobal.search.startAt, this.appGlobal.search.endAt)
-    //   .subscribe(trips => {
-    //     this.results = new Array<Result[]>();
-    //     for (let i = 0; i <= trips.length / 3; i++) {
-    //       const row: Result[] = new Array<Result>();
-    //       for (let j = 0; j < 3 && 3 * i + j < trips.length; j++) {
-    //         row.push({
-    //           id: trips[3 * i + j].key,
-    //           name: trips[3 * i + j].name,
-    //           detail:
-    //             trips[3 * i + j].description.length > 150
-    //               ? trips[3 * i + j].description.substring(0, 150) + '...'
-    //               : trips[3 * i + j].description,
-    //           photo: trips[3 * i + j].photoUrl,
-    //           type: 'trip'
-    //         });
-    //       }
-    //       this.results.push(row);
-    //     }
-    //   });
     this.search();
   }
 }
@@ -203,7 +178,6 @@ export class SearchResultComponent implements OnInit {
     this.state = 'hide';
   }
   searchDetail(type, id) {
-    // this.router.navigate(['search/detail/' + id]);
     this.router.navigate(['search/detail/' + type + '/' + id]);
   }
 

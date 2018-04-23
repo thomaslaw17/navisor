@@ -113,6 +113,14 @@ export class HomeComponent implements OnInit, AfterViewInit {
     el.scrollIntoView();
   }
 
+  scrollToId(str) {
+    this.scrollTo(document.getElementById(str));
+  }
+
+  scrollToSearch() {
+    document.getElementById('searchBar').scrollIntoView();
+  }
+
   gotoTripDetail(tripId) {
     this.router.navigate(['searchDetail/' + tripId]);
   }
@@ -126,6 +134,14 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   search() {
+    this.appGlobal.searchFilter.themeFilter = {
+      culturalheritage: true,
+      nature: true,
+      foodie: true,
+      photography: true,
+      university: true,
+      others: true
+    };
     this.router.navigate(['search']);
   }
 
@@ -138,7 +154,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.lastKeyPress = $event.timeStamp;
   }
 
-  subscribe() {
+  userSubscribe() {
     if (
       this.subscribeEmail !== undefined &&
       this.subscribeEmail !== null &&
@@ -146,6 +162,36 @@ export class HomeComponent implements OnInit, AfterViewInit {
     ) {
       this.angularFireDatabase.list('Subscribe').push(this.subscribeEmail);
     }
+  }
+
+  gotoTripPlanning(section) {
+    this.appGlobal.searchFilter.themeFilter.culturalheritage = false;
+    this.appGlobal.searchFilter.themeFilter.nature = false;
+    this.appGlobal.searchFilter.themeFilter.foodie = false;
+    this.appGlobal.searchFilter.themeFilter.photography = false;
+    this.appGlobal.searchFilter.themeFilter.university = false;
+    this.appGlobal.searchFilter.themeFilter.others = false;
+
+    switch (section) {
+      case 'Culture & Heritage':
+        this.appGlobal.searchFilter.themeFilter.culturalheritage = true;
+        break;
+      case 'Nature':
+        this.appGlobal.searchFilter.themeFilter.nature = true;
+        break;
+      case 'Foodie':
+        this.appGlobal.searchFilter.themeFilter.foodie = true;
+        break;
+      case 'Photography':
+        this.appGlobal.searchFilter.themeFilter.photography = true;
+        break;
+      case 'University':
+        this.appGlobal.searchFilter.themeFilter.university = true;
+        break;
+      default:
+        break;
+    }
+    this.router.navigate(['search']);
   }
 
   sendContactMessage() {
@@ -197,8 +243,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
         params.section !== ''
       ) {
         this.section = params.section;
+        this.scrollToId(this.section);
       } else {
         this.section = 'top';
+        this.scrollToSearch();
       }
     });
     this.themes = [
