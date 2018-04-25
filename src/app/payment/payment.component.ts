@@ -1,3 +1,4 @@
+import { AppGlobal } from './../app.global';
 import { NavBarService } from './../services/nav-bar.service';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AuthService } from './../services/auth.service';
@@ -13,7 +14,8 @@ export class PaymentComponent implements OnInit {
     private router: Router,
     private authService: AuthService,
     private angularFireDatabase: AngularFireDatabase,
-    private navBarService: NavBarService
+    private navBarService: NavBarService,
+    private appGlobal: AppGlobal
   ) {
     this.navBarService.hideNavBar();
   }

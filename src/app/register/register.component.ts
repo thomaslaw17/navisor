@@ -57,14 +57,8 @@ export class RegisterComponent implements OnInit {
       this.birthYear !== null &&
       this.birthYear > 1800
     ) {
-      this.user.birthday = new Date(
-        this.birthDay +
-          '-' +
-          this.birthMonth +
-          '-' +
-          this.birthYear +
-          'T00:00:00'
-      );
+      this.user.birthday =
+        this.birthYear + '-' + this.birthMonth + '-' + this.birthDay;
     } else {
       alert('Please enter a valid birthday');
     }

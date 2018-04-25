@@ -275,6 +275,7 @@ export class ProfileEventComponent implements OnInit {
             this.status = 'Approved';
             break;
           case 2:
+          case 3:
             this.status = 'Finished';
             break;
           case 9:

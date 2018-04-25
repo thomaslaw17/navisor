@@ -1,8 +1,10 @@
+import { Rating } from './Rating';
+
 export class User {
   public addressStreet: string;
   public addressCity: string;
   public addressState: string;
-  public birthday: Date;
+  public birthday: string;
   public email: string;
   public gender: string;
   public language: string;
@@ -18,4 +20,5 @@ export class User {
   public type: number; // 0: traveller 1: navigator
   public bookings: Array<string>; // List of tripID
   public chats: Array<string>; // List of chatID
+  public ratings: Array<Rating>;
 }

@@ -47,6 +47,11 @@ export class AppGlobal {
     };
   };
 
+  public payment: {
+    tripId: string;
+    amount: number;
+  };
+
   gotoHome() {
     this.router.navigate(['']);
   }
@@ -90,6 +95,10 @@ export class AppGlobal {
         italian: true,
         others: true
       }
+    };
+    this.payment = {
+      amount: 0,
+      tripId: ''
     };
   }
 }

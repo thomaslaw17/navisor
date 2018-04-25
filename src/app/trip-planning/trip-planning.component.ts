@@ -1,3 +1,4 @@
+import { AppGlobal } from './../app.global';
 import { Attraction } from './../../model/Attraction';
 import { Trip } from './../../model/Trip';
 import { Observable } from 'rxjs/Observable';
@@ -26,12 +27,43 @@ export class TripPlanningComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private authService: AuthService,
-    private angularFireDatabase: AngularFireDatabase
+    private angularFireDatabase: AngularFireDatabase,
+    private appGlobal: AppGlobal
   ) {}
 
   addEvent(): void {
     const newEvent = new Event();
     this.trip.events.push(newEvent);
+  }
+
+  gotoTripPlanning(section) {
+    this.appGlobal.searchFilter.themeFilter.culturalheritage = false;
+    this.appGlobal.searchFilter.themeFilter.nature = false;
+    this.appGlobal.searchFilter.themeFilter.foodie = false;
+    this.appGlobal.searchFilter.themeFilter.photography = false;
+    this.appGlobal.searchFilter.themeFilter.university = false;
+    this.appGlobal.searchFilter.themeFilter.others = false;
+
+    switch (section) {
+      case 'Culture & Heritage':
+        this.appGlobal.searchFilter.themeFilter.culturalheritage = true;
+        break;
+      case 'Nature':
+        this.appGlobal.searchFilter.themeFilter.nature = true;
+        break;
+      case 'Foodie':
+        this.appGlobal.searchFilter.themeFilter.foodie = true;
+        break;
+      case 'Photography':
+        this.appGlobal.searchFilter.themeFilter.photography = true;
+        break;
+      case 'University':
+        this.appGlobal.searchFilter.themeFilter.university = true;
+        break;
+      default:
+        break;
+    }
+    this.router.navigate(['search']);
   }
 
   ngOnInit(): void {

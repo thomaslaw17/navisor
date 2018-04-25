@@ -12,7 +12,8 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./rating.component.css']
 })
 export class RatingComponent implements OnInit {
-  public rating: Rating;
+  public tripRating: Rating;
+  public navigatorRating: Rating;
 
   private tripId: string;
   public trip: Trip;
@@ -28,7 +29,10 @@ export class RatingComponent implements OnInit {
   rate() {
     this.angularFireDatabase
       .list<Rating>('Trip/' + this.tripId + '/rating')
-      .push(this.rating);
+      .push(this.tripRating);
+    this.angularFireDatabase
+      .list<Rating>('User/' + this.trip.navigatorId + '/ratings')
+      .push(this.navigatorRating);
   }
 
   ngOnInit() {
