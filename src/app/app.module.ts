@@ -7,7 +7,7 @@ import { CareerComponent } from './career/career.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ChangeDetectorRef } from '@angular/core';
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -91,6 +91,7 @@ import { PaypalComponent } from './paypal/paypal.component';
     AngularFireAuthModule,
     AngularFireStorageModule,
     FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     NgbModule.forRoot(),

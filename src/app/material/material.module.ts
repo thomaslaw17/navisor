@@ -16,12 +16,16 @@ import {
   MatCheckboxModule,
   MatTabsModule,
   MatStepperModule,
-  MatSliderModule
+  MatSliderModule,
+
+
 } from '@angular/material';
 import { OverlayModule } from '@angular/cdk/overlay';
+import { CdkTableModule } from '@angular/cdk/table';
 
 @NgModule({
   imports: [
+    CdkTableModule,
     MatCheckboxModule,
     MatInputModule,
     MatButtonModule,
@@ -38,6 +42,7 @@ import { OverlayModule } from '@angular/cdk/overlay';
     MatSliderModule
   ],
   exports: [
+    CdkTableModule,
     MatCheckboxModule,
     MatInputModule,
     MatButtonModule,

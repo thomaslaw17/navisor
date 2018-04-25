@@ -165,12 +165,26 @@
             <p>Number of days: {{trip.duration}}</p>
             <p>With accommodation included</p>
 
-            <div>
+            <mat-form-field>
+                <input matInput [matDatepicker]="picker1" placeholder="Start Date" [formControl]="date">
+                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+              
+            <mat-form-field>
+              <input matInput [matDatepicker]="picker2" placeholder="End Date" [formControl]="serializedDate">
+              <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+              <mat-datepicker #picker2></mat-datepicker>
+            </mat-form-field>
+              
+
+            <!-- <div>
               <label>Start Date</label>
               <input type="date" placeholder="Start Date" [(ngModel)]="startDate">
               <label>End Date</label>
               <input type="date" placeholder="End Date" [(ngModel)]="endDate">
-            </div>
+            </div> -->
+
             <div>&nbsp;</div>
 
             <div align="left">

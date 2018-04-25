@@ -11,6 +11,7 @@ import { AppGlobal } from '../app.global';
 import { Trip } from '../../model/Trip';
 import { Event } from './../../model/Event';
 import { Place } from './../../model/Place';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-search-detail',
@@ -42,6 +43,9 @@ export class SearchDetailComponent implements OnInit {
 
   public startDate: string;
   public endDate: string;
+
+  public date = new FormControl(new Date());
+  public serializedDate = new FormControl((new Date()).toISOString());
 
   gotoBookNow() {
     this.confirm = true;
