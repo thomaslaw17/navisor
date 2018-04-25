@@ -1,3 +1,4 @@
+import { Rating } from './Rating';
 import { Event } from './Event';
 export class Trip {
   public navigatorId: string;
@@ -16,4 +17,5 @@ export class Trip {
   public remark: string;
   public photoUrl: string;
   public status: number; // 0: pending 1: published 2: finished 9: rejected
+  public rating: Array<Rating>;
 }

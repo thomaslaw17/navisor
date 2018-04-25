@@ -37,6 +37,10 @@ export class PaymentComponent implements OnInit {
         .classList.remove('blue-border');
     }
   }
+
+  gotoPaypal() {
+    this.router.navigate(['paypal']);
+  }
   ngOnInit() {
     this.navBarService.hideNavBar();
   }

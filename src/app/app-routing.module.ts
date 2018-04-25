@@ -1,3 +1,4 @@
+import { PaypalComponent } from './paypal/paypal.component';
 import { RatingComponent } from './rating/rating.component';
 import { AssistantComponent } from './assistant/assistant.component';
 import { TripCategoryComponent } from './trip-category/trip-category.component';
@@ -115,6 +116,10 @@ const routes: Routes = [
   {
     path: 'rating/:tripId',
     component: RatingComponent
+  },
+  {
+    path: 'paypal',
+    component: PaypalComponent
   },
   {
     path: '**',

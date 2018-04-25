@@ -14,7 +14,8 @@ import {
   MatListModule,
   MatIconModule,
   MatCheckboxModule,
-  MatTabsModule
+  MatTabsModule,
+  MatStepperModule
 } from '@angular/material';
 import { OverlayModule } from '@angular/cdk/overlay';
 
@@ -31,7 +32,8 @@ import { OverlayModule } from '@angular/cdk/overlay';
     MatListModule,
     MatIconModule,
     OverlayModule,
-    MatTabsModule
+    MatTabsModule,
+    MatStepperModule
   ],
   exports: [
     MatCheckboxModule,
@@ -45,7 +47,8 @@ import { OverlayModule } from '@angular/cdk/overlay';
     MatListModule,
     MatIconModule,
     OverlayModule,
-    MatTabsModule
+    MatTabsModule,
+    MatStepperModule
   ]
 })
 export class MaterialModule {}

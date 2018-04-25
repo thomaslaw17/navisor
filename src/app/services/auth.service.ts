@@ -52,8 +52,6 @@ export class AuthService {
     return this.afAuth.auth.signOut();
   }
 
-  // return true if register successful
-  // return false if register failed.
   register(user: User, password: string) {
     return this.afAuth.auth.createUserWithEmailAndPassword(
       user.email,

@@ -81,6 +81,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { FooterComponent } from './footer/footer.component';
 import { AssistantComponent } from './assistant/assistant.component';
 import { RatingComponent } from './rating/rating.component';
+import { PaypalComponent } from './paypal/paypal.component';
 
 @NgModule({
   imports: [
@@ -140,7 +141,8 @@ import { RatingComponent } from './rating/rating.component';
     NavBarComponent,
     FooterComponent,
     AssistantComponent,
-    RatingComponent
+    RatingComponent,
+    PaypalComponent
   ],
   providers: [
     AngularFireAuth,

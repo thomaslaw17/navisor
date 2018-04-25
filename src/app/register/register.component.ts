@@ -1,9 +1,12 @@
+import { Chat } from './../../model/Chat';
 import { NavBarService } from './../services/nav-bar.service';
 import { AuthService } from './../services/auth.service';
 import { User } from './../../model/User';
 import { AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Message } from '../../model/Message';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -93,7 +96,8 @@ export class RegisterComponent implements OnInit {
       return;
     }
 
-    this.user.photoUrl = 'https://firebasestorage.googleapis.com/v0/b/' +
+    this.user.photoUrl =
+      'https://firebasestorage.googleapis.com/v0/b/' +
       'navisor-b9b70.appspot.com/o/user%2Fperson.png?alt=media&token=5f2fe16b-6f3f-4d19-ac5a-f454d3ac130a';
 
     this.authService
@@ -101,9 +105,39 @@ export class RegisterComponent implements OnInit {
       .then(value => {
         this.authService.sendEmailVerification();
         this.userObj = this.angularFireDatabase.object('User/' + value.uid);
-        this.userObj.set(this.user);
-        this.router.navigate(['']);
-        console.log('Register Success');
+        this.userObj.set(this.user).then(_ => {
+          const chat = new Chat();
+          if (this.user.type === 0) {
+            chat.travellerId = value.uid;
+            chat.navigatorId = 'customerService';
+          } else {
+            chat.navigatorId = value.uid;
+            chat.travellerId = 'customerService';
+          }
+          this.angularFireDatabase
+            .list('Chat')
+            .push(chat)
+            .then(newChat => {
+              this.angularFireDatabase
+                .list('User/' + value.uid + '/chats')
+                .push(newChat.key);
+
+              const message = new Message();
+              message.data =
+                'Hello, ' +
+                this.user.nickName +
+                '! Welcome to Navisor. How can I help you!';
+              message.senderId = 'customerService';
+              message.type = 0;
+              this.angularFireDatabase
+                .list('Chat/' + newChat.key + '/messages')
+                .push(message)
+                .then(newMessage => {
+                  this.router.navigate(['profile']);
+                  console.log('Register Success');
+                });
+            });
+        });
       })
       .catch(error => {
         if (error !== null) {
