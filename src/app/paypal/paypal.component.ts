@@ -5,7 +5,6 @@ import {
   AfterViewInit
 } from '@angular/core';
 
-declare let braintree: any;
 declare let paypal: any;
 
 @Component({
@@ -21,14 +20,13 @@ export class PaypalComponent implements AfterViewChecked {
   public finalAmount: number;
 
   public paypalConfig = {
-    braintree: braintree,
     env: 'sandbox',
     client: {
       sandbox:
         'AVscrcenUyQSykVSBQJ6QOv3aR3umWGGT7MsJekCrZClVEvzRUaClk6Z1ra1N_tTrDiHHx5j4W6pR2C2',
       production: '<insert production client id>'
     },
-    // commit: true,
+    commit: true,
     payment: (data, actions) => {
       return actions.payment.create({
         payment: {
@@ -38,16 +36,9 @@ export class PaypalComponent implements AfterViewChecked {
         }
       });
     },
-
-    onAuthorize: function(data, actions) {
-      // Call your server with data.nonce to finalize the payment
-
-      console.log('Braintree nonce:', data.nonce);
-
-      // Get the payment and buyer details
-
-      return actions.payment.get().then(function(payment) {
-        console.log('Payment details:', payment);
+    onAuthorize: (data, actions) => {
+      return actions.payment.execute().then(() => {
+        console.log('Payment Success');
       });
     }
   };
@@ -60,9 +51,7 @@ export class PaypalComponent implements AfterViewChecked {
   public loadPaypalScript() {
     return new Promise((resolve, reject) => {
       const scriptElement = document.createElement('script');
-      // scriptElement.src = 'https://www.paypalobjects.com/api/checkout.js';
-      scriptElement.src =
-        'https://js.braintreegateway.com/web/3.11.0/js/paypal-checkout.min.js';
+      scriptElement.src = 'https://www.paypalobjects.com/api/checkout.js';
       scriptElement.onload = resolve;
       document.body.appendChild(scriptElement);
       this.scriptLoaded = true;
