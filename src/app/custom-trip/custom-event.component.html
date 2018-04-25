@@ -19,7 +19,7 @@
       <div class="form-group col-md-5">
         <label for="startTime">Start Time:</label>
         <div class="col-lg-12">
-          <input name="startTime" type="text" class="form-control time" id="inputTime" [(ngModel)]="event.startTime" (keypress)="updateEvent()"
+          <input name="startTime" type="time" class="form-control time" id="inputTime" [(ngModel)]="event.startTime" (keypress)="updateEvent()"
             (click)="updateEvent()">
         </div>
       </div>
@@ -27,7 +27,7 @@
       <div class="form-group col-md-5">
         <label for="endTime">End Time:</label>
         <div class="col-lg-12">
-          <input name="endTime" type="text" class="form-control time" id="inputTime" [(ngModel)]="event.endTime" (keypress)="updateEvent()"
+          <input name="endTime" type="time" class="form-control time" id="inputTime" [(ngModel)]="event.endTime" (keypress)="updateEvent()"
             (click)="updateEvent()">
         </div>
       </div>

@@ -5,6 +5,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { AuthService } from './../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { resolve } from 'url';
+import { User } from '../../model/User';
 
 @Component({
   selector: 'app-login',
@@ -34,6 +35,12 @@ export class LoginComponent implements OnInit {
         this.navBarService.showLogoutAndHideLogin();
         console.log('Login Success', res);
         this.appGlobal.userId = res.uid;
+        this.angularFireDatabase
+          .object<User>('User/' + res.uid)
+          .valueChanges()
+          .subscribe(user => {
+            this.appGlobal.userType = user.type;
+          });
       })
       .catch(reject => {
         if (reject.code === 'auth/wrong-password') {

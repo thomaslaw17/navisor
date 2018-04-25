@@ -164,10 +164,19 @@
             <p>Price: ${{trip.price}}</p>
             <p>Number of days: {{trip.duration}}</p>
             <p>With accommodation included</p>
-            <div>&nbsp;</div>
-            <div align="left">
-              <a class="text-uppercase btn-primary .tm-btn-booking" (click)="gotoPayment()">Confirm</a>
+
+            <div>
+              <label>Start Date</label>
+              <input type="date" placeholder="Start Date" [(ngModel)]="startDate">
+              <label>End Date</label>
+              <input type="date" placeholder="End Date" [(ngModel)]="endDate">
             </div>
+            <div>&nbsp;</div>
+
+            <div align="left">
+              <a class="text-uppercase btn-primary .tm-btn-booking" (click)="makeBooking()">Confirm</a>
+            </div>
+
 
           </article>
         </article>

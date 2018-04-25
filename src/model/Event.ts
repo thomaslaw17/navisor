@@ -1,5 +1,5 @@
 export class Event {
-  public startTime: Date;
-  public endTime: Date;
+  public startTime: string;
+  public endTime: string;
   public attractionId: string;
 }

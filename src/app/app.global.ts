@@ -9,11 +9,13 @@ export class AppGlobal {
 
   public userId: string;
 
+  public userType: number;
+
   public search: {
     location: string;
     startAt: BehaviorSubject<string>;
     endAt: BehaviorSubject<string>;
-    startDate: Date;
+    startDate: string;
     duration: number;
     theme: Array<string>;
     budgetMax: number;
@@ -59,11 +61,13 @@ export class AppGlobal {
   constructor(private router: Router) {
     this.userId = '';
 
+    this.userType = 2;
+
     this.search = {
       location: '',
       startAt: new BehaviorSubject<string>(''),
       endAt: new BehaviorSubject<string>(''),
-      startDate: new Date(),
+      startDate: new Date().toDateString(),
       duration: 0,
       theme: new Array<string>(),
       budgetMax: 0,

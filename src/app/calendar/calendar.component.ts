@@ -1,3 +1,7 @@
+import { Booking } from './../../model/Booking';
+import { AppGlobal } from './../app.global';
+import { Router } from '@angular/router';
+import { AngularFireDatabase } from 'angularfire2/database';
 import {
   Component,
   ChangeDetectionStrategy,
@@ -75,9 +79,9 @@ export class CalendarComponent implements OnInit {
 
   @ViewChild('modalContent') modalContent: TemplateRef<any>;
 
-  view = 'month';
+  public view: string;
 
-  viewDate: Date = new Date();
+  public viewDate: Date;
 
   modalData: {
     action: string;
@@ -100,45 +104,23 @@ export class CalendarComponent implements OnInit {
     }
   ];
 
-  refresh: Subject<any> = new Subject();
+  public refresh: Subject<any>;
 
-  events: CalendarEvent[] = [
-    {
-      start: subDays(startOfDay(new Date()), 1),
-      end: addDays(new Date(), 1),
-      title: 'A 3 day event',
-      color: colors.red,
-      actions: this.actions
-    },
-    {
-      start: startOfDay(new Date()),
-      title: 'An event with no end date',
-      color: colors.yellow,
-      actions: this.actions
-    },
-    {
-      start: subDays(endOfMonth(new Date()), 3),
-      end: addDays(endOfMonth(new Date()), 3),
-      title: 'A long event that spans 2 months',
-      color: colors.blue
-    },
-    {
-      start: addHours(startOfDay(new Date()), 2),
-      end: new Date(),
-      title: 'A draggable and resizable event',
-      color: colors.yellow,
-      actions: this.actions,
-      resizable: {
-        beforeStart: true,
-        afterEnd: true
-      },
-      draggable: true
-    }
-  ];
+  public events: CalendarEvent[];
 
-  activeDayIsOpen = true;
+  public activeDayIsOpen: boolean;
 
-  constructor(private modal: NgbModal) {}
+  constructor(
+    private modal: NgbModal,
+    private router: Router,
+    private angularFireDatabase: AngularFireDatabase,
+    private appGloabal: AppGlobal
+  ) {
+    this.viewDate = new Date();
+    this.view = 'month';
+    this.refresh = new Subject();
+    this.activeDayIsOpen = true;
+  }
 
   dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
     if (isSameMonth(date, this.viewDate)) {
@@ -170,7 +152,27 @@ export class CalendarComponent implements OnInit {
     this.modal.open(this.modalContent, { size: 'lg' });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.user.bookings.forEach(bookingId => {
+      this.angularFireDatabase
+        .object<Booking>('Booking/' + bookingId)
+        .valueChanges()
+        .subscribe(booking => {
+          this.events.push({
+            start: new Date(booking.startDateTime),
+            end: new Date(booking.endDateTime),
+            title: booking.name,
+            color: colors.yellow,
+            actions: this.actions,
+            resizable: {
+              beforeStart: true,
+              afterEnd: true
+            },
+            draggable: true
+          });
+        });
+    });
+  }
 }
 
 @Component({

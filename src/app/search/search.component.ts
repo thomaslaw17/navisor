@@ -1,3 +1,4 @@
+import { Trip } from './../../model/Trip';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { TripService } from './../services/trip.service';
 import { NavBarService } from './../services/nav-bar.service';
@@ -73,6 +74,10 @@ export class SearchComponent implements OnInit {
         while (!done) {
           if (count >= trips.length) {
             done = true;
+          } else if (trips[count].duration === 6) {
+            if (!(trips[count].duration > 5)) {
+              count++;
+            }
           } else if (
             (!this.appGlobal.searchFilter.themeFilter.culturalheritage &&
               trips[count].catagory === 'culturalheritage') ||
@@ -89,17 +94,17 @@ export class SearchComponent implements OnInit {
           ) {
             count++;
           } else if (
-            (this.appGlobal.searchFilter.budgetFilter['0'] &&
-              trips[count].budget >= 500 &&
-              trips[count].bueget < 1000) ||
-            (this.appGlobal.searchFilter.budgetFilter['1'] &&
-              trips[count].budget >= 1000 &&
-              trips[count].budget < 1500) ||
-            (this.appGlobal.searchFilter.budgetFilter['2'] &&
-              trips[count].budget >= 1500 &&
-              trips[count].budget < 2000) ||
-            (this.appGlobal.searchFilter.budgetFilter['3'] &&
-              trips[count].budget >= 2000)
+            (!this.appGlobal.searchFilter.budgetFilter['0'] &&
+              trips[count].price >= 500 &&
+              trips[count].price < 1000) ||
+            (!this.appGlobal.searchFilter.budgetFilter['1'] &&
+              trips[count].price >= 1000 &&
+              trips[count].price < 1500) ||
+            (!this.appGlobal.searchFilter.budgetFilter['2'] &&
+              trips[count].price >= 1500 &&
+              trips[count].price < 2000) ||
+            (!this.appGlobal.searchFilter.budgetFilter['3'] &&
+              trips[count].price >= 2000)
           ) {
             count++;
           } else {

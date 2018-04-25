@@ -2,12 +2,12 @@ import { Rating } from './Rating';
 import { Event } from './Event';
 export class Trip {
   public navigatorId: string;
-  public travellerID: string;
+  public travellerId: string;
   public catagory: string;
-  public price: string;
-  public startDate: Date;
+  public price: number;
+  public startTime: string;
   public name: string;
-  public endDate: Date;
+  public endTime: string;
   public numberOfTravellers: number;
   public events: Array<Event>;
   public description: string;

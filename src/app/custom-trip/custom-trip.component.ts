@@ -68,7 +68,7 @@ export class CustomTripComponent implements OnInit {
     if (
       this.trip.price === undefined ||
       this.trip.price === null ||
-      this.trip.price === ''
+      this.trip.price === 0
     ) {
       msg += 'Budget ';
     }

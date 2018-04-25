@@ -1,3 +1,4 @@
+import { Booking } from './../../model/Booking';
 import { UtilService } from './../services/util.service';
 import { Attraction } from './../../model/Attraction';
 import { Observable } from 'rxjs/Observable';
@@ -37,6 +38,11 @@ export class SearchDetailComponent implements OnInit {
   public place: Place;
   public attraction: Attraction;
 
+  public booking: Booking;
+
+  public startDate: string;
+  public endDate: string;
+
   gotoBookNow() {
     this.confirm = true;
     document.getElementById('bookNow').scrollIntoView();
@@ -50,12 +56,33 @@ export class SearchDetailComponent implements OnInit {
     this.router.navigate(['search']);
   }
 
-  gotoPayment() {
-    this.router.navigate(['payment']);
+  makeBooking() {
+    if (this.startDate === '' || this.endDate === '') {
+      alert('Please input start date and end date');
+      return;
+    }
+    this.booking.startDateTime =
+      this.startDate + 'T' + this.trip.startTime + ':00Z';
+    this.booking.endDateTime = this.endDate + 'T' + this.trip.endTime + ':00Z';
+    this.booking.status = 0;
+    this.angularFireDatabase
+      .list<Booking>('Booking')
+      .push(this.booking)
+      .then(booking => {
+        this.angularFireDatabase
+          .list('User/' + this.booking.navigatorId + '/bookings')
+          .push(booking.key);
+        this.angularFireDatabase
+          .list('User/' + this.booking.travellerId + '/bookings')
+          .push(booking.key);
+        this.router.navigate(['payment']);
+      });
   }
 
   ngOnInit() {
     this.targetObject = '';
+    this.startDate = '';
+    this.endDate = '';
     // this.events = new Array<Event[]>();
     this.events = new Array<Event>();
     this.navBarService.showNavbar();
@@ -63,6 +90,8 @@ export class SearchDetailComponent implements OnInit {
     this.trip = new Trip();
     this.place = new Place();
     this.attraction = new Attraction();
+    this.booking = new Booking();
+
     this.activatedRouter.params.subscribe(params => {
       this.id = params.id;
       switch (params.obj) {
@@ -85,6 +114,17 @@ export class SearchDetailComponent implements OnInit {
               this.events.push(events[i]);
             }
           });
+
+          if (this.appGlobal.userType === 0) {
+            this.booking.travellerId = this.appGlobal.userId;
+            this.booking.navigatorId = this.trip.navigatorId;
+          } else {
+            this.booking.travellerId = this.trip.travellerId;
+            this.booking.navigatorId = this.appGlobal.userId;
+          }
+          this.booking.name = this.trip.name;
+          this.booking.price = this.trip.price;
+          this.booking.tripId = this.id;
           break;
         case 'place':
         case 'Place':

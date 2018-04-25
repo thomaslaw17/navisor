@@ -49,6 +49,8 @@ export class AuthService {
   }
 
   logout() {
+    this.appGlobal.userId = '';
+    this.appGlobal.userType = 2;
     return this.afAuth.auth.signOut();
   }
 
