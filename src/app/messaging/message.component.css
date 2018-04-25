@@ -5,3 +5,14 @@
 .receive {
   text-align: left;
 }
+
+.based-on-text {
+  display: inline-block;
+}
+
+.chatbox {
+  /* border-radius: .25rem!important; */
+  border-radius: 0.65rem;
+  padding-left: 10px;
+  padding-right: 10px;
+}

@@ -1,7 +1,7 @@
 <div>
   <div *ngIf="tab === 'list'">
     <div *ngFor="let chatId of user.chats">
-      <app-messaging-chat-item [chatId]='chatId' (currentChatId)='updateCurrentChat($event)'></app-messaging-chat-item>
+        <app-messaging-chat-item [chatId]='chatId' (currentChatId)='updateCurrentChat($event)'></app-messaging-chat-item>
     </div>
   </div>
   <div *ngIf="tab === 'chat'">

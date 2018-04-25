@@ -1,12 +1,12 @@
 <div>
-  <div style="height: 80%">
+  <div class="border border-danger rounded card">
     <mat-list *ngFor="let message of chat.messages">
       <app-message [message]="message"></app-message>
     </mat-list>
   </div>
   <div>
-    <mat-form-field>
-      <input matInput [(ngModel)]="message" (keyup.enter)="sendMessage()">
+    <mat-form-field class="example-full-width">
+      <input matInput [(ngModel)]="message" (keyup.enter)="sendMessage()" placeholder="Type a message">
     </mat-form-field>
   </div>
 </div>

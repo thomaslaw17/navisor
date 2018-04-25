@@ -1,5 +1,6 @@
-<div mat-list-item [ngClass]="{'from': appGlobal.userId === message.senderId, 'receive': appGlobal.userId !== message.senderId}">
-  <div>
+<div mat-list-item [ngClass]="{'from': appGlobal.userId === message.senderId, 'receive': appGlobal.userId !== message.senderId}"
+  class="fix-height">
+  <div class="border border-info chatbox based-on-text">
     {{message.data}}
   </div>
 </div>
