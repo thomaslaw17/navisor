@@ -7,7 +7,8 @@ import {
   Output,
   EventEmitter,
   forwardRef,
-  ChangeDetectorRef
+  ChangeDetectorRef,
+  OnInit
 } from '@angular/core';
 import {
   startOfDay,
@@ -40,6 +41,7 @@ import {
 } from 'angular-calendar';
 import { NgbDateStruct, NgbTimeStruct } from '@ng-bootstrap/ng-bootstrap';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { User } from '../../model/User';
 
 export const DATE_TIME_PICKER_CONTROL_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
@@ -68,7 +70,9 @@ const colors: any = {
   styleUrls: ['calendar.component.css'],
   templateUrl: 'calendar.component.html'
 })
-export class CalendarComponent {
+export class CalendarComponent implements OnInit {
+  @Input() user: User;
+
   @ViewChild('modalContent') modalContent: TemplateRef<any>;
 
   view = 'month';
@@ -180,6 +184,8 @@ export class CalendarComponent {
     });
     this.refresh.next();
   }
+
+  ngOnInit(): void {}
 }
 
 @Component({
