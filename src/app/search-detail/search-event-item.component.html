@@ -1,22 +1,25 @@
 <mat-card>
   <div fxLayout="row">
-    <img mat-card-md-img src="{{attraction.photoUrl}}" fxFlex="25" height="100%">
-    <div fxFlex="75">
-      <mat-card-header>
-        <mat-card-title>{{attraction.name}}</mat-card-title>
-      </mat-card-header>
+    <img mat-card-md-img src="{{attraction.photoUrl}}" fxFlex="50" height=300px max-width=400px>
+    <div fxFlex="50" class="margin">
+      <!-- <mat-card-header> -->
+        <!-- <mat-card-title>{{attraction.name}}</mat-card-title> -->
+      <h3>{{attraction.name}}</h3>
+      <!-- </mat-card-header> -->
       <mat-card-content>
         <div>{{attraction.description}}</div>
         <div>
-          <h5>
-            <mat-icon>attach_money</mat-icon>
-            <span>{{attraction.price}}</span>
-          </h5>
+          <!-- <h5> -->
           <div>
-            {{startTime}}
+            <!-- <mat-icon>attach_money</mat-icon> -->
+            $ {{attraction.price}}
+          </div>            
+          <!-- </h5> -->
+          <div class="font-weight-normal">
+            Start Time: {{startTime}}
           </div>
-          <div>
-            {{endTime}}
+          <div class="font-weight-normal">
+            End Time: {{endTime}}
           </div>
         </div>
       </mat-card-content>
