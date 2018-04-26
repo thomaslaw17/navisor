@@ -61,14 +61,32 @@ export class SearchDetailComponent implements OnInit {
   }
 
   makeBooking() {
-    if (this.startDateForm.value === '' || this.endDateForm.value === '') {
+    if (!this.startDateForm.valid || !this.endDateForm.valid) {
       alert('Please input start date and end date');
       return;
+    } else if (
+      this.startDateForm.value.getTime() > this.endDateForm.value.getTime()
+    ) {
+      alert('End date cannot be before Start date');
     }
     this.booking.startDateTime =
-      this.startDateForm.value + 'T' + this.trip.startTime + ':00Z';
+      this.startDateForm.value.getFullYear() +
+      '-' +
+      (this.startDateForm.value.getMonth() + 1) +
+      '-' +
+      this.startDateForm.value.getDate() +
+      'T' +
+      this.trip.startTime +
+      ':00Z';
     this.booking.endDateTime =
-      this.endDateForm.value + 'T' + this.trip.endTime + ':00Z';
+      this.endDateForm.value.getFullYear() +
+      '-' +
+      (this.endDateForm.value.getMonth() + 1) +
+      '-' +
+      this.endDateForm.value.getDate() +
+      'T' +
+      this.trip.endTime +
+      ':00Z';
     this.booking.status = 0;
     this.angularFireDatabase
       .list<Booking>('Booking')

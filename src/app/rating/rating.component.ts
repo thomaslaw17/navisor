@@ -35,6 +35,12 @@ export class RatingComponent implements OnInit {
     this.angularFireDatabase
       .list<Rating>('User/' + this.trip.navigatorId + '/ratings')
       .push(this.navigatorRating);
+
+    this.router.navigate(['profile']);
+  }
+
+  backToProfile() {
+    this.router.navigate(['profile']);
   }
 
   ngOnInit() {

@@ -11,6 +11,7 @@ import { AuthService } from './../services/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Event } from '../../model/Event';
+import { User } from 'firebase/app';
 
 @Component({
   selector: 'app-custom-trip',
@@ -85,6 +86,11 @@ export class CustomTripComponent implements OnInit {
       alert(msg);
       return;
     } else {
+      if (this.trip.events.length < 2) {
+        alert('Please at least have one event in your trip!');
+      }
+      this.trip.startTime = this.trip.events[0].startTime;
+      this.trip.endTime = this.trip.events[this.trip.events.length - 1].endTime;
       this.angularFireDatabase.list('Trip').push(this.trip);
       this.router.navigate(['']);
     }
@@ -94,11 +100,20 @@ export class CustomTripComponent implements OnInit {
     this.trip.events.push(new Event());
   }
 
+  backToSearch() {
+    this.router.navigate(['search']);
+  }
+
   updateEvent($event) {
     console.log($event);
   }
 
   ngOnInit() {
+    if (!this.appGlobal.loggedIn) {
+      alert('Please login before using this function');
+      this.router.navigate(['login']);
+      return;
+    }
     this.trip = new Trip();
     this.activatedRoute.params.subscribe(params => {
       this.tripId = params.tripId;

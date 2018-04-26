@@ -158,9 +158,10 @@ export class ProfilePastEventComponent implements OnInit {
               this.upcomingBookings.push(booking);
               break;
             case 2:
+            case 3:
               this.finishedBookings.push(booking);
               break;
-            case 3:
+            case 9:
               this.cancelledBookings.push(booking);
               break;
             default:
@@ -261,28 +262,29 @@ export class ProfileEventComponent implements OnInit {
   ngOnInit() {
     this.trip = new Trip();
 
+    switch (this.booking.status) {
+      case 0:
+        this.status = 'Waiting for Navigator';
+        break;
+      case 1:
+        this.status = 'Ready to go';
+        break;
+      case 2:
+      case 3:
+        this.status = 'Finished';
+        break;
+      case 9:
+        this.status = 'Cancelled';
+        break;
+      default:
+    }
+
     this.tripObj = this.angularFireDatabase
       .object<Trip>('Trip/' + this.booking.tripId)
       .valueChanges();
     this.tripObj.subscribe(trip => {
       if (this.trip !== undefined && this.trip !== null) {
         this.trip = trip;
-        switch (this.trip.status) {
-          case 0:
-            this.status = 'Pending';
-            break;
-          case 1:
-            this.status = 'Approved';
-            break;
-          case 2:
-          case 3:
-            this.status = 'Finished';
-            break;
-          case 9:
-            this.status = 'Rejected';
-            break;
-          default:
-        }
       }
     });
   }
