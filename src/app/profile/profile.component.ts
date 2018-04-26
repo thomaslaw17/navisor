@@ -132,9 +132,9 @@ export class ProfileEditComponent implements OnInit {
 export class ProfilePastEventComponent implements OnInit {
   @Input() user: User;
 
-  public upcomingBookings: Array<Booking>;
-  public finishedBookings: Array<Booking>;
-  public cancelledBookings: Array<Booking>;
+  public upcomingBookings: Array<string>;
+  public finishedBookings: Array<string>;
+  public cancelledBookings: Array<string>;
 
   constructor(
     private router: Router,
@@ -144,25 +144,25 @@ export class ProfilePastEventComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.upcomingBookings = new Array<Booking>();
-    this.finishedBookings = new Array<Booking>();
-    this.cancelledBookings = new Array<Booking>();
+    this.upcomingBookings = new Array<string>();
+    this.finishedBookings = new Array<string>();
+    this.cancelledBookings = new Array<string>();
     this.user.bookings.forEach(bookingId => {
       this.angularFireDatabase
-        .object<Booking>('Booking/' + bookingId)
+        .object('Booking/' + bookingId + '/status')
         .valueChanges()
-        .subscribe(booking => {
-          switch (booking.status) {
+        .subscribe(status => {
+          switch (status) {
             case 0:
             case 1:
-              this.upcomingBookings.push(booking);
+              this.upcomingBookings.push(bookingId);
               break;
             case 2:
             case 3:
-              this.finishedBookings.push(booking);
+              this.finishedBookings.push(bookingId);
               break;
             case 9:
-              this.cancelledBookings.push(booking);
+              this.cancelledBookings.push(bookingId);
               break;
             default:
               break;
@@ -236,9 +236,11 @@ export class ProfileScheduleComponent implements OnInit {
   styleUrls: ['./profile-event.component.css']
 })
 export class ProfileEventComponent implements OnInit {
-  // @Input() bookingId: string;
+  @Input() bookingId: string;
 
-  @Input() booking: Booking;
+  // @Input() booking: Booking;
+
+  public booking: Booking;
 
   public trip: Trip;
   public status: string;
@@ -248,45 +250,66 @@ export class ProfileEventComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private angularFireDatabase: AngularFireDatabase
+    private angularFireDatabase: AngularFireDatabase,
+    public appGlobal: AppGlobal
   ) {}
 
   gotoTripDetail() {
     this.router.navigate(['search/detail/trip/' + this.booking.tripId]);
   }
 
+  gotoPayment() {
+    this.router.navigate(['payment/' + this.booking.tripId]);
+  }
+
   gotoRating() {
     this.router.navigate(['rating/' + this.booking.tripId]);
   }
 
+  acceptBooking() {
+    this.angularFireDatabase
+      .object<Booking>('Booking/' + this.bookingId)
+      .update({ status: 1 });
+  }
+
+  rejectBooking() {
+    this.angularFireDatabase
+      .object<Booking>('Booking/' + this.bookingId)
+      .update({ status: 9 });
+  }
+
   ngOnInit() {
+    this.booking = new Booking();
     this.trip = new Trip();
 
-    switch (this.booking.status) {
-      case 0:
-        this.status = 'Waiting for Navigator';
-        break;
-      case 1:
-        this.status = 'Ready to go';
-        break;
-      case 2:
-      case 3:
-        this.status = 'Finished';
-        break;
-      case 9:
-        this.status = 'Cancelled';
-        break;
-      default:
-    }
-
-    this.tripObj = this.angularFireDatabase
-      .object<Trip>('Trip/' + this.booking.tripId)
-      .valueChanges();
-    this.tripObj.subscribe(trip => {
-      if (this.trip !== undefined && this.trip !== null) {
-        this.trip = trip;
-      }
-    });
+    this.angularFireDatabase
+      .object<Booking>('Booking/' + this.bookingId)
+      .valueChanges()
+      .subscribe(booking => {
+        this.booking = booking;
+        switch (booking.status) {
+          case 0:
+            this.status = 'Waiting for Navigator';
+            break;
+          case 1:
+            this.status = 'Ready to go';
+            break;
+          case 2:
+          case 3:
+            this.status = 'Finished';
+            break;
+          case 9:
+            this.status = 'Cancelled';
+            break;
+          default:
+        }
+        this.tripObj = this.angularFireDatabase
+          .object<Trip>('Trip/' + booking.tripId)
+          .valueChanges();
+        this.tripObj.subscribe(trip => {
+          this.trip = trip;
+        });
+      });
   }
 }
 

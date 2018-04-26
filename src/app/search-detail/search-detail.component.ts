@@ -1,3 +1,4 @@
+import { Message } from './../../model/Message';
 import { Booking } from './../../model/Booking';
 import { UtilService } from './../services/util.service';
 import { Attraction } from './../../model/Attraction';
@@ -12,6 +13,7 @@ import { Trip } from '../../model/Trip';
 import { Event } from './../../model/Event';
 import { Place } from './../../model/Place';
 import { FormControl } from '@angular/forms';
+import { Chat } from '../../model/Chat';
 
 @Component({
   selector: 'app-search-detail',
@@ -61,6 +63,11 @@ export class SearchDetailComponent implements OnInit {
   }
 
   makeBooking() {
+    if (!this.appGlobal.loggedIn) {
+      alert('Please login before booking a trip');
+      this.router.navigate(['login']);
+      return;
+    }
     if (!this.startDateForm.valid || !this.endDateForm.valid) {
       alert('Please input start date and end date');
       return;
@@ -68,25 +75,36 @@ export class SearchDetailComponent implements OnInit {
       this.startDateForm.value.getTime() > this.endDateForm.value.getTime()
     ) {
       alert('End date cannot be before Start date');
+      return;
     }
+    if (this.appGlobal.userType === 0) {
+      this.booking.travellerId = this.appGlobal.userId;
+      this.booking.navigatorId = this.trip.navigatorId;
+    } else {
+      this.booking.travellerId = this.trip.travellerId;
+      this.booking.navigatorId = this.appGlobal.userId;
+    }
+    this.booking.name = this.trip.name;
+    this.booking.price = this.trip.price;
+    this.booking.tripId = this.id;
     this.booking.startDateTime =
       this.startDateForm.value.getFullYear() +
       '-' +
       (this.startDateForm.value.getMonth() + 1) +
       '-' +
       this.startDateForm.value.getDate() +
-      'T' +
+      ' ' +
       this.trip.startTime +
-      ':00Z';
+      ':00';
     this.booking.endDateTime =
       this.endDateForm.value.getFullYear() +
       '-' +
       (this.endDateForm.value.getMonth() + 1) +
       '-' +
       this.endDateForm.value.getDate() +
-      'T' +
+      ' ' +
       this.trip.endTime +
-      ':00Z';
+      ':00';
     this.booking.status = 0;
     this.angularFireDatabase
       .list<Booking>('Booking')
@@ -98,7 +116,35 @@ export class SearchDetailComponent implements OnInit {
         this.angularFireDatabase
           .list('User/' + this.booking.travellerId + '/bookings')
           .push(booking.key);
-        this.router.navigate(['payment']);
+      });
+    const chat = new Chat();
+    chat.navigatorId = this.booking.navigatorId;
+    chat.travellerId = this.booking.travellerId;
+    this.angularFireDatabase
+      .list<Chat>('Chat')
+      .push(chat)
+      .then(newChat => {
+        this.angularFireDatabase
+          .list<string>('User/' + this.booking.navigatorId + '/chats')
+          .push(newChat.key);
+        this.angularFireDatabase
+          .list<string>('User/' + this.booking.travellerId + '/chats')
+          .push(newChat.key);
+
+        const message = new Message();
+        message.data = 'Hello, how can I help you!';
+        message.senderId =
+          chat.travellerId === this.appGlobal.userId
+            ? chat.navigatorId
+            : chat.travellerId;
+        message.type = 0;
+        this.angularFireDatabase
+          .list('Chat/' + newChat.key + '/messages')
+          .push(message)
+          .then(newMessage => {
+            alert('You have successfully booked this trip');
+            this.router.navigate(['profile']);
+          });
       });
   }
 
@@ -116,7 +162,7 @@ export class SearchDetailComponent implements OnInit {
     this.booking = new Booking();
 
     this.startDateForm = new FormControl(new Date());
-    this.endDateForm = new FormControl(new Date().toISOString());
+    this.endDateForm = new FormControl(new Date());
 
     this.activatedRouter.params.subscribe(params => {
       this.id = params.id;
@@ -140,17 +186,6 @@ export class SearchDetailComponent implements OnInit {
               this.events.push(events[i]);
             }
           });
-
-          if (this.appGlobal.userType === 0) {
-            this.booking.travellerId = this.appGlobal.userId;
-            this.booking.navigatorId = this.trip.navigatorId;
-          } else {
-            this.booking.travellerId = this.trip.travellerId;
-            this.booking.navigatorId = this.appGlobal.userId;
-          }
-          this.booking.name = this.trip.name;
-          this.booking.price = this.trip.price;
-          this.booking.tripId = this.id;
           break;
         case 'place':
         case 'Place':

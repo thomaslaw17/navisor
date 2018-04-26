@@ -13,6 +13,12 @@
     </div>
   </div>
   <mat-card-actions>
-    <button *ngIf="booking.status === 2" mat-raised-button (click)="gotoRating()">Comment</button>
+    <button mat-raised-button color="accent" (click)="gotoTripDetail()">View Details</button>
+    <button *ngIf="(booking.status === 0 || booking.status === 1) && appGlobal.userType === 0" mat-raised-button color="warn"
+      (click)="gotoPayment()">Pay Now</button>
+    <button *ngIf="(booking.status === 0 && appGlobal.userType === 1)" mat-raised-button color="warn" (click)="acceptBooking()">Accept</button>
+    <button *ngIf="(booking.status === 0 && appGlobal.userType === 1)" mat-raised-button color="primary" (click)="rejectBooking()">Reject</button>
+
+    <button *ngIf="booking.status === 2" mat-raised-button color="primary" (click)="gotoRating()">Comment</button>
   </mat-card-actions>
 </mat-card>

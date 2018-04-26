@@ -58,6 +58,19 @@
               </select>
             </div>
 
+            <mat-form-field>
+              <input matInput [matDatepicker]="picker1" placeholder="Start Date" [formControl]="startDateForm">
+              <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+              <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput [matDatepicker]="picker2" placeholder="End Date" [formControl]="endDateForm">
+              <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+              <mat-datepicker #picker2></mat-datepicker>
+            </mat-form-field>
+
+
             <div class="form-group tm-search-form">
               <label for="Activity">Activity:</label>
               <div *ngFor="let event of trip.events">

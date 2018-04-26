@@ -1,3 +1,4 @@
+import { AppGlobal } from './../app.global';
 import { Chat } from './../../model/Chat';
 import { NavBarService } from './../services/nav-bar.service';
 import { AuthService } from './../services/auth.service';
@@ -31,14 +32,14 @@ export class RegisterComponent implements OnInit {
     private router: Router,
     private authService: AuthService,
     private angularFireDatabase: AngularFireDatabase,
-    private navBarService: NavBarService
+    private navBarService: NavBarService,
+    private appGlobal: AppGlobal
   ) {
     this.user = new User();
   }
 
   userType(userType: number) {
     this.user.type = userType;
-    this.nextStep();
   }
 
   gender(gender: string) {
@@ -83,6 +84,7 @@ export class RegisterComponent implements OnInit {
       return;
     } else if (msg !== 'Please fill in your ') {
       alert(msg);
+      return;
     }
 
     if (this.password !== this.passwordCheck) {
@@ -101,6 +103,9 @@ export class RegisterComponent implements OnInit {
         this.userObj = this.angularFireDatabase.object('User/' + value.uid);
         this.userObj.set(this.user).then(_ => {
           const chat = new Chat();
+          this.appGlobal.userId = value.uid;
+          this.appGlobal.userType = value.type;
+          this.appGlobal.loggedIn = true;
           if (this.user.type === 0) {
             chat.travellerId = value.uid;
             chat.navigatorId = '2d3B80sn5lgChNDycG4M07pHyOi2'; // userID of the customer service account
@@ -124,7 +129,10 @@ export class RegisterComponent implements OnInit {
                 'Hello, ' +
                 this.user.nickName +
                 '! Welcome to Navisor. How can I help you!';
-              message.senderId = 'customerService';
+              message.senderId =
+                chat.travellerId === this.appGlobal.userId
+                  ? chat.navigatorId
+                  : chat.travellerId;
               message.type = 0;
               this.angularFireDatabase
                 .list('Chat/' + newChat.key + '/messages')
@@ -198,10 +206,6 @@ export class RegisterComponent implements OnInit {
       default:
         break;
     }
-  }
-
-  previousStep() {
-    this.step--;
   }
 
   ngOnInit() {

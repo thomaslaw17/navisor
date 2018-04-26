@@ -11,14 +11,14 @@
         </div>
 
         <div class="radio-input">
-          <input id="card" type="radio" name="payment"> Pay HKD$1000.00 with credit card
+          <input id="card" type="radio" name="payment"> Pay HKD$ {{trip.price}} with credit card
         </div>
       </label>
 
       <label id="payPalLabel" for="paypal" class="method paypal" (click)="selectPayPal()">
         <img src="/assets/img/paypal_logo.png" />
         <div class="radio-input">
-          <input id="paypal" type="radio" name="payment"> Pay HKD$1000.00 with PayPal
+          <input id="paypal" type="radio" name="payment"> Pay HKD {{trip.price}} with PayPal
         </div>
       </label>
     </div>

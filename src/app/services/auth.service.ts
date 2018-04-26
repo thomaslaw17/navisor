@@ -23,10 +23,17 @@ export class AuthService {
       if (res) {
         this.appGlobal.loggedIn = true;
         this.appGlobal.userId = res.uid;
+        this.angularFireDatabase
+          .object<User>('User/' + res.uid)
+          .valueChanges()
+          .subscribe(user => {
+            this.appGlobal.userType = user.type;
+          });
         return true;
       } else {
         this.appGlobal.loggedIn = false;
         this.appGlobal.userId = '';
+        this.appGlobal.userType = 2;
         return false;
       }
     });
@@ -50,6 +57,7 @@ export class AuthService {
 
   logout() {
     this.appGlobal.userId = '';
+    this.appGlobal.loggedIn = false;
     this.appGlobal.userType = 2;
     return this.afAuth.auth.signOut();
   }

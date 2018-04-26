@@ -70,7 +70,7 @@ const routes: Routes = [
     component: MessagingComponent
   },
   {
-    path: 'payment',
+    path: 'payment/:tripId',
     component: PaymentComponent
   },
   {

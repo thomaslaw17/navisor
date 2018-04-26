@@ -1,8 +1,9 @@
+import { Trip } from './../../model/Trip';
 import { AppGlobal } from './../app.global';
 import { NavBarService } from './../services/nav-bar.service';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AuthService } from './../services/auth.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-payment',
@@ -10,8 +11,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./payment.component.css']
 })
 export class PaymentComponent implements OnInit {
+  public tripId: string;
+  public trip: Trip;
+
   constructor(
     private router: Router,
+    private activatedRoute: ActivatedRoute,
     private authService: AuthService,
     private angularFireDatabase: AngularFireDatabase,
     private navBarService: NavBarService,
@@ -44,6 +49,15 @@ export class PaymentComponent implements OnInit {
     this.router.navigate(['paypal']);
   }
   ngOnInit() {
+    this.activatedRoute.params.subscribe(param => {
+      this.tripId = param.id;
+      this.angularFireDatabase
+        .object<Trip>('Trip/' + param.id)
+        .valueChanges()
+        .subscribe(trip => {
+          this.trip = trip;
+        });
+    });
     this.navBarService.hideNavBar();
   }
 }

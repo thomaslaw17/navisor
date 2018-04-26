@@ -1,3 +1,5 @@
+import { FormControl } from '@angular/forms';
+import { Booking } from './../../model/Booking';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { AttractionService } from './../services/attraction.service';
 import { Attraction } from './../../model/Attraction';
@@ -22,6 +24,9 @@ export class CustomTripComponent implements OnInit {
   public tripId: String;
   private tripObj: Observable<Trip>;
   public trip: Trip;
+
+  public startDateForm: FormControl;
+  public endDateForm: FormControl;
 
   constructor(
     private router: Router,
@@ -82,6 +87,10 @@ export class CustomTripComponent implements OnInit {
       msg += 'Catagory ';
     }
 
+    if (!this.startDateForm.valid || !this.endDateForm.valid) {
+      msg += 'Date';
+    }
+
     if (msg !== 'Please input ') {
       alert(msg);
       return;
@@ -91,8 +100,46 @@ export class CustomTripComponent implements OnInit {
       }
       this.trip.startTime = this.trip.events[0].startTime;
       this.trip.endTime = this.trip.events[this.trip.events.length - 1].endTime;
-      this.angularFireDatabase.list('Trip').push(this.trip);
-      this.router.navigate(['']);
+      this.trip.status = 0;
+      this.angularFireDatabase
+        .list('Trip')
+        .push(this.trip)
+        .then(newTrip => {
+          const booking = new Booking();
+          booking.navigatorId = '';
+          booking.travellerId = this.appGlobal.userId;
+          booking.name = this.trip.name;
+          booking.price = this.trip.price;
+          booking.startDateTime =
+            this.startDateForm.value.getFullYear() +
+            '-' +
+            (this.startDateForm.value.getMonth() + 1) +
+            '-' +
+            this.startDateForm.value.getDate() +
+            ' ' +
+            this.trip.startTime +
+            ':00';
+          booking.endDateTime =
+            this.endDateForm.value.getFullYear() +
+            '-' +
+            (this.endDateForm.value.getMonth() + 1) +
+            '-' +
+            this.endDateForm.value.getDate() +
+            ' ' +
+            this.trip.endTime +
+            ':00';
+          booking.status = 0;
+          booking.tripId = newTrip.key;
+          this.angularFireDatabase
+            .list('Booking')
+            .push(booking)
+            .then(newBooking => {
+              this.angularFireDatabase
+                .list('User/' + this.appGlobal.userId + '/bookings')
+                .push(newBooking.key);
+              this.router.navigate(['profile']);
+            });
+        });
     }
   }
 

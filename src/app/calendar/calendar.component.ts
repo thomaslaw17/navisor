@@ -46,6 +46,7 @@ import {
 import { NgbDateStruct, NgbTimeStruct } from '@ng-bootstrap/ng-bootstrap';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { User } from '../../model/User';
+import { UtilService } from '../services/util.service';
 
 export const DATE_TIME_PICKER_CONTROL_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
@@ -114,7 +115,8 @@ export class CalendarComponent implements OnInit {
     private modal: NgbModal,
     private router: Router,
     private angularFireDatabase: AngularFireDatabase,
-    private appGloabal: AppGlobal
+    private appGloabal: AppGlobal,
+    private util: UtilService
   ) {
     this.viewDate = new Date();
     this.view = 'month';
@@ -153,25 +155,43 @@ export class CalendarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.user.bookings.forEach(bookingId => {
-      this.angularFireDatabase
-        .object<Booking>('Booking/' + bookingId)
-        .valueChanges()
-        .subscribe(booking => {
-          this.events.push({
-            start: new Date(booking.startDateTime),
-            end: new Date(booking.endDateTime),
-            title: booking.name,
-            color: colors.yellow,
-            actions: this.actions,
-            resizable: {
-              beforeStart: true,
-              afterEnd: true
-            },
-            draggable: true
+    this.events = new Array<CalendarEvent>();
+    if (this.user.bookings !== undefined && this.user.bookings !== null) {
+      this.user.bookings = this.util.objectToArray(this.user.bookings);
+      this.user.bookings.forEach(bookingId => {
+        this.angularFireDatabase
+          .object<Booking>('Booking/' + bookingId)
+          .valueChanges()
+          .subscribe(booking => {
+            // let time = booking.startDateTime;
+            // time = time.replace(/-/g, ':').replace(' ', ':');
+            // time = time.split(':');
+            // const start = new Date(
+            //   time[0],
+            //   time[1] - 1,
+            //   time[2],
+            //   time[3],
+            //   time[4],
+            //   time[5]
+            // );
+            const start = Date.parse(booking.startDateTime);
+            const end = Date.parse(booking.endDateTime);
+            this.events.push({
+              start: startOfDay(start),
+              end: endOfDay(end),
+              title: booking.name,
+              color: colors.yellow,
+              actions: this.actions,
+              resizable: {
+                beforeStart: true,
+                afterEnd: true
+              },
+              draggable: true
+            });
+            this.refresh.next();
           });
-        });
-    });
+      });
+    }
   }
 }
 
