@@ -109,13 +109,13 @@ export class SearchComponent implements OnInit {
             count++;
           } else {
             row.push({
-              id: trips[3 * i + j].key,
-              name: trips[3 * i + j].name,
+              id: trips[count].key,
+              name: trips[count].name,
               detail:
-                trips[3 * i + j].description.length > 150
-                  ? trips[3 * i + j].description.substring(0, 150) + '...'
-                  : trips[3 * i + j].description,
-              photo: trips[3 * i + j].photoUrl,
+                trips[count].description.length > 150
+                  ? trips[count].description.substring(0, 150) + '...'
+                  : trips[count].description,
+              photo: trips[count].photoUrl,
               type: 'trip'
             });
             count++;

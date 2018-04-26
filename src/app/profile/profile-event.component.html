@@ -5,14 +5,14 @@
         <h4>{{trip.name}}</h4>
         <div>{{booking.startDateTime}} - {{booking.endDateTime}}</div>
         <div>HKD$ {{booking.price}}</div>
+        <div>Status: {{status}}</div>
       </div>
       <div class="col-lg-4">
         <img src="{{trip.photoUrl}}" style="width: 100%">
       </div>
-      <div>{{status}}</div>
     </div>
   </div>
   <mat-card-actions>
-    <button mat-raised-button (click)="gotoRating()">Comment</button>
+    <button *ngIf="booking.status === 2" mat-raised-button (click)="gotoRating()">Comment</button>
   </mat-card-actions>
 </mat-card>

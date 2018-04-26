@@ -16,6 +16,6 @@ export class Trip {
   public theme: string;
   public remark: string;
   public photoUrl: string;
-  public status: number; // 0: waiting for navigator 1: ready to go
+  public status: number; // 0: Submitted 1: Approved
   public rating: Array<Rating>;
 }
