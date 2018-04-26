@@ -44,8 +44,8 @@ export class SearchDetailComponent implements OnInit {
   public startDate: string;
   public endDate: string;
 
-  public date = new FormControl(new Date());
-  public serializedDate = new FormControl((new Date()).toISOString());
+  public startDateForm: FormControl;
+  public endDateForm: FormControl;
 
   gotoBookNow() {
     this.confirm = true;
@@ -61,13 +61,14 @@ export class SearchDetailComponent implements OnInit {
   }
 
   makeBooking() {
-    if (this.startDate === '' || this.endDate === '') {
+    if (this.startDateForm.value === '' || this.endDateForm.value === '') {
       alert('Please input start date and end date');
       return;
     }
     this.booking.startDateTime =
-      this.startDate + 'T' + this.trip.startTime + ':00Z';
-    this.booking.endDateTime = this.endDate + 'T' + this.trip.endTime + ':00Z';
+      this.startDateForm.value + 'T' + this.trip.startTime + ':00Z';
+    this.booking.endDateTime =
+      this.endDateForm.value + 'T' + this.trip.endTime + ':00Z';
     this.booking.status = 0;
     this.angularFireDatabase
       .list<Booking>('Booking')
@@ -95,6 +96,9 @@ export class SearchDetailComponent implements OnInit {
     this.place = new Place();
     this.attraction = new Attraction();
     this.booking = new Booking();
+
+    this.startDateForm = new FormControl(new Date());
+    this.endDateForm = new FormControl(new Date().toISOString());
 
     this.activatedRouter.params.subscribe(params => {
       this.id = params.id;

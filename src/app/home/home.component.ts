@@ -142,6 +142,13 @@ export class HomeComponent implements OnInit, AfterViewInit {
       university: true,
       others: true
     };
+
+    this.appGlobal.searchFilter.budgetFilter = {
+      0: true,
+      1: true,
+      2: true,
+      3: true
+    };
     this.router.navigate(['search']);
   }
 
@@ -171,6 +178,11 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.appGlobal.searchFilter.themeFilter.photography = false;
     this.appGlobal.searchFilter.themeFilter.university = false;
     this.appGlobal.searchFilter.themeFilter.others = false;
+
+    this.appGlobal.searchFilter.budgetFilter['0'] = true;
+    this.appGlobal.searchFilter.budgetFilter['1'] = true;
+    this.appGlobal.searchFilter.budgetFilter['2'] = true;
+    this.appGlobal.searchFilter.budgetFilter['3'] = true;
 
     switch (section) {
       case 'Culture & Heritage':

@@ -88,7 +88,7 @@ export class SearchComponent implements OnInit {
             (!this.appGlobal.searchFilter.themeFilter.photography &&
               trips[count].catagory === 'photography') ||
             (!this.appGlobal.searchFilter.themeFilter.university &&
-              trips[count].catagory === 'university') ||
+              trips[count].catagory === 'uniTour') ||
             (!this.appGlobal.searchFilter.themeFilter.others &&
               trips[count].catagory === 'others')
           ) {

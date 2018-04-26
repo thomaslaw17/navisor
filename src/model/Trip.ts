@@ -16,6 +16,6 @@ export class Trip {
   public theme: string;
   public remark: string;
   public photoUrl: string;
-  public status: number; // 0: pending 1: published 2: finished 9: rejected
+  public status: number; // 0: waiting for navigator 1: ready to go
   public rating: Array<Rating>;
 }

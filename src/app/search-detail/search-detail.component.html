@@ -158,7 +158,7 @@
 
           <article class="tm-booking-pad">
             <header>
-              <h3 class="text-uppercase tm-article-title-2">Stepping into the Nature with Your Family</h3>
+              <h3 class="text-uppercase tm-article-title-2">{{trip.name}}</h3>
             </header>
             <div>&nbsp;</div>
             <p>Price: ${{trip.price}}</p>
@@ -166,17 +166,17 @@
             <p>With accommodation included</p>
 
             <mat-form-field>
-                <input matInput [matDatepicker]="picker1" placeholder="Start Date" [formControl]="date">
-                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-                <mat-datepicker #picker1></mat-datepicker>
+              <input matInput [matDatepicker]="picker1" placeholder="Start Date" [formControl]="startDateForm">
+              <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+              <mat-datepicker #picker1></mat-datepicker>
             </mat-form-field>
-              
+
             <mat-form-field>
-              <input matInput [matDatepicker]="picker2" placeholder="End Date" [formControl]="serializedDate">
+              <input matInput [matDatepicker]="picker2" placeholder="End Date" [formControl]="endDateForm">
               <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
               <mat-datepicker #picker2></mat-datepicker>
             </mat-form-field>
-              
+
 
             <!-- <div>
               <label>Start Date</label>
