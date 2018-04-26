@@ -1,4 +1,20 @@
 <div>
+  <mat-card>
+    <div fxLayout="row">
+      <div fxFlex="5">
+        <button mat-mini-fab color="primary" (click)="back()">
+          <</button>
+      </div>
+      <div fxFlex="2"></div>
+      <div fxFlex="5">
+        <img src="{{target.photoUrl}}" width="100%" height="100%" style="border-radius: 100%">
+      </div>
+      <div fxFlex="3"></div>
+      <div fxFlex="85">
+        <h4>{{target.firstName}} {{target.lastName}}</h4>
+      </div>
+    </div>
+  </mat-card>
   <div class="border border-danger rounded card">
     <mat-list *ngFor="let message of chat.messages">
       <app-message [message]="message"></app-message>
@@ -6,7 +22,10 @@
   </div>
   <div>
     <mat-form-field class="example-full-width">
-      <input matInput [(ngModel)]="message" (keyup.enter)="sendMessage()" placeholder="Type a message">
+      <div fxLayout="row">
+        <input matInput [(ngModel)]="message" (keyup.enter)="sendMessage()" placeholder="Type a message" fxFlex="95">
+        <button mat-mini-fab color="secondary" style="float: right;" (click)="sendMessage()" fxFlex="5">></button>
+      </div>
     </mat-form-field>
   </div>
 </div>

@@ -226,7 +226,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     }
 
     if (filled) {
-      // sendEmail();
+      this.angularFireDatabase.list('Contact').push(this.contact);
     } else {
       alert(
         'Please fill in the form to contact us or you can email us at contactus@navisor.com'

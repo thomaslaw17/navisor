@@ -27,6 +27,8 @@ export class RatingComponent implements OnInit {
   ) {}
 
   rate() {
+    this.tripRating.date = new Date().toDateString();
+    this.navigatorRating.date = new Date().toDateString();
     this.angularFireDatabase
       .list<Rating>('Trip/' + this.tripId + '/rating')
       .push(this.tripRating);
@@ -36,6 +38,8 @@ export class RatingComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.navigatorRating.userId = this.appGlobal.userId;
+    this.tripRating.userId = this.appGlobal.userId;
     this.activatedRoute.params.subscribe(params => {
       this.tripObj = this.angularFireDatabase
         .object<Trip>('Trip/' + params.tripId)

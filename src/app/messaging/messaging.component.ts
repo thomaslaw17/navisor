@@ -107,6 +107,8 @@ export class MessagingChatComponent implements OnInit {
   private messageList: AngularFireList<Message>;
   public chat: Chat;
   public from: boolean;
+  public targetId: string;
+  public target: User;
 
   public message: string;
 
@@ -138,6 +140,7 @@ export class MessagingChatComponent implements OnInit {
 
   ngOnInit() {
     this.chat = new Chat();
+    this.target = new User();
     this.chatObj = this.angularFireDatabase
       .object<Chat>('Chat/' + this.chatId)
       .valueChanges();
@@ -147,6 +150,19 @@ export class MessagingChatComponent implements OnInit {
       this.messageList = this.angularFireDatabase.list<Message>(
         'Chat/' + this.chatId + '/messages'
       );
+
+      if (this.appGlobal.userType === 0) {
+        this.targetId = chat.navigatorId;
+      } else {
+        this.targetId = chat.travellerId;
+      }
+
+      this.angularFireDatabase
+        .object<User>('User/' + this.targetId)
+        .valueChanges()
+        .subscribe(user => {
+          this.target = user;
+        });
       this.messageList.snapshotChanges(['child_added']).subscribe(actions => {
         actions.forEach(action => {
           this.chat.messages.push(action.payload.val());

@@ -103,17 +103,20 @@ export class RegisterComponent implements OnInit {
           const chat = new Chat();
           if (this.user.type === 0) {
             chat.travellerId = value.uid;
-            chat.navigatorId = 'customerService';
+            chat.navigatorId = '2d3B80sn5lgChNDycG4M07pHyOi2'; // userID of the customer service account
           } else {
             chat.navigatorId = value.uid;
-            chat.travellerId = 'customerService';
+            chat.travellerId = 'tFVAffzuaaebKIH7lSUjp3Pkw8B2'; // userID of the customer service account
           }
           this.angularFireDatabase
             .list('Chat')
             .push(chat)
             .then(newChat => {
               this.angularFireDatabase
-                .list('User/' + value.uid + '/chats')
+                .list('User/' + chat.travellerId + '/chats')
+                .push(newChat.key);
+              this.angularFireDatabase
+                .list('User/' + chat.navigatorId + '/chats')
                 .push(newChat.key);
 
               const message = new Message();
