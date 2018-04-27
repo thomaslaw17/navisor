@@ -51,12 +51,13 @@ export class RatingComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.tickInterval = 0.5;
     this.vertical = false;
     this.thumbLabel = true;
-    this.navigatorRating.rating = 5;
-    this.tripRating.rating = 5;
+    this.tickInterval = 0.5;
+    this.navigatorRating = new Rating();
+    this.tripRating = new Rating();
     this.navigator = new User();
+    this.trip = new Trip();
     this.navigatorRating.userId = this.appGlobal.userId;
     this.tripRating.userId = this.appGlobal.userId;
     this.activatedRoute.params.subscribe(params => {

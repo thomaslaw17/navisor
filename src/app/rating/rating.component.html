@@ -8,7 +8,8 @@
         <h2 class="example-h2">Trip</h2>
         <h4 class="example-h2">{{trip.name}}</h4>
 
-        <mat-slider class="example-full-width" min="0" max="5" step="0.5" value="1.5" [thumb-label]="thumbLabel" [tick-interval]="tickInterval">
+        <mat-slider class="example-full-width" min="0" max="5" step="0.5" [thumb-label]="thumbLabel" [tick-interval]="tickInterval"
+          [(ngModel)]="tripRating.rating">
         </mat-slider>
 
         <form class="example-form">
@@ -27,8 +28,8 @@
         <h2 class="example-h2">Navigator</h2>
         <h4 class="example-h2">{{navigator.firstName}} {{navigator.lastName}} </h4>
 
-        <mat-slider class="example-full-width" min="0" max="5" step="0.5" value="1.5" [thumb-label]="thumbLabel" [tick-interval]="tickInterval"
-          [vertical]="vertical">
+        <mat-slider class="example-full-width" min="0" max="5" step="0.5" [thumb-label]="thumbLabel" [tick-interval]="tickInterval"
+          [vertical]="vertical" [(ngModel)]="navigatorRating.rating">
         </mat-slider>
 
         <form class="example-form">
