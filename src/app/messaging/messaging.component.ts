@@ -115,7 +115,7 @@ export class MessagingChatComponent implements OnInit {
   constructor(
     private router: Router,
     private angularFireDatabase: AngularFireDatabase,
-    private appGlobal: AppGlobal,
+    public appGlobal: AppGlobal,
     private util: UtilService
   ) {}
 
@@ -185,7 +185,7 @@ export class MessageComponent implements OnInit {
   constructor(
     private router: Router,
     private angularFireDatabase: AngularFireDatabase,
-    private appGlobal: AppGlobal
+    public appGlobal: AppGlobal
   ) {}
 
   ngOnInit() {}

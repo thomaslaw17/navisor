@@ -17,5 +17,5 @@ export class Trip {
   public remark: string;
   public photoUrl: string;
   public status: number; // 0: Submitted 1: Approved
-  public rating: Array<Rating>;
+  public ratings: Array<Rating>;
 }

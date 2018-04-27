@@ -49,10 +49,11 @@ export class PaymentComponent implements OnInit {
     this.router.navigate(['paypal']);
   }
   ngOnInit() {
+    this.trip = new Trip();
     this.activatedRoute.params.subscribe(param => {
-      this.tripId = param.id;
+      this.tripId = param.tripId;
       this.angularFireDatabase
-        .object<Trip>('Trip/' + param.id)
+        .object<Trip>('Trip/' + param.tripId)
         .valueChanges()
         .subscribe(trip => {
           this.trip = trip;

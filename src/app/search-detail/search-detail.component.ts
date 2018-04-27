@@ -67,10 +67,6 @@ export class SearchDetailComponent implements OnInit {
       alert('Please login before booking a trip');
       this.router.navigate(['login']);
       return;
-    }
-    if (!this.startDateForm.valid || !this.endDateForm.valid) {
-      alert('Please input start date and end date');
-      return;
     } else if (
       this.startDateForm.value.getTime() > this.endDateForm.value.getTime()
     ) {

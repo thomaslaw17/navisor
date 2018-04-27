@@ -156,6 +156,8 @@ export class CustomTripComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.startDateForm = new FormControl();
+    this.endDateForm = new FormControl();
     if (!this.appGlobal.loggedIn) {
       alert('Please login before using this function');
       this.router.navigate(['login']);
