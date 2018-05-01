@@ -66,8 +66,7 @@
           <p class="tm-color-white tm-margin-b-0 tm-font-light">View the map to explore the route.</p>
         </div>
 
-        <iframe width="100%" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyA778sssK6IwYi0E_SkFIm7lHJPyUFi_t0&origin=香+港+大+學&waypoints=香+港+理+工+大+學&destination=香+港+城+市+大+學&avoid=tolls|highways"
-          allowfullscreen>
+        <iframe width="100%" height="450" frameborder="0" style="border:0" [src]="getRoute()" allowfullscreen>
         </iframe>
 
         <div>&nbsp;</div>

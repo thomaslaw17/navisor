@@ -61,6 +61,7 @@ export class RatingComponent implements OnInit {
     this.navigatorRating.userId = this.appGlobal.userId;
     this.tripRating.userId = this.appGlobal.userId;
     this.activatedRoute.params.subscribe(params => {
+      this.tripId = params.tripId;
       this.tripObj = this.angularFireDatabase
         .object<Trip>('Trip/' + params.tripId)
         .valueChanges();

@@ -18,4 +18,5 @@ export class Trip {
   public photoUrl: string;
   public status: number; // 0: Submitted 1: Approved
   public ratings: Array<Rating>;
+  public route: string;
 }

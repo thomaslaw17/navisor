@@ -14,6 +14,7 @@ import { Event } from './../../model/Event';
 import { Place } from './../../model/Place';
 import { FormControl } from '@angular/forms';
 import { Chat } from '../../model/Chat';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-search-detail',
@@ -28,7 +29,8 @@ export class SearchDetailComponent implements OnInit {
     private angularFireDatabase: AngularFireDatabase,
     private navBarService: NavBarService,
     private util: UtilService,
-    public appGlobal: AppGlobal
+    public appGlobal: AppGlobal,
+    public sanitizer: DomSanitizer
   ) {}
 
   private id: string;
@@ -60,6 +62,10 @@ export class SearchDetailComponent implements OnInit {
 
   backToSearch() {
     this.router.navigate(['search']);
+  }
+
+  getRoute() {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(this.trip.route);
   }
 
   makeBooking() {
