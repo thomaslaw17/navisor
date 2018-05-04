@@ -45,7 +45,7 @@ export class TripPlanningComponent implements OnInit {
     this.appGlobal.searchFilter.themeFilter.others = false;
 
     switch (section) {
-      case 'Culture & Heritage':
+      case 'Cultural&Heritage':
         this.appGlobal.searchFilter.themeFilter.culturalheritage = true;
         break;
       case 'Nature':

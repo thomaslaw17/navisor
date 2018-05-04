@@ -17,8 +17,7 @@ import {
   MatTabsModule,
   MatStepperModule,
   MatSliderModule,
-
-
+  MatChipsModule
 } from '@angular/material';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { CdkTableModule } from '@angular/cdk/table';
@@ -39,7 +38,8 @@ import { CdkTableModule } from '@angular/cdk/table';
     OverlayModule,
     MatTabsModule,
     MatStepperModule,
-    MatSliderModule
+    MatSliderModule,
+    MatChipsModule
   ],
   exports: [
     CdkTableModule,
@@ -56,7 +56,8 @@ import { CdkTableModule } from '@angular/cdk/table';
     OverlayModule,
     MatTabsModule,
     MatStepperModule,
-    MatSliderModule
+    MatSliderModule,
+    MatChipsModule
   ]
 })
 export class MaterialModule {}
